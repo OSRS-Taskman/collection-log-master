@@ -1,4 +1,0 @@
-[submodule "src/main/resources/com/logmaster/domain/task-list"]
-	path = src/main/resources/com/logmaster/domain/task-list
-	url = https://github.com/OSRS-Taskman/task-list.git
-	branch = main
