@@ -22,9 +22,7 @@ public class GsonOverride {
     public static final Gson GSON;
 
     static {
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(Instant.class, new InstantTypeAdapter())
-                .registerTypeAdapter(Color.class, new ColorTypeAdapter())
+        GsonBuilder gsonBuilder = net.runelite.http.api.RuneLiteAPI.GSON.newBuilder()
                 .registerTypeAdapter(Verification.class, new VerificationAdapter())
                 .registerTypeAdapter(VerificationMethod.class, new EnumAdapter<>(VerificationMethod.class))
                 .registerTypeAdapter(DiaryRegion.class, new EnumAdapter<>(DiaryRegion.class))
