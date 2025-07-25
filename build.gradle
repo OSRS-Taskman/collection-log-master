@@ -2,6 +2,9 @@ plugins {
 	id 'java'
 }
 
+group = 'com.logmaster'
+version = '1.1.0-SNAPSHOT'
+
 repositories {
 	mavenLocal()
 	maven {
@@ -25,9 +28,6 @@ dependencies {
 	testImplementation group: 'net.runelite', name:'client', version: runeLiteVersion
 	testImplementation group: 'net.runelite', name:'jshell', version: runeLiteVersion
 }
-
-group = 'com.logmaster'
-version = '1.0-SNAPSHOT'
 
 tasks.withType(JavaCompile).configureEach {
 	options.encoding = 'UTF-8'
@@ -58,4 +58,11 @@ tasks.register('shadowJar', Jar) {
 	group = BasePlugin.BUILD_GROUP
 	archiveClassifier.set('shadow')
 	archiveFileName.set("${rootProject.name}-${project.version}-all.jar")
+}
+
+processResources {
+    include '**/version'
+	filter {
+		it.replace('%PLUGIN_VERSION%', version)
+	}
 }
