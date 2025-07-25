@@ -1,0 +1,1 @@
+java.exe -jar -ea generate-task-1.0-SNAPSHOT-all.jar
