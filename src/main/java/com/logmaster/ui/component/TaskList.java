@@ -4,6 +4,7 @@ import com.logmaster.LogMasterConfig;
 import com.logmaster.LogMasterPlugin;
 import com.logmaster.domain.DynamicTaskImages;
 import com.logmaster.domain.Task;
+import com.logmaster.domain.TaskPointer;
 import com.logmaster.domain.TaskTier;
 import com.logmaster.domain.verification.clog.CollectionLogVerification;
 import com.logmaster.persistence.SaveDataManager;
@@ -216,7 +217,7 @@ public class TaskList extends UIPage {
                 boolean taskCompleted = plugin.isTaskCompleted(task.getId(), finalRelevantTier);
 
                 // Set our background sprite based on task state
-                var activeTaskPointer = saveDataManager.getSaveData().getActiveTaskPointer();
+                TaskPointer activeTaskPointer = saveDataManager.getSaveData().getActiveTaskPointer();
                 if (
                     activeTaskPointer != null
                     && activeTaskPointer.getTaskTier() == relevantTier
