@@ -17,6 +17,9 @@ public class AchievementDiaryService {
     @Inject
     private Client client;
 
+    // Code from: RuneProfile
+    // Repository: https://github.com/ReinhardtR/runeprofile-plugin
+    // License: BSD 2-Clause License
     public boolean isComplete(@NonNull DiaryRegion diary, @NonNull DiaryDifficulty difficulty) {
         // https://github.com/RuneStar/cs2-scripts/blob/master/scripts/%5Bproc%2Cdiary_completion_info%5D.cs2
         client.runScript(DIARY_COMPLETION_SCRIPT, diary.getId());

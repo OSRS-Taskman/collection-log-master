@@ -17,6 +17,10 @@ import javax.inject.Singleton;
 
 @Slf4j
 @Singleton
+
+// Code from: RuneProfile
+// Repository: https://github.com/ReinhardtR/runeprofile-plugin
+// License: BSD 2-Clause License
 public class CollectionLogWidgetSubscriber {
     @Inject
     private EventBus eventBus;
