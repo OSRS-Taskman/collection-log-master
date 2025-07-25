@@ -12526,12 +12526,7 @@
 			"tip": "1 Miscellaneous log slot",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Collection_log",
 			"imageLink": "https://oldschool.runescape.wiki/images/2/2e/Collection_log.png",
-			"displayItemId": 11335,
-			"verification": {
-				"method": "collection-log",
-				"itemIds": [ 21509 ],
-				"count": 1
-			}
+			"displayItemId": 11335
 		},
 		{
 			"id": "7a109368-c716-4b5e-8683-888a01298b16",
@@ -12692,7 +12687,37 @@
 			"tip": "A new level 99",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Skill_cape",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Max_cape_detail.png/200px-Max_cape_detail.png?4f67e",
-			"displayItemId": 13280
+			"displayItemId": 13280,
+			"verification": {
+				"method": "skill",
+				"experience": {
+					"attack"      : 13034431,
+					"strength"    : 13034431,
+					"defence"     : 13034431,
+					"ranged"      : 13034431,
+					"prayer"      : 13034431,
+					"magic"       : 13034431,
+					"runecraft"   : 13034431,
+					"hitpoints"   : 13034431,
+					"crafting"    : 13034431,
+					"mining"      : 13034431,
+					"smithing"    : 13034431,
+					"fishing"     : 13034431,
+					"cooking"     : 13034431,
+					"firemaking"  : 13034431,
+					"woodcutting" : 13034431,
+					"agility"     : 13034431,
+					"herblore"    : 13034431,
+					"thieving"    : 13034431,
+					"fletching"   : 13034431,
+					"slayer"      : 13034431,
+					"farming"     : 13034431,
+					"construction": 13034431,
+					"hunter"      : 13034431,
+					"sailing"     : 13034431
+				},
+				"count": 1
+			}
 		},
 		{
 			"id": "51d7ff46-c976-43c3-af0b-0ce8ec9e524e",
@@ -12700,7 +12725,37 @@
 			"tip": "A new level 99",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Skill_cape",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Max_cape_detail.png/200px-Max_cape_detail.png?4f67e",
-			"displayItemId": 13280
+			"displayItemId": 13280,
+			"verification": {
+				"method": "skill",
+				"experience": {
+					"attack"      : 13034431,
+					"strength"    : 13034431,
+					"defence"     : 13034431,
+					"ranged"      : 13034431,
+					"prayer"      : 13034431,
+					"magic"       : 13034431,
+					"runecraft"   : 13034431,
+					"hitpoints"   : 13034431,
+					"crafting"    : 13034431,
+					"mining"      : 13034431,
+					"smithing"    : 13034431,
+					"fishing"     : 13034431,
+					"cooking"     : 13034431,
+					"firemaking"  : 13034431,
+					"woodcutting" : 13034431,
+					"agility"     : 13034431,
+					"herblore"    : 13034431,
+					"thieving"    : 13034431,
+					"fletching"   : 13034431,
+					"slayer"      : 13034431,
+					"farming"     : 13034431,
+					"construction": 13034431,
+					"hunter"      : 13034431,
+					"sailing"     : 13034431
+				},
+				"count": 2
+			}
 		},
 		{
 			"id": "c5b3205c-45c6-4885-906e-2e0844df0054",
@@ -12708,7 +12763,37 @@
 			"tip": "A new level 99",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Skill_cape",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Max_cape_detail.png/200px-Max_cape_detail.png?4f67e",
-			"displayItemId": 13280
+			"displayItemId": 13280,
+			"verification": {
+				"method": "skill",
+				"experience": {
+					"attack"      : 13034431,
+					"strength"    : 13034431,
+					"defence"     : 13034431,
+					"ranged"      : 13034431,
+					"prayer"      : 13034431,
+					"magic"       : 13034431,
+					"runecraft"   : 13034431,
+					"hitpoints"   : 13034431,
+					"crafting"    : 13034431,
+					"mining"      : 13034431,
+					"smithing"    : 13034431,
+					"fishing"     : 13034431,
+					"cooking"     : 13034431,
+					"firemaking"  : 13034431,
+					"woodcutting" : 13034431,
+					"agility"     : 13034431,
+					"herblore"    : 13034431,
+					"thieving"    : 13034431,
+					"fletching"   : 13034431,
+					"slayer"      : 13034431,
+					"farming"     : 13034431,
+					"construction": 13034431,
+					"hunter"      : 13034431,
+					"sailing"     : 13034431
+				},
+				"count": 3
+			}
 		},
 		{
 			"id": "85f1b299-4567-4e80-a5a2-2c8bc145646b",
@@ -12716,7 +12801,37 @@
 			"tip": "A new level 99",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Skill_cape",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Max_cape_detail.png/200px-Max_cape_detail.png?4f67e",
-			"displayItemId": 13280
+			"displayItemId": 13280,
+			"verification": {
+				"method": "skill",
+				"experience": {
+					"attack"      : 13034431,
+					"strength"    : 13034431,
+					"defence"     : 13034431,
+					"ranged"      : 13034431,
+					"prayer"      : 13034431,
+					"magic"       : 13034431,
+					"runecraft"   : 13034431,
+					"hitpoints"   : 13034431,
+					"crafting"    : 13034431,
+					"mining"      : 13034431,
+					"smithing"    : 13034431,
+					"fishing"     : 13034431,
+					"cooking"     : 13034431,
+					"firemaking"  : 13034431,
+					"woodcutting" : 13034431,
+					"agility"     : 13034431,
+					"herblore"    : 13034431,
+					"thieving"    : 13034431,
+					"fletching"   : 13034431,
+					"slayer"      : 13034431,
+					"farming"     : 13034431,
+					"construction": 13034431,
+					"hunter"      : 13034431,
+					"sailing"     : 13034431
+				},
+				"count": 4
+			}
 		},
 		{
 			"id": "34679f6d-d400-45d5-b5ab-b49b259c4866",
@@ -12724,7 +12839,37 @@
 			"tip": "A new level 99",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Skill_cape",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Max_cape_detail.png/200px-Max_cape_detail.png?4f67e",
-			"displayItemId": 13280
+			"displayItemId": 13280,
+			"verification": {
+				"method": "skill",
+				"experience": {
+					"attack"      : 13034431,
+					"strength"    : 13034431,
+					"defence"     : 13034431,
+					"ranged"      : 13034431,
+					"prayer"      : 13034431,
+					"magic"       : 13034431,
+					"runecraft"   : 13034431,
+					"hitpoints"   : 13034431,
+					"crafting"    : 13034431,
+					"mining"      : 13034431,
+					"smithing"    : 13034431,
+					"fishing"     : 13034431,
+					"cooking"     : 13034431,
+					"firemaking"  : 13034431,
+					"woodcutting" : 13034431,
+					"agility"     : 13034431,
+					"herblore"    : 13034431,
+					"thieving"    : 13034431,
+					"fletching"   : 13034431,
+					"slayer"      : 13034431,
+					"farming"     : 13034431,
+					"construction": 13034431,
+					"hunter"      : 13034431,
+					"sailing"     : 13034431
+				},
+				"count": 5
+			}
 		},
 		{
 			"id": "42928f64-1ade-4f7c-b163-41fe08cac0e4",
@@ -12732,7 +12877,37 @@
 			"tip": "A new level 99",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Skill_cape",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Max_cape_detail.png/200px-Max_cape_detail.png?4f67e",
-			"displayItemId": 13280
+			"displayItemId": 13280,
+			"verification": {
+				"method": "skill",
+				"experience": {
+					"attack"      : 13034431,
+					"strength"    : 13034431,
+					"defence"     : 13034431,
+					"ranged"      : 13034431,
+					"prayer"      : 13034431,
+					"magic"       : 13034431,
+					"runecraft"   : 13034431,
+					"hitpoints"   : 13034431,
+					"crafting"    : 13034431,
+					"mining"      : 13034431,
+					"smithing"    : 13034431,
+					"fishing"     : 13034431,
+					"cooking"     : 13034431,
+					"firemaking"  : 13034431,
+					"woodcutting" : 13034431,
+					"agility"     : 13034431,
+					"herblore"    : 13034431,
+					"thieving"    : 13034431,
+					"fletching"   : 13034431,
+					"slayer"      : 13034431,
+					"farming"     : 13034431,
+					"construction": 13034431,
+					"hunter"      : 13034431,
+					"sailing"     : 13034431
+				},
+				"count": 6
+			}
 		},
 		{
 			"id": "fe293785-101e-4331-918c-5ebdae8cef99",
@@ -12740,7 +12915,37 @@
 			"tip": "A new level 99",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Skill_cape",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Max_cape_detail.png/200px-Max_cape_detail.png?4f67e",
-			"displayItemId": 13280
+			"displayItemId": 13280,
+			"verification": {
+				"method": "skill",
+				"experience": {
+					"attack"      : 13034431,
+					"strength"    : 13034431,
+					"defence"     : 13034431,
+					"ranged"      : 13034431,
+					"prayer"      : 13034431,
+					"magic"       : 13034431,
+					"runecraft"   : 13034431,
+					"hitpoints"   : 13034431,
+					"crafting"    : 13034431,
+					"mining"      : 13034431,
+					"smithing"    : 13034431,
+					"fishing"     : 13034431,
+					"cooking"     : 13034431,
+					"firemaking"  : 13034431,
+					"woodcutting" : 13034431,
+					"agility"     : 13034431,
+					"herblore"    : 13034431,
+					"thieving"    : 13034431,
+					"fletching"   : 13034431,
+					"slayer"      : 13034431,
+					"farming"     : 13034431,
+					"construction": 13034431,
+					"hunter"      : 13034431,
+					"sailing"     : 13034431
+				},
+				"count": 7
+			}
 		},
 		{
 			"id": "c9d0af3c-b034-41c7-8afe-71040c9ff35f",
@@ -12748,7 +12953,37 @@
 			"tip": "A new level 99",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Skill_cape",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Max_cape_detail.png/200px-Max_cape_detail.png?4f67e",
-			"displayItemId": 13280
+			"displayItemId": 13280,
+			"verification": {
+				"method": "skill",
+				"experience": {
+					"attack"      : 13034431,
+					"strength"    : 13034431,
+					"defence"     : 13034431,
+					"ranged"      : 13034431,
+					"prayer"      : 13034431,
+					"magic"       : 13034431,
+					"runecraft"   : 13034431,
+					"hitpoints"   : 13034431,
+					"crafting"    : 13034431,
+					"mining"      : 13034431,
+					"smithing"    : 13034431,
+					"fishing"     : 13034431,
+					"cooking"     : 13034431,
+					"firemaking"  : 13034431,
+					"woodcutting" : 13034431,
+					"agility"     : 13034431,
+					"herblore"    : 13034431,
+					"thieving"    : 13034431,
+					"fletching"   : 13034431,
+					"slayer"      : 13034431,
+					"farming"     : 13034431,
+					"construction": 13034431,
+					"hunter"      : 13034431,
+					"sailing"     : 13034431
+				},
+				"count": 8
+			}
 		},
 		{
 			"id": "b9a8a76e-d833-4575-ad8e-746ffb9fe0c1",
@@ -12756,7 +12991,37 @@
 			"tip": "A new level 99",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Skill_cape",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Max_cape_detail.png/200px-Max_cape_detail.png?4f67e",
-			"displayItemId": 13280
+			"displayItemId": 13280,
+			"verification": {
+				"method": "skill",
+				"experience": {
+					"attack"      : 13034431,
+					"strength"    : 13034431,
+					"defence"     : 13034431,
+					"ranged"      : 13034431,
+					"prayer"      : 13034431,
+					"magic"       : 13034431,
+					"runecraft"   : 13034431,
+					"hitpoints"   : 13034431,
+					"crafting"    : 13034431,
+					"mining"      : 13034431,
+					"smithing"    : 13034431,
+					"fishing"     : 13034431,
+					"cooking"     : 13034431,
+					"firemaking"  : 13034431,
+					"woodcutting" : 13034431,
+					"agility"     : 13034431,
+					"herblore"    : 13034431,
+					"thieving"    : 13034431,
+					"fletching"   : 13034431,
+					"slayer"      : 13034431,
+					"farming"     : 13034431,
+					"construction": 13034431,
+					"hunter"      : 13034431,
+					"sailing"     : 13034431
+				},
+				"count": 9
+			}
 		},
 		{
 			"id": "1695718e-f588-49dc-8d8c-91ff9a9ec2ab",
@@ -12764,7 +13029,37 @@
 			"tip": "A new level 99",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Skill_cape",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Max_cape_detail.png/200px-Max_cape_detail.png?4f67e",
-			"displayItemId": 13280
+			"displayItemId": 13280,
+			"verification": {
+				"method": "skill",
+				"experience": {
+					"attack"      : 13034431,
+					"strength"    : 13034431,
+					"defence"     : 13034431,
+					"ranged"      : 13034431,
+					"prayer"      : 13034431,
+					"magic"       : 13034431,
+					"runecraft"   : 13034431,
+					"hitpoints"   : 13034431,
+					"crafting"    : 13034431,
+					"mining"      : 13034431,
+					"smithing"    : 13034431,
+					"fishing"     : 13034431,
+					"cooking"     : 13034431,
+					"firemaking"  : 13034431,
+					"woodcutting" : 13034431,
+					"agility"     : 13034431,
+					"herblore"    : 13034431,
+					"thieving"    : 13034431,
+					"fletching"   : 13034431,
+					"slayer"      : 13034431,
+					"farming"     : 13034431,
+					"construction": 13034431,
+					"hunter"      : 13034431,
+					"sailing"     : 13034431
+				},
+				"count": 10
+			}
 		},
 		{
 			"id": "263e5f41-9456-454e-9b9f-482480623dc6",
@@ -12772,7 +13067,37 @@
 			"tip": "A new level 99",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Skill_cape",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Max_cape_detail.png/200px-Max_cape_detail.png?4f67e",
-			"displayItemId": 13280
+			"displayItemId": 13280,
+			"verification": {
+				"method": "skill",
+				"experience": {
+					"attack"      : 13034431,
+					"strength"    : 13034431,
+					"defence"     : 13034431,
+					"ranged"      : 13034431,
+					"prayer"      : 13034431,
+					"magic"       : 13034431,
+					"runecraft"   : 13034431,
+					"hitpoints"   : 13034431,
+					"crafting"    : 13034431,
+					"mining"      : 13034431,
+					"smithing"    : 13034431,
+					"fishing"     : 13034431,
+					"cooking"     : 13034431,
+					"firemaking"  : 13034431,
+					"woodcutting" : 13034431,
+					"agility"     : 13034431,
+					"herblore"    : 13034431,
+					"thieving"    : 13034431,
+					"fletching"   : 13034431,
+					"slayer"      : 13034431,
+					"farming"     : 13034431,
+					"construction": 13034431,
+					"hunter"      : 13034431,
+					"sailing"     : 13034431
+				},
+				"count": 11
+			}
 		},
 		{
 			"id": "389c4820-08c4-4328-9532-6d6c395ce6ab",
@@ -12780,7 +13105,37 @@
 			"tip": "A new level 99",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Skill_cape",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Max_cape_detail.png/200px-Max_cape_detail.png?4f67e",
-			"displayItemId": 13280
+			"displayItemId": 13280,
+			"verification": {
+				"method": "skill",
+				"experience": {
+					"attack"      : 13034431,
+					"strength"    : 13034431,
+					"defence"     : 13034431,
+					"ranged"      : 13034431,
+					"prayer"      : 13034431,
+					"magic"       : 13034431,
+					"runecraft"   : 13034431,
+					"hitpoints"   : 13034431,
+					"crafting"    : 13034431,
+					"mining"      : 13034431,
+					"smithing"    : 13034431,
+					"fishing"     : 13034431,
+					"cooking"     : 13034431,
+					"firemaking"  : 13034431,
+					"woodcutting" : 13034431,
+					"agility"     : 13034431,
+					"herblore"    : 13034431,
+					"thieving"    : 13034431,
+					"fletching"   : 13034431,
+					"slayer"      : 13034431,
+					"farming"     : 13034431,
+					"construction": 13034431,
+					"hunter"      : 13034431,
+					"sailing"     : 13034431
+				},
+				"count": 12
+			}
 		},
 		{
 			"id": "a9f466ec-5710-4106-af96-a9a694107e9e",
@@ -12788,7 +13143,37 @@
 			"tip": "A new level 99",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Skill_cape",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Max_cape_detail.png/200px-Max_cape_detail.png?4f67e",
-			"displayItemId": 13280
+			"displayItemId": 13280,
+			"verification": {
+				"method": "skill",
+				"experience": {
+					"attack"      : 13034431,
+					"strength"    : 13034431,
+					"defence"     : 13034431,
+					"ranged"      : 13034431,
+					"prayer"      : 13034431,
+					"magic"       : 13034431,
+					"runecraft"   : 13034431,
+					"hitpoints"   : 13034431,
+					"crafting"    : 13034431,
+					"mining"      : 13034431,
+					"smithing"    : 13034431,
+					"fishing"     : 13034431,
+					"cooking"     : 13034431,
+					"firemaking"  : 13034431,
+					"woodcutting" : 13034431,
+					"agility"     : 13034431,
+					"herblore"    : 13034431,
+					"thieving"    : 13034431,
+					"fletching"   : 13034431,
+					"slayer"      : 13034431,
+					"farming"     : 13034431,
+					"construction": 13034431,
+					"hunter"      : 13034431,
+					"sailing"     : 13034431
+				},
+				"count": 13
+			}
 		},
 		{
 			"id": "959f5efe-b825-4e71-b2c2-5606f621cdc8",
@@ -12796,7 +13181,37 @@
 			"tip": "A new level 99",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Skill_cape",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Max_cape_detail.png/200px-Max_cape_detail.png?4f67e",
-			"displayItemId": 13280
+			"displayItemId": 13280,
+			"verification": {
+				"method": "skill",
+				"experience": {
+					"attack"      : 13034431,
+					"strength"    : 13034431,
+					"defence"     : 13034431,
+					"ranged"      : 13034431,
+					"prayer"      : 13034431,
+					"magic"       : 13034431,
+					"runecraft"   : 13034431,
+					"hitpoints"   : 13034431,
+					"crafting"    : 13034431,
+					"mining"      : 13034431,
+					"smithing"    : 13034431,
+					"fishing"     : 13034431,
+					"cooking"     : 13034431,
+					"firemaking"  : 13034431,
+					"woodcutting" : 13034431,
+					"agility"     : 13034431,
+					"herblore"    : 13034431,
+					"thieving"    : 13034431,
+					"fletching"   : 13034431,
+					"slayer"      : 13034431,
+					"farming"     : 13034431,
+					"construction": 13034431,
+					"hunter"      : 13034431,
+					"sailing"     : 13034431
+				},
+				"count": 14
+			}
 		},
 		{
 			"id": "6c7df241-9838-4acf-94d1-7f99ea9bac4b",
@@ -12804,7 +13219,37 @@
 			"tip": "A new level 99",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Skill_cape",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Max_cape_detail.png/200px-Max_cape_detail.png?4f67e",
-			"displayItemId": 13280
+			"displayItemId": 13280,
+			"verification": {
+				"method": "skill",
+				"experience": {
+					"attack"      : 13034431,
+					"strength"    : 13034431,
+					"defence"     : 13034431,
+					"ranged"      : 13034431,
+					"prayer"      : 13034431,
+					"magic"       : 13034431,
+					"runecraft"   : 13034431,
+					"hitpoints"   : 13034431,
+					"crafting"    : 13034431,
+					"mining"      : 13034431,
+					"smithing"    : 13034431,
+					"fishing"     : 13034431,
+					"cooking"     : 13034431,
+					"firemaking"  : 13034431,
+					"woodcutting" : 13034431,
+					"agility"     : 13034431,
+					"herblore"    : 13034431,
+					"thieving"    : 13034431,
+					"fletching"   : 13034431,
+					"slayer"      : 13034431,
+					"farming"     : 13034431,
+					"construction": 13034431,
+					"hunter"      : 13034431,
+					"sailing"     : 13034431
+				},
+				"count": 15
+			}
 		},
 		{
 			"id": "fb551b3f-ebfe-4c8b-9d25-edf85087e506",
@@ -12812,7 +13257,37 @@
 			"tip": "A new level 99",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Skill_cape",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Max_cape_detail.png/200px-Max_cape_detail.png?4f67e",
-			"displayItemId": 13280
+			"displayItemId": 13280,
+			"verification": {
+				"method": "skill",
+				"experience": {
+					"attack"      : 13034431,
+					"strength"    : 13034431,
+					"defence"     : 13034431,
+					"ranged"      : 13034431,
+					"prayer"      : 13034431,
+					"magic"       : 13034431,
+					"runecraft"   : 13034431,
+					"hitpoints"   : 13034431,
+					"crafting"    : 13034431,
+					"mining"      : 13034431,
+					"smithing"    : 13034431,
+					"fishing"     : 13034431,
+					"cooking"     : 13034431,
+					"firemaking"  : 13034431,
+					"woodcutting" : 13034431,
+					"agility"     : 13034431,
+					"herblore"    : 13034431,
+					"thieving"    : 13034431,
+					"fletching"   : 13034431,
+					"slayer"      : 13034431,
+					"farming"     : 13034431,
+					"construction": 13034431,
+					"hunter"      : 13034431,
+					"sailing"     : 13034431
+				},
+				"count": 16
+			}
 		},
 		{
 			"id": "ef6ad784-9b0f-490d-813c-6256089e3653",
