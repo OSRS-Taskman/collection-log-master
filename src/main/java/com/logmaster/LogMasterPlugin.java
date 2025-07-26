@@ -31,6 +31,8 @@ import net.runelite.client.util.LinkBrowser;
 
 import javax.inject.Inject;
 
+import java.util.List;
+
 import static com.logmaster.LogMasterConfig.CONFIG_GROUP;
 
 @Slf4j
@@ -136,21 +138,6 @@ public class LogMasterPlugin extends Plugin {
 		interfaceManager.updateTaskListBounds();
 	}
 
-	public void generateTask() {
-		this.client.playSoundEffect(SoundEffectID.UI_BOOP);
-		Task generatedTask = taskService.generate();
-
-		interfaceManager.rollTask(
-				generatedTask.getName(),
-				generatedTask.getDisplayItemId(),
-				config.rollPastCompleted() ? taskService.getTierTasks() : taskService.getIncompleteTierTasks()
-		);
-	}
-
-	public boolean isTaskCompleted(String taskID, TaskTier tier) {
-		return taskService.isComplete(taskID);
-	}
-
 	public void completeTask() {
 		Task activeTask = taskService.getActiveTask();
 		completeTask(activeTask.getId(), null);
@@ -165,10 +152,8 @@ public class LogMasterPlugin extends Plugin {
 			this.client.playSoundEffect(SoundEffectID.UI_BOOP);
 		}
 
-		if (taskService.isComplete(taskID)) {
-			taskService.uncomplete(taskID);
-		} else {
-			taskService.complete(taskID);
+		taskService.toggleComplete(taskID);
+		if (taskService.getActiveTask() == null) {
 			interfaceManager.clearCurrentTask();
 		}
 

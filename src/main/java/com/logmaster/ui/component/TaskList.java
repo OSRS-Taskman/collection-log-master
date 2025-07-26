@@ -209,7 +209,7 @@ public class TaskList extends UIPage {
                 taskBg.setSize(TASK_WIDTH, TASK_HEIGHT);
                 taskBg.setPosition(taskX, taskY);
                 taskBg.getWidget().setPos(taskX, taskY);
-                boolean taskCompleted = plugin.isTaskCompleted(task.getId(), finalRelevantTier);
+                boolean taskCompleted = taskService.isComplete(task.getId());
 
                 Task activeTask = taskService.getActiveTask();
                 if (activeTask != null && activeTask.getId().equals(task.getId())) {

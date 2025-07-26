@@ -223,7 +223,7 @@ public class InterfaceManager implements MouseListener, MouseWheelListener {
     }
 
     private void createTaskDashboard(Widget window) {
-        this.taskDashboard = new TaskDashboard(plugin, config, window, syncService, taskService);
+        this.taskDashboard = new TaskDashboard(plugin, config, window, syncService, taskService, client);
         this.taskDashboard.setVisibility(false);
     }
 
@@ -298,12 +298,6 @@ public class InterfaceManager implements MouseListener, MouseWheelListener {
 
     private boolean isTaskDashboardEnabled() {
         return this.dropdown != null && this.dropdown.getEnabledOption().getText().equals("Tasks");
-    }
-
-    public void rollTask(String description, int itemID, List<Task> tasks) {
-        this.taskDashboard.setTask(description, itemID, tasks);
-        this.taskDashboard.disableGenerateTask(false);
-        this.taskDashboard.updatePercentages();
     }
 
     public void completeTask() {

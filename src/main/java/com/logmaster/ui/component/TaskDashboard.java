@@ -11,7 +11,9 @@ import com.logmaster.ui.generic.UIGraphic;
 import com.logmaster.ui.generic.UILabel;
 import com.logmaster.ui.generic.UIPage;
 import lombok.Getter;
+import net.runelite.api.Client;
 import net.runelite.api.FontID;
+import net.runelite.api.SoundEffectID;
 import net.runelite.api.widgets.ItemQuantityMode;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetType;
@@ -52,6 +54,7 @@ public class TaskDashboard extends UIPage {
     private LogMasterConfig config;
     private final SyncService syncService;
     private final TaskService taskService;
+    private final Client client;
 
     private UILabel title;
     private UILabel taskLabel;
@@ -65,12 +68,13 @@ public class TaskDashboard extends UIPage {
     private UIButton faqBtn;
     private UIButton syncBtn;
 
-    public TaskDashboard(LogMasterPlugin plugin, LogMasterConfig config, Widget window, SyncService syncService, TaskService taskService) {
+    public TaskDashboard(LogMasterPlugin plugin, LogMasterConfig config, Widget window, SyncService syncService, TaskService taskService, Client client) {
         this.window = window;
         this.plugin = plugin;
         this.config = config;
         this.syncService = syncService;
         this.taskService = taskService;
+        this.client = client;
 
         createTaskDetails();
 
@@ -183,6 +187,16 @@ public class TaskDashboard extends UIPage {
         }
     }
 
+	private void generateTask() {
+		client.playSoundEffect(SoundEffectID.UI_BOOP);
+		Task generatedTask = taskService.generate();
+
+		List<Task> rollTaskList = config.rollPastCompleted() ? taskService.getTierTasks() : taskService.getIncompleteTierTasks();
+		setTask(generatedTask.getName(), generatedTask.getDisplayItemId(), rollTaskList);
+        disableGenerateTask(false);
+        updatePercentages();
+	}
+
     public void updatePercentages() {
         Map<TaskTier, Float> progress = taskService.getProgress();
         TaskTier currentTier = taskService.getCurrentTier();
@@ -236,7 +250,7 @@ public class TaskDashboard extends UIPage {
     public void enableGenerateTask() {
         this.generateTaskBtn.clearActions();
         this.generateTaskBtn.setSprites(GENERATE_TASK_SPRITE_ID, GENERATE_TASK_HOVER_SPRITE_ID);
-        this.generateTaskBtn.addAction("Generate task", plugin::generateTask);
+        this.generateTaskBtn.addAction("Generate task", this::generateTask);
 
         this.disableCompleteTask();
     }

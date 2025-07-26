@@ -66,7 +66,7 @@ public class SyncService {
                     continue;
                 }
 
-                boolean taskChanged = isVerified != plugin.isTaskCompleted(task.getId(), tier);
+                boolean taskChanged = isVerified != taskService.isComplete(task.getId());
 
                 if (!taskChanged) {
                     continue;
