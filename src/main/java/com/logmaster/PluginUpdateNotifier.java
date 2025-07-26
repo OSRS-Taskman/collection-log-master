@@ -23,9 +23,7 @@ import static com.logmaster.LogMasterConfig.PLUGIN_VERSION_KEY;
 @Singleton
 public class PluginUpdateNotifier extends EventBusSubscriber {
     private static final String[] UPDATE_MESSAGES = {
-            "<colHIGHLIGHT>Collection Log Master updated to v" + getPluginVersion(),
-            "<colHIGHLIGHT>- Added task synchronization",
-            "<colHIGHLIGHT>- Added dynamic task image config option"
+            "<colHIGHLIGHT>Collection Log Master updated to v" + getPluginVersion()
     };
 
     @Inject
