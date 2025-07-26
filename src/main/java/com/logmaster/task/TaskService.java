@@ -222,7 +222,8 @@ public class TaskService extends EventBusSubscriber {
 				.filter(t -> taskName.equals(t.getName()))
 				.filter(t -> t.getVerification() instanceof CollectionLogVerification);
 
-		return similarTasks.min(Comparator.comparingInt(
+        //noinspection DataFlowIssue
+        return similarTasks.min(Comparator.comparingInt(
 			t -> ((CollectionLogVerification) t.getVerification()).getCount()
 		)).orElse(pickedTask);
 	}

@@ -1,5 +1,6 @@
 package com.logmaster.domain.old;
 
+import com.logmaster.domain.BaseSaveData;
 import com.logmaster.domain.TaskTier;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,7 +14,9 @@ import java.util.Set;
 @Getter
 @ToString
 @Deprecated
-public class OldSaveData {
+public class OldSaveData extends BaseSaveData {
+    public final static Integer VERSION = null;
+
     public OldSaveData() {
         this.progress = new HashMap<>();
 

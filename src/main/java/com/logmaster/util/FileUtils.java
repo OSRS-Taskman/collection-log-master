@@ -1,7 +1,11 @@
 package com.logmaster.util;
 
+import com.logmaster.LogMasterPlugin;
+
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Type;
 
 import static com.logmaster.util.GsonOverride.GSON;
 
@@ -22,5 +26,14 @@ public class FileUtils {
 
         // Load the objects from the JSON file
         return GSON.fromJson(definitionReader, classType);
+    }
+
+    public static <T> T loadResource(String resourcePath, Type clazz) {
+        try (InputStream is = LogMasterPlugin.class.getResourceAsStream(resourcePath)) {
+            assert is != null;
+            return GSON.fromJson(new InputStreamReader(is), clazz);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

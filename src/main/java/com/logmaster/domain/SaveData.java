@@ -13,16 +13,16 @@ import java.util.Set;
 @Getter
 @ToString
 public class SaveData extends BaseSaveData {
+    public final static int VERSION = 1;
+
     public SaveData() {
-        this.version = 1;
+        this.version = VERSION;
         this.progress = new HashMap<>();
 
         for (TaskTier tier : TaskTier.values()) {
             this.progress.put(tier, new HashSet<>());
         }
     }
-
-    public @Nullable Task currentTask;
 
     private final Map<TaskTier, Set<String>> progress;
 
