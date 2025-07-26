@@ -9,12 +9,8 @@ import com.logmaster.domain.verification.VerificationMethod;
 import com.logmaster.domain.verification.diary.DiaryDifficulty;
 import com.logmaster.domain.verification.diary.DiaryRegion;
 import net.runelite.api.Skill;
-import net.runelite.http.api.gson.ColorTypeAdapter;
-import net.runelite.http.api.gson.InstantTypeAdapter;
 
 import javax.inject.Inject;
-import java.awt.*;
-import java.time.Instant;
 
 public class GsonOverride {
     /**

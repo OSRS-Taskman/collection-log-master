@@ -84,19 +84,19 @@ public class LogMasterPlugin extends Plugin {
 
 	public void completeTask() {
 		Task activeTask = taskService.getActiveTask();
-		completeTask(activeTask.getId(), null);
+		completeTask(activeTask.getId());
 	}
 
-	public void completeTask(String taskID, TaskTier tier) {
-		completeTask(taskID, tier, true);
+	public void completeTask(String taskId) {
+		completeTask(taskId, true);
 	}
 
-	public void completeTask(String taskID, TaskTier tier, boolean playSound) {
+	public void completeTask(String taskId, boolean playSound) {
 		if (playSound) {
 			this.client.playSoundEffect(SoundEffectID.UI_BOOP);
 		}
 
-		taskService.toggleComplete(taskID);
+		taskService.toggleComplete(taskId);
 		if (taskService.getActiveTask() == null) {
 			interfaceManager.clearCurrentTask();
 		}

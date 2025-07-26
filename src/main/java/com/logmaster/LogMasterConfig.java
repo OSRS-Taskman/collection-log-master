@@ -2,11 +2,7 @@ package com.logmaster;
 
 import com.logmaster.domain.DynamicTaskImages;
 import com.logmaster.domain.TaskTier;
-import net.runelite.client.config.Config;
-import net.runelite.client.config.ConfigGroup;
-import net.runelite.client.config.ConfigItem;
-import net.runelite.client.config.Range;
-import net.runelite.client.config.Units;
+import net.runelite.client.config.*;
 
 import static com.logmaster.LogMasterConfig.CONFIG_GROUP;
 

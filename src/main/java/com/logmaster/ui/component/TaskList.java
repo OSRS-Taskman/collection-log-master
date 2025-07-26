@@ -27,25 +27,25 @@ import static com.logmaster.ui.InterfaceConstants.*;
 
 @Slf4j
 public class TaskList extends UIPage {
-    private final int OFFSET_X = 0;
-    private final int OFFSET_Y = 21;
-    private final int TASK_WIDTH = 300;
-    private final int TASK_HEIGHT = 50;
-    private final int COLUMN_SPACING = 24;
-    private final int TASK_ITEM_HEIGHT = 32;
-    private final int TASK_ITEM_WIDTH = 36;
-    private final int PAGE_UP_ARROW_SPRITE_ID = -20029;
-    private final int UP_ARROW_SPRITE_ID = -20014;
-    private final int DOWN_ARROW_SPRITE_ID = -20015;
-    private final int PAGE_DOWN_ARROW_SPRITE_ID = -20030;
-    private final int THUMB_TOP_SPRITE_ID = -20031;
-    private final int THUMB_MIDDLE_SPRITE_ID = -20032;
-    private final int THUMB_BOTTOM_SPRITE_ID = -20033;
-    private final int ARROW_SPRITE_WIDTH = 39;
-    private final int ARROW_SPRITE_HEIGHT = 20;
-    private final int ARROW_Y_OFFSET = 4;
-    private final int SCROLLBAR_WIDTH = 35; // Match arrow width
-    private final int SCROLLBAR_THUMB_MIN_HEIGHT = 8;
+    private final static int OFFSET_X = 0;
+    private final static int OFFSET_Y = 21;
+    private final static int TASK_WIDTH = 300;
+    private final static int TASK_HEIGHT = 50;
+    private final static int COLUMN_SPACING = 24;
+    private final static int TASK_ITEM_HEIGHT = 32;
+    private final static int TASK_ITEM_WIDTH = 36;
+    private final static int PAGE_UP_ARROW_SPRITE_ID = -20029;
+    private final static int UP_ARROW_SPRITE_ID = -20014;
+    private final static int DOWN_ARROW_SPRITE_ID = -20015;
+    private final static int PAGE_DOWN_ARROW_SPRITE_ID = -20030;
+    private final static int THUMB_TOP_SPRITE_ID = -20031;
+    private final static int THUMB_MIDDLE_SPRITE_ID = -20032;
+    private final static int THUMB_BOTTOM_SPRITE_ID = -20033;
+    private final static int ARROW_SPRITE_WIDTH = 39;
+    private final static int ARROW_SPRITE_HEIGHT = 20;
+    private final static int ARROW_Y_OFFSET = 4;
+    private final static int SCROLLBAR_WIDTH = 35; // Match arrow width
+    private final static int SCROLLBAR_THUMB_MIN_HEIGHT = 8;
     
 
     private final Widget window;
@@ -184,15 +184,11 @@ public class TaskList extends UIPage {
                     break;
                 }
 
-                // Get the task and relevant tier
                 Task task = tasksToShow.get(i);
-                TaskTier finalRelevantTier = relevantTier;
 
-                // Calculate task placement
                 int taskY = startY + (row * (TASK_HEIGHT + verticalMargin));
                 int taskX = startX + col * (TASK_WIDTH + COLUMN_SPACING);
 
-                // Create the task background
                 UIGraphic taskBg;
                 if (taskBackgrounds.size() <= widgetIndex) {
                     // Create a new background if it doesn't exist yet
@@ -257,7 +253,7 @@ public class TaskList extends UIPage {
                 taskImage.setItem(task.getDisplayItemId());
 
                 // Add our right click actions
-                taskBg.addAction("Mark as " + (taskCompleted ? "<col=c0392b>incomplete" : "<col=27ae60>completed") + "</col>", () -> plugin.completeTask(task.getId(), finalRelevantTier));
+                taskBg.addAction("Mark as " + (taskCompleted ? "<col=c0392b>incomplete" : "<col=27ae60>completed") + "</col>", () -> plugin.completeTask(task.getId()));
 
                 if (task.getVerification() instanceof CollectionLogVerification) {
                     CollectionLogVerification verif = (CollectionLogVerification) task.getVerification();

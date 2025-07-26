@@ -72,7 +72,7 @@ public class SyncService {
                     continue;
                 }
 
-                plugin.completeTask(task.getId(), tier, false);
+                plugin.completeTask(task.getId(), false);
 
                 String newStatus = isVerified ? "<col=27ae60>complete</col>" : "<col=c0392b>incomplete</col>";
                 String msg = String.format("%s tier task '%s' marked as %s", tier.displayName, task.getName(), newStatus);

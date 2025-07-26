@@ -139,26 +139,30 @@ public class TabManager {
 
     public void updateTabs() {
         hideTabs();
+        if (tabs == null) return;
+
         int tabIndex = 0;
         for (TaskTier tier : TaskTier.values()) {
             if (tier.ordinal() >= config.hideBelow().ordinal()) {
-                if (tabs == null) {
-                    return;
-                }
+                UIButton tab = tabs.get(tabIndex);
+
                 if (plugin.getSelectedTier() == tier && !this.taskDashboard.isVisible()) {
-                    tabs.get(tabIndex).setSprites(tier.tabSpriteHoverId);
+                    tab.setSprites(tier.tabSpriteHoverId);
                 } else {
-                    tabs.get(tabIndex).setSprites(tier.tabSpriteId, tier.tabSpriteHoverId);
+                    tab.setSprites(tier.tabSpriteId, tier.tabSpriteHoverId);
                 }
+
+                tab.setSize(66, 21);
+
                 int finalTabIndex = tabIndex;
-                tabs.get(tabIndex).clearActions();
-                tabs.get(tabIndex).setSize(66, 21);
-                tabs.get(tabIndex).addAction(String.format("View <col=ff9040>%s Task List</col>", tier.displayName), () -> {
-                    activateTaskListForTier(tier, finalTabIndex);
-                });
+                String actionLabel = String.format("View <col=ff9040>%s Task List</col>", tier.displayName);
+                tab.clearActions();
+                tab.addAction(actionLabel, () -> activateTaskListForTier(tier, finalTabIndex));
             }
+
             tabIndex++;
         }
+
         showTabs();
     }
 
@@ -187,9 +191,7 @@ public class TabManager {
             this.taskDashboardTab.setVisibility(false);
         }
         if (this.tabs != null) {
-            this.tabs.forEach(t -> {
-                t.setVisibility(false);
-            });
+            this.tabs.forEach(t -> t.setVisibility(false));
         }
     }
 

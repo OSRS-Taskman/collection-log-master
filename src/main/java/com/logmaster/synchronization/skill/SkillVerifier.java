@@ -1,19 +1,13 @@
 package com.logmaster.synchronization.skill;
 
 import com.logmaster.domain.Task;
-import com.logmaster.domain.verification.diary.AchievementDiaryVerification;
-import com.logmaster.domain.verification.diary.DiaryDifficulty;
-import com.logmaster.domain.verification.diary.DiaryRegion;
 import com.logmaster.domain.verification.skill.SkillVerification;
 import com.logmaster.synchronization.Verifier;
-import com.logmaster.synchronization.diary.AchievementDiaryService;
 import lombok.NonNull;
 import net.runelite.api.Client;
-import net.runelite.api.Skill;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
-import java.util.Map;
 
 @Singleton
 public class SkillVerifier implements Verifier {

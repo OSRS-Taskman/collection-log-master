@@ -27,23 +27,23 @@ import static com.logmaster.ui.InterfaceConstants.COLLECTION_LOG_WINDOW_HEIGHT;
 import static com.logmaster.ui.InterfaceConstants.COLLECTION_LOG_WINDOW_WIDTH;
 
 public class TaskDashboard extends UIPage {
-    private final int DEFAULT_BUTTON_WIDTH = 140;
-    private final int DEFAULT_BUTTON_HEIGHT = 30;
-    private final int SMALL_BUTTON_WIDTH = 68;
-    private final int DEFAULT_TASK_DETAILS_WIDTH = 300;
-    private final int DEFAULT_TASK_DETAILS_HEIGHT = 75;
-    private final int GENERATE_TASK_SPRITE_ID = -20001;
-    private final int COMPLETE_TASK_SPRITE_ID = -20000;
-    private final int GENERATE_TASK_HOVER_SPRITE_ID = -20003;
-    private final int COMPLETE_TASK_HOVER_SPRITE_ID = -20002;
-    private final int GENERATE_TASK_DISABLED_SPRITE_ID = -20005;
-    private final int COMPLETE_TASK_DISABLED_SPRITE_ID = -20004;
-    private final int TASK_BACKGROUND_SPRITE_ID = -20006;
-    private final int FAQ_BUTTON_SPRITE_ID = -20027;
-    private final int FAQ_BUTTON_HOVER_SPRITE_ID = -20028;
-    private final int SYNC_BUTTON_SPRITE_ID = -20034;
-    private final int SYNC_BUTTON_HOVER_SPRITE_ID = -20035;
-    private final int SYNC_BUTTON_DISABLED_SPRITE_ID = -20036;
+    private final static int DEFAULT_BUTTON_WIDTH = 140;
+    private final static int DEFAULT_BUTTON_HEIGHT = 30;
+    private final static int SMALL_BUTTON_WIDTH = 68;
+    private final static int DEFAULT_TASK_DETAILS_WIDTH = 300;
+    private final static int DEFAULT_TASK_DETAILS_HEIGHT = 75;
+    private final static int GENERATE_TASK_SPRITE_ID = -20001;
+    private final static int COMPLETE_TASK_SPRITE_ID = -20000;
+    private final static int GENERATE_TASK_HOVER_SPRITE_ID = -20003;
+    private final static int COMPLETE_TASK_HOVER_SPRITE_ID = -20002;
+    private final static int GENERATE_TASK_DISABLED_SPRITE_ID = -20005;
+    private final static int COMPLETE_TASK_DISABLED_SPRITE_ID = -20004;
+    private final static int TASK_BACKGROUND_SPRITE_ID = -20006;
+    private final static int FAQ_BUTTON_SPRITE_ID = -20027;
+    private final static int FAQ_BUTTON_HOVER_SPRITE_ID = -20028;
+    private final static int SYNC_BUTTON_SPRITE_ID = -20034;
+    private final static int SYNC_BUTTON_HOVER_SPRITE_ID = -20035;
+    private final static int SYNC_BUTTON_DISABLED_SPRITE_ID = -20036;
 
     @Getter
     private Widget window;

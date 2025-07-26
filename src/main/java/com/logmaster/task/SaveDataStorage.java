@@ -25,7 +25,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-import static com.logmaster.LogMasterConfig.*;
+import static com.logmaster.LogMasterConfig.CONFIG_GROUP;
+import static com.logmaster.LogMasterConfig.SAVE_DATA_KEY;
 import static com.logmaster.util.GsonOverride.GSON;
 
 @Singleton

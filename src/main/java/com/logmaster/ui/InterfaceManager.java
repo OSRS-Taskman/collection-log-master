@@ -117,7 +117,8 @@ public class InterfaceManager extends EventBusSubscriber implements MouseListene
             }
         }
 
-        this.taskDashboard.updatePercentages();
+        taskDashboard.updatePercentages();
+        tabManager.onConfigChanged();
 	}
 
 	@Subscribe
