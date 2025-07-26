@@ -62,8 +62,8 @@ public class PluginUpdateNotifier extends EventBusSubscriber {
         }
     }
 
-    @SuppressWarnings("ConstantConditions")
     private void notifyUpdate() {
+        //noinspection ConstantConditions
         if (UPDATE_MESSAGES == null) return;
 
         String replacedMessage = String.join("<br>", UPDATE_MESSAGES);
