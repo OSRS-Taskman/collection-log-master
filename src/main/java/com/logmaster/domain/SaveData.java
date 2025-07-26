@@ -28,7 +28,4 @@ public class SaveData extends BaseSaveData {
 
     @Setter
     private @Nullable TaskPointer activeTaskPointer;
-    
-    @Setter
-    private @Nullable TaskTier selectedTier;
 }

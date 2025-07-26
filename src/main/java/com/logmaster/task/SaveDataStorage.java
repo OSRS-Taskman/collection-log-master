@@ -136,8 +136,6 @@ public class SaveDataStorage extends EventBusSubscriber {
             }
         }
 
-        updated.setSelectedTier(old.getSelectedTier());
-
         OldTaskPointer oldTaskPointer = old.getActiveTaskPointer();
         if (oldTaskPointer != null) {
             OldTask oldTask = oldTaskPointer.getTask();
