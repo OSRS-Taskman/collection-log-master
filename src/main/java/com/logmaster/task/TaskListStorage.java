@@ -18,7 +18,7 @@ import static com.logmaster.util.GsonOverride.GSON;
 public class TaskListStorage {
     private static final String LOCAL_TASK_LIST_FILE = "task-list.json";
 
-    private static final String REMOTE_TASK_LIST_URL = "https://raw.githubusercontent.com/OSRS-Taskman/task-list/refs/heads/main/lists/tedious.json";
+    private static final String REMOTE_TASK_LIST_URL = "https://raw.githubusercontent.com/OSRS-Taskman/generate-task/refs/heads/main/src/main/resources/com/logmaster/domain/task-list.json";
 
     @Inject
     private OkHttpClient client;
