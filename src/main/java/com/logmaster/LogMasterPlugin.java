@@ -2,17 +2,16 @@ package com.logmaster;
 
 import com.google.inject.Provides;
 import com.logmaster.domain.Task;
-import com.logmaster.domain.TaskPointer;
 import com.logmaster.domain.TaskTier;
-import com.logmaster.domain.verification.clog.CollectionLogVerification;
-import com.logmaster.persistence.SaveDataManager;
 import com.logmaster.synchronization.clog.CollectionLogService;
+import com.logmaster.task.SaveDataStorage;
 import com.logmaster.task.TaskService;
 import com.logmaster.ui.InterfaceManager;
 import com.logmaster.ui.component.TaskOverlay;
 import com.logmaster.util.GsonOverride;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
 import net.runelite.api.SoundEffectID;
 import net.runelite.api.events.*;
@@ -29,11 +28,8 @@ import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.util.LinkBrowser;
 
 import javax.inject.Inject;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
+import static com.logmaster.LogMasterConfig.CONFIG_GROUP;
 
 @Slf4j
 @PluginDescriptor(name = "Collection Log Master")
@@ -60,12 +56,6 @@ public class LogMasterPlugin extends Plugin {
 	private OverlayManager overlayManager;
 
 	@Inject
-	private TaskService taskService;
-
-	@Inject
-	private SaveDataManager saveDataManager;
-
-	@Inject
 	private InterfaceManager interfaceManager;
 
 	@Inject
@@ -77,9 +67,21 @@ public class LogMasterPlugin extends Plugin {
 	@Inject
 	public PluginUpdateNotifier pluginUpdateNotifier;
 
+	@Inject
+	public TaskService taskService;
+
+	@Inject
+	public SaveDataStorage saveDataStorage;
+
+	@Getter
+	@Setter
+	// TODO: this is UI state, move it somewhere else
+	private TaskTier selectedTier;
+
 	@Override
 	protected void startUp()
 	{
+		taskService.startUp();
 		collectionLogService.startUp();
 		pluginUpdateNotifier.startUp();
 
@@ -88,11 +90,11 @@ public class LogMasterPlugin extends Plugin {
 		interfaceManager.initialise();
 		this.taskOverlay.setResizable(true);
 		this.overlayManager.add(this.taskOverlay);
-		this.taskService.getTaskList();
 	}
 
 	@Override
 	protected void shutDown() {
+		taskService.shutDown();
 		collectionLogService.shutDown();
 		pluginUpdateNotifier.shutDown();
 
@@ -103,7 +105,7 @@ public class LogMasterPlugin extends Plugin {
 
 	@Subscribe
 	public void onConfigChanged(ConfigChanged event) {
-		if (!event.getGroup().equals("log-master")) {
+		if (!event.getGroup().equals(CONFIG_GROUP)) {
 			return;
 		}
 		interfaceManager.updateAfterConfigChange();
@@ -113,13 +115,8 @@ public class LogMasterPlugin extends Plugin {
 	public void onGameStateChanged(GameStateChanged gameStateChanged) {
 		switch (gameStateChanged.getGameState())
 		{
-			case LOGGED_IN:
-				saveDataManager.getSaveData();
-				break;
 			case LOGIN_SCREEN:
-				saveDataManager.save();
-				break;
-			default:
+				saveDataStorage.save();
 				break;
 		}
 	}
@@ -151,62 +148,23 @@ public class LogMasterPlugin extends Plugin {
 	}
 
 	public void generateTask() {
-		TaskPointer pointer =this.saveDataManager.getSaveData().getActiveTaskPointer();
-		if ((pointer != null && pointer.getTask() != null) || taskService.getTaskList() == null) {
-			interfaceManager.disableGenerateTaskButton();
-			return;
-		}
-
 		this.client.playSoundEffect(SoundEffectID.UI_BOOP);
-		List<Task> uniqueTasks = findAvailableTasks();
+		Task generatedTask = taskService.generate();
 
-		if (uniqueTasks.isEmpty()) {
-			client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", "No more tasks left. Looks like you win?", "");
-			playFailSound();
-
-			return;
-		}
-
-		Task selectedTask = pickRandomTask(uniqueTasks);
-		TaskPointer newTaskPointer = new TaskPointer();
-		newTaskPointer.setTask(selectedTask);
-		newTaskPointer.setTaskTier(getCurrentTier());
-		this.saveDataManager.getSaveData().setActiveTaskPointer(newTaskPointer);
-		this.saveDataManager.save();
-		interfaceManager.rollTask(newTaskPointer.getTask().getName(), newTaskPointer.getTask().getDisplayItemId(), config.rollPastCompleted() ? taskService.getForTier(getCurrentTier()) : uniqueTasks);
-		log.debug("Task generated: {} - {}", newTaskPointer.getTask().getName(), newTaskPointer.getTask().getId());
-
-		this.saveDataManager.save();
-	}
-
-	private static Task pickRandomTask(List<Task> uniqueTasks) {
-		int index = (int) Math.floor(Math.random() * uniqueTasks.size());
-		Task task = uniqueTasks.get(index);
-
-		if (!(task.getVerification() instanceof CollectionLogVerification)) {
-			return task;
-		}
-
-		// get first of similarly named tasks
-		String taskName = task.getName();
-		Stream<Task> similarTasks = uniqueTasks.stream()
-				.filter(t -> taskName.equals(t.getName()))
-				.filter(t -> t.getVerification() instanceof CollectionLogVerification);
-
-		return similarTasks.min(Comparator.comparingInt(
-			t -> ((CollectionLogVerification) t.getVerification()).getCount()
-		)).orElse(task);
-	}
-
-	public void completeTask() {
-		TaskPointer activeTaskPointer = saveDataManager.getSaveData().getActiveTaskPointer();
-		if (activeTaskPointer != null && activeTaskPointer.getTask() != null) {
-			completeTask(activeTaskPointer.getTask().getId(), activeTaskPointer.getTaskTier());
-		}
+		interfaceManager.rollTask(
+				generatedTask.getName(),
+				generatedTask.getDisplayItemId(),
+				config.rollPastCompleted() ? taskService.getTierTasks() : taskService.getIncompleteTierTasks()
+		);
 	}
 
 	public boolean isTaskCompleted(String taskID, TaskTier tier) {
-		return saveDataManager.getSaveData().getProgress().get(tier).contains(taskID);
+		return taskService.isComplete(taskID);
+	}
+
+	public void completeTask() {
+		Task activeTask = taskService.getActiveTask();
+		completeTask(activeTask.getId(), null);
 	}
 
 	public void completeTask(String taskID, TaskTier tier) {
@@ -218,23 +176,14 @@ public class LogMasterPlugin extends Plugin {
 			this.client.playSoundEffect(SoundEffectID.UI_BOOP);
 		}
 
-		if (saveDataManager.getSaveData().getProgress().get(tier).contains(taskID)) {
-			saveDataManager.getSaveData().getProgress().get(tier).remove(taskID);
+		if (taskService.isComplete(taskID)) {
+			taskService.uncomplete(taskID);
 		} else {
-			addCompletedTask(taskID, tier);
-			TaskPointer activePointer = saveDataManager.getSaveData().getActiveTaskPointer();
-			if (activePointer != null && activePointer.getTask() != null && taskID.equals(activePointer.getTask().getId())) {
-				nullCurrentTask();
-			}
+			taskService.complete(taskID);
+			interfaceManager.clearCurrentTask();
 		}
-		this.saveDataManager.save();
-		interfaceManager.completeTask();
-	}
 
-	public void nullCurrentTask() {
-		this.saveDataManager.getSaveData().setActiveTaskPointer(null);
-		this.saveDataManager.save();
-		interfaceManager.clearCurrentTask();
+		interfaceManager.completeTask();
 	}
 
 	public static int getCenterX(Widget window, int width) {
@@ -243,40 +192,6 @@ public class LogMasterPlugin extends Plugin {
 
 	public static int getCenterY(Widget window, int height) {
 		return (window.getHeight() / 2) - (height / 2);
-	}
-
-	public void addCompletedTask(String taskID, TaskTier tier) {
-		this.saveDataManager.getSaveData().getProgress().get(tier).add(taskID);
-		this.saveDataManager.save();
-	}
-
-	public TaskTier getCurrentTier() {
-		TaskTier[] allTiers = TaskTier.values();
-		int firstVisibleTier = 0;
-		for (int i = 0; i < allTiers.length; i++) {
-			if (config.hideBelow() == allTiers[i]) {
-				firstVisibleTier = i;
-			}
-		}
-
-		Map<TaskTier, Integer> tierPercentages = taskService.completionPercentages(saveDataManager.getSaveData());
-		for (int i = firstVisibleTier; i < allTiers.length; i++) {
-			TaskTier tier = allTiers[i];
-			if (tierPercentages.get(tier) < 100) {
-				return tier;
-			}
-		}
-
-
-		return TaskTier.MASTER;
-	}
-
-	public TaskTier getSelectedTier() {
-		return this.saveDataManager.getSaveData().getSelectedTier();
-	}
-
-	public List<Task> findAvailableTasks() {
-		return taskService.getTaskList().getForTier(getCurrentTier()).stream().filter(t -> !this.saveDataManager.getSaveData().getProgress().get(getCurrentTier()).contains(t.getId())).collect(Collectors.toList());
 	}
 
 	public void playFailSound() {
