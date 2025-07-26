@@ -23,8 +23,6 @@ import java.awt.*;
 import java.util.List;
 import java.util.Map;
 
-import static com.logmaster.LogMasterPlugin.getCenterX;
-import static com.logmaster.LogMasterPlugin.getCenterY;
 import static com.logmaster.ui.InterfaceConstants.COLLECTION_LOG_WINDOW_HEIGHT;
 import static com.logmaster.ui.InterfaceConstants.COLLECTION_LOG_WINDOW_WIDTH;
 
@@ -239,7 +237,7 @@ public class TaskDashboard extends UIPage {
         this.generateTaskBtn.setSprites(GENERATE_TASK_DISABLED_SPRITE_ID);
         this.generateTaskBtn.clearActions();
 
-        this.generateTaskBtn.addAction("Disabled", plugin::playFailSound);
+        this.generateTaskBtn.addAction("Disabled", this::playFailSound);
 
         if (enableComplete) {
             this.enableCompleteTask();
@@ -258,7 +256,7 @@ public class TaskDashboard extends UIPage {
     public void disableCompleteTask() {
         this.completeTaskBtn.setSprites(COMPLETE_TASK_DISABLED_SPRITE_ID);
         this.completeTaskBtn.clearActions();
-        this.completeTaskBtn.addAction("Disabled", plugin::playFailSound);
+        this.completeTaskBtn.addAction("Disabled", this::playFailSound);
     }
 
     public void enableCompleteTask() {
@@ -354,4 +352,16 @@ public class TaskDashboard extends UIPage {
         this.syncBtn.getWidget().revalidate();
         this.percentCompletion.getWidget().revalidate();
     }
+
+	private int getCenterX(Widget window, int width) {
+		return (window.getWidth() / 2) - (width / 2);
+	}
+
+	private int getCenterY(Widget window, int height) {
+		return (window.getHeight() / 2) - (height / 2);
+	}
+
+	private void playFailSound() {
+		client.playSoundEffect(2277);
+	}
 }

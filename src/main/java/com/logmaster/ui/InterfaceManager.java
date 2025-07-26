@@ -13,15 +13,23 @@ import com.logmaster.ui.component.TaskList;
 import com.logmaster.ui.generic.UICheckBox;
 import com.logmaster.ui.generic.dropdown.UIDropdown;
 import com.logmaster.ui.generic.dropdown.UIDropdownOption;
+import com.logmaster.util.EventBusSubscriber;
 import com.logmaster.util.FileUtils;
 import net.runelite.api.Client;
 import net.runelite.api.SoundEffectID;
+import net.runelite.api.events.GameTick;
+import net.runelite.api.events.ScriptPostFired;
+import net.runelite.api.events.WidgetClosed;
+import net.runelite.api.events.WidgetLoaded;
 import net.runelite.api.gameval.InterfaceID;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetType;
 import net.runelite.client.callback.ClientThread;
+import net.runelite.client.eventbus.Subscribe;
+import net.runelite.client.events.ConfigChanged;
 import net.runelite.client.game.SpriteManager;
 import net.runelite.client.input.MouseListener;
+import net.runelite.client.input.MouseManager;
 import net.runelite.client.input.MouseWheelListener;
 
 import javax.inject.Inject;
@@ -30,11 +38,13 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
 import java.util.List;
 
+import static com.logmaster.LogMasterConfig.CONFIG_GROUP;
 import static com.logmaster.ui.InterfaceConstants.DEF_FILE_SPRITES;
 
 @Singleton
-public class InterfaceManager implements MouseListener, MouseWheelListener {
+public class InterfaceManager extends EventBusSubscriber implements MouseListener, MouseWheelListener {
     private static final int COLLECTION_LOG_TAB_DROPDOWN_WIDGET_ID = 40697929;
+    private static final int COLLECTION_LOG_SETUP_SCRIPT_ID = 7797;
 
     @Inject
     private Client client;
@@ -47,6 +57,9 @@ public class InterfaceManager implements MouseListener, MouseWheelListener {
 
     @Inject
     private LogMasterPlugin plugin;
+
+	@Inject
+	private MouseManager mouseManager;
 
     @Inject
     private SpriteManager spriteManager;
@@ -67,31 +80,54 @@ public class InterfaceManager implements MouseListener, MouseWheelListener {
     private UICheckBox taskDashboardCheckbox;
     private UIDropdown dropdown;
 
-    public void initialise() {
+    public void startUp() {
+        super.startUp();
+
+        mouseManager.registerMouseListener(this);
+        mouseManager.registerMouseWheelListener(this);
+
         SpriteDefinition[] spriteDefinitions = FileUtils.loadDefinitionResource(SpriteDefinition[].class, DEF_FILE_SPRITES);
         this.spriteManager.addSpriteOverrides(spriteDefinitions);
     }
 
-    public void updateAfterConfigChange() {
-        if (this.taskDashboard != null && isTaskDashboardEnabled()) {
-            if (tabManager != null) {
-                tabManager.updateTabs();
-            }
+    public void shutDown() {
+        super.shutDown();
+
+        mouseManager.unregisterMouseListener(this);
+        mouseManager.unregisterMouseWheelListener(this);
+    }
+
+	@Subscribe
+	public void onConfigChanged(ConfigChanged e) {
+        if (!e.getGroup().equals(CONFIG_GROUP)) {
+			return;
+		}
+
+        if (this.taskDashboard == null || !isTaskDashboardEnabled()) {
+            return;
+        }
+
+        if (tabManager != null) {
+            tabManager.updateTabs();
 
             List<TaskTier> visibleTiers = taskService.getVisibleTiers();
             TaskTier activeTier = plugin.getSelectedTier();
             if (activeTier != null && visibleTiers.contains(activeTier)) {
-                if (tabManager != null) {
-                    tabManager.activateTaskDashboard();
-                }
+                tabManager.activateTaskDashboard();
             }
-            this.taskDashboard.updatePercentages();
         }
-    }
 
-    public void handleCollectionLogOpen() {
+        this.taskDashboard.updatePercentages();
+	}
+
+	@Subscribe
+	public void onWidgetLoaded(WidgetLoaded e) {
+		if (e.getGroupId() != InterfaceID.COLLECTION) {
+			return;
+		}
+
         Widget window = client.getWidget(InterfaceID.Collection.CONTENT);
-        
+
         createTaskDashboard(window);
         createTaskList(window);
         createTabManager(window);
@@ -99,28 +135,35 @@ public class InterfaceManager implements MouseListener, MouseWheelListener {
 
         this.tabManager.updateTabs();
         this.taskDashboard.setVisibility(false);
-    }
+	}
 
-    public void handleCollectionLogClose() {
+	@Subscribe
+	public void onWidgetClosed(WidgetClosed e) {
+		if (e.getGroupId() != InterfaceID.COLLECTION) {
+			return;
+		}
+
         this.taskDashboard.setVisibility(false);
         this.taskList.setVisibility(false);
         tabManager.hideTabs();
-    }
+	}
 
-    public void handleCollectionLogScriptRan() {
+	@Subscribe
+	public void onScriptPostFired(ScriptPostFired scriptPostFired) {
+		if (scriptPostFired.getScriptId() != COLLECTION_LOG_SETUP_SCRIPT_ID) {
+			return;
+		}
+
         if (this.dropdown != null) {
             this.dropdown.cleanup();
             this.dropdown = null;
         }
 
         createTaskDropdownOption();
-    }
+	}
 
-    public boolean isDashboardOpen() {
-        return this.taskDashboard != null && this.taskDashboard.isVisible();
-    }
-
-    public void updateTaskListBounds() {
+	@Subscribe
+	public void onGameTick(GameTick e) {
         if (this.taskList != null) {
             taskList.updateBounds();
         }
@@ -136,28 +179,32 @@ public class InterfaceManager implements MouseListener, MouseWheelListener {
                 taskDashboardCheckbox.alignToRightEdge(window, 35, 10);
             }
         }
+	}
+
+    public boolean isDashboardOpen() {
+        return this.taskDashboard != null && this.taskDashboard.isVisible();
     }
 
     public void handleMouseWheel(MouseWheelEvent event) {
-        if(this.taskList != null) {
+        if (this.taskList != null) {
             taskList.handleWheel(event);
         }
     }
 
     public void handleMousePress(int mouseX, int mouseY) {
-        if(this.taskList != null && this.taskList.isVisible()) {
+        if (this.taskList != null && this.taskList.isVisible()) {
             taskList.handleMousePress(mouseX, mouseY);
         }
     }
 
     public void handleMouseDrag(int mouseX, int mouseY) {
-        if(this.taskList != null && this.taskList.isVisible()) {
+        if (this.taskList != null && this.taskList.isVisible()) {
             taskList.handleMouseDrag(mouseX, mouseY);
         }
     }
 
     public void handleMouseRelease() {
-        if(this.taskList != null) {
+        if (this.taskList != null) {
             taskList.handleMouseRelease();
         }
     }

@@ -13,17 +13,8 @@ import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
 import net.runelite.api.SoundEffectID;
-import net.runelite.api.events.GameTick;
-import net.runelite.api.events.ScriptPostFired;
-import net.runelite.api.events.WidgetClosed;
-import net.runelite.api.events.WidgetLoaded;
-import net.runelite.api.gameval.InterfaceID;
-import net.runelite.api.widgets.Widget;
 import net.runelite.client.config.ConfigManager;
-import net.runelite.client.eventbus.Subscribe;
-import net.runelite.client.events.ConfigChanged;
 import net.runelite.client.game.ItemManager;
-import net.runelite.client.input.MouseManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
@@ -31,27 +22,15 @@ import net.runelite.client.util.LinkBrowser;
 
 import javax.inject.Inject;
 
-import java.util.List;
-
-import static com.logmaster.LogMasterConfig.CONFIG_GROUP;
-
 @Slf4j
 @PluginDescriptor(name = "Collection Log Master")
 public class LogMasterPlugin extends Plugin {
-    private static final int COLLECTION_LOG_SETUP_SCRIPT_ID = 7797;
-
 	@Inject
 	@SuppressWarnings("unused")
 	private GsonOverride gsonOverride;
 
 	@Inject
 	private Client client;
-
-	@Inject
-	private LogMasterConfig config;
-
-	@Inject
-	private MouseManager mouseManager;
 
 	@Inject
 	protected TaskOverlay taskOverlay;
@@ -85,10 +64,7 @@ public class LogMasterPlugin extends Plugin {
 		taskService.startUp();
 		collectionLogService.startUp();
 		pluginUpdateNotifier.startUp();
-
-		mouseManager.registerMouseWheelListener(interfaceManager);
-		mouseManager.registerMouseListener(interfaceManager);
-		interfaceManager.initialise();
+		interfaceManager.startUp();
 		this.taskOverlay.setResizable(true);
 		this.overlayManager.add(this.taskOverlay);
 	}
@@ -98,44 +74,12 @@ public class LogMasterPlugin extends Plugin {
 		taskService.shutDown();
 		collectionLogService.shutDown();
 		pluginUpdateNotifier.shutDown();
-
-		mouseManager.unregisterMouseWheelListener(interfaceManager);
-		mouseManager.unregisterMouseListener(interfaceManager);
 		this.overlayManager.remove(this.taskOverlay);
 	}
 
-	@Subscribe
-	public void onConfigChanged(ConfigChanged event) {
-		if (!event.getGroup().equals(CONFIG_GROUP)) {
-			return;
-		}
-		interfaceManager.updateAfterConfigChange();
-	}
-
-	@Subscribe
-	public void onWidgetLoaded(WidgetLoaded e) {
-		if (e.getGroupId() == InterfaceID.COLLECTION) {
-			interfaceManager.handleCollectionLogOpen();
-		}
-	}
-
-	@Subscribe
-	public void onWidgetClosed(WidgetClosed e) {
-		if (e.getGroupId() == InterfaceID.COLLECTION) {
-			interfaceManager.handleCollectionLogClose();
-		}
-	}
-
-	@Subscribe
-	public void onScriptPostFired(ScriptPostFired scriptPostFired) {
-		if (scriptPostFired.getScriptId() == COLLECTION_LOG_SETUP_SCRIPT_ID) {
-			interfaceManager.handleCollectionLogScriptRan();
-		}
-	}
-
-	@Subscribe
-	public void onGameTick(GameTick event) {
-		interfaceManager.updateTaskListBounds();
+	@Provides
+	LogMasterConfig provideConfig(ConfigManager configManager) {
+		return configManager.getConfig(LogMasterConfig.class);
 	}
 
 	public void completeTask() {
@@ -158,24 +102,6 @@ public class LogMasterPlugin extends Plugin {
 		}
 
 		interfaceManager.completeTask();
-	}
-
-	public static int getCenterX(Widget window, int width) {
-		return (window.getWidth() / 2) - (width / 2);
-	}
-
-	public static int getCenterY(Widget window, int height) {
-		return (window.getHeight() / 2) - (height / 2);
-	}
-
-	public void playFailSound() {
-		client.playSoundEffect(2277);
-	}
-
-	@Provides
-	LogMasterConfig provideConfig(ConfigManager configManager)
-	{
-		return configManager.getConfig(LogMasterConfig.class);
 	}
 
 	public void visitFaq() {
