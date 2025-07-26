@@ -22,10 +22,8 @@ import static com.logmaster.LogMasterConfig.PLUGIN_VERSION_KEY;
 @Slf4j
 @Singleton
 public class PluginUpdateNotifier extends EventBusSubscriber {
-    private static final String PLUGIN_VERSION_TOKEN = "%PLUGIN_VERSION%";
-
     private static final String[] UPDATE_MESSAGES = {
-            "<colHIGHLIGHT>Collection Log Master updated to v" + PLUGIN_VERSION_TOKEN,
+            "<colHIGHLIGHT>Collection Log Master updated to v" + getPluginVersion(),
             "<colHIGHLIGHT>- Added task synchronization",
             "<colHIGHLIGHT>- Added dynamic task image config option"
     };
@@ -36,21 +34,21 @@ public class PluginUpdateNotifier extends EventBusSubscriber {
     @Inject
     ChatMessageManager chatMessageManager;
 
-    @Subscribe
-    public void onGameStateChanged(GameStateChanged gameStateChanged) {
-        GameState gameState = gameStateChanged.getGameState();
-        if (gameState == GameState.LOGGED_IN) {
-            checkUpdate();
-        }
-    }
-
-    private String getPluginVersion() {
+    private static String getPluginVersion() {
         try (InputStream is = LogMasterPlugin.class.getResourceAsStream("version")) {
             assert is != null;
             return new String(is.readAllBytes(), StandardCharsets.UTF_8)
                     .replace("-SNAPSHOT", "");
         } catch (IOException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    @Subscribe
+    public void onGameStateChanged(GameStateChanged gameStateChanged) {
+        GameState gameState = gameStateChanged.getGameState();
+        if (gameState == GameState.LOGGED_IN) {
+            checkUpdate();
         }
     }
 
@@ -62,15 +60,15 @@ public class PluginUpdateNotifier extends EventBusSubscriber {
         //noinspection ConstantValue
         if (isDebug || !curVersion.equals(lastVersion)) {
             configManager.setRSProfileConfiguration(CONFIG_GROUP, PLUGIN_VERSION_KEY, curVersion);
-            notifyUpdate(curVersion);
+            notifyUpdate();
         }
     }
 
     @SuppressWarnings("ConstantConditions")
-    private void notifyUpdate(String curVersion) {
+    private void notifyUpdate() {
         if (UPDATE_MESSAGES == null) return;
 
-        String replacedMessage = String.join("<br>", UPDATE_MESSAGES).replace(PLUGIN_VERSION_TOKEN, curVersion);
+        String replacedMessage = String.join("<br>", UPDATE_MESSAGES);
         chatMessageManager.queue(
                 QueuedMessage.builder()
                         .type(ChatMessageType.CONSOLE)
