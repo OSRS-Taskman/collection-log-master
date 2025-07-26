@@ -24,10 +24,11 @@ import static com.logmaster.LogMasterConfig.PLUGIN_VERSION_KEY;
 public class PluginUpdateNotifier {
     private static final String PLUGIN_VERSION_TOKEN = "%PLUGIN_VERSION%";
 
-    private static final String UPDATE_MESSAGE =
-            "<colHIGHLIGHT>Collection Log Master updated to v" + PLUGIN_VERSION_TOKEN + "<br>"
-            + "<colHIGHLIGHT>- Added task synchronization"
-            + "<colHIGHLIGHT>- Added dynamic task image config option";
+    private static final String[] UPDATE_MESSAGES = {
+            "<colHIGHLIGHT>Collection Log Master updated to v" + PLUGIN_VERSION_TOKEN,
+            "<colHIGHLIGHT>- Added task synchronization",
+            "<colHIGHLIGHT>- Added dynamic task image config option"
+    };
 
     @Inject
     EventBus eventBus;
@@ -65,10 +66,12 @@ public class PluginUpdateNotifier {
     }
 
     private void checkUpdate() {
+        boolean isDebug = false;
         String curVersion = getPluginVersion();
         String lastVersion = configManager.getRSProfileConfiguration(CONFIG_GROUP, PLUGIN_VERSION_KEY);
 
-        if (!curVersion.equals(lastVersion)) {
+        //noinspection ConstantValue
+        if (isDebug || !curVersion.equals(lastVersion)) {
             configManager.setRSProfileConfiguration(CONFIG_GROUP, PLUGIN_VERSION_KEY, curVersion);
             notifyUpdate(curVersion);
         }
@@ -76,9 +79,9 @@ public class PluginUpdateNotifier {
 
     @SuppressWarnings("ConstantConditions")
     private void notifyUpdate(String curVersion) {
-        if (UPDATE_MESSAGE == null) return;
+        if (UPDATE_MESSAGES == null) return;
 
-        String replacedMessage = UPDATE_MESSAGE.replace(PLUGIN_VERSION_TOKEN, curVersion);
+        String replacedMessage = String.join("<br>", UPDATE_MESSAGES).replace(PLUGIN_VERSION_TOKEN, curVersion);
         chatMessageManager.queue(
                 QueuedMessage.builder()
                         .type(ChatMessageType.CONSOLE)
