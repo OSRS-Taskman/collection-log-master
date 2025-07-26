@@ -47,9 +47,11 @@ public class SaveDataStorage extends EventBusSubscriber {
         switch (state) {
             case LOGGED_IN:
                 load();
+                break;
 
             case LOGIN_SCREEN:
                 saveImmediately();
+                break;
         }
     }
 
