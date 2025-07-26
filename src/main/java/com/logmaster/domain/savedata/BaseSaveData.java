@@ -1,4 +1,4 @@
-package com.logmaster.domain;
+package com.logmaster.domain.savedata;
 
 import lombok.Getter;
 import lombok.ToString;

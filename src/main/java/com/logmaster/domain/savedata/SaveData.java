@@ -1,5 +1,7 @@
-package com.logmaster.domain;
+package com.logmaster.domain.savedata;
 
+import com.logmaster.domain.TaskPointer;
+import com.logmaster.domain.TaskTier;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

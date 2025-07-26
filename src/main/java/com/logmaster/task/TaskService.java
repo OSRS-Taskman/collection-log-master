@@ -2,6 +2,7 @@ package com.logmaster.task;
 
 import com.logmaster.LogMasterConfig;
 import com.logmaster.domain.*;
+import com.logmaster.domain.savedata.SaveData;
 import com.logmaster.domain.verification.clog.CollectionLogVerification;
 import com.logmaster.util.EventBusSubscriber;
 import lombok.NonNull;

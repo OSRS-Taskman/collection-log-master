@@ -1,4 +1,4 @@
-package com.logmaster.domain.old;
+package com.logmaster.domain.savedata.v0;
 
 import com.logmaster.domain.TaskTier;
 import lombok.Getter;
@@ -7,8 +7,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Deprecated
-public class OldTaskPointer {
+public class V0TaskPointer {
 
     private TaskTier taskTier;
-    private OldTask task;
+    private V0Task task;
 }

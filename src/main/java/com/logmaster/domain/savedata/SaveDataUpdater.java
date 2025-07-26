@@ -2,9 +2,9 @@ package com.logmaster.domain.savedata;
 
 import com.google.gson.reflect.TypeToken;
 import com.logmaster.domain.*;
-import com.logmaster.domain.old.OldSaveData;
-import com.logmaster.domain.old.OldTask;
-import com.logmaster.domain.old.OldTaskPointer;
+import com.logmaster.domain.savedata.v0.V0SaveData;
+import com.logmaster.domain.savedata.v0.V0Task;
+import com.logmaster.domain.savedata.v0.V0TaskPointer;
 import com.logmaster.util.FileUtils;
 import lombok.extern.slf4j.Slf4j;
 
@@ -25,44 +25,44 @@ public class SaveDataUpdater {
             return new SaveData();
         }
 
-        if (base.getVersion() == OldSaveData.VERSION) {
-            OldSaveData old = GSON.fromJson(json, OldSaveData.class);
-            return update(old);
+        if (base.getVersion() == V0SaveData.VERSION) {
+            V0SaveData v0Save = GSON.fromJson(json, V0SaveData.class);
+            return update(v0Save);
         }
 
         return GSON.fromJson(json, SaveData.class);
     }
 
-    private static SaveData update(OldSaveData old) {
-        SaveData updated = new SaveData();
+    private static SaveData update(V0SaveData v0Save) {
+        SaveData newSave = new SaveData();
 
         Type mapType = new TypeToken<Map<TaskTier, Map<Integer, String>>>() {}.getType();
         Map<TaskTier, Map<Integer, String>> v0MigrationData =
                 FileUtils.loadResource("domain/savedata/v0-migration.json", mapType);;
 
-        Map<TaskTier, Set<Integer>> oldProgress = old.getProgress();
-        Map<TaskTier, Set<String>> newProgress = updated.getProgress();
+        Map<TaskTier, Set<Integer>> v0Progress = v0Save.getProgress();
+        Map<TaskTier, Set<String>> newProgress = newSave.getProgress();
 
         for (TaskTier tier : TaskTier.values()) {
-            Set<Integer> oldTierData = oldProgress.get(tier);
+            Set<Integer> v0TierData = v0Progress.get(tier);
             Set<String> newTierData = newProgress.get(tier);
             Map<Integer, String> tierMigrationData = v0MigrationData.get(tier);
 
-            for (Integer oldTaskId : oldTierData) {
-                if (tierMigrationData.containsKey(oldTaskId)) {
-                    newTierData.add(tierMigrationData.get(oldTaskId));
+            for (Integer v0TaskId : v0TierData) {
+                if (tierMigrationData.containsKey(v0TaskId)) {
+                    newTierData.add(tierMigrationData.get(v0TaskId));
                 }
             }
         }
 
-        OldTaskPointer oldTaskPointer = old.getActiveTaskPointer();
-        if (oldTaskPointer != null) {
-            OldTask oldTask = oldTaskPointer.getTask();
-            String newTaskId = v0MigrationData.get(oldTaskPointer.getTaskTier()).get(oldTask.getId());
-            Task newTask = new Task(newTaskId, oldTask.getDescription(), oldTask.getItemID(), null);
-            updated.setActiveTaskPointer(new TaskPointer(oldTaskPointer.getTaskTier(), newTask));
+        V0TaskPointer v0TaskPointer = v0Save.getActiveTaskPointer();
+        if (v0TaskPointer != null) {
+            V0Task v0Task = v0TaskPointer.getTask();
+            String newTaskId = v0MigrationData.get(v0TaskPointer.getTaskTier()).get(v0Task.getId());
+            Task newTask = new Task(newTaskId, v0Task.getDescription(), v0Task.getItemID(), null);
+            newSave.setActiveTaskPointer(new TaskPointer(v0TaskPointer.getTaskTier(), newTask));
         }
 
-        return updated;
+        return newSave;
     }
 }

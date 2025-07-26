@@ -1,7 +1,7 @@
 package com.logmaster.task;
 
 import com.google.gson.JsonSyntaxException;
-import com.logmaster.domain.*;
+import com.logmaster.domain.savedata.SaveData;
 import com.logmaster.domain.savedata.SaveDataUpdater;
 import com.logmaster.util.EventBusSubscriber;
 import io.github.bhowell2.debouncer.Debouncer;
