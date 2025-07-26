@@ -158,7 +158,7 @@ public class TaskService extends EventBusSubscriber {
         tierProgress.add(taskId);
 
         Task activeTask = getActiveTask();
-        if (taskId.equals(activeTask.getId())) {
+        if (activeTask != null && taskId.equals(activeTask.getId())) {
             data.setActiveTaskPointer(null);
         }
 
