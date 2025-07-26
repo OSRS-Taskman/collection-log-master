@@ -26,7 +26,8 @@ public class PluginUpdateNotifier {
 
     private static final String UPDATE_MESSAGE =
             "<colHIGHLIGHT>Collection Log Master updated to v" + PLUGIN_VERSION_TOKEN + "<br>"
-            + "<colHIGHLIGHT>- Added task synchronization";
+            + "<colHIGHLIGHT>- Added task synchronization"
+            + "<colHIGHLIGHT>- Added dynamic task image config option";
 
     @Inject
     EventBus eventBus;
