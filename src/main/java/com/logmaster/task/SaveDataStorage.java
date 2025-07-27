@@ -39,6 +39,12 @@ public class SaveDataStorage extends EventBusSubscriber {
 
     private SaveData data;
 
+    @Override
+    public void startUp() {
+        super.startUp();
+        load();
+    }
+
     @Subscribe
     public void onGameStateChanged(GameStateChanged e) {
         GameState state = e.getGameState();
