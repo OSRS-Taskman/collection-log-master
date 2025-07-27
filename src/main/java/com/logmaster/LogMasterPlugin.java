@@ -10,6 +10,7 @@ import com.logmaster.synchronization.clog.CollectionLogService;
 import com.logmaster.task.TaskService;
 import com.logmaster.ui.InterfaceManager;
 import com.logmaster.ui.component.TaskOverlay;
+import com.logmaster.util.GsonOverride;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
@@ -38,6 +39,10 @@ import java.util.stream.Stream;
 @PluginDescriptor(name = "Collection Log Master")
 public class LogMasterPlugin extends Plugin {
     private static final int COLLECTION_LOG_SETUP_SCRIPT_ID = 7797;
+
+	@Inject
+	@SuppressWarnings("unused")
+	private GsonOverride gsonOverride;
 
 	@Inject
 	private Client client;

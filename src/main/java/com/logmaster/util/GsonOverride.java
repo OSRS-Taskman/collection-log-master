@@ -12,6 +12,7 @@ import net.runelite.api.Skill;
 import net.runelite.http.api.gson.ColorTypeAdapter;
 import net.runelite.http.api.gson.InstantTypeAdapter;
 
+import javax.inject.Inject;
 import java.awt.*;
 import java.time.Instant;
 
@@ -19,10 +20,11 @@ public class GsonOverride {
     /**
      * Custom Gson instance capable of parsing additional types.
      */
-    public static final Gson GSON;
+    public static Gson GSON;
 
-    static {
-        GsonBuilder gsonBuilder = net.runelite.http.api.RuneLiteAPI.GSON.newBuilder()
+    @Inject
+    public GsonOverride(Gson originalGson) {
+        GsonBuilder gsonBuilder = originalGson.newBuilder()
                 .registerTypeAdapter(Verification.class, new VerificationAdapter())
                 .registerTypeAdapter(VerificationMethod.class, new EnumAdapter<>(VerificationMethod.class))
                 .registerTypeAdapter(DiaryRegion.class, new EnumAdapter<>(DiaryRegion.class))
