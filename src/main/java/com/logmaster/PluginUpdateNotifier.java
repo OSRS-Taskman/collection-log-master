@@ -24,7 +24,9 @@ import static com.logmaster.LogMasterConfig.PLUGIN_VERSION_KEY;
 public class PluginUpdateNotifier extends EventBusSubscriber {
     private static final String[] UPDATE_MESSAGES = {
             "<colHIGHLIGHT>Collection Log Master updated to v" + getPluginVersion(),
+            "<colHIGHLIGHT>- Deprecated checkbox to open the dashboard; use the hamburger menu now",
             "<colHIGHLIGHT>- Major performance improvements",
+            "<colHIGHLIGHT>- Fixed conflict with RuneProfile",
     };
 
     @Inject
