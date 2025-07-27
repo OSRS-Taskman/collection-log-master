@@ -11,8 +11,6 @@ public interface LogMasterConfig extends Config
 {
     String CONFIG_GROUP = "log-master";
 
-    String SAVE_DATA_KEY = "save-data";
-
     String PLUGIN_VERSION_KEY = "plugin-version";
 
     @Range(

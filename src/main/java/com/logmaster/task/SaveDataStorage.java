@@ -1,6 +1,7 @@
 package com.logmaster.task;
 
 import com.google.gson.JsonSyntaxException;
+import com.logmaster.domain.savedata.BaseSaveData;
 import com.logmaster.domain.savedata.SaveData;
 import com.logmaster.domain.savedata.SaveDataUpdater;
 import com.logmaster.util.EventBusSubscriber;
@@ -17,7 +18,6 @@ import javax.inject.Singleton;
 import java.util.concurrent.TimeUnit;
 
 import static com.logmaster.LogMasterConfig.CONFIG_GROUP;
-import static com.logmaster.LogMasterConfig.SAVE_DATA_KEY;
 import static com.logmaster.util.GsonOverride.GSON;
 
 @Singleton
@@ -25,8 +25,15 @@ import static com.logmaster.util.GsonOverride.GSON;
 public class SaveDataStorage extends EventBusSubscriber {
     public static final int SAVE_DEBOUNCE_INTERVAL = 500;
 
+    public static final String SAVE_DATA_KEY = "save-data";
+
+    public static final String SAVE_DATA_BACKUP_KEY_BASE = "save-data-bk";
+
     @Inject
     private ConfigManager configManager;
+
+    @Inject
+    private SaveDataUpdater saveDataUpdater;
 
     private final Debouncer<String> saveDebouncer = new Debouncer<>(1);
 
@@ -61,7 +68,16 @@ public class SaveDataStorage extends EventBusSubscriber {
 
     public void saveImmediately() {
         String json = GSON.toJson(data);
-        this.configManager.setRSProfileConfiguration(CONFIG_GROUP, SAVE_DATA_KEY, json);
+        configManager.setRSProfileConfiguration(CONFIG_GROUP, SAVE_DATA_KEY, json);
+    }
+
+    public void saveBackup(BaseSaveData data) {
+        String json = GSON.toJson(data);
+        configManager.setRSProfileConfiguration(
+                CONFIG_GROUP,
+                SAVE_DATA_BACKUP_KEY_BASE + data.getVersion(),
+                json
+        );
     }
 
     private void load() {
@@ -69,13 +85,13 @@ public class SaveDataStorage extends EventBusSubscriber {
     }
 
     private @NonNull SaveData read() {
-        String json = this.configManager.getRSProfileConfiguration(CONFIG_GROUP, SAVE_DATA_KEY);
+        String json = configManager.getRSProfileConfiguration(CONFIG_GROUP, SAVE_DATA_KEY);
         if (json == null) {
             return new SaveData();
         }
 
         try {
-            return SaveDataUpdater.update(json);
+            return saveDataUpdater.update(json);
         } catch (JsonSyntaxException e) {
             log.error("Unable to parse save data JSON", e);
         }

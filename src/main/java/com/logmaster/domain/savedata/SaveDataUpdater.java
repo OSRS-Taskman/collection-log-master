@@ -8,9 +8,11 @@ import com.logmaster.domain.savedata.v0.V0Task;
 import com.logmaster.domain.savedata.v0.V0TaskPointer;
 import com.logmaster.domain.savedata.v1.V1SaveData;
 import com.logmaster.domain.savedata.v1.V1TaskPointer;
+import com.logmaster.task.SaveDataStorage;
 import com.logmaster.util.FileUtils;
 import lombok.extern.slf4j.Slf4j;
 
+import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.lang.reflect.Type;
 import java.util.Map;
@@ -23,7 +25,10 @@ import static com.logmaster.util.GsonOverride.GSON;
 @Slf4j
 @SuppressWarnings("deprecation")
 public class SaveDataUpdater {
-    public static SaveData update(String json) {
+    @Inject
+    private SaveDataStorage saveDataStorage;
+
+    public SaveData update(String json) {
         BaseSaveData base = GSON.fromJson(json, BaseSaveData.class);
         if (base == null) {
             return new SaveData();
@@ -42,7 +47,8 @@ public class SaveDataUpdater {
         return GSON.fromJson(json, SaveData.class);
     }
 
-    private static SaveData update(V1SaveData v1Save) {
+    private SaveData update(V1SaveData v1Save) {
+        saveDataStorage.saveBackup(v1Save);
         SaveData newSave = new SaveData();
 
         V1TaskPointer v1ActiveTaskPointer = v1Save.getActiveTaskPointer();
@@ -60,7 +66,8 @@ public class SaveDataUpdater {
         return newSave;
     }
 
-    private static V1SaveData update(V0SaveData v0Save) {
+    private V1SaveData update(V0SaveData v0Save) {
+        saveDataStorage.saveBackup(v0Save);
         V1SaveData newSave = new V1SaveData();
 
         Type mapType = new TypeToken<Map<TaskTier, Map<Integer, String>>>() {}.getType();
