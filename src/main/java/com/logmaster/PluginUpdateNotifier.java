@@ -23,7 +23,8 @@ import static com.logmaster.LogMasterConfig.PLUGIN_VERSION_KEY;
 @Singleton
 public class PluginUpdateNotifier extends EventBusSubscriber {
     private static final String[] UPDATE_MESSAGES = {
-            "<colHIGHLIGHT>Collection Log Master updated to v" + getPluginVersion()
+            "<colHIGHLIGHT>Collection Log Master updated to v" + getPluginVersion(),
+            "<colHIGHLIGHT>- Major performance improvements",
     };
 
     @Inject
