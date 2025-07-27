@@ -79,8 +79,6 @@ public class BurgerMenuManager extends EventBusSubscriber {
 
         this.selected = selected;
         restyleOptions();
-        menu.setHidden(true)
-                .revalidate();
 
         if (this.onSelectChangedListener != null) {
             this.onSelectChangedListener.run();
@@ -156,7 +154,10 @@ public class BurgerMenuManager extends EventBusSubscriber {
             ourText.setOnMouseOverListener((JavaScriptCallback) ev -> { if (!selected) ourText.setTextColor(TEXT_COLOR_HOVER); });
             ourText.setOnMouseLeaveListener((JavaScriptCallback) ev -> { if (!selected) ourText.setTextColor(TEXT_COLOR); });
             ourText.setAction(0, ACTION_TEXT);
-            ourText.setOnOpListener((JavaScriptCallback) ev -> setSelected(true));
+            ourText.setOnOpListener((JavaScriptCallback) ev -> {
+                setSelected(true);
+                hideMenu();
+            });
             ourText.revalidate();
         }
 
@@ -179,7 +180,17 @@ public class BurgerMenuManager extends EventBusSubscriber {
         firstText.setOnMouseOverListener((JavaScriptCallback) ev -> { if (selected) firstText.setTextColor(TEXT_COLOR_HOVER); });
         firstText.setOnMouseLeaveListener((JavaScriptCallback) ev -> { if (selected) firstText.setTextColor(TEXT_COLOR); });
         firstText.setAction(0, firstText.getText());
-        firstText.setOnOpListener((JavaScriptCallback) ev -> setSelected(false));
+        firstText.setOnOpListener((JavaScriptCallback) ev -> {
+            setSelected(false);
+            hideMenu();
+        });
+    }
+
+    private void hideMenu() {
+        if (menu != null) {
+            menu.setHidden(true)
+                .revalidate();
+        }
     }
 
     private static Widget getFirstWidgetOfType(List<Widget> menuChildren, int widgetType) {
