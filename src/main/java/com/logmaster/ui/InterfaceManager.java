@@ -14,6 +14,7 @@ import com.logmaster.ui.component.TaskList;
 import com.logmaster.ui.generic.UICheckBox;
 import com.logmaster.util.EventBusSubscriber;
 import com.logmaster.util.FileUtils;
+import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
 import net.runelite.api.SoundEffectID;
 import net.runelite.api.events.GameTick;
@@ -75,6 +76,8 @@ public class InterfaceManager extends EventBusSubscriber implements MouseListene
     private TaskList taskList;
     private TabManager tabManager;
     private UICheckBox taskDashboardCheckbox;
+
+    private boolean checkboxDeprecationWarned = false;
 
     public void startUp() {
         super.startUp();
@@ -267,11 +270,19 @@ public class InterfaceManager extends EventBusSubscriber implements MouseListene
             taskDashboardCheckbox.setEnabled(false);
             taskDashboardCheckbox.setText("Task Dashboard");
             labelWidget.setPos(375, 10);
-                    
 
-            taskDashboardCheckbox.setToggleListener(
-                    (UICheckBox src) -> this.burgerMenuManager.setSelected(taskDashboardCheckbox.isEnabled())
-            );
+
+            taskDashboardCheckbox.setToggleListener((UICheckBox src) -> {
+                if (!checkboxDeprecationWarned) {
+                    checkboxDeprecationWarned = true;
+                    String msg = "<col=ff392b>Please use the hamburger menu on the top-left corner to open the task dashboard;"
+                            + " this checkbox will be removed in the future";
+                    client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", msg, "");
+                    client.playSoundEffect(2277);
+                }
+
+                this.burgerMenuManager.setSelected(taskDashboardCheckbox.isEnabled());
+            });
         }
     }
 
