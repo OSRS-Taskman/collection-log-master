@@ -74,6 +74,7 @@ public class LogMasterPlugin extends Plugin {
 		taskService.shutDown();
 		collectionLogService.shutDown();
 		pluginUpdateNotifier.shutDown();
+		interfaceManager.shutDown();
 		this.overlayManager.remove(this.taskOverlay);
 	}
 
