@@ -59,8 +59,7 @@ public class LogMasterPlugin extends Plugin {
 	private TaskTier selectedTier;
 
 	@Override
-	protected void startUp()
-	{
+	protected void startUp() {
 		taskService.startUp();
 		collectionLogService.startUp();
 		pluginUpdateNotifier.startUp();
