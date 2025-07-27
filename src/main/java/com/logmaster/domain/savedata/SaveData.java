@@ -1,33 +1,25 @@
 package com.logmaster.domain.savedata;
 
-import com.logmaster.domain.TaskPointer;
-import com.logmaster.domain.TaskTier;
+import com.logmaster.domain.Task;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 import javax.annotation.Nullable;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 @Getter
 @ToString
 public class SaveData extends BaseSaveData {
-    public final static int VERSION = 1;
+    public final static int VERSION = 2;
 
     public SaveData() {
         this.version = VERSION;
-        this.progress = new HashMap<>();
-
-        for (TaskTier tier : TaskTier.values()) {
-            this.progress.put(tier, new HashSet<>());
-        }
     }
 
-    private final Map<TaskTier, Set<String>> progress;
+    private final Set<String> completedTasks = new HashSet<>();
 
     @Setter
-    private @Nullable TaskPointer activeTaskPointer;
+    private @Nullable Task activeTask = null;
 }

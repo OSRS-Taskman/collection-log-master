@@ -1,5 +1,7 @@
-package com.logmaster.domain;
+package com.logmaster.domain.savedata.v1;
 
+import com.logmaster.domain.Task;
+import com.logmaster.domain.TaskTier;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,7 +9,8 @@ import lombok.NoArgsConstructor;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class TaskPointer {
+@Deprecated
+public class V1TaskPointer {
     private TaskTier taskTier;
     private Task task;
 }

@@ -1,4 +1,4 @@
-package com.logmaster.domain.savedata.v0;
+package com.logmaster.domain.savedata.v1;
 
 import com.logmaster.domain.TaskTier;
 import com.logmaster.domain.savedata.BaseSaveData;
@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import javax.annotation.Nullable;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -14,10 +15,11 @@ import java.util.Set;
 @Getter
 @ToString
 @Deprecated
-public class V0SaveData extends BaseSaveData {
-    public final static Integer VERSION = null;
+public class V1SaveData extends BaseSaveData {
+    public final static int VERSION = 1;
 
-    public V0SaveData() {
+    public V1SaveData() {
+        this.version = VERSION;
         this.progress = new HashMap<>();
 
         for (TaskTier tier : TaskTier.values()) {
@@ -25,11 +27,8 @@ public class V0SaveData extends BaseSaveData {
         }
     }
 
-    private final Map<TaskTier, Set<Integer>> progress;
+    private final Map<TaskTier, Set<String>> progress;
 
     @Setter
-    private V0TaskPointer activeTaskPointer;
-
-    @Setter
-    private TaskTier selectedTier;
+    private @Nullable V1TaskPointer activeTaskPointer;
 }

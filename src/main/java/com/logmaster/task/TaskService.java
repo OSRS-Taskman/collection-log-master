@@ -1,7 +1,9 @@
 package com.logmaster.task;
 
 import com.logmaster.LogMasterConfig;
-import com.logmaster.domain.*;
+import com.logmaster.domain.Task;
+import com.logmaster.domain.TaskTier;
+import com.logmaster.domain.TieredTaskList;
 import com.logmaster.domain.savedata.SaveData;
 import com.logmaster.domain.verification.clog.CollectionLogVerification;
 import com.logmaster.util.EventBusSubscriber;
@@ -39,21 +41,7 @@ public class TaskService extends EventBusSubscriber {
     }
 
     public Task getActiveTask() {
-        TaskPointer pointer = saveDataStorage.get().getActiveTaskPointer();
-        if (pointer == null) {
-            return null;
-        }
-
-        return pointer.getTask();
-    }
-
-    public TaskTier getActiveTier() {
-        TaskPointer pointer = saveDataStorage.get().getActiveTaskPointer();
-        if (pointer == null) {
-            return null;
-        }
-
-        return pointer.getTaskTier();
+        return saveDataStorage.get().getActiveTask();
     }
 
     public @NonNull TaskTier getCurrentTier() {
@@ -96,10 +84,7 @@ public class TaskService extends EventBusSubscriber {
     public @NonNull Map<TaskTier, Float> getProgress() {
         SaveData data = saveDataStorage.get();
         TieredTaskList taskList = taskListStorage.get();
-
-        Set<String> completedTasks = data.getProgress().entrySet().stream()
-                .flatMap(entry -> entry.getValue().stream())
-                .collect(Collectors.toSet());
+        Set<String> completedTasks = data.getCompletedTasks();
 
         Map<TaskTier, Float> completionPercentages = new HashMap<>();
         for (TaskTier tier : TaskTier.values()) {
@@ -121,8 +106,8 @@ public class TaskService extends EventBusSubscriber {
     public Task generate() {
         SaveData data = saveDataStorage.get();
 
-        TaskPointer pointer = data.getActiveTaskPointer();
-        if (pointer != null) {
+        Task activeTask = data.getActiveTask();
+        if (activeTask != null) {
             log.warn("Tried to generate task when previous one wasn't completed yet");
             return null;
         }
@@ -137,7 +122,7 @@ public class TaskService extends EventBusSubscriber {
         Task generatedTask = pickRandomTask(incompleteTierTasks);
         log.debug("New task generated: {}", generatedTask);
 
-        data.setActiveTaskPointer(new TaskPointer(currentTier, generatedTask));
+        data.setActiveTask(generatedTask);
         saveDataStorage.save();
 
         return generatedTask;
@@ -154,23 +139,20 @@ public class TaskService extends EventBusSubscriber {
 
     public void complete(String taskId) {
         SaveData data = saveDataStorage.get();
-        var progressMap = data.getProgress();
-        var tierProgress = progressMap.get(getTaskTier(taskId));
-        tierProgress.add(taskId);
+        Set<String> completedTasks = data.getCompletedTasks();
+        completedTasks.add(taskId);
 
         Task activeTask = getActiveTask();
         if (activeTask != null && taskId.equals(activeTask.getId())) {
-            data.setActiveTaskPointer(null);
+            data.setActiveTask(null);
         }
 
         saveDataStorage.save();
     }
 
     public void uncomplete(String taskId) {
-        SaveData data = saveDataStorage.get();
-        var progressMap = data.getProgress();
-        var tierProgress = progressMap.get(getTaskTier(taskId));
-        tierProgress.remove(taskId);
+        Set<String> completedTasks = saveDataStorage.get().getCompletedTasks();
+        completedTasks.remove(taskId);
 
         saveDataStorage.save();
     }
@@ -184,29 +166,9 @@ public class TaskService extends EventBusSubscriber {
     }
 
     public boolean isComplete(String taskId) {
-        SaveData data = saveDataStorage.get();
-        var progressMap = data.getProgress();
-        var tierProgress = progressMap.get(getTaskTier(taskId));
+        Set<String> completedTasks = saveDataStorage.get().getCompletedTasks();
 
-        return tierProgress.contains(taskId);
-    }
-
-    // TODO: this is "slow" but it's in preparation for a future refactor;
-    //  it won't be necessary in the future; we could build a cache if that's an issue
-    private @NonNull TaskTier getTaskTier(String taskId) {
-        TieredTaskList taskList = taskListStorage.get();
-
-        for (TaskTier tier : TaskTier.values()) {
-            List<Task> tierTasks = taskList.getForTier(tier);
-            boolean isTaskInTier = tierTasks.stream().anyMatch(t -> t.getId().equals(taskId));
-
-            if (isTaskInTier) {
-                return tier;
-            }
-        }
-
-        String msg = String.format("Can't retrieve tier for task with id %s", taskId);
-        throw new RuntimeException(msg);
+        return completedTasks.contains(taskId);
     }
 
     private Task pickRandomTask(List<Task> tasks) {
