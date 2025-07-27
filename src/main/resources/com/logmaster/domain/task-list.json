@@ -3263,7 +3263,7 @@
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [ 13640, 13642, 13644, 13646 ],
-				"count": 2
+				"count": 3
 			}
 		},
 		{
@@ -3276,7 +3276,7 @@
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [ 13640, 13642, 13644, 13646 ],
-				"count": 3
+				"count": 4
 			}
 		},
 		{
