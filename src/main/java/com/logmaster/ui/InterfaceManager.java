@@ -7,18 +7,16 @@ import com.logmaster.domain.TaskTier;
 import com.logmaster.synchronization.SyncService;
 import com.logmaster.synchronization.clog.CollectionLogService;
 import com.logmaster.task.TaskService;
+import com.logmaster.ui.component.BurgerMenuManager;
 import com.logmaster.ui.component.TabManager;
 import com.logmaster.ui.component.TaskDashboard;
 import com.logmaster.ui.component.TaskList;
 import com.logmaster.ui.generic.UICheckBox;
-import com.logmaster.ui.generic.dropdown.UIDropdown;
-import com.logmaster.ui.generic.dropdown.UIDropdownOption;
 import com.logmaster.util.EventBusSubscriber;
 import com.logmaster.util.FileUtils;
 import net.runelite.api.Client;
 import net.runelite.api.SoundEffectID;
 import net.runelite.api.events.GameTick;
-import net.runelite.api.events.ScriptPostFired;
 import net.runelite.api.events.WidgetClosed;
 import net.runelite.api.events.WidgetLoaded;
 import net.runelite.api.gameval.InterfaceID;
@@ -43,9 +41,6 @@ import static com.logmaster.ui.InterfaceConstants.DEF_FILE_SPRITES;
 
 @Singleton
 public class InterfaceManager extends EventBusSubscriber implements MouseListener, MouseWheelListener {
-    private static final int COLLECTION_LOG_TAB_DROPDOWN_WIDGET_ID = 40697929;
-    private static final int COLLECTION_LOG_SETUP_SCRIPT_ID = 7797;
-
     @Inject
     private Client client;
 
@@ -73,18 +68,21 @@ public class InterfaceManager extends EventBusSubscriber implements MouseListene
     @Inject
     private TaskService taskService;
 
+    @Inject
+    private BurgerMenuManager burgerMenuManager;
+
     public TaskDashboard taskDashboard;
     private TaskList taskList;
     private TabManager tabManager;
-
     private UICheckBox taskDashboardCheckbox;
-    private UIDropdown dropdown;
 
     public void startUp() {
         super.startUp();
-
         mouseManager.registerMouseListener(this);
         mouseManager.registerMouseWheelListener(this);
+        burgerMenuManager.startUp();
+
+        burgerMenuManager.setOnSelectChangedListener(this::toggleTaskDashboard);
 
         SpriteDefinition[] spriteDefinitions = FileUtils.loadDefinitionResource(SpriteDefinition[].class, DEF_FILE_SPRITES);
         this.spriteManager.addSpriteOverrides(spriteDefinitions);
@@ -92,9 +90,9 @@ public class InterfaceManager extends EventBusSubscriber implements MouseListene
 
     public void shutDown() {
         super.shutDown();
-
         mouseManager.unregisterMouseListener(this);
         mouseManager.unregisterMouseWheelListener(this);
+        burgerMenuManager.shutDown();
     }
 
 	@Subscribe
@@ -147,20 +145,6 @@ public class InterfaceManager extends EventBusSubscriber implements MouseListene
         this.taskDashboard.setVisibility(false);
         this.taskList.setVisibility(false);
         tabManager.hideTabs();
-	}
-
-	@Subscribe
-	public void onScriptPostFired(ScriptPostFired scriptPostFired) {
-		if (scriptPostFired.getScriptId() != COLLECTION_LOG_SETUP_SCRIPT_ID) {
-			return;
-		}
-
-        if (this.dropdown != null) {
-            this.dropdown.cleanup();
-            this.dropdown = null;
-        }
-
-        createTaskDropdownOption();
 	}
 
 	@Subscribe
@@ -254,17 +238,6 @@ public class InterfaceManager extends EventBusSubscriber implements MouseListene
         return event;
     }
 
-    private void createTaskDropdownOption() {
-        Widget container = client.getWidget(COLLECTION_LOG_TAB_DROPDOWN_WIDGET_ID);
-        if (container == null) {
-            return;
-        }
-
-        this.dropdown = new UIDropdown(container);
-        this.dropdown.addOption("Tasks", "View Tasks Dashboard");
-        this.dropdown.setOptionEnabledListener(this::toggleTaskDashboard);
-    }
-
     private void createTabManager(Widget window) {
         this.tabManager = new TabManager(window, config, plugin);
         this.tabManager.setComponents(taskDashboard, taskList);
@@ -296,17 +269,13 @@ public class InterfaceManager extends EventBusSubscriber implements MouseListene
             labelWidget.setPos(375, 10);
                     
 
-            taskDashboardCheckbox.setToggleListener((UICheckBox src) -> {
-                if (taskDashboardCheckbox.isEnabled()) {
-                    this.dropdown.setEnabledOption("Tasks");
-                } else {
-                    this.dropdown.setEnabledOption("View Log");
-                }
-            });
+            taskDashboardCheckbox.setToggleListener(
+                    (UICheckBox src) -> this.burgerMenuManager.setSelected(taskDashboardCheckbox.isEnabled())
+            );
         }
     }
 
-    private void toggleTaskDashboard(UIDropdownOption src) {
+    private void toggleTaskDashboard() {
         if(this.taskDashboard == null) return;
 
         Task activeTask = taskService.getActiveTask();
@@ -345,7 +314,7 @@ public class InterfaceManager extends EventBusSubscriber implements MouseListene
     }
 
     private boolean isTaskDashboardEnabled() {
-        return this.dropdown != null && this.dropdown.getEnabledOption().getText().equals("Tasks");
+        return burgerMenuManager.isSelected();
     }
 
     public void completeTask() {
