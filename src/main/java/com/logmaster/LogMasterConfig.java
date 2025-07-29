@@ -52,17 +52,6 @@ public interface LogMasterConfig extends Config
     }
 
     @ConfigItem(
-            keyName = "loadRemoteTaskList",
-            name = "Load remote task list",
-            description = "Load the latest version of the tasklist, this will be updated more frequently than the default list bundled with the plugin",
-            position = 4
-    )
-    default boolean loadRemoteTaskList()
-    {
-        return true;
-    }
-
-    @ConfigItem(
             keyName = "displayCurrentTaskOverlay",
             name = "Display current task overlay",
             description = "Enable an overlay showing the currently assigned task (when one exists)",
