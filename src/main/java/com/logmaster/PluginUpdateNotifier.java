@@ -35,7 +35,7 @@ public class PluginUpdateNotifier extends EventBusSubscriber {
     @Inject
     ChatMessageManager chatMessageManager;
 
-    private static String getPluginVersion() {
+    public static String getPluginVersion() {
         try (InputStream is = LogMasterPlugin.class.getResourceAsStream("version")) {
             assert is != null;
             return new String(is.readAllBytes(), StandardCharsets.UTF_8)
