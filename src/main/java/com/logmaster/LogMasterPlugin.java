@@ -6,6 +6,7 @@ import com.logmaster.domain.TaskTier;
 import com.logmaster.synchronization.clog.CollectionLogService;
 import com.logmaster.task.TaskService;
 import com.logmaster.ui.InterfaceManager;
+import com.logmaster.ui.TaskmanCommandManager;
 import com.logmaster.ui.component.TaskOverlay;
 import com.logmaster.util.GsonOverride;
 import lombok.Getter;
@@ -53,6 +54,9 @@ public class LogMasterPlugin extends Plugin {
 	@Inject
 	public TaskService taskService;
 
+	@Inject
+	public TaskmanCommandManager taskmanCommand;
+
 	@Getter
 	@Setter
 	// TODO: this is UI state, move it somewhere else
@@ -64,6 +68,7 @@ public class LogMasterPlugin extends Plugin {
 		collectionLogService.startUp();
 		pluginUpdateNotifier.startUp();
 		interfaceManager.startUp();
+		taskmanCommand.startUp();
 		this.taskOverlay.setResizable(true);
 		this.overlayManager.add(this.taskOverlay);
 	}
@@ -74,6 +79,7 @@ public class LogMasterPlugin extends Plugin {
 		collectionLogService.shutDown();
 		pluginUpdateNotifier.shutDown();
 		interfaceManager.shutDown();
+		taskmanCommand.shutDown();
 		this.overlayManager.remove(this.taskOverlay);
 	}
 

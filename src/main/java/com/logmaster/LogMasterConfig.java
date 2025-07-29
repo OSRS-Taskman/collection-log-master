@@ -12,6 +12,7 @@ public interface LogMasterConfig extends Config
     String CONFIG_GROUP = "log-master";
 
     String PLUGIN_VERSION_KEY = "plugin-version";
+    String IS_COMMAND_ENABLED_KEY = "isCommandEnabled";
 
     @Range(
             min = 1000,
@@ -71,5 +72,25 @@ public interface LogMasterConfig extends Config
     default DynamicTaskImages dynamicTaskImages()
     {
         return DynamicTaskImages.NONE;
+    }
+
+    @ConfigSection(
+            name = "!taskman Command",
+            description = "Configuration options for the !taskman command",
+            position = 7
+    )
+    String command = "command";
+
+    @ConfigItem(
+            keyName = IS_COMMAND_ENABLED_KEY,
+            name = "Enable command",
+            description = "When you or others type !taskman in the chat, it will be replaced by your current task status",
+            warning = "Enabling this feature submits your IP address to a server not controlled or verified by the RuneLite developers.",
+            section = command,
+            position = 0
+    )
+    default boolean isCommandEnabled()
+    {
+        return false;
     }
 }
