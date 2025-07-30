@@ -141,6 +141,8 @@ public class TaskmanCommandManager extends EventBusSubscriber {
     }
 
     private void replaceChatMessage(ChatMessage chatMessage, CommandResponse res) {
+        if (res == null) return;
+        
         final String msg = new ChatMessageBuilder()
                 .append(ChatColorType.NORMAL)
                 .append("Progress: ")
