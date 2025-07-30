@@ -12,8 +12,10 @@ import com.logmaster.util.SimpleDebouncer;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
+import net.runelite.api.GameState;
 import net.runelite.api.MessageNode;
 import net.runelite.api.events.ChatMessage;
+import net.runelite.api.events.GameStateChanged;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.chat.ChatColorType;
 import net.runelite.client.chat.ChatCommandManager;
@@ -85,9 +87,17 @@ public class TaskmanCommandManager extends EventBusSubscriber {
 
         if (config.isCommandEnabled()) {
             chatCommandManager.registerCommand(COLLECTION_LOG_COMMAND, this::executeCommand);
+            updateServerImmediately();
         } else {
             chatCommandManager.unregisterCommand(COLLECTION_LOG_COMMAND);
         }
+    }
+
+    @Subscribe
+    public void onGameStateChanged(GameStateChanged e) {
+        if (e.getGameState() != GameState.LOGGED_IN) return;
+
+        clientThread.invokeAtTickEnd(this::updateServer);
     }
 
     public void updateServer() {
@@ -142,7 +152,7 @@ public class TaskmanCommandManager extends EventBusSubscriber {
 
     private void replaceChatMessage(ChatMessage chatMessage, CommandResponse res) {
         if (res == null) return;
-        
+
         final String msg = new ChatMessageBuilder()
                 .append(ChatColorType.NORMAL)
                 .append("Progress: ")
