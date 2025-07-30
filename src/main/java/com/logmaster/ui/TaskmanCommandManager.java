@@ -1,9 +1,14 @@
 package com.logmaster.ui;
 
 import com.logmaster.LogMasterConfig;
+import com.logmaster.domain.Task;
+import com.logmaster.domain.TaskTier;
+import com.logmaster.domain.command.CommandRequest;
 import com.logmaster.domain.command.CommandResponse;
+import com.logmaster.task.TaskService;
 import com.logmaster.util.EventBusSubscriber;
 import com.logmaster.util.HttpClient;
+import com.logmaster.util.SimpleDebouncer;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
@@ -20,6 +25,9 @@ import okhttp3.HttpUrl;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+import java.time.Instant;
+
+import static com.logmaster.util.GsonOverride.GSON;
 
 @Slf4j
 @Singleton
@@ -38,6 +46,12 @@ public class TaskmanCommandManager extends EventBusSubscriber {
 
     @Inject
     private HttpClient httpClient;
+
+    @Inject
+    private TaskService taskService;
+
+    @Inject
+    private SimpleDebouncer updateDebouncer;
 
     private final HttpUrl baseApiUrl = new HttpUrl.Builder()
             .scheme("https")
@@ -74,6 +88,34 @@ public class TaskmanCommandManager extends EventBusSubscriber {
         } else {
             chatCommandManager.unregisterCommand(COLLECTION_LOG_COMMAND);
         }
+    }
+
+    public void updateServer() {
+        if (!config.isCommandEnabled()) return;
+        log.debug("Scheduling command update; {}", Instant.now());
+        updateDebouncer.debounce(this::updateServerImmediately);
+    }
+
+    public void updateServerImmediately() {
+        if (!config.isCommandEnabled()) return;
+        log.debug("Executing command update; {}", Instant.now());
+
+        String rsn = client.getLocalPlayer().getName();
+        if (rsn == null) return;
+
+        HttpUrl url = baseApiUrl.newBuilder().addPathSegment(rsn).build();
+
+        String taskId = null;
+        Task currentTask = taskService.getActiveTask();
+        if (currentTask != null) {
+            taskId = currentTask.getId();
+        }
+
+        TaskTier currentTier = taskService.getCurrentTier();
+        float currentProgress = taskService.getProgress().get(currentTier);
+
+        CommandRequest data = new CommandRequest(taskId, taskService.getCurrentTier().displayName, (int) currentProgress);
+        httpClient.putHttpRequestAsync(url.toString(), GSON.toJson(data),null);
     }
 
     private void executeCommand(ChatMessage chatMessage, String message) {

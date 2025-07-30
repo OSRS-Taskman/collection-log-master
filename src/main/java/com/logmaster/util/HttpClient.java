@@ -89,9 +89,8 @@ public class HttpClient {
             }
 
             String bodyString = body.string();
-
             if (!response.isSuccessful()) {
-                throw new RuntimeException("Response unsuccessful");
+                throw new RuntimeException("Response unsuccessful: " + bodyString);
             }
 
             if (clazz == null) {
