@@ -91,13 +91,16 @@ public class TaskmanCommandManager extends EventBusSubscriber {
     }
 
     public void updateServer() {
-        if (!config.isCommandEnabled()) return;
         log.debug("Scheduling command update; {}", Instant.now());
         updateDebouncer.debounce(this::updateServerImmediately);
     }
 
     public void updateServerImmediately() {
-        if (!config.isCommandEnabled()) return;
+        if (!config.isCommandEnabled()) {
+            remind();
+            return;
+        }
+
         log.debug("Executing command update; {}", Instant.now());
 
         String rsn = client.getLocalPlayer().getName();
@@ -115,7 +118,7 @@ public class TaskmanCommandManager extends EventBusSubscriber {
         float currentProgress = taskService.getProgress().get(currentTier);
 
         CommandRequest data = new CommandRequest(taskId, taskService.getCurrentTier().displayName, (int) currentProgress);
-        httpClient.putHttpRequestAsync(url.toString(), GSON.toJson(data),null);
+        httpClient.putHttpRequestAsync(url.toString(), GSON.toJson(data), null);
     }
 
     private void executeCommand(ChatMessage chatMessage, String message) {
@@ -152,5 +155,18 @@ public class TaskmanCommandManager extends EventBusSubscriber {
         final MessageNode messageNode = chatMessage.getMessageNode();
         messageNode.setRuneLiteFormatMessage(msg);
         client.refreshChat();
+    }
+
+    private void remind() {
+        if (!config.isCommandReminderEnabled()) {
+            return;
+        }
+
+        clientThread.invoke(() -> {
+            String msg = "<col=ff392b>Your data hasn't been synchronized with the command server because this feature is disabled."
+                    + " You can enable it in the plugin config; you can also disable this reminder in the plugin config.";
+            client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", msg, "");
+            client.playSoundEffect(2277);
+        });
     }
 }
