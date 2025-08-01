@@ -1062,8 +1062,8 @@
 			"displayItemId": 8850,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 8850 ],
-				"count": 1
+				"itemIds": [ 8844, 8845, 8846, 8847, 8848, 8849, 8850 ],
+				"count": 7
 			}
 		},
 		{
@@ -3453,8 +3453,8 @@
 			"displayItemId": 12954,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 12954 ],
-				"count": 1
+				"itemIds": [ 8844, 8845, 8846, 8847, 8848, 8849, 8850, 12954 ],
+				"count": 8
 			}
 		},
 		{
@@ -11823,51 +11823,99 @@
 		},
 		{
 			"id": "1eef324f-5560-4c3a-aa0a-71c2c432aa32",
-			"name": "2 LMS log slots",
-			"tip": "2 LMS log slots",
+			"name": "Get 2 LMS slots",
+			"tip": "Can be purchased as a reward from the Last Man Standing PVP Minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
 			"imageLink": "https://oldschool.runescape.wiki/images/a/a9/Last_Man_Standing_shop_icon.png",
-			"displayItemId": 24213
+			"displayItemId": 24213,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [
+					24219, 24201, 24192, 24195, 24204, 24198, 24189, 24190, 24191, 24217, 24207,
+					24209, 24211, 24213, 24215, 24520
+				],
+				"count": 2
+			}
 		},
 		{
 			"id": "68ed059b-388d-43db-a9fa-eea35f59d5ee",
-			"name": "2 LMS log slots",
-			"tip": "2 LMS log slots",
+			"name": "Get 2 LMS slots",
+			"tip": "Can be purchased as a reward from the Last Man Standing PVP Minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
 			"imageLink": "https://oldschool.runescape.wiki/images/a/a9/Last_Man_Standing_shop_icon.png",
-			"displayItemId": 24213
+			"displayItemId": 24213,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [
+					24219, 24201, 24192, 24195, 24204, 24198, 24189, 24190, 24191, 24217, 24207,
+					24209, 24211, 24213, 24215, 24520
+				],
+				"count": 4
+			}
 		},
 		{
 			"id": "4bf1f387-c5e2-425e-abcf-e7671fca5ef4",
-			"name": "2 LMS log slots",
-			"tip": "2 LMS log slots",
+			"name": "Get 2 LMS slots",
+			"tip": "Can be purchased as a reward from the Last Man Standing PVP Minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
 			"imageLink": "https://oldschool.runescape.wiki/images/a/a9/Last_Man_Standing_shop_icon.png",
-			"displayItemId": 24213
+			"displayItemId": 24213,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [
+					24219, 24201, 24192, 24195, 24204, 24198, 24189, 24190, 24191, 24217, 24207,
+					24209, 24211, 24213, 24215, 24520
+				],
+				"count": 6
+			}
 		},
 		{
 			"id": "af908bd1-7f6c-4ff4-aa14-290a0538588c",
-			"name": "2 LMS log slots",
-			"tip": "2 LMS log slots",
+			"name": "Get 2 LMS slots",
+			"tip": "Can be purchased as a reward from the Last Man Standing PVP Minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
 			"imageLink": "https://oldschool.runescape.wiki/images/a/a9/Last_Man_Standing_shop_icon.png",
-			"displayItemId": 24213
+			"displayItemId": 24213,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [
+					24219, 24201, 24192, 24195, 24204, 24198, 24189, 24190, 24191, 24217, 24207,
+					24209, 24211, 24213, 24215, 24520
+				],
+				"count": 8
+			}
 		},
 		{
 			"id": "4fc8f459-8f3b-4612-ada4-cd4bd140bbcc",
-			"name": "2 LMS log slots",
-			"tip": "2 LMS log slots",
+			"name": "Get 2 LMS slots",
+			"tip": "Can be purchased as a reward from the Last Man Standing PVP Minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
 			"imageLink": "https://oldschool.runescape.wiki/images/a/a9/Last_Man_Standing_shop_icon.png",
-			"displayItemId": 24213
+			"displayItemId": 24213,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [
+					24219, 24201, 24192, 24195, 24204, 24198, 24189, 24190, 24191, 24217, 24207,
+					24209, 24211, 24213, 24215, 24520
+				],
+				"count": 10
+			}
 		},
 		{
 			"id": "84e4f620-d62e-46bc-8ff1-aea9b17cc216",
-			"name": "2 LMS log slots",
-			"tip": "2 LMS log slots",
+			"name": "Get 2 LMS slots",
+			"tip": "Can be purchased as a reward from the Last Man Standing PVP Minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
 			"imageLink": "https://oldschool.runescape.wiki/images/a/a9/Last_Man_Standing_shop_icon.png",
-			"displayItemId": 24213
+			"displayItemId": 24213,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [
+					24219, 24201, 24192, 24195, 24204, 24198, 24189, 24190, 24191, 24217, 24207,
+					24209, 24211, 24213, 24215, 24520
+				],
+				"count": 12
+			}
 		},
 		{
 			"id": "b5e5139f-42fd-463b-ad6e-97ebdb842b13",
@@ -12482,43 +12530,68 @@
 		},
 		{
 			"id": "4817bd39-5f12-43fa-a99f-83cff074c4f3",
-			"name": "1 Slayer log slot",
-			"tip": "1 Slayer log slot",
+			"name": "Get 1 slayer log slot",
+			"tip": "Good Luck on Imbued Heart!",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Slayer",
 			"imageLink": "https://oldschool.runescape.wiki/images/8/87/Slayer_icon.png",
-			"displayItemId": 20724
+			"displayItemId": 20724,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 20724, 21270, 23047, 23050, 23053, 23056, 23059, 22963 ],
+				"count": 1
+			}
 		},
 		{
 			"id": "59c59736-7679-463a-baf6-c11912fcbf25",
-			"name": "1 Slayer log slot",
-			"tip": "1 Slayer log slot",
+			"name": "Get 1 slayer log slot",
+			"tip": "Good Luck on Imbued Heart!",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Slayer",
 			"imageLink": "https://oldschool.runescape.wiki/images/8/87/Slayer_icon.png",
-			"displayItemId": 20724
+			"displayItemId": 20724,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 20724, 21270, 23047, 23050, 23053, 23056, 23059, 22963 ],
+				"count": 2
+			}
 		},
 		{
 			"id": "8fb553c8-d0ef-410d-b73c-ecac4329e512",
-			"name": "1 Slayer log slot",
-			"tip": "1 Slayer log slot",
+			"name": "Get 1 slayer log slot",
+			"tip": "Good Luck on Imbued Heart!",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Slayer",
 			"imageLink": "https://oldschool.runescape.wiki/images/8/87/Slayer_icon.png",
-			"displayItemId": 20724
+			"displayItemId": 20724,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 20724, 21270, 23047, 23050, 23053, 23056, 23059, 22963 ],
+				"count": 3
+			}
 		},
 		{
 			"id": "a312f33a-f44e-45d2-ba87-67ab32400529",
-			"name": "1 Slayer log slot",
-			"tip": "1 Slayer log slot",
+			"name": "Get 1 slayer log slot",
+			"tip": "Good Luck on Imbued Heart!",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Slayer",
 			"imageLink": "https://oldschool.runescape.wiki/images/8/87/Slayer_icon.png",
-			"displayItemId": 20724
+			"displayItemId": 20724,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 20724, 21270, 23047, 23050, 23053, 23056, 23059, 22963 ],
+				"count": 4
+			}
 		},
 		{
 			"id": "42d0c365-5910-49c4-bacd-d950585d5c8a",
-			"name": "1 Slayer log slot",
-			"tip": "1 Slayer log slot",
+			"name": "Get 1 slayer log slot",
+			"tip": "Good Luck on Imbued Heart!",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Slayer",
 			"imageLink": "https://oldschool.runescape.wiki/images/8/87/Slayer_icon.png",
-			"displayItemId": 20724
+			"displayItemId": 20724,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 20724, 21270, 23047, 23050, 23053, 23056, 23059, 22963 ],
+				"count": 5
+			}
 		},
 		{
 			"id": "7066afad-e3ca-427d-b482-f2fc09576f06",
@@ -12526,7 +12599,15 @@
 			"tip": "1 Miscellaneous log slot",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Collection_log",
 			"imageLink": "https://oldschool.runescape.wiki/images/2/2e/Collection_log.png",
-			"displayItemId": 11335
+			"displayItemId": 11335,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [
+					21509, 19707, 11335, 22103, 22100, 20439, 20436, 20442, 20433, 24034, 24037,
+					24040, 24043, 24046
+				],
+				"count": 1
+			}
 		},
 		{
 			"id": "7a109368-c716-4b5e-8683-888a01298b16",
@@ -12534,7 +12615,15 @@
 			"tip": "1 Miscellaneous log slot",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Collection_log",
 			"imageLink": "https://oldschool.runescape.wiki/images/2/2e/Collection_log.png",
-			"displayItemId": 11335
+			"displayItemId": 11335,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [
+					21509, 19707, 11335, 22103, 22100, 20439, 20436, 20442, 20433, 24034, 24037,
+					24040, 24043, 24046
+				],
+				"count": 2
+			}
 		},
 		{
 			"id": "68d04c37-b686-429e-b72b-6efb54738b10",
@@ -12542,7 +12631,15 @@
 			"tip": "1 Miscellaneous log slot",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Collection_log",
 			"imageLink": "https://oldschool.runescape.wiki/images/2/2e/Collection_log.png",
-			"displayItemId": 11335
+			"displayItemId": 11335,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [
+					21509, 19707, 11335, 22103, 22100, 20439, 20436, 20442, 20433, 24034, 24037,
+					24040, 24043, 24046
+				],
+				"count": 3
+			}
 		},
 		{
 			"id": "1ccafb95-d36e-436c-ab65-c73aad344557",
@@ -12550,7 +12647,15 @@
 			"tip": "1 Miscellaneous log slot",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Collection_log",
 			"imageLink": "https://oldschool.runescape.wiki/images/2/2e/Collection_log.png",
-			"displayItemId": 11335
+			"displayItemId": 11335,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [
+					21509, 19707, 11335, 22103, 22100, 20439, 20436, 20442, 20433, 24034, 24037,
+					24040, 24043, 24046
+				],
+				"count": 4
+			}
 		},
 		{
 			"id": "52b75bae-5757-4fde-89c1-0d54fad11790",
@@ -12558,7 +12663,15 @@
 			"tip": "1 Miscellaneous log slot",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Collection_log",
 			"imageLink": "https://oldschool.runescape.wiki/images/2/2e/Collection_log.png",
-			"displayItemId": 11335
+			"displayItemId": 11335,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [
+					21509, 19707, 11335, 22103, 22100, 20439, 20436, 20442, 20433, 24034, 24037,
+					24040, 24043, 24046
+				],
+				"count": 5
+			}
 		},
 		{
 			"id": "fd0e4fce-e558-426e-81f2-82895462332b",
@@ -12592,15 +12705,25 @@
 			"tip": "1 Zalcano unique",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Zalcano",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Zalcano_shard_detail.png/200px-Zalcano_shard_detail.png",
-			"displayItemId": 23908
+			"displayItemId": 23908,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 23953, 23908 ],
+				"count": 1
+			}
 		},
 		{
 			"id": "dfcb3155-0e12-444e-bab7-c8e3c5aa52cf",
-			"name": "1 Vorkath unique",
-			"tip": "1 Vorkath unique",
+			"name": "Obtain a Dragonbone necklace",
+			"tip": "A rare drop from Vorkath",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Vorkath",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dragonbone_necklace_detail.png/200px-Dragonbone_necklace_detail.png",
-			"displayItemId": 22111
+			"displayItemId": 22111,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 22111 ],
+				"count": 1
+			}
 		},
 		{
 			"id": "e2036f41-dbce-4f48-9834-210371ae0c5c",
@@ -12608,7 +12731,14 @@
 			"tip": "1 Nightmare unique",
 			"wikiLink": "https://oldschool.runescape.wiki/w/The_Nightmare",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Inquisitor%27s_mace_detail.png/200px-Inquisitor%27s_mace_detail.png",
-			"displayItemId": 24417
+			"displayItemId": 24417,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [
+					24422, 24517, 24511, 24514, 24419, 24420, 24421, 24417, 25837, 25838
+				],
+				"count": 1
+			}
 		},
 		{
 			"id": "3cafb876-c10f-4396-8e3e-12e9fecf2adb",
@@ -12616,7 +12746,14 @@
 			"tip": "1 Nightmare unique",
 			"wikiLink": "https://oldschool.runescape.wiki/w/The_Nightmare",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Inquisitor%27s_mace_detail.png/200px-Inquisitor%27s_mace_detail.png",
-			"displayItemId": 24417
+			"displayItemId": 24417,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [
+					24422, 24517, 24511, 24514, 24419, 24420, 24421, 24417, 25837, 25838
+				],
+				"count": 2
+			}
 		},
 		{
 			"id": "3df7f914-6bce-4f3c-a6c3-581e9c4eebce",
@@ -12624,7 +12761,14 @@
 			"tip": "1 Nightmare unique",
 			"wikiLink": "https://oldschool.runescape.wiki/w/The_Nightmare",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Inquisitor%27s_mace_detail.png/200px-Inquisitor%27s_mace_detail.png",
-			"displayItemId": 24417
+			"displayItemId": 24417,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [
+					24422, 24517, 24511, 24514, 24419, 24420, 24421, 24417, 25837, 25838
+				],
+				"count": 3
+			}
 		},
 		{
 			"id": "7af50f50-1d4a-4567-b205-2f35c30eb1b5",
@@ -12632,7 +12776,14 @@
 			"tip": "1 Nightmare unique",
 			"wikiLink": "https://oldschool.runescape.wiki/w/The_Nightmare",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Inquisitor%27s_mace_detail.png/200px-Inquisitor%27s_mace_detail.png",
-			"displayItemId": 24417
+			"displayItemId": 24417,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [
+					24422, 24517, 24511, 24514, 24419, 24420, 24421, 24417, 25837, 25838
+				],
+				"count": 4
+			}
 		},
 		{
 			"id": "ac401402-3e8d-4785-86de-1708ce73da65",
@@ -12640,7 +12791,14 @@
 			"tip": "1 Nightmare unique",
 			"wikiLink": "https://oldschool.runescape.wiki/w/The_Nightmare",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Inquisitor%27s_mace_detail.png/200px-Inquisitor%27s_mace_detail.png",
-			"displayItemId": 24417
+			"displayItemId": 24417,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [
+					24422, 24517, 24511, 24514, 24419, 24420, 24421, 24417, 25837, 25838
+				],
+				"count": 5
+			}
 		},
 		{
 			"id": "3288456d-a278-414f-9280-3e0dea65cdda",
