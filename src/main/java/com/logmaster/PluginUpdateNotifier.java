@@ -24,9 +24,9 @@ import static com.logmaster.LogMasterConfig.PLUGIN_VERSION_KEY;
 public class PluginUpdateNotifier extends EventBusSubscriber {
     private static final String[] UPDATE_MESSAGES = {
             "<colHIGHLIGHT>Collection Log Master updated to v" + getPluginVersion(),
-            "<colHIGHLIGHT>- Deprecated checkbox to open the dashboard; use the hamburger menu now",
-            "<colHIGHLIGHT>- Major performance improvements",
-            "<colHIGHLIGHT>- Fixed conflict with RuneProfile",
+            "<colHIGHLIGHT>- Added task info panel; check detailed task requirements in there!",
+            "<colHIGHLIGHT>- Added support for !taskman command; enable in the plugin config",
+            "<colHIGHLIGHT>- Other minor fixes and improvements",
     };
 
     @Inject
