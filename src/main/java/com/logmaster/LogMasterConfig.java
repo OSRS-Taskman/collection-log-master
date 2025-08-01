@@ -71,7 +71,7 @@ public interface LogMasterConfig extends Config
     )
     default DynamicTaskImages dynamicTaskImages()
     {
-        return DynamicTaskImages.NONE;
+        return DynamicTaskImages.COMPLETE;
     }
 
     @ConfigSection(
