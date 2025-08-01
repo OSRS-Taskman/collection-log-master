@@ -118,7 +118,7 @@ public class TaskmanCommandManager extends EventBusSubscriber {
 
         HttpUrl url = baseApiUrl.newBuilder().addPathSegment(rsn).build();
 
-        String taskId = null;
+        String taskId = "complete";
         Task currentTask = taskService.getActiveTask();
         if (currentTask != null) {
             taskId = currentTask.getId();
