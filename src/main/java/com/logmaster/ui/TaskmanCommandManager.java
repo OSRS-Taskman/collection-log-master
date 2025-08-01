@@ -179,7 +179,7 @@ public class TaskmanCommandManager extends EventBusSubscriber {
         }
 
         clientThread.invoke(() -> {
-            String msg = "<col=ff392b>Your data hasn't been synchronized with the command server because this feature is disabled."
+            String msg = "<col=ff392b>[Collection Log Master] Your data hasn't been synchronized with the command server because this feature is disabled."
                     + " You can enable it in the plugin config; you can also disable this reminder in the plugin config.";
             client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", msg, "");
             client.playSoundEffect(2277);
