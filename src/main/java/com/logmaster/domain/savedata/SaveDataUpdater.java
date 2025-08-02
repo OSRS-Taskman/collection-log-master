@@ -38,17 +38,35 @@ public class SaveDataUpdater {
             return new SaveData();
         }
 
+        SaveData save = new SaveData();
         if (base.getVersion() == V0SaveData.VERSION) {
             V0SaveData v0Save = GSON.fromJson(json, V0SaveData.class);
-            return update(update(v0Save));
+            save = update(update(v0Save));
         }
 
         if (base.getVersion() == V1SaveData.VERSION) {
             V1SaveData v1Save = GSON.fromJson(json, V1SaveData.class);
-            return update(v1Save);
+            save = update(v1Save);
         }
 
-        return GSON.fromJson(json, SaveData.class);
+        if (base.getVersion() == SaveData.VERSION) {
+            save = GSON.fromJson(json, SaveData.class);
+        }
+
+        // fix issue with save data conversion by clearing active task if it failed
+        Task activeTask = save.getActiveTask();
+        if (activeTask != null) {
+            if (
+                    activeTask.getId() == null
+                    || activeTask.getName() == null
+                    || activeTask.getTip() == null
+                    || activeTask.getWikiLink() == null
+            ) {
+                save.setActiveTask(null);
+            }
+        }
+
+        return save;
     }
 
     private SaveData update(V1SaveData v1Save) {
@@ -99,19 +117,10 @@ public class SaveDataUpdater {
             String newTaskId = v0MigrationData.get(v0TaskPointer.getTaskTier()).get(v0Task.getId());
             Task newTask = taskService.getTaskById(newTaskId);
 
-            // either the tasklist hasn't been initialized yet or we couldn't find the task
-            if (newTask == null) {
-                newTask = new Task(
-                        newTaskId,
-                        v0Task.getDescription(),
-                        v0Task.getItemID(),
-                        "Unable to fetch tip for migrated task; this will work after you generate a new task",
-                        "https://oldschool.runescape.wiki/",
-                        null
-                );
+            // if we can't find the task, don't set it to avoid problems
+            if (newTask != null) {
+                newSave.setActiveTaskPointer(new V1TaskPointer(v0TaskPointer.getTaskTier(), newTask));
             }
-
-            newSave.setActiveTaskPointer(new V1TaskPointer(v0TaskPointer.getTaskTier(), newTask));
         }
 
         return newSave;
