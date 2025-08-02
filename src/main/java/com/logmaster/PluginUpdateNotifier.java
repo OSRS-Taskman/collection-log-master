@@ -26,6 +26,7 @@ public class PluginUpdateNotifier extends EventBusSubscriber {
             "<colHIGHLIGHT>Collection Log Master updated to v" + getPluginVersion(),
             "<colHIGHLIGHT>- Added task info panel; check detailed task requirements in there!",
             "<colHIGHLIGHT>- Added support for !taskman command; enable in the plugin config",
+            "<colHIGHLIGHT>- Fixed an issue with the conversion of old save data",
             "<colHIGHLIGHT>- Other minor fixes and improvements",
     };
 
