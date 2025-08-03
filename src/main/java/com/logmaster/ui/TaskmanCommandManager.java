@@ -110,8 +110,11 @@ public class TaskmanCommandManager extends EventBusSubscriber {
     }
 
     public void updateServerImmediately(boolean skipReminder) {
-        if (!config.isCommandEnabled() && !skipReminder) {
-            remind();
+        if (!config.isCommandEnabled()) {
+            if (!skipReminder) {
+                remind();
+            }
+
             return;
         }
 
