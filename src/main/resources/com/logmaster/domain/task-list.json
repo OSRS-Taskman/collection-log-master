@@ -4140,6 +4140,7 @@
 			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/1/19/Ward_upgrade_kit_detail.png/150px-Ward_upgrade_kit_detail.png",
 			"displayItemId": 12802,
+			"tags": [ "lms" ],
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [ 12802 ],
@@ -4153,6 +4154,7 @@
 			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/6/6b/Granite_clamp_detail.png/150px-Granite_clamp_detail.png",
 			"displayItemId": 12849,
+			"tags": [ "lms" ],
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [ 12849 ],
@@ -4166,6 +4168,7 @@
 			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/5/59/Volcanic_whip_mix_detail_animated.gif/120px-Volcanic_whip_mix_detail_animated.gif",
 			"displayItemId": 12771,
+			"tags": [ "lms" ],
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [ 12771 ],
@@ -4179,6 +4182,7 @@
 			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/e/e4/Frozen_whip_mix_detail.png/120px-Frozen_whip_mix_detail.png",
 			"displayItemId": 12769,
+			"tags": [ "lms" ],
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [ 12769 ],
@@ -4192,6 +4196,7 @@
 			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/3/3e/Steam_staff_upgrade_kit_detail.png/150px-Steam_staff_upgrade_kit_detail.png",
 			"displayItemId": 12798,
+			"tags": [ "lms" ],
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [ 12798 ],
@@ -4205,6 +4210,7 @@
 			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/c/c9/Lava_staff_upgrade_kit_detail.png/150px-Lava_staff_upgrade_kit_detail.png",
 			"displayItemId": 21202,
+			"tags": [ "lms" ],
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [ 21202 ],
@@ -4218,6 +4224,7 @@
 			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/f/f8/Dragon_pickaxe_upgrade_kit_detail.png/150px-Dragon_pickaxe_upgrade_kit_detail.png",
 			"displayItemId": 12800,
+			"tags": [ "lms" ],
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [ 12800 ],
@@ -4231,6 +4238,7 @@
 			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/a/a2/Ornate_maul_handle_detail.png/120px-Ornate_maul_handle_detail.png",
 			"displayItemId": 24229,
+			"tags": [ "lms" ],
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [ 24229 ],
@@ -7263,6 +7271,7 @@
 			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/7/73/Yellow_dark_bow_paint_detail.png/120px-Yellow_dark_bow_paint_detail.png",
 			"displayItemId": 12757,
+			"tags": [ "lms" ],
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [ 12757, 12759, 12761, 12763 ],
@@ -7276,6 +7285,7 @@
 			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/7/73/Yellow_dark_bow_paint_detail.png/120px-Yellow_dark_bow_paint_detail.png",
 			"displayItemId": 12757,
+			"tags": [ "lms" ],
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [ 12757, 12759, 12761, 12763 ],
@@ -7289,6 +7299,7 @@
 			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/7/73/Yellow_dark_bow_paint_detail.png/120px-Yellow_dark_bow_paint_detail.png",
 			"displayItemId": 12757,
+			"tags": [ "lms" ],
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [ 12757, 12759, 12761, 12763 ],
@@ -7302,6 +7313,7 @@
 			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/7/73/Yellow_dark_bow_paint_detail.png/120px-Yellow_dark_bow_paint_detail.png",
 			"displayItemId": 12757,
+			"tags": [ "lms" ],
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [ 12757, 12759, 12761, 12763 ],
@@ -10513,6 +10525,7 @@
 			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/a/a2/Armadyl_hilt_detail.png/120px-Armadyl_hilt_detail.png",
 			"displayItemId": 11810,
+			"tags": [ "lms" ],
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [ 24868, 24869, 24870, 24871 ],
@@ -10526,6 +10539,7 @@
 			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/a/a2/Armadyl_hilt_detail.png/120px-Armadyl_hilt_detail.png",
 			"displayItemId": 11810,
+			"tags": [ "lms" ],
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [ 24868, 24869, 24870, 24871 ],
@@ -10539,6 +10553,7 @@
 			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/a/a2/Armadyl_hilt_detail.png/120px-Armadyl_hilt_detail.png",
 			"displayItemId": 11810,
+			"tags": [ "lms" ],
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [ 24868, 24869, 24870, 24871 ],
@@ -10552,6 +10567,7 @@
 			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/a/a2/Armadyl_hilt_detail.png/120px-Armadyl_hilt_detail.png",
 			"displayItemId": 11810,
+			"tags": [ "lms" ],
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [ 24868, 24869, 24870, 24871 ],
@@ -11828,6 +11844,7 @@
 			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
 			"imageLink": "https://oldschool.runescape.wiki/images/a/a9/Last_Man_Standing_shop_icon.png",
 			"displayItemId": 24213,
+			"tags": [ "lms" ],
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [
@@ -11844,6 +11861,7 @@
 			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
 			"imageLink": "https://oldschool.runescape.wiki/images/a/a9/Last_Man_Standing_shop_icon.png",
 			"displayItemId": 24213,
+			"tags": [ "lms" ],
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [
@@ -11860,6 +11878,7 @@
 			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
 			"imageLink": "https://oldschool.runescape.wiki/images/a/a9/Last_Man_Standing_shop_icon.png",
 			"displayItemId": 24213,
+			"tags": [ "lms" ],
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [
@@ -11876,6 +11895,7 @@
 			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
 			"imageLink": "https://oldschool.runescape.wiki/images/a/a9/Last_Man_Standing_shop_icon.png",
 			"displayItemId": 24213,
+			"tags": [ "lms" ],
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [
@@ -11892,6 +11912,7 @@
 			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
 			"imageLink": "https://oldschool.runescape.wiki/images/a/a9/Last_Man_Standing_shop_icon.png",
 			"displayItemId": 24213,
+			"tags": [ "lms" ],
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [
@@ -11908,6 +11929,7 @@
 			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
 			"imageLink": "https://oldschool.runescape.wiki/images/a/a9/Last_Man_Standing_shop_icon.png",
 			"displayItemId": 24213,
+			"tags": [ "lms" ],
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [
