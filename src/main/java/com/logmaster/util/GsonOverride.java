@@ -2,6 +2,7 @@ package com.logmaster.util;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.logmaster.domain.Tag;
 import com.logmaster.domain.adapters.EnumAdapter;
 import com.logmaster.domain.adapters.VerificationAdapter;
 import com.logmaster.domain.verification.Verification;
@@ -25,7 +26,8 @@ public class GsonOverride {
                 .registerTypeAdapter(VerificationMethod.class, new EnumAdapter<>(VerificationMethod.class))
                 .registerTypeAdapter(DiaryRegion.class, new EnumAdapter<>(DiaryRegion.class))
                 .registerTypeAdapter(DiaryDifficulty.class, new EnumAdapter<>(DiaryDifficulty.class))
-                .registerTypeAdapter(Skill.class, new EnumAdapter<>(Skill.class));
+                .registerTypeAdapter(Skill.class, new EnumAdapter<>(Skill.class))
+                .registerTypeAdapter(Tag.class, new EnumAdapter<>(Tag.class));
 
         GSON = gsonBuilder.create();
     }
