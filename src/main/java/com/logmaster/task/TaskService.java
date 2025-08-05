@@ -1,9 +1,9 @@
 package com.logmaster.task;
 
 import com.logmaster.LogMasterConfig;
+import com.logmaster.domain.Tag;
 import com.logmaster.domain.Task;
 import com.logmaster.domain.TaskTier;
-import com.logmaster.domain.TieredTaskList;
 import com.logmaster.domain.savedata.SaveData;
 import com.logmaster.domain.verification.clog.CollectionLogVerification;
 import com.logmaster.ui.TaskmanCommandManager;
@@ -57,6 +57,7 @@ public class TaskService extends EventBusSubscriber {
                 }
             }
         }
+
         return null;
     }
 
@@ -74,7 +75,13 @@ public class TaskService extends EventBusSubscriber {
     }
 
     public List<Task> getTierTasks(TaskTier tier) {
-        return taskListStorage.get().getForTier(tier);
+        List<Task> tierTasks = taskListStorage.get().getForTier(tier);
+
+        if (!config.isLMSEnabled()) {
+            return filterTag(tierTasks, Tag.LMS);
+        }
+
+        return tierTasks;
     }
 
     public List<Task> getIncompleteTierTasks() {
@@ -82,9 +89,9 @@ public class TaskService extends EventBusSubscriber {
     }
 
     public List<Task> getIncompleteTierTasks(TaskTier tier) {
-        TieredTaskList taskList = taskListStorage.get();
+        List<Task> tierTasks = getTierTasks(tier);
 
-        return taskList.getForTier(tier).stream()
+        return tierTasks.stream()
                 .filter(t -> !isComplete(t.getId()))
                 .collect(Collectors.toList());
     }
@@ -99,12 +106,11 @@ public class TaskService extends EventBusSubscriber {
 
     public @NonNull Map<TaskTier, Float> getProgress() {
         SaveData data = saveDataStorage.get();
-        TieredTaskList taskList = taskListStorage.get();
         Set<String> completedTasks = data.getCompletedTasks();
 
         Map<TaskTier, Float> completionPercentages = new HashMap<>();
         for (TaskTier tier : TaskTier.values()) {
-            Set<String> tierTasks = taskList.getForTier(tier).stream()
+            Set<String> tierTasks = getTierTasks(tier).stream()
                     .map(Task::getId)
                     .collect(Collectors.toSet());
 
@@ -210,4 +216,9 @@ public class TaskService extends EventBusSubscriber {
 		)).orElse(pickedTask);
 	}
 
+    private List<Task> filterTag(List<Task> list, Tag tag) {
+        return list.stream()
+                .filter(t -> !t.getTags().contains(tag))
+                .collect(Collectors.toList());
+    }
 }
