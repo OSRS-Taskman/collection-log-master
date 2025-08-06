@@ -2323,6 +2323,32 @@
 				"itemIds": [ 30040 ],
 				"count": 1
 			}
+		},
+		{
+			"id": "583f9e90-f977-40f9-adba-111f8064f289",
+			"name": "Get 1 unique from Vale Totems",
+			"tip": "This fletching minigame takes place in Auburn Valley. You can chop you own logs.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Vale_Totems",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Vale_offerings_detail.png/320px-Vale_offerings_detail.png",
+			"displayItemId": 31054,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31032, 31052, 31043, 31034 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "50bf552f-5f5a-48b1-aeff-28a2e81d240c",
+			"name": "Get 1 unique from Vale Totems",
+			"tip": "This fletching minigame takes place in Auburn Valley. You can chop you own logs.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Vale_Totems",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Vale_offerings_detail.png/320px-Vale_offerings_detail.png",
+			"displayItemId": 31054,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31032, 31052, 31043, 31034 ],
+				"count": 2
+			}
 		}
 	],
 	"medium": [
@@ -4827,7 +4853,7 @@
 		{
 			"id": "8faa724f-442a-48f2-9576-33d6ef1cd4a0",
 			"name": "Get a Huasca seed",
-			"tip": "Can be received as a drop from the Amoxliatl.",
+			"tip": "Can be received as a drop from the Hueycoatl, Amoxliatl or Custodian stalkers. Pick any of those you can access without additional quests.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Huasca_seed",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Huasca_seed_detail.png/200px-Huasca_seed_detail.png",
 			"displayItemId": 30088,
@@ -4851,6 +4877,84 @@
 					30060
 				],
 				"count": 6
+			}
+		},
+		{
+			"id": "f3a0cc76-6f55-426e-8440-5a47e6920a84",
+			"name": "Get 1 unique from Vale Totems",
+			"tip": "This fletching minigame takes place in Auburn Valley. You can chop you own logs.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Vale_Totems",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Vale_offerings_detail.png/320px-Vale_offerings_detail.png",
+			"displayItemId": 31054,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31032, 31052, 31043, 31034 ],
+				"count": 3
+			}
+		},
+		{
+			"id": "c47d1afa-63ba-4235-be79-425d345375b7",
+			"name": "Get 1 unique from Vale Totems",
+			"tip": "This fletching minigame takes place in Auburn Valley. You can chop you own logs.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Vale_Totems",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Vale_offerings_detail.png/320px-Vale_offerings_detail.png",
+			"displayItemId": 31054,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31032, 31052, 31043, 31034 ],
+				"count": 4
+			}
+		},
+		{
+			"id": "b8d6aac5-2580-4ca1-8129-a1f71d4c4ebf",
+			"name": "Get 1 unique from Custodian stalkers",
+			"tip": "Three different variants can be found inside the Stalker Den in Varlamare, after completion of the Shadows of Custodia quest.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Custodian_stalker",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Antler_guard_detail.png/320px-Antler_guard_detail.png",
+			"displayItemId": 31081,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31086, 31081, 31084 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "9ebbb378-a2c2-438e-9481-784d7ed7a8cf",
+			"name": "Get 1 unique from Custodian stalkers",
+			"tip": "Three different variants can be found inside the Stalker Den in Varlamare, after completion of the Shadows of Custodia quest.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Custodian_stalker",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Antler_guard_detail.png/320px-Antler_guard_detail.png",
+			"displayItemId": 31081,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31086, 31081, 31084 ],
+				"count": 2
+			}
+		},
+		{
+			"id": "5e135307-dc58-4873-b89d-b6c68484aa07",
+			"name": "Get 1 unique from Custodian stalkers",
+			"tip": "Three different variants can be found inside the Stalker Den in Varlamare, after completion of the Shadows of Custodia quest.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Custodian_stalker",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Antler_guard_detail.png/320px-Antler_guard_detail.png",
+			"displayItemId": 31081,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31086, 31081, 31084 ],
+				"count": 3
+			}
+		},
+		{
+			"id": "ab8b387e-c395-4fc0-8b8a-33991887eb63",
+			"name": "Get the Earthbound tecpatl",
+			"tip": "Dropped from Earthen naguas in the Tonali Cavern, after progression in The Final Dawn quest.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Earthbound_tecpatl",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Earthbound_tecpatl_detail.png/225px-Earthbound_tecpatl_detail.png",
+			"displayItemId": 30957,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 30957 ],
+				"count": 1
 			}
 		}
 	],
@@ -5351,7 +5455,7 @@
 					12653, 12655, 12816, 12921, 13177, 13178, 13179, 13181, 13225, 13247, 13262,
 					20851, 21273, 21291, 21748, 21992, 22473, 22746, 23495, 23757, 24491, 26348,
 					27352, 27590, 28246, 28248, 28250, 28252, 28801, 28960, 29836, 30152, 30154,
-					30622, 30888
+					30622, 30888, 31130
 				],
 				"count": 1
 			}
@@ -7983,6 +8087,32 @@
 				"itemIds": [ 30626, 30627, 30628, 30631, 30637, 30640 ],
 				"count": 6
 			}
+		},
+		{
+			"id": "62c25092-cdd4-421e-a528-d97e46712ad3",
+			"name": "Get 1 unique from Doom of Mokhaiotl",
+			"tip": "Giant, insect-like, demonic boss found in the Tonali Cavern after completion of The Final Dawn quest.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Doom_of_Mokhaiotl",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Eye_of_ayak_detail.png/320px-Eye_of_ayak_detail.png",
+			"displayItemId": 31113,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31111, 31099, 31109, 31113, 31088 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "22762b53-7e09-4f0a-b20d-3fdb6fe8cc02",
+			"name": "Get 1 unique from Doom of Mokhaiotl",
+			"tip": "Giant, insect-like, demonic boss found in the Tonali Cavern after completion of The Final Dawn quest.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Doom_of_Mokhaiotl",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Eye_of_ayak_detail.png/320px-Eye_of_ayak_detail.png",
+			"displayItemId": 31113,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31111, 31099, 31109, 31113, 31088 ],
+				"count": 2
+			}
 		}
 	],
 	"elite": [
@@ -8526,7 +8656,7 @@
 					12653, 12655, 12816, 12921, 13177, 13178, 13179, 13181, 13225, 13247, 13262,
 					20851, 21273, 21291, 21748, 21992, 22473, 22746, 23495, 23757, 24491, 26348,
 					27352, 27590, 28246, 28248, 28250, 28252, 28801, 28960, 29836, 30152, 30154,
-					30622, 30888
+					30622, 30888, 31130
 				],
 				"count": 2
 			}
@@ -8564,7 +8694,7 @@
 					12653, 12655, 12816, 12921, 13177, 13178, 13179, 13181, 13225, 13247, 13262,
 					20851, 21273, 21291, 21748, 21992, 22473, 22746, 23495, 23757, 24491, 26348,
 					27352, 27590, 28246, 28248, 28250, 28252, 28801, 28960, 29836, 30152, 30154,
-					30622, 30888
+					30622, 30888, 30888
 				],
 				"count": 4
 			}
@@ -11327,6 +11457,32 @@
 				],
 				"count": 7
 			}
+		},
+		{
+			"id": "03bcbb0b-fcc3-4a7a-9afe-8906d9da8cfe",
+			"name": "Get 1 unique from Doom of Mokhaiotl",
+			"tip": "Giant, insect-like, demonic boss found in the Tonali Cavern after completion of The Final Dawn quest.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Doom_of_Mokhaiotl",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Eye_of_ayak_detail.png/320px-Eye_of_ayak_detail.png",
+			"displayItemId": 31113,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31111, 31099, 31109, 31113, 31088 ],
+				"count": 3
+			}
+		},
+		{
+			"id": "c847f79a-3473-48a4-915d-b2874c4f4544",
+			"name": "Get 1 unique from Doom of Mokhaiotl",
+			"tip": "Giant, insect-like, demonic boss found in the Tonali Cavern after completion of The Final Dawn quest.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Doom_of_Mokhaiotl",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Eye_of_ayak_detail.png/320px-Eye_of_ayak_detail.png",
+			"displayItemId": 31113,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31111, 31099, 31109, 31113, 31088 ],
+				"count": 4
+			}
 		}
 	],
 	"master": [
@@ -12146,7 +12302,7 @@
 					12816, 12650, 12652, 12655, 12649, 12648, 12921, 12651, 12653, 13181, 28801,
 					21273, 23495, 13225, 27352, 13177, 13179, 21992, 28960, 30622, 28250, 28252,
 					28246, 28248, 30888, 23760, 23757, 12007, 12885, 12936, 13245, 13277, 19701,
-					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760
+					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130
 				],
 				"count": 5
 			}
@@ -12166,7 +12322,7 @@
 					12816, 12650, 12652, 12655, 12649, 12648, 12921, 12651, 12653, 13181, 28801,
 					21273, 23495, 13225, 27352, 13177, 13179, 21992, 28960, 30622, 28250, 28252,
 					28246, 28248, 30888, 23760, 23757, 12007, 12885, 12936, 13245, 13277, 19701,
-					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760
+					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130
 				],
 				"count": 6
 			}
@@ -12186,7 +12342,7 @@
 					12816, 12650, 12652, 12655, 12649, 12648, 12921, 12651, 12653, 13181, 28801,
 					21273, 23495, 13225, 27352, 13177, 13179, 21992, 28960, 30622, 28250, 28252,
 					28246, 28248, 30888, 23760, 23757, 12007, 12885, 12936, 13245, 13277, 19701,
-					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760
+					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130
 				],
 				"count": 7
 			}
@@ -12206,7 +12362,7 @@
 					12816, 12650, 12652, 12655, 12649, 12648, 12921, 12651, 12653, 13181, 28801,
 					21273, 23495, 13225, 27352, 13177, 13179, 21992, 28960, 30622, 28250, 28252,
 					28246, 28248, 30888, 23760, 23757, 12007, 12885, 12936, 13245, 13277, 19701,
-					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760
+					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130
 				],
 				"count": 8
 			}
@@ -12226,7 +12382,7 @@
 					12816, 12650, 12652, 12655, 12649, 12648, 12921, 12651, 12653, 13181, 28801,
 					21273, 23495, 13225, 27352, 13177, 13179, 21992, 28960, 30622, 28250, 28252,
 					28246, 28248, 30888, 23760, 23757, 12007, 12885, 12936, 13245, 13277, 19701,
-					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760
+					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130
 				],
 				"count": 9
 			}
@@ -12246,7 +12402,7 @@
 					12816, 12650, 12652, 12655, 12649, 12648, 12921, 12651, 12653, 13181, 28801,
 					21273, 23495, 13225, 27352, 13177, 13179, 21992, 28960, 30622, 28250, 28252,
 					28246, 28248, 30888, 23760, 23757, 12007, 12885, 12936, 13245, 13277, 19701,
-					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760
+					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130
 				],
 				"count": 10
 			}
@@ -12266,7 +12422,7 @@
 					12816, 12650, 12652, 12655, 12649, 12648, 12921, 12651, 12653, 13181, 28801,
 					21273, 23495, 13225, 27352, 13177, 13179, 21992, 28960, 30622, 28250, 28252,
 					28246, 28248, 30888, 23760, 23757, 12007, 12885, 12936, 13245, 13277, 19701,
-					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760
+					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130
 				],
 				"count": 11
 			}
@@ -12286,7 +12442,7 @@
 					12816, 12650, 12652, 12655, 12649, 12648, 12921, 12651, 12653, 13181, 28801,
 					21273, 23495, 13225, 27352, 13177, 13179, 21992, 28960, 30622, 28250, 28252,
 					28246, 28248, 30888, 23760, 23757, 12007, 12885, 12936, 13245, 13277, 19701,
-					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760
+					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130
 				],
 				"count": 12
 			}
@@ -12306,7 +12462,7 @@
 					12816, 12650, 12652, 12655, 12649, 12648, 12921, 12651, 12653, 13181, 28801,
 					21273, 23495, 13225, 27352, 13177, 13179, 21992, 28960, 30622, 28250, 28252,
 					28246, 28248, 30888, 23760, 23757, 12007, 12885, 12936, 13245, 13277, 19701,
-					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760
+					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130
 				],
 				"count": 13
 			}
@@ -12326,7 +12482,7 @@
 					12816, 12650, 12652, 12655, 12649, 12648, 12921, 12651, 12653, 13181, 28801,
 					21273, 23495, 13225, 27352, 13177, 13179, 21992, 28960, 30622, 28250, 28252,
 					28246, 28248, 30888, 23760, 23757, 12007, 12885, 12936, 13245, 13277, 19701,
-					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760
+					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130
 				],
 				"count": 14
 			}
@@ -12346,7 +12502,7 @@
 					12816, 12650, 12652, 12655, 12649, 12648, 12921, 12651, 12653, 13181, 28801,
 					21273, 23495, 13225, 27352, 13177, 13179, 21992, 28960, 30622, 28250, 28252,
 					28246, 28248, 30888, 23760, 23757, 12007, 12885, 12936, 13245, 13277, 19701,
-					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760
+					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130
 				],
 				"count": 15
 			}
@@ -12366,7 +12522,7 @@
 					12816, 12650, 12652, 12655, 12649, 12648, 12921, 12651, 12653, 13181, 28801,
 					21273, 23495, 13225, 27352, 13177, 13179, 21992, 28960, 30622, 28250, 28252,
 					28246, 28248, 30888, 23760, 23757, 12007, 12885, 12936, 13245, 13277, 19701,
-					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760
+					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130
 				],
 				"count": 16
 			}
@@ -12386,7 +12542,7 @@
 					12816, 12650, 12652, 12655, 12649, 12648, 12921, 12651, 12653, 13181, 28801,
 					21273, 23495, 13225, 27352, 13177, 13179, 21992, 28960, 30622, 28250, 28252,
 					28246, 28248, 30888, 23760, 23757, 12007, 12885, 12936, 13245, 13277, 19701,
-					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760
+					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130
 				],
 				"count": 17
 			}
@@ -12406,7 +12562,7 @@
 					12816, 12650, 12652, 12655, 12649, 12648, 12921, 12651, 12653, 13181, 28801,
 					21273, 23495, 13225, 27352, 13177, 13179, 21992, 28960, 30622, 28250, 28252,
 					28246, 28248, 30888, 23760, 23757, 12007, 12885, 12936, 13245, 13277, 19701,
-					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760
+					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130
 				],
 				"count": 18
 			}
@@ -12426,7 +12582,7 @@
 					12816, 12650, 12652, 12655, 12649, 12648, 12921, 12651, 12653, 13181, 28801,
 					21273, 23495, 13225, 27352, 13177, 13179, 21992, 28960, 30622, 28250, 28252,
 					28246, 28248, 30888, 23760, 23757, 12007, 12885, 12936, 13245, 13277, 19701,
-					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760
+					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130
 				],
 				"count": 19
 			}
@@ -13732,6 +13888,19 @@
 					30775, 30750, 30753, 30756, 30759, 30806, 30763, 30805, 30795, 30765
 				],
 				"count": 10
+			}
+		},
+		{
+			"id": "122f61f7-80e7-4d79-bd4f-543a2868e06a",
+			"name": "Get 1 unique from Doom of Mokhaiotl",
+			"tip": "Giant, insect-like, demonic boss found in the Tonali Cavern after completion of The Final Dawn quest.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Doom_of_Mokhaiotl",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Eye_of_ayak_detail.png/320px-Eye_of_ayak_detail.png",
+			"displayItemId": 31113,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31111, 31099, 31109, 31113, 31088 ],
+				"count": 5
 			}
 		}
 	]
