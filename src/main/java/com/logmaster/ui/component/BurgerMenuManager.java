@@ -7,12 +7,15 @@ import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
 import net.runelite.api.events.ScriptPreFired;
+import net.runelite.api.gameval.SpriteID;
+import net.runelite.api.gameval.SpriteID.ClanRankIcons;
 import net.runelite.api.widgets.JavaScriptCallback;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetType;
 import net.runelite.client.eventbus.Subscribe;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Slf4j
 public class BurgerMenuManager extends EventBusSubscriber {
@@ -108,6 +111,9 @@ public class BurgerMenuManager extends EventBusSubscriber {
     }
 
     private void addButton(int menuId) throws NullPointerException, NoSuchElementException {
+//        extracted();
+
+
         Widget menu = Objects.requireNonNull(client.getWidget(menuId));
         List<Widget> menuChildren = Arrays.asList(Objects.requireNonNull(menu.getChildren()));
         if (baseMenuHeight == -1) {
@@ -170,6 +176,101 @@ public class BurgerMenuManager extends EventBusSubscriber {
         for (Widget child : menuChildren) {
             child.revalidate();
         }
+    }
+
+    private void extracted() {
+        /*final*/
+        int WIDGETS_PER_TAB = 11;
+        /*final*/
+        int ICON_WIDGET_OFFSET = 9;
+        /*final*/
+        int TEXT_WIDGET_OFFSET = 10;
+        /*final*/
+        int TEXT_COLOR_COMPLETE = 0x00FF00;
+        /*final*/
+        int TEXT_COLOR_CURRENT = 0xFF981F;
+        /*final*/
+        int TEXT_COLOR_FUTURE = 0xCCCCCC;
+
+        Widget tierTabs = Objects.requireNonNull(client.getWidget(714, 18));
+        Widget[] children = Objects.requireNonNull(tierTabs.getChildren());
+
+        /*final*/
+        int[] ICON_REPLACEMENT = { 2410, ClanRankIcons._65, ClanRankIcons._69, ClanRankIcons._72, ClanRankIcons._74, ClanRankIcons._73 };
+        /*final*/
+        String[] TEXT_REPLACEMENT = { "Dashboard", "Easy", "Medium", "Hard", "Elite", "Master" };
+        /*final*/
+        int[] COLOR_REPLACEMENT = { TEXT_COLOR_FUTURE, TEXT_COLOR_COMPLETE, TEXT_COLOR_CURRENT, TEXT_COLOR_FUTURE, TEXT_COLOR_FUTURE, TEXT_COLOR_FUTURE };
+        for (int i = 0; i < ICON_REPLACEMENT.length; i++) {
+            int baseIndex = i * WIDGETS_PER_TAB;
+
+            int iconIndex = baseIndex + ICON_WIDGET_OFFSET;
+            Widget iconWidget = children[iconIndex];
+            iconWidget.setSpriteId(ICON_REPLACEMENT[i])
+                .revalidate();
+
+            int textIndex = baseIndex + TEXT_WIDGET_OFFSET;
+            Widget textWidget = children[textIndex];
+            textWidget.setText(TEXT_REPLACEMENT[i])
+                .setTextColor(COLOR_REPLACEMENT[i])
+                .revalidate();
+        }
+
+        for (int i = 1 * WIDGETS_PER_TAB; i < children.length; i++) {
+            Widget child = children[i];
+
+            child.setOriginalY(child.getOriginalY() + 10)
+                .revalidate();
+        }
+
+
+        /*final*/
+        int BAR_WIDGET_OFFSET = 1;
+        /*final*/
+        int FILL_WIDGET_OFFSET = 2;
+        /*final*/
+        int FIRST_SEP_WIDGET_OFFSET = 3;
+        /*final*/
+        int LAST_SEP_WIDGET_OFFSET = 7;
+        /*final*/
+        int PROGRESS_TEXT_WIDGET_OFFSET = 9;
+
+        /*final*/
+        String PROGRESS_TEXT = "100%                 98%                         0%                            0%                         0%";
+        /*final*/
+        int[] TIER_TOTAL_TASKS = { 163, 177, 209, 206, 175 };
+        /*final*/
+        int[] TIER_COMPLETE_TASKS = { 163, 175, 0, 0, 0 };
+        /*final*/
+        int TIER_TOTAL_SUM = Arrays.stream(TIER_TOTAL_TASKS).sum();
+        /*final*/
+        int TIER_COMPLETE_SUM = Arrays.stream(TIER_COMPLETE_TASKS).sum();
+
+        Widget progressBar = Objects.requireNonNull(client.getWidget(714, 4));
+        Widget[] pChildren = Objects.requireNonNull(progressBar.getChildren());
+
+        Widget barWidget = pChildren[BAR_WIDGET_OFFSET];
+        Widget fillWidget = pChildren[FILL_WIDGET_OFFSET];
+        fillWidget.setOriginalWidth(barWidget.getOriginalWidth() * TIER_COMPLETE_SUM / TIER_TOTAL_SUM)
+            .revalidate();
+
+        int tierOffset = 0;
+        for (int i = 0; i <= LAST_SEP_WIDGET_OFFSET - FIRST_SEP_WIDGET_OFFSET; i++) {
+            Widget child = pChildren[FIRST_SEP_WIDGET_OFFSET + i];
+            if (i >= TIER_TOTAL_TASKS.length - 1) {
+                child.setHidden(true)
+                        .revalidate();
+
+                continue;
+            }
+
+            tierOffset += TIER_TOTAL_TASKS[i];
+            child.setOriginalX(barWidget.getOriginalWidth() * tierOffset / TIER_TOTAL_SUM)
+                    .revalidate();
+        }
+
+        Widget progTextWidget = pChildren[PROGRESS_TEXT_WIDGET_OFFSET];
+        progTextWidget.setText(PROGRESS_TEXT).revalidate();
     }
 
     private void setupFirstWidgets(List<Widget> menuChildren) {
