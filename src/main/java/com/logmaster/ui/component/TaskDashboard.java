@@ -206,6 +206,7 @@ public class TaskDashboard extends UIPage {
 
         this.taskLabel.setText(task.getName());
         this.taskImage.setItem(task.getDisplayItemId());
+        this.taskBg.clearActions();
         this.taskBg.addAction("View task info", () -> taskInfo.showTask(task.getId()));
         this.enableCompleteTask();
         this.enableFaqButton();
