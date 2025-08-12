@@ -255,7 +255,13 @@ public class TaskList extends UIPage {
                 taskImage.setItem(task.getDisplayItemId());
 
                 // Add our right click actions
-                taskBg.addAction("Show task info", () -> taskInfo.showTask(task.getId()));
+                String taskId = task.getId();
+                taskBg.addAction("Show task info", () -> taskInfo.showTask(taskId));
+                if (taskService.isComplete(taskId)) {
+                    taskBg.addAction("Mark incomplete", () -> toggleTask(taskId));
+                } else {
+                    taskBg.addAction("Mark complete", () -> toggleTask(taskId));
+                }
 
                 if (task.getVerification() instanceof CollectionLogVerification) {
                     CollectionLogVerification verif = (CollectionLogVerification) task.getVerification();
@@ -291,6 +297,11 @@ public class TaskList extends UIPage {
             }
         }
         updateScrollbar();
+    }
+
+    private void toggleTask(String taskId) {
+        taskService.toggleComplete(taskId);
+        refreshTasks(0);
     }
 
     // Overload getTasksToShow to accept a count
