@@ -262,33 +262,6 @@ public class TaskList extends UIPage {
 
                     int[] checkArray = verif.getItemIds();
                     int count = verif.getCount();
-                    if (checkArray.length > 0) {
-                        taskBg.addAction("==============", () -> {});
-                        List<String> lockedItems = new ArrayList<>();
-                        List<String> unlockedItems = new ArrayList<>();
-                        for (int checkID : checkArray) {
-                            String itemName = plugin.itemManager.getItemComposition(checkID).getName();
-                            itemName = itemName.replaceFirst("^Pet\\s+", "");
-                            itemName = itemName.replaceFirst("^(.)", itemName.substring(0, 1).toUpperCase());
-                            if (collectionLogService.isItemObtained(checkID)) {
-                                unlockedItems.add(itemName);
-                            } else {
-                                lockedItems.add(itemName);
-                            }
-                        }
-                        if (checkArray.length > 1) {
-                            taskBg.addAction("Items acquired: " + (count <= unlockedItems.size() ? "<col=27ae60>" : "<col=c0392b>") + unlockedItems.size() + "/" + count + "</col>", () -> {});
-                            taskBg.addAction("==============", () -> {});
-                        }
-                        lockedItems.sort(String::compareToIgnoreCase);
-                        for (String item : lockedItems) {
-                            taskBg.addAction("<col=c0392b>-</col> " + item, () -> {});
-                        }
-                        unlockedItems.sort(String::compareToIgnoreCase);
-                        for (String item : unlockedItems) {
-                            taskBg.addAction("<col=27ae60>+</col> " + item, () -> {});
-                        }
-                    }
 
                     if (
                         !task.getName().contains("clues")
