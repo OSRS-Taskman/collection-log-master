@@ -259,6 +259,7 @@ public abstract class UIComponent
 
 	public void clearActions() {
 		actions.clear();
+		this.widget.clearActions();
 	}
 
 	public void revalidate() {
