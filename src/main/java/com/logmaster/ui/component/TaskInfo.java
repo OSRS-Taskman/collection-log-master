@@ -1,59 +1,37 @@
 package com.logmaster.ui.component;
 
-import com.logmaster.LogMasterConfig;
 import com.logmaster.LogMasterPlugin;
-import com.logmaster.domain.DynamicTaskImages;
 import com.logmaster.domain.Task;
-import com.logmaster.domain.TaskTier;
 import com.logmaster.domain.verification.clog.CollectionLogVerification;
 import com.logmaster.synchronization.clog.CollectionLogService;
 import com.logmaster.task.TaskService;
-import com.logmaster.ui.generic.UIButton;
 import com.logmaster.ui.generic.UIGraphic;
 import com.logmaster.ui.generic.UILabel;
+import com.logmaster.ui.generic.UINativeButton;
 import com.logmaster.ui.generic.UIPage;
-import com.logmaster.ui.component.TaskList;
-import com.logmaster.ui.component.TabManager;
-import com.logmaster.ui.component.TaskDashboard;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.FontID;
-import net.runelite.api.widgets.ItemQuantityMode;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetType;
-import net.runelite.client.callback.ClientThread;
 import net.runelite.client.util.LinkBrowser;
 
 import java.awt.*;
-import java.awt.event.MouseWheelEvent;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.logmaster.ui.InterfaceConstants.*;
 
 @Slf4j
 public class TaskInfo extends UIPage {
     private final static int OFFSET_X = 0;
     private final static int OFFSET_Y = 21;
-    
 
     private final Widget window;
     private final LogMasterPlugin plugin;
-    private final ClientThread clientThread;
     private final CollectionLogService collectionLogService;
     private final TaskService taskService;
 
     private final static int BUTTON_HEIGHT = 30;
     private final static int BUTTON_WIDTH = 68;
     private final static int LARGE_BUTTON_WIDTH = 140;
-    private final static int BACK_BUTTON_SPRITE_ID = -20037;
-    private final static int BACK_BUTTON_HOVER_SPRITE_ID = -20038;
-    private final static int WIKI_BUTTON_SPRITE_ID = -20039;
-    private final static int WIKI_BUTTON_HOVER_SPRITE_ID = -20040;
-    private final static int COMPLETE_TASK_SPRITE_ID = -20000;
-    private final static int COMPLETE_TASK_HOVER_SPRITE_ID = -20002;
-    private final static int INCOMPLETE_TASK_SPRITE_ID = -20041;
-    private final static int INCOMPLETE_TASK_HOVER_SPRITE_ID = -20042;
 
     private TaskDashboard taskDashboard;
     private TaskList taskList;
@@ -70,13 +48,9 @@ public class TaskInfo extends UIPage {
     private int windowX = 0;
     private int windowY = 0;
 
-    private final LogMasterConfig config;
-
-    public TaskInfo(Widget window, LogMasterPlugin plugin, ClientThread clientThread, LogMasterConfig config, CollectionLogService collectionLogService, TaskService taskService) {
+    public TaskInfo(Widget window, LogMasterPlugin plugin, CollectionLogService collectionLogService, TaskService taskService) {
         this.window = window;
         this.plugin = plugin;
-        this.clientThread = clientThread;
-        this.config = config;
         this.collectionLogService = collectionLogService;
         this.taskService = taskService;
 
@@ -109,9 +83,9 @@ public class TaskInfo extends UIPage {
 
     private UILabel titleLabel;
     private UILabel tipLabel;
-    private UIButton wikiBtn;
-    private UIButton closeBtn;
-    private UIButton completeBtn;
+    private UINativeButton wikiBtn;
+    private UINativeButton closeBtn;
+    private UINativeButton completeBtn;
     private UILabel progressLabel;
     private UIGraphic progressBarBg;
     private UIGraphic progressBarFill;
@@ -196,7 +170,6 @@ public class TaskInfo extends UIPage {
                     boolean isObtained = collectionLogService.isItemObtained(itemId);
                     itemImage.setOpacity(isObtained ? 1 : 0.3f);
                     String itemName = plugin.itemManager.getItemComposition(itemId).getName();
-                    itemImage.getWidget().clearActions();
                     itemImage.clearActions();
                     itemImage.addAction(itemName, () -> {});
                     itemIndex++;
@@ -215,37 +188,33 @@ public class TaskInfo extends UIPage {
         extraItemsLabel.getWidget().setName(currentTask.getName());
 
         if (wikiBtn == null) {
-            wikiBtn = new UIButton(window.createChild(-1, WidgetType.GRAPHIC));
+            wikiBtn = new UINativeButton(window.createChild(WidgetType.LAYER));
             this.add(wikiBtn);
         }
         wikiBtn.setSize(BUTTON_WIDTH, BUTTON_HEIGHT);
-        wikiBtn.setSprites(WIKI_BUTTON_SPRITE_ID, WIKI_BUTTON_HOVER_SPRITE_ID);
-        wikiBtn.getWidget().clearActions();
+        wikiBtn.setText("Wiki");
         wikiBtn.clearActions();
-        wikiBtn.addAction("View wiki", () -> {
-            LinkBrowser.browse(currentTask.getWikiLink());
-        });
+        wikiBtn.addAction("View Wiki", () -> LinkBrowser.browse(currentTask.getWikiLink()));
 
         if (closeBtn == null) {
-            closeBtn = new UIButton(window.createChild(-1, WidgetType.GRAPHIC));
+            closeBtn = new UINativeButton(window.createChild(WidgetType.LAYER));
             closeBtn.addAction("Close Task Info", this::closeTask);
             this.add(closeBtn);
         }
         closeBtn.setSize(BUTTON_WIDTH, BUTTON_HEIGHT);
-        closeBtn.setSprites(BACK_BUTTON_SPRITE_ID, BACK_BUTTON_HOVER_SPRITE_ID);
+        closeBtn.setText("Back");
 
         if (completeBtn == null) {
-            completeBtn = new UIButton(window.createChild(-1, WidgetType.GRAPHIC));
+            completeBtn = new UINativeButton(window.createChild(WidgetType.LAYER));
             this.add(completeBtn);
         }
         completeBtn.setSize(LARGE_BUTTON_WIDTH, BUTTON_HEIGHT);
-        completeBtn.getWidget().clearActions();
         completeBtn.clearActions();
         if (taskService.isComplete(taskId)) {
-            completeBtn.setSprites(INCOMPLETE_TASK_SPRITE_ID, INCOMPLETE_TASK_HOVER_SPRITE_ID);
+            completeBtn.setText("Mark incomplete");
             completeBtn.addAction("Mark as <col=c0392b>incomplete</col>", () -> toggleTask(taskId));
         } else {
-            completeBtn.setSprites(COMPLETE_TASK_SPRITE_ID, COMPLETE_TASK_HOVER_SPRITE_ID);
+            completeBtn.setText("Mark complete");
             completeBtn.addAction("Mark as <col=27ae60>complete</col>", () -> toggleTask(taskId));
         }
 
@@ -255,18 +224,17 @@ public class TaskInfo extends UIPage {
     }
 
     private void toggleTask(String taskId) {
-        completeBtn.getWidget().clearActions();
         completeBtn.clearActions();
+
         if (taskService.isComplete(taskId)) {
             taskService.uncomplete(taskId);
-            completeBtn.setSprites(COMPLETE_TASK_SPRITE_ID, COMPLETE_TASK_HOVER_SPRITE_ID);
+            completeBtn.setText("Mark complete");
             completeBtn.addAction("Mark as <col=27ae60>complete</col>", () -> toggleTask(taskId));
         } else {
             taskService.complete(taskId);
-            completeBtn.setSprites(INCOMPLETE_TASK_SPRITE_ID, INCOMPLETE_TASK_HOVER_SPRITE_ID);
+            completeBtn.setText("Mark incomplete");
             completeBtn.addAction("Mark as <col=c0392b>incomplete</col>", () -> toggleTask(taskId));
         }
-        completeBtn.revalidate();
     }
 
     private void setPositions() {
@@ -424,15 +392,5 @@ public class TaskInfo extends UIPage {
         }
 
         this.setPositions();
-    }
-
-    private void forceWidgetPositionUpdate(Widget button, int x, int y) {
-        button.setPos(x, y);
-        button.revalidate();
-    }
-
-    private void forceWidgetUpdate(Widget widget, int width, int height) {
-        widget.setSize(width, height);
-        widget.revalidate();
     }
 }
