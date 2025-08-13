@@ -6,15 +6,14 @@ import com.logmaster.domain.Task;
 import com.logmaster.domain.TaskTier;
 import com.logmaster.synchronization.SyncService;
 import com.logmaster.task.TaskService;
-import com.logmaster.ui.generic.UIButton;
 import com.logmaster.ui.generic.UIGraphic;
 import com.logmaster.ui.generic.UILabel;
+import com.logmaster.ui.generic.UINativeButton;
 import com.logmaster.ui.generic.UIPage;
 import lombok.Getter;
 import net.runelite.api.Client;
 import net.runelite.api.FontID;
 import net.runelite.api.SoundEffectID;
-import net.runelite.api.widgets.ItemQuantityMode;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetType;
 
@@ -32,18 +31,7 @@ public class TaskDashboard extends UIPage {
     private final static int SMALL_BUTTON_WIDTH = 68;
     private final static int DEFAULT_TASK_DETAILS_WIDTH = 300;
     private final static int DEFAULT_TASK_DETAILS_HEIGHT = 75;
-    private final static int GENERATE_TASK_SPRITE_ID = -20001;
-    private final static int COMPLETE_TASK_SPRITE_ID = -20000;
-    private final static int GENERATE_TASK_HOVER_SPRITE_ID = -20003;
-    private final static int COMPLETE_TASK_HOVER_SPRITE_ID = -20002;
-    private final static int GENERATE_TASK_DISABLED_SPRITE_ID = -20005;
-    private final static int COMPLETE_TASK_DISABLED_SPRITE_ID = -20004;
     private final static int TASK_BACKGROUND_SPRITE_ID = -20006;
-    private final static int FAQ_BUTTON_SPRITE_ID = -20027;
-    private final static int FAQ_BUTTON_HOVER_SPRITE_ID = -20028;
-    private final static int SYNC_BUTTON_SPRITE_ID = -20034;
-    private final static int SYNC_BUTTON_HOVER_SPRITE_ID = -20035;
-    private final static int SYNC_BUTTON_DISABLED_SPRITE_ID = -20036;
 
     @Getter
     private Widget window;
@@ -55,7 +43,6 @@ public class TaskDashboard extends UIPage {
     private final Client client;
     private final TaskInfo taskInfo;
 
-
     private UILabel title;
     private UILabel taskLabel;
     private UILabel percentCompletion;
@@ -63,10 +50,10 @@ public class TaskDashboard extends UIPage {
     private UIGraphic taskImage;
     private UIGraphic taskBg;
 
-    private UIButton completeTaskBtn;
-    private UIButton generateTaskBtn;
-    private UIButton faqBtn;
-    private UIButton syncBtn;
+    private final UINativeButton completeTaskBtn;
+    private final UINativeButton generateTaskBtn;
+    private final UINativeButton faqBtn;
+    private final UINativeButton syncBtn;
 
     public TaskDashboard(LogMasterPlugin plugin, LogMasterConfig config, Widget window, SyncService syncService, TaskService taskService, Client client, TaskInfo taskInfo) {
         this.window = window;
@@ -93,38 +80,37 @@ public class TaskDashboard extends UIPage {
         this.percentCompletion.setPosition(getCenterX(window, COLLECTION_LOG_WINDOW_WIDTH), COLLECTION_LOG_WINDOW_HEIGHT - 91);
         updatePercentages();
 
-        Widget completeTaskWidget = window.createChild(-1, WidgetType.GRAPHIC);
-        this.completeTaskBtn = new UIButton(completeTaskWidget);
-        this.completeTaskBtn.setSize(DEFAULT_BUTTON_WIDTH, DEFAULT_BUTTON_HEIGHT);
-        this.completeTaskBtn.setPosition(getCenterX(window, DEFAULT_BUTTON_WIDTH) + (DEFAULT_BUTTON_WIDTH / 2 + 15), getCenterY(window, DEFAULT_BUTTON_HEIGHT) + 62);
-        this.completeTaskBtn.setSprites(COMPLETE_TASK_SPRITE_ID, COMPLETE_TASK_HOVER_SPRITE_ID);
+        completeTaskBtn = new UINativeButton(window.createChild(WidgetType.LAYER));
+        completeTaskBtn.setSize(DEFAULT_BUTTON_WIDTH, DEFAULT_BUTTON_HEIGHT);
+        completeTaskBtn.setPosition(getCenterX(window, DEFAULT_BUTTON_WIDTH) + (DEFAULT_BUTTON_WIDTH / 2 + 15), getCenterY(window, DEFAULT_BUTTON_HEIGHT) + 62);
+        completeTaskBtn.setText("Complete Task");
+        completeTaskBtn.addAction("Complete", plugin::completeTask);
 
-        Widget generateTaskWidget = window.createChild(-1, WidgetType.GRAPHIC);
-        this.generateTaskBtn = new UIButton(generateTaskWidget);
-        this.generateTaskBtn.setSize(DEFAULT_BUTTON_WIDTH, DEFAULT_BUTTON_HEIGHT);
-        this.generateTaskBtn.setPosition(getCenterX(window, DEFAULT_BUTTON_WIDTH) - (DEFAULT_BUTTON_WIDTH / 2 + 15), getCenterY(window, DEFAULT_BUTTON_HEIGHT) + 62);
-        this.generateTaskBtn.setSprites(GENERATE_TASK_SPRITE_ID, GENERATE_TASK_HOVER_SPRITE_ID);
+        generateTaskBtn = new UINativeButton(window.createChild(WidgetType.LAYER));
+        generateTaskBtn.setSize(DEFAULT_BUTTON_WIDTH, DEFAULT_BUTTON_HEIGHT);
+        generateTaskBtn.setPosition(getCenterX(window, DEFAULT_BUTTON_WIDTH) - (DEFAULT_BUTTON_WIDTH / 2 + 15), getCenterY(window, DEFAULT_BUTTON_HEIGHT) + 62);
+        generateTaskBtn.setText("Generate Task");
+        generateTaskBtn.addAction("Generate task", this::generateTask);
 
-        Widget faqWidget = window.createChild(-1, WidgetType.GRAPHIC);
-        this.faqBtn = new UIButton(faqWidget);
-        this.faqBtn.setSize(SMALL_BUTTON_WIDTH, DEFAULT_BUTTON_HEIGHT);
-        this.faqBtn.setPosition(getCenterX(window, SMALL_BUTTON_WIDTH) + 190, getCenterY(window, DEFAULT_BUTTON_HEIGHT) + 112);
-        this.faqBtn.setSprites(FAQ_BUTTON_SPRITE_ID, FAQ_BUTTON_HOVER_SPRITE_ID);
+        faqBtn = new UINativeButton(window.createChild(WidgetType.LAYER));
+        faqBtn.setSize(SMALL_BUTTON_WIDTH, DEFAULT_BUTTON_HEIGHT);
+        faqBtn.setPosition(getCenterX(window, SMALL_BUTTON_WIDTH) + 190, getCenterY(window, DEFAULT_BUTTON_HEIGHT) + 112);
+        faqBtn.setText("FAQ");
+        faqBtn.addAction("Open FAQ", plugin::visitFaq);
 
-        
-        Widget syncWidget = window.createChild(-1, WidgetType.GRAPHIC);
-        this.syncBtn = new UIButton(syncWidget);
-        this.syncBtn.setSize(SMALL_BUTTON_WIDTH, DEFAULT_BUTTON_HEIGHT);
-        this.syncBtn.setPosition(getCenterX(window, SMALL_BUTTON_WIDTH) - 190, getCenterY(window, DEFAULT_BUTTON_HEIGHT) + 112);
-        this.syncBtn.setSprites(SYNC_BUTTON_SPRITE_ID, SYNC_BUTTON_DISABLED_SPRITE_ID);
+        syncBtn = new UINativeButton(window.createChild(WidgetType.LAYER));
+        syncBtn.setSize(SMALL_BUTTON_WIDTH, DEFAULT_BUTTON_HEIGHT);
+        syncBtn.setPosition(getCenterX(window, SMALL_BUTTON_WIDTH) - 190, getCenterY(window, DEFAULT_BUTTON_HEIGHT) + 112);
+        syncBtn.setText("Sync");
+        syncBtn.addAction("Sync completed tasks", syncService::sync);
 
         this.add(this.title);
         this.add(this.taskBg);
         this.add(this.taskLabel);
         this.add(this.taskImage);
-        this.add(this.completeTaskBtn);
-        this.add(this.generateTaskBtn);
         this.add(this.percentCompletion);
+        this.add(completeTaskBtn);
+        this.add(generateTaskBtn);
         this.add(faqBtn);
         this.add(syncBtn);
     }
@@ -175,7 +161,6 @@ public class TaskDashboard extends UIPage {
         this.taskImage.setItem(7542);
         this.disableCompleteTask();
         this.enableGenerateTask();
-        this.enableFaqButton();
     }
 
     public void setTask(Task task, List<Task> cyclingTasks) {
@@ -209,10 +194,9 @@ public class TaskDashboard extends UIPage {
         this.taskBg.clearActions();
         this.taskBg.addAction("View task info", () -> taskInfo.showTask(task.getId()));
         this.enableCompleteTask();
-        this.enableFaqButton();
     }
 
-	private void generateTask() {
+    private void generateTask() {
 		client.playSoundEffect(SoundEffectID.UI_BOOP);
 		Task generatedTask = taskService.generate();
 
@@ -258,43 +242,21 @@ public class TaskDashboard extends UIPage {
 
 
     public void disableGenerateTask() {
-        this.generateTaskBtn.setSprites(GENERATE_TASK_DISABLED_SPRITE_ID);
-        this.generateTaskBtn.clearActions();
-
-        this.generateTaskBtn.addAction("Disabled", this::playFailSound);
+        generateTaskBtn.setState(UINativeButton.State.DISABLED);
     }
 
     public void enableGenerateTask() {
-        this.generateTaskBtn.clearActions();
-        this.generateTaskBtn.setSprites(GENERATE_TASK_SPRITE_ID, GENERATE_TASK_HOVER_SPRITE_ID);
-        this.generateTaskBtn.addAction("Generate task", this::generateTask);
+        generateTaskBtn.setState(UINativeButton.State.DEFAULT);
 
         this.disableCompleteTask();
     }
 
     public void disableCompleteTask() {
-        this.completeTaskBtn.setSprites(COMPLETE_TASK_DISABLED_SPRITE_ID);
-        this.completeTaskBtn.clearActions();
-        this.completeTaskBtn.addAction("Disabled", this::playFailSound);
+        completeTaskBtn.setState(UINativeButton.State.DISABLED);
     }
 
     public void enableCompleteTask() {
-        this.completeTaskBtn.clearActions();
-        this.completeTaskBtn.setSprites(COMPLETE_TASK_SPRITE_ID, COMPLETE_TASK_HOVER_SPRITE_ID);
-        this.completeTaskBtn.addAction("Complete", plugin::completeTask);
-    }
-
-    public void enableFaqButton() {
-        this.faqBtn.clearActions();
-        this.faqBtn.setSprites(FAQ_BUTTON_SPRITE_ID, FAQ_BUTTON_HOVER_SPRITE_ID);
-        this.faqBtn.addAction("FAQ", plugin::visitFaq);
-        this.enableSyncButton();
-    }
-
-    public void enableSyncButton() {
-        this.syncBtn.clearActions();
-        this.syncBtn.setSprites(SYNC_BUTTON_SPRITE_ID, SYNC_BUTTON_HOVER_SPRITE_ID);
-        this.syncBtn.addAction("Auto sync completed tasks", syncService::sync);
+        completeTaskBtn.setState(UINativeButton.State.DEFAULT);
     }
 
     public void updateBounds() {
@@ -321,13 +283,12 @@ public class TaskDashboard extends UIPage {
         // Update button positions - force widget position updates
         int generateBtnX = getCenterX(window, DEFAULT_BUTTON_WIDTH) - (DEFAULT_BUTTON_WIDTH / 2 + 15);
         int generateBtnY = getCenterY(window, DEFAULT_BUTTON_HEIGHT) + 62;
-        this.generateTaskBtn.setPosition(generateBtnX, generateBtnY);
-        this.generateTaskBtn.getWidget().setPos(generateBtnX, generateBtnY);
+        generateTaskBtn.setPosition(generateBtnX, generateBtnY);
         
         int completeBtnX = getCenterX(window, DEFAULT_BUTTON_WIDTH) + (DEFAULT_BUTTON_WIDTH / 2 + 15);
         int completeBtnY = getCenterY(window, DEFAULT_BUTTON_HEIGHT) + 62;
-        this.completeTaskBtn.setPosition(completeBtnX, completeBtnY);
-        this.completeTaskBtn.getWidget().setPos(completeBtnX, completeBtnY);
+        completeTaskBtn.setPosition(completeBtnX, completeBtnY);
+        completeTaskBtn.getWidget().setPos(completeBtnX, completeBtnY);
         
         // Update FAQ button position with boundary checking
         int faqBtnX = getCenterX(window, SMALL_BUTTON_WIDTH) + 238;
@@ -338,8 +299,7 @@ public class TaskDashboard extends UIPage {
         if (faqBtnX + faqBtnWidth + 10 > windowWidth) {
             faqBtnX = windowWidth - faqBtnWidth - 10; // 10px margin from edge
         }
-        this.faqBtn.setPosition(faqBtnX, faqBtnY);
-        this.faqBtn.getWidget().setPos(faqBtnX, faqBtnY);
+        faqBtn.setPosition(faqBtnX, faqBtnY);
 
         // Update Sync button position with boundary checking
         int syncBtnX = getCenterX(window, SMALL_BUTTON_WIDTH) - 238;
@@ -347,9 +307,8 @@ public class TaskDashboard extends UIPage {
         if (syncBtnX < 10) {
             syncBtnX = 10; // 10px margin from left edge
         }
-        this.syncBtn.setPosition(syncBtnX, syncBtnY);
-        this.syncBtn.getWidget().setPos(syncBtnX, syncBtnY);
-        
+        syncBtn.setPosition(syncBtnX, syncBtnY);
+
         // Update percentage completion position - force widget position update
         int percentX = getCenterX(window, COLLECTION_LOG_WINDOW_WIDTH);
         int percentY = getCenterY(window, DEFAULT_BUTTON_HEIGHT) + 112; // Same Y as FAQ button
@@ -361,10 +320,10 @@ public class TaskDashboard extends UIPage {
         this.taskBg.getWidget().revalidate();
         this.taskLabel.getWidget().revalidate();
         this.taskImage.getWidget().revalidate();
-        this.generateTaskBtn.getWidget().revalidate();
-        this.completeTaskBtn.getWidget().revalidate();
-        this.faqBtn.getWidget().revalidate();
-        this.syncBtn.getWidget().revalidate();
+        generateTaskBtn.revalidate();
+        completeTaskBtn.revalidate();
+        faqBtn.revalidate();
+        syncBtn.revalidate();
         this.percentCompletion.getWidget().revalidate();
     }
 

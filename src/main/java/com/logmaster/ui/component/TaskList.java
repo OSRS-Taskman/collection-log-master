@@ -12,9 +12,7 @@ import com.logmaster.ui.generic.UIButton;
 import com.logmaster.ui.generic.UIGraphic;
 import com.logmaster.ui.generic.UILabel;
 import com.logmaster.ui.generic.UIPage;
-import com.logmaster.ui.component.TaskInfo;
 import lombok.extern.slf4j.Slf4j;
-import net.runelite.api.widgets.ItemQuantityMode;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetType;
 import net.runelite.client.callback.ClientThread;
@@ -204,7 +202,6 @@ public class TaskList extends UIPage {
                 // Ensure it's visible, clear the actions, set size and position
                 taskBg.getWidget().setHidden(false);
                 taskBg.clearActions();
-                taskBg.getWidget().clearActions();
                 taskBg.setSize(TASK_WIDTH, TASK_HEIGHT);
                 taskBg.setPosition(taskX, taskY);
                 taskBg.getWidget().setPos(taskX, taskY);

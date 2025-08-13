@@ -275,7 +275,7 @@ public class InterfaceManager extends EventBusSubscriber implements MouseListene
     }
 
     private void createTaskInfo(Widget window) {
-        this.taskInfo = new TaskInfo(window, plugin, clientThread, config, collectionLogService, taskService);
+        this.taskInfo = new TaskInfo(window, plugin, collectionLogService, taskService);
     }
 
     private void createTaskCheckbox() {
