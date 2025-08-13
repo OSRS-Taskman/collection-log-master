@@ -1,29 +1,5 @@
 [
    {
-      "spriteId":-20000,
-      "fileName":"compTask.png"
-   },
-   {
-      "spriteId":-20001,
-      "fileName":"genTask.png"
-   },
-   {
-      "spriteId":-20002,
-      "fileName":"compTask-hover.png"
-   },
-   {
-      "spriteId":-20003,
-      "fileName":"genTask-hover.png"
-   },
-   {
-      "spriteId":-20004,
-      "fileName":"compTask-disabled.png"
-   },
-   {
-      "spriteId":-20005,
-      "fileName":"genTask-disabled.png"
-   },
-   {
       "spriteId":-20006,
       "fileName":"currentTask.png"
    },
@@ -34,14 +10,6 @@
    {
       "spriteId":-20008,
       "fileName":"tab-dashboard-hover.png"
-   },
-   {
-      "spriteId":-20009,
-      "fileName":"tab-tasklist.png"
-   },
-   {
-      "spriteId":-20010,
-      "fileName":"tab-tasklist-hover.png"
    },
    {
       "spriteId":-20011,
@@ -108,14 +76,6 @@
       "fileName":"master-tab-hover.png"
    },
    {
-      "spriteId":-20027,
-      "fileName":"faqButton.png"
-   },
-   {
-      "spriteId":-20028,
-      "fileName":"faqButton_hover.png"
-   },
-   {
       "spriteId":-20029,
       "fileName":"page-up-arrow.png"
    },
@@ -134,42 +94,6 @@
    {
       "spriteId":-20033,
       "fileName":"thumb-bottom.png"
-   },
-   {
-      "spriteId":-20034,
-      "fileName":"sync-button.png"
-   },
-   {
-      "spriteId":-20035,
-      "fileName":"sync-button-hover.png"
-   },
-   {
-      "spriteId":-20036,
-      "fileName":"sync-button-disabled.png"
-   },
-   {
-      "spriteId":-20037,
-      "fileName":"back-button.png"
-   },
-   {
-      "spriteId":-20038,
-      "fileName":"back-button-hover.png"
-   },
-   {
-      "spriteId":-20039,
-      "fileName":"wiki-button.png"
-   },
-   {
-      "spriteId":-20040,
-      "fileName":"wiki-button-hover.png"
-   },
-   {
-      "spriteId":-20041,
-      "fileName":"incompTask.png"
-   },
-   {
-      "spriteId":-20042,
-      "fileName":"incompTask-hover.png"
    },
    {
       "spriteId":-20099,
