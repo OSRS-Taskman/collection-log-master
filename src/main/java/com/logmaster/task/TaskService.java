@@ -45,9 +45,12 @@ public class TaskService extends EventBusSubscriber {
     }
 
     public Task getActiveTask() {
-        return saveDataStorage.get().getActiveTask();
+        String activeTaskId = saveDataStorage.get().getActiveTaskId();
+
+        return activeTaskId == null ? null : getTaskById(activeTaskId);
     }
 
+    // we might want to build a cache map in the future
     public Task getTaskById(String taskId) {
         for (TaskTier t : TaskTier.values()) {
             List<Task> tasks = getTierTasks(t);
@@ -128,8 +131,8 @@ public class TaskService extends EventBusSubscriber {
     public Task generate() {
         SaveData data = saveDataStorage.get();
 
-        Task activeTask = data.getActiveTask();
-        if (activeTask != null) {
+        String activeTaskId = data.getActiveTaskId();
+        if (activeTaskId != null) {
             log.warn("Tried to generate task when previous one wasn't completed yet");
             return null;
         }
@@ -144,7 +147,7 @@ public class TaskService extends EventBusSubscriber {
         Task generatedTask = pickRandomTask(incompleteTierTasks);
         log.debug("New task generated: {}", generatedTask);
 
-        data.setActiveTask(generatedTask);
+        data.setActiveTaskId(generatedTask.getId());
         saveDataStorage.save();
         taskmanCommandManager.updateServer();
 
@@ -165,9 +168,8 @@ public class TaskService extends EventBusSubscriber {
         Set<String> completedTasks = data.getCompletedTasks();
         completedTasks.add(taskId);
 
-        Task activeTask = getActiveTask();
-        if (activeTask != null && taskId.equals(activeTask.getId())) {
-            data.setActiveTask(null);
+        if (taskId.equals(data.getActiveTaskId())) {
+            data.setActiveTaskId(null);
         }
 
         saveDataStorage.save();

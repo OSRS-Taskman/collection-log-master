@@ -1,6 +1,5 @@
 package com.logmaster.domain.savedata;
 
-import com.logmaster.domain.Task;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -12,14 +11,14 @@ import java.util.Set;
 @Getter
 @ToString
 public class SaveData extends BaseSaveData {
-    public final static int VERSION = 2;
+    public final static int VERSION = 3;
 
     public SaveData() {
         this.version = VERSION;
     }
 
-    private final Set<String> completedTasks = new HashSet<>();
-
     @Setter
-    private @Nullable Task activeTask = null;
+    private @Nullable String activeTaskId = null;
+
+    private final Set<String> completedTasks = new HashSet<>();
 }
