@@ -7956,15 +7956,28 @@
 			}
 		},
 		{
-			"id": "9d7b0542-d31c-476a-afad-58541e4674bd",
-			"name": "Get 1 unique from Araxytes/Araxxor",
-			"tip": "Can be obtained when killing Araxytes/Araxxor",
-			"wikiLink": "https://oldschool.runescape.wiki/w/Araxxor",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Araxyte_fang_detail.png/200px-Araxyte_fang_detail.png",
-			"displayItemId": 29799,
+			"id": "1b5ff8e4-3cef-4d3a-8476-2091a0aac5b6",
+			"name": "Get 1 unique from Tormented Demons",
+			"tip": "Can be obtained when killing Tormented Demons",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Tormented_demon",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Tormented_synapse_detail.png/200px-Tormented_synapse_detail.png",
+			"displayItemId": 29580,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 29781, 29782, 29784, 29788, 29790, 29792, 29794, 29799, 29806 ],
+				"itemIds": [ 29574, 29580, 29684 ],
+				"count": 3
+			}
+		},
+		{
+			"id": "9d7b0542-d31c-476a-afad-58541e4674bd",
+			"name": "Get the Aranea Boots",
+			"tip": "Can be obtained when killing Araxytes, with 2.5x drop chance when on task!",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Aranea_boots",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Aranea_boots_detail.png/200px-Aranea_boots_detail.png",
+			"displayItemId": 29806,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 29806 ],
 				"count": 1
 			}
 		},
@@ -7977,8 +7990,8 @@
 			"displayItemId": 29799,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 29781, 29782, 29784, 29788, 29790, 29792, 29794, 29799, 29806 ],
-				"count": 2
+				"itemIds": [ 29781, 29782, 29784, 29788, 29790, 29792, 29794, 29799 ],
+				"count": 1
 			}
 		},
 		{
@@ -7990,8 +8003,8 @@
 			"displayItemId": 29799,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 29781, 29782, 29784, 29788, 29790, 29792, 29794, 29799, 29806 ],
-				"count": 3
+				"itemIds": [ 29781, 29782, 29784, 29788, 29790, 29792, 29794, 29799 ],
+				"count": 2
 			}
 		},
 		{
@@ -8094,10 +8107,10 @@
 			"tip": "Giant, insect-like, demonic boss found in the Tonali Cavern after completion of The Final Dawn quest.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Doom_of_Mokhaiotl",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Eye_of_ayak_detail.png/320px-Eye_of_ayak_detail.png",
-			"displayItemId": 31113,
+			"displayItemId": 31115,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 31111, 31099, 31109, 31113, 31088 ],
+				"itemIds": [ 31111, 31099, 31109, 31115, 31088 ],
 				"count": 1
 			}
 		},
@@ -8107,10 +8120,10 @@
 			"tip": "Giant, insect-like, demonic boss found in the Tonali Cavern after completion of The Final Dawn quest.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Doom_of_Mokhaiotl",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Eye_of_ayak_detail.png/320px-Eye_of_ayak_detail.png",
-			"displayItemId": 31113,
+			"displayItemId": 31115,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 31111, 31099, 31109, 31113, 31088 ],
+				"itemIds": [ 31111, 31099, 31109, 31115, 31088 ],
 				"count": 2
 			}
 		}
@@ -11224,19 +11237,6 @@
 			}
 		},
 		{
-			"id": "1b5ff8e4-3cef-4d3a-8476-2091a0aac5b6",
-			"name": "Get 1 unique from Tormented Demons",
-			"tip": "Can be obtained when killing Tormented Demons",
-			"wikiLink": "https://oldschool.runescape.wiki/w/Tormented_demon",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Tormented_synapse_detail.png/200px-Tormented_synapse_detail.png",
-			"displayItemId": 29580,
-			"verification": {
-				"method": "collection-log",
-				"itemIds": [ 29574, 29580, 29684 ],
-				"count": 3
-			}
-		},
-		{
 			"id": "a353e0e9-2610-4b12-8408-2268bc0feaa2",
 			"name": "Get 1 unique from Araxytes/Araxxor",
 			"tip": "Can be obtained when killing Araxytes/Araxxor",
@@ -11245,8 +11245,8 @@
 			"displayItemId": 29799,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 29781, 29782, 29784, 29788, 29790, 29792, 29794, 29799, 29806 ],
-				"count": 4
+				"itemIds": [ 29781, 29782, 29784, 29788, 29790, 29792, 29794, 29799 ],
+				"count": 3
 			}
 		},
 		{
@@ -11258,8 +11258,8 @@
 			"displayItemId": 29799,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 29781, 29782, 29784, 29788, 29790, 29792, 29794, 29799, 29806 ],
-				"count": 5
+				"itemIds": [ 29781, 29782, 29784, 29788, 29790, 29792, 29794, 29799 ],
+				"count": 4
 			}
 		},
 		{
@@ -11271,8 +11271,8 @@
 			"displayItemId": 29799,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 29781, 29782, 29784, 29788, 29790, 29792, 29794, 29799, 29806 ],
-				"count": 6
+				"itemIds": [ 29781, 29782, 29784, 29788, 29790, 29792, 29794, 29799 ],
+				"count": 5
 			}
 		},
 		{
@@ -11284,8 +11284,8 @@
 			"displayItemId": 29799,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 29781, 29782, 29784, 29788, 29790, 29792, 29794, 29799, 29806 ],
-				"count": 7
+				"itemIds": [ 29781, 29782, 29784, 29788, 29790, 29792, 29794, 29799 ],
+				"count": 6
 			}
 		},
 		{
@@ -11297,8 +11297,8 @@
 			"displayItemId": 29799,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 29781, 29782, 29784, 29788, 29790, 29792, 29794, 29799, 29806 ],
-				"count": 8
+				"itemIds": [ 29781, 29782, 29784, 29788, 29790, 29792, 29794, 29799 ],
+				"count": 7
 			}
 		},
 		{
@@ -11464,10 +11464,10 @@
 			"tip": "Giant, insect-like, demonic boss found in the Tonali Cavern after completion of The Final Dawn quest.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Doom_of_Mokhaiotl",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Eye_of_ayak_detail.png/320px-Eye_of_ayak_detail.png",
-			"displayItemId": 31113,
+			"displayItemId": 31115,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 31111, 31099, 31109, 31113, 31088 ],
+				"itemIds": [ 31111, 31099, 31109, 31115, 31088 ],
 				"count": 3
 			}
 		},
@@ -11477,10 +11477,10 @@
 			"tip": "Giant, insect-like, demonic boss found in the Tonali Cavern after completion of The Final Dawn quest.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Doom_of_Mokhaiotl",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Eye_of_ayak_detail.png/320px-Eye_of_ayak_detail.png",
-			"displayItemId": 31113,
+			"displayItemId": 31115,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 31111, 31099, 31109, 31113, 31088 ],
+				"itemIds": [ 31111, 31099, 31109, 31115, 31088 ],
 				"count": 4
 			}
 		}
@@ -12715,7 +12715,9 @@
 			"displayItemId": 20724,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 20724, 21270, 23047, 23050, 23053, 23056, 23059, 22963 ],
+				"itemIds": [
+					20724, 21270, 23047, 23050, 23053, 23056, 23059, 22963, 11286, 21637
+				],
 				"count": 1
 			}
 		},
@@ -12728,7 +12730,9 @@
 			"displayItemId": 20724,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 20724, 21270, 23047, 23050, 23053, 23056, 23059, 22963 ],
+				"itemIds": [
+					20724, 21270, 23047, 23050, 23053, 23056, 23059, 22963, 11286, 21637
+				],
 				"count": 2
 			}
 		},
@@ -12741,7 +12745,9 @@
 			"displayItemId": 20724,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 20724, 21270, 23047, 23050, 23053, 23056, 23059, 22963 ],
+				"itemIds": [
+					20724, 21270, 23047, 23050, 23053, 23056, 23059, 22963, 11286, 21637
+				],
 				"count": 3
 			}
 		},
@@ -12754,7 +12760,9 @@
 			"displayItemId": 20724,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 20724, 21270, 23047, 23050, 23053, 23056, 23059, 22963 ],
+				"itemIds": [
+					20724, 21270, 23047, 23050, 23053, 23056, 23059, 22963, 11286, 21637
+				],
 				"count": 4
 			}
 		},
@@ -12767,7 +12775,9 @@
 			"displayItemId": 20724,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 20724, 21270, 23047, 23050, 23053, 23056, 23059, 22963 ],
+				"itemIds": [
+					20724, 21270, 23047, 23050, 23053, 23056, 23059, 22963, 11286, 21637
+				],
 				"count": 5
 			}
 		},
@@ -12892,14 +12902,14 @@
 		},
 		{
 			"id": "dfcb3155-0e12-444e-bab7-c8e3c5aa52cf",
-			"name": "Obtain a Dragonbone necklace",
+			"name": "1 Vorkath unique",
 			"tip": "A rare drop from Vorkath",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Vorkath",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dragonbone_necklace_detail.png/200px-Dragonbone_necklace_detail.png",
 			"displayItemId": 22111,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 22111 ],
+				"itemIds": [ 22111, 22006 ],
 				"count": 1
 			}
 		},
@@ -13896,10 +13906,10 @@
 			"tip": "Giant, insect-like, demonic boss found in the Tonali Cavern after completion of The Final Dawn quest.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Doom_of_Mokhaiotl",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Eye_of_ayak_detail.png/320px-Eye_of_ayak_detail.png",
-			"displayItemId": 31113,
+			"displayItemId": 31115,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 31111, 31099, 31109, 31113, 31088 ],
+				"itemIds": [ 31111, 31099, 31109, 31115, 31088 ],
 				"count": 5
 			}
 		}
