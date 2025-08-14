@@ -62,7 +62,12 @@ public class SaveDataUpdater {
                     || activeTask.getTip() == null
                     || activeTask.getWikiLink() == null
             ) {
-                save.setActiveTask(null);
+                if (activeTask.getId() == null) {
+                    save.setActiveTask(null);
+                } else {
+                    Task updatedTask = taskService.getTaskById(activeTask.getId());
+                    save.setActiveTask(updatedTask);
+                }
             }
         }
 
