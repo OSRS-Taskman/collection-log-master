@@ -8,6 +8,7 @@ import com.logmaster.domain.savedata.v0.V0Task;
 import com.logmaster.domain.savedata.v0.V0TaskPointer;
 import com.logmaster.domain.savedata.v1.V1SaveData;
 import com.logmaster.domain.savedata.v1.V1TaskPointer;
+import com.logmaster.domain.savedata.v2.V2SaveData;
 import com.logmaster.task.SaveDataStorage;
 import com.logmaster.task.TaskService;
 import com.logmaster.util.FileUtils;
@@ -41,42 +42,43 @@ public class SaveDataUpdater {
         SaveData save = new SaveData();
         if (base.getVersion() == V0SaveData.VERSION) {
             V0SaveData v0Save = GSON.fromJson(json, V0SaveData.class);
-            save = update(update(v0Save));
+            save = update(update(update(v0Save)));
         }
 
         if (base.getVersion() == V1SaveData.VERSION) {
             V1SaveData v1Save = GSON.fromJson(json, V1SaveData.class);
-            save = update(v1Save);
+            save = update(update(v1Save));
+        }
+
+        if (base.getVersion() == V2SaveData.VERSION) {
+            V2SaveData v2Save = GSON.fromJson(json, V2SaveData.class);
+            save = update(v2Save);
         }
 
         if (base.getVersion() == SaveData.VERSION) {
             save = GSON.fromJson(json, SaveData.class);
         }
 
-        // fix issue with save data conversion by clearing active task if it failed
-        Task activeTask = save.getActiveTask();
-        if (activeTask != null) {
-            if (
-                    activeTask.getId() == null
-                    || activeTask.getName() == null
-                    || activeTask.getTip() == null
-                    || activeTask.getWikiLink() == null
-            ) {
-                if (activeTask.getId() == null) {
-                    save.setActiveTask(null);
-                } else {
-                    Task updatedTask = taskService.getTaskById(activeTask.getId());
-                    save.setActiveTask(updatedTask);
-                }
-            }
-        }
-
         return save;
     }
 
-    private SaveData update(V1SaveData v1Save) {
-        saveDataStorage.saveBackup(v1Save);
+    private SaveData update(V2SaveData v2Save) {
+        saveDataStorage.saveBackup(v2Save);
         SaveData newSave = new SaveData();
+
+        newSave.getCompletedTasks().addAll(v2Save.getCompletedTasks());
+
+        Task activeTask = v2Save.getActiveTask();
+        if (activeTask != null) {
+            newSave.setActiveTaskId(activeTask.getId());
+        }
+
+        return newSave;
+    }
+
+    private V2SaveData update(V1SaveData v1Save) {
+        saveDataStorage.saveBackup(v1Save);
+        V2SaveData newSave = new V2SaveData();
 
         V1TaskPointer v1ActiveTaskPointer = v1Save.getActiveTaskPointer();
         if (v1ActiveTaskPointer != null) {
