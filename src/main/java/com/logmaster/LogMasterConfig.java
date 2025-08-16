@@ -104,16 +104,4 @@ public interface LogMasterConfig extends Config
     {
         return false;
     }
-
-    @ConfigItem(
-            keyName = "isCommandReminderEnabled",
-            name = "Enable reminder",
-            description = "Reminds you to enable commands in case you forgot",
-            section = command,
-            position = 1
-    )
-    default boolean isCommandReminderEnabled()
-    {
-        return true;
-    }
 }

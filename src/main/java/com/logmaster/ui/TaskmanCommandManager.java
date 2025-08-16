@@ -87,7 +87,7 @@ public class TaskmanCommandManager extends EventBusSubscriber {
 
         if (config.isCommandEnabled()) {
             chatCommandManager.registerCommand(COLLECTION_LOG_COMMAND, this::executeCommand);
-            updateServerImmediately(true);
+            updateServerImmediately();
         } else {
             chatCommandManager.unregisterCommand(COLLECTION_LOG_COMMAND);
         }
@@ -100,21 +100,32 @@ public class TaskmanCommandManager extends EventBusSubscriber {
         clientThread.invokeAtTickEnd(this::updateServer);
     }
 
+    private void executeCommand(ChatMessage chatMessage, String message) {
+        log.debug("Executing taskman command: {}", message);
+
+        String senderName = chatMessage.getType().equals(ChatMessageType.PRIVATECHATOUT)
+                ? client.getLocalPlayer().getName()
+                : Text.sanitize(chatMessage.getName());
+
+        if (senderName == null) {
+            log.debug("Couldn't identify message sender");
+            return;
+        }
+
+        HttpUrl url = baseApiUrl.newBuilder().addPathSegment(senderName).build();
+        httpClient.getHttpRequestAsync(url.toString(), CommandResponse.class)
+            .thenAccept(res ->
+                clientThread.invokeLater(() -> replaceChatMessage(chatMessage, res))
+            );
+    }
+
     public void updateServer() {
-        updateServer(false);
-    }
-
-    public void updateServer(boolean skipReminder) {
         log.debug("Scheduling command update; {}", Instant.now());
-        updateDebouncer.debounce(() -> updateServerImmediately(skipReminder));
+        updateDebouncer.debounce(this::updateServerImmediately);
     }
 
-    public void updateServerImmediately(boolean skipReminder) {
+    public void updateServerImmediately() {
         if (!config.isCommandEnabled()) {
-            if (!skipReminder) {
-                remind();
-            }
-
             return;
         }
 
@@ -138,25 +149,6 @@ public class TaskmanCommandManager extends EventBusSubscriber {
         httpClient.putHttpRequestAsync(url.toString(), GSON.toJson(data), null);
     }
 
-    private void executeCommand(ChatMessage chatMessage, String message) {
-        log.debug("Executing taskman command: {}", message);
-
-        String senderName = chatMessage.getType().equals(ChatMessageType.PRIVATECHATOUT)
-                ? client.getLocalPlayer().getName()
-                : Text.sanitize(chatMessage.getName());
-
-        if (senderName == null) {
-            log.debug("Couldn't identify message sender");
-            return;
-        }
-
-        HttpUrl url = baseApiUrl.newBuilder().addPathSegment(senderName).build();
-        httpClient.getHttpRequestAsync(url.toString(), CommandResponse.class)
-                .thenAccept(res -> {
-                    clientThread.invokeLater(() -> replaceChatMessage(chatMessage, res));
-                });
-    }
-
     private void replaceChatMessage(ChatMessage chatMessage, CommandResponse res) {
         if (res == null) return;
 
@@ -174,18 +166,5 @@ public class TaskmanCommandManager extends EventBusSubscriber {
         final MessageNode messageNode = chatMessage.getMessageNode();
         messageNode.setRuneLiteFormatMessage(msg);
         client.refreshChat();
-    }
-
-    private void remind() {
-        if (!config.isCommandReminderEnabled()) {
-            return;
-        }
-
-        clientThread.invoke(() -> {
-            String msg = "<col=ff392b>[Collection Log Master] Your data hasn't been synchronized with the command server because this feature is disabled."
-                    + " You can enable it in the plugin config; you can also disable this reminder in the plugin config.";
-            client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", msg, "");
-            client.playSoundEffect(2277);
-        });
     }
 }
