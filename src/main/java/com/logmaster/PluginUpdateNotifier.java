@@ -24,9 +24,8 @@ import static com.logmaster.LogMasterConfig.PLUGIN_VERSION_KEY;
 public class PluginUpdateNotifier extends EventBusSubscriber {
     private static final String[] UPDATE_MESSAGES = {
             "<colHIGHLIGHT>Collection Log Master updated to v" + getPluginVersion(),
-            "<colHIGHLIGHT>- Added task info panel; check detailed task requirements in there!",
-            "<colHIGHLIGHT>- Added support for !taskman command; enable in the plugin config",
-            "<colHIGHLIGHT>- Fixed an issue with the conversion of old save data",
+            "<colHIGHLIGHT>- Added option to disable LMS tasks",
+            "<colHIGHLIGHT>- Removed the command reminder",
             "<colHIGHLIGHT>- Other minor fixes and improvements",
     };
 
