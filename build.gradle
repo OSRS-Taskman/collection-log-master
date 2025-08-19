@@ -1,3 +1,16 @@
+buildscript {
+    repositories {
+        gradlePluginPortal()
+    }
+
+	// avoids requiring to whitelist spotless in plugin hub
+    if (gradle.startParameter.taskNames.any { it.contains('spotless') }) {
+        dependencies {
+            classpath("com.diffplug.gradle.spotless:com.diffplug.gradle.spotless.gradle.plugin:7.2.1")
+        }
+    }
+}
+
 plugins {
 	id 'java'
 }
@@ -66,4 +79,46 @@ processResources {
 			it.replace('%PLUGIN_VERSION%', version)
 		}
 	}
+}
+
+// avoids requiring to whitelist spotless in plugin hub
+if (gradle.startParameter.taskNames.any { it.contains('spotless') }) {
+    apply plugin: 'com.diffplug.spotless'
+    spotless {
+		// TODO: change this to origin/main
+		ratchetFrom 'HEAD'
+
+        format 'misc', {
+            target '*.gradle', '.gitattributes', '.gitignore'
+
+            trimTrailingWhitespace()
+            leadingTabsToSpaces(4)
+            endWithNewline()
+        }
+
+        java {
+            toggleOffOn()
+
+            importOrder()
+            removeUnusedImports()
+
+            cleanthat()
+
+            googleJavaFormat().reflowLongStrings().formatJavadoc(true).reorderImports(false)
+
+            leadingSpacesToTabs(2)
+
+            custom '@Annotation diff line', { it.replaceAll("(\n(\t+)@[A-Z][A-Za-z]+) ", "\$1\n\$2") }
+        }
+
+        flexmark {
+            target '**/*.md'
+            flexmark()
+        }
+
+        json {
+            target 'src/**/*.json'
+            gson()
+        }
+    }
 }
