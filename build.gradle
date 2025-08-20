@@ -3,7 +3,7 @@ buildscript {
         gradlePluginPortal()
     }
 
-	// avoids requiring to whitelist spotless in plugin hub
+    // avoids requiring to whitelist spotless in plugin hub
     if (gradle.startParameter.taskNames.any { it.contains('spotless') }) {
         dependencies {
             classpath("com.diffplug.gradle.spotless:com.diffplug.gradle.spotless.gradle.plugin:7.2.1")
@@ -12,81 +12,81 @@ buildscript {
 }
 
 plugins {
-	id 'java'
+    id 'java'
 }
 
 group = 'com.collectionlogmaster'
 version = '1.2.2-SNAPSHOT'
 
 repositories {
-	mavenLocal()
-	maven {
-		url = 'https://repo.runelite.net'
-		content {
-			includeGroupByRegex("net\\.runelite.*")
-		}
-	}
-	mavenCentral()
+    mavenLocal()
+    maven {
+        url = 'https://repo.runelite.net'
+        content {
+            includeGroupByRegex("net\\.runelite.*")
+        }
+    }
+    mavenCentral()
 }
 
 def runeLiteVersion = 'latest.release'
 
 dependencies {
-	compileOnly group: 'net.runelite', name:'client', version: runeLiteVersion
+    compileOnly group: 'net.runelite', name:'client', version: runeLiteVersion
 
-	compileOnly 'org.projectlombok:lombok:1.18.30'
-	annotationProcessor 'org.projectlombok:lombok:1.18.30'
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
 
-	testImplementation 'junit:junit:4.12'
-	testImplementation group: 'net.runelite', name:'client', version: runeLiteVersion
-	testImplementation group: 'net.runelite', name:'jshell', version: runeLiteVersion
+    testImplementation 'junit:junit:4.12'
+    testImplementation group: 'net.runelite', name:'client', version: runeLiteVersion
+    testImplementation group: 'net.runelite', name:'jshell', version: runeLiteVersion
 }
 
 tasks.withType(JavaCompile).configureEach {
-	options.encoding = 'UTF-8'
-	options.release.set(11)
+    options.encoding = 'UTF-8'
+    options.release.set(11)
 }
 
 tasks.register('shadowJar', Jar) {
-	dependsOn configurations.testRuntimeClasspath
-	manifest {
-		attributes('Main-Class': 'com.collectionlogmaster.CollectionLogMasterPluginTest', 'Multi-Release': true)
-	}
+    dependsOn configurations.testRuntimeClasspath
+    manifest {
+        attributes('Main-Class': 'com.collectionlogmaster.CollectionLogMasterPluginTest', 'Multi-Release': true)
+    }
 
-	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-	from sourceSets.main.output
-	from sourceSets.test.output
-	from {
-		configurations.testRuntimeClasspath.collect { file ->
-			file.isDirectory() ? file : zipTree(file)
-		}
-	}
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from sourceSets.main.output
+    from sourceSets.test.output
+    from {
+        configurations.testRuntimeClasspath.collect { file ->
+            file.isDirectory() ? file : zipTree(file)
+        }
+    }
 
-	exclude 'META-INF/INDEX.LIST'
-	exclude 'META-INF/*.SF'
-	exclude 'META-INF/*.DSA'
-	exclude 'META-INF/*.RSA'
-	exclude '**/module-info.class'
+    exclude 'META-INF/INDEX.LIST'
+    exclude 'META-INF/*.SF'
+    exclude 'META-INF/*.DSA'
+    exclude 'META-INF/*.RSA'
+    exclude '**/module-info.class'
 
-	group = BasePlugin.BUILD_GROUP
-	archiveClassifier.set('shadow')
-	archiveFileName.set("${rootProject.name}-${project.version}-all.jar")
+    group = BasePlugin.BUILD_GROUP
+    archiveClassifier.set('shadow')
+    archiveFileName.set("${rootProject.name}-${project.version}-all.jar")
 }
 
 processResources {
-	filesMatching ('**/version') {
-		filter {
-			it.replace('%PLUGIN_VERSION%', version)
-		}
-	}
+    filesMatching ('**/version') {
+        filter {
+            it.replace('%PLUGIN_VERSION%', version)
+        }
+    }
 }
 
 // avoids requiring to whitelist spotless in plugin hub
 if (gradle.startParameter.taskNames.any { it.contains('spotless') }) {
     apply plugin: 'com.diffplug.spotless'
     spotless {
-		// TODO: change this to origin/main
-		ratchetFrom 'HEAD'
+        // TODO: change this to origin/main
+        ratchetFrom '77fc0423281b42fb5800ba518496c63e05124c56'
 
         format 'misc', {
             target '*.gradle', '.gitattributes', '.gitignore'
