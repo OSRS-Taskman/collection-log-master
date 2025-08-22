@@ -12,7 +12,6 @@ import com.collectionlogmaster.ui.component.TabManager;
 import com.collectionlogmaster.ui.component.TaskDashboard;
 import com.collectionlogmaster.ui.component.TaskInfo;
 import com.collectionlogmaster.ui.component.TaskList;
-import com.collectionlogmaster.ui.generic.UICheckBox;
 import com.collectionlogmaster.util.EventBusSubscriber;
 import com.collectionlogmaster.util.FileUtils;
 import net.runelite.api.ChatMessageType;
@@ -80,10 +79,6 @@ public class InterfaceManager extends EventBusSubscriber implements MouseListene
     private TabManager tabManager;
     private TaskInfo taskInfo;
 
-    private UICheckBox taskDashboardCheckbox;
-
-    private boolean checkboxDeprecationWarned = false;
-
     public void startUp() {
         super.startUp();
         mouseManager.registerMouseListener(this);
@@ -136,7 +131,6 @@ public class InterfaceManager extends EventBusSubscriber implements MouseListene
         createTaskDashboard(window);
         createTaskList(window);
         createTabManager(window);
-        createTaskCheckbox();
         this.tabManager.setComponents(taskDashboard, taskList);
         this.taskInfo.setComponents(taskDashboard, taskList, tabManager);
 
@@ -182,9 +176,6 @@ public class InterfaceManager extends EventBusSubscriber implements MouseListene
         }
         if (this.taskInfo != null) {
             taskInfo.updateBounds();
-        }
-        if (this.taskDashboardCheckbox != null) {
-            taskDashboardCheckbox.alignToRightEdge(window, 35, 10);
         }
 	}
 
@@ -278,36 +269,6 @@ public class InterfaceManager extends EventBusSubscriber implements MouseListene
         this.taskInfo = new TaskInfo(window, plugin, collectionLogService, taskService);
     }
 
-    private void createTaskCheckbox() {
-        Widget window = client.getWidget(621, 88);
-        if (window != null) {
-            // Create the graphic widget for the checkbox
-            Widget toggleWidget = window.createChild(-1, WidgetType.GRAPHIC);
-            Widget labelWidget = window.createChild(-1, WidgetType.TEXT);
-
-            // Wrap in checkbox, set size, position, etc.
-            taskDashboardCheckbox = new UICheckBox(toggleWidget, labelWidget);
-            taskDashboardCheckbox.setPosition(360, 10);
-            taskDashboardCheckbox.setName("Task Dashboard");
-            taskDashboardCheckbox.setEnabled(false);
-            taskDashboardCheckbox.setText("Task Dashboard");
-            labelWidget.setPos(375, 10);
-
-
-            taskDashboardCheckbox.setToggleListener((UICheckBox src) -> {
-                if (!checkboxDeprecationWarned) {
-                    checkboxDeprecationWarned = true;
-                    String msg = "<col=ff392b>Please use the hamburger menu on the top-left corner to open the task dashboard;"
-                            + " this checkbox will be removed in the future";
-                    client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", msg, "");
-                    client.playSoundEffect(2277);
-                }
-
-                this.burgerMenuManager.setSelected(taskDashboardCheckbox.isEnabled());
-            });
-        }
-    }
-
     private void toggleTaskDashboard() {
         if(this.taskDashboard == null) return;
 
@@ -320,8 +281,6 @@ public class InterfaceManager extends EventBusSubscriber implements MouseListene
 
         boolean enabled = isTaskDashboardEnabled();
         
-        
-        this.taskDashboardCheckbox.setEnabled(enabled);
         Widget contentWidget = client.getWidget(InterfaceID.Collection.CONTENT);
         if (contentWidget != null) {
             for (Widget c : contentWidget.getStaticChildren()) {
