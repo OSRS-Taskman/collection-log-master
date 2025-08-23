@@ -284,6 +284,8 @@ public class InterfaceManager extends EventBusSubscriber implements MouseListene
         Widget contentWidget = client.getWidget(InterfaceID.Collection.CONTENT);
         if (contentWidget != null) {
             for (Widget c : contentWidget.getStaticChildren()) {
+                // skip burger menu exit click area (temp fix)
+                if (c.getId() == 40697874) continue;
                 c.setHidden(enabled);
             }
         }
