@@ -180,6 +180,7 @@ public class TabManager {
         if (this.tabs != null) {
             this.tabs.forEach(t -> t.setVisibility(false));
         }
+        divider.setVisibility(false);
     }
 
     public void showTabs() {
@@ -204,6 +205,7 @@ public class TabManager {
             }
             tabIndex++;
         }
+        divider.setVisibility(true);
         updateTabPositions();
     }
 }
