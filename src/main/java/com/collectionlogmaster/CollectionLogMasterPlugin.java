@@ -7,7 +7,7 @@ import com.collectionlogmaster.synchronization.clog.CollectionLogService;
 import com.collectionlogmaster.task.TaskService;
 import com.collectionlogmaster.ui.InterfaceManager;
 import com.collectionlogmaster.ui.TaskmanCommandManager;
-import com.collectionlogmaster.ui.component.TaskOverlay;
+import com.collectionlogmaster.ui.TaskOverlay;
 import com.collectionlogmaster.util.GsonOverride;
 import lombok.Getter;
 import lombok.Setter;

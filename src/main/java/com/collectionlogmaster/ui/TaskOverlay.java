@@ -1,9 +1,8 @@
-package com.collectionlogmaster.ui.component;
+package com.collectionlogmaster.ui;
 
 import com.collectionlogmaster.CollectionLogMasterConfig;
 import com.collectionlogmaster.domain.Task;
 import com.collectionlogmaster.task.TaskService;
-import com.collectionlogmaster.ui.InterfaceManager;
 import net.runelite.client.config.RuneLiteConfig;
 import net.runelite.client.game.ItemManager;
 import net.runelite.client.ui.overlay.Overlay;
@@ -14,7 +13,6 @@ import java.awt.*;
 
 @Singleton
 public class TaskOverlay extends Overlay {
-
     private static final Dimension EMPTY = new Dimension(0, 0);
 
     private static final int WIDTH_ADDITION = 51;
