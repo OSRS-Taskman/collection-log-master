@@ -191,6 +191,12 @@ public class BurgerMenuManager extends EventBusSubscriber {
             menu.setHidden(true)
                 .revalidate();
         }
+
+        Widget burgerMenuOverlay = client.getWidget(40697874);
+        if (burgerMenuOverlay != null) {
+            burgerMenuOverlay.setHidden(true)
+                    .revalidate();
+        }
     }
 
     private static Widget getFirstWidgetOfType(List<Widget> menuChildren, int widgetType) {
