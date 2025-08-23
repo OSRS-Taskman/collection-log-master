@@ -1,14 +1,16 @@
 package com.collectionlogmaster.ui.generic;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.Setter;
+import net.runelite.api.FontTypeFace;
 import net.runelite.api.ScriptEvent;
 import net.runelite.api.widgets.JavaScriptCallback;
 import net.runelite.api.widgets.Widget;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
 
 /**
  * UI Component classes allow for complex user interface functionality by
@@ -40,6 +42,40 @@ public abstract class UIComponent
 
 	@Setter
 	private ComponentEventListener<UIComponent> mouseReleaseListener;
+
+	public static int getTextHeight(@NonNull String text, Widget widget) {
+		int lineHeight = widget.getLineHeight();
+		if (lineHeight == 0) {
+			lineHeight = widget.getFont().getBaseline();
+		}
+
+		return lineHeight * getTextLineCount(text, widget);
+	}
+
+	public static int getTextLineCount(@NonNull String text, Widget widget) {
+		int maxWidth = widget.getWidth();
+		FontTypeFace font = widget.getFont();
+
+		int spaceWidth = font.getTextWidth(" ");
+		int[] wordWidths = Arrays.stream(text.split(" "))
+				.mapToInt(font::getTextWidth)
+				.toArray();
+
+		int lineCount = 1;
+		// account for first word not having a space before it
+		int lineWidth = -spaceWidth;
+		for (int wordWidth : wordWidths) {
+			lineWidth += wordWidth + spaceWidth;
+
+			if (lineWidth > maxWidth) {
+				lineCount++;
+				// include overflow word into next line
+				lineWidth = wordWidth;
+			}
+		}
+
+		return lineCount;
+	}
 
 	/**
 	 * Constructs a new UIComponent

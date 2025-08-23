@@ -5,6 +5,7 @@ import com.collectionlogmaster.domain.Task;
 import com.collectionlogmaster.domain.verification.clog.CollectionLogVerification;
 import com.collectionlogmaster.synchronization.clog.CollectionLogService;
 import com.collectionlogmaster.task.TaskService;
+import com.collectionlogmaster.ui.generic.UIComponent;
 import com.collectionlogmaster.ui.generic.UIGraphic;
 import com.collectionlogmaster.ui.generic.UILabel;
 import com.collectionlogmaster.ui.generic.UINativeButton;
@@ -243,9 +244,10 @@ public class TaskInfo extends UIPage {
         titleLabel.setSize(windowWidth, 20);
         offset_y += 30;
         tipLabel.setPosition(10, offset_y);
-        Dimension descBounds = getTextDimension(tipLabel.getWidget(), tipLabel.getWidget().getText(), windowWidth - 40);
-        tipLabel.setSize(windowWidth - 20, descBounds.height);
-        offset_y += descBounds.height + 8;
+        tipLabel.setSize(windowWidth - 20, 0);
+        int tipHeight = UIComponent.getTextHeight(tipLabel.getWidget().getText(), tipLabel.getWidget());
+        tipLabel.setSize(windowWidth - 20, tipHeight);
+        offset_y += tipHeight + 8;
         int progressBarX = 10;
         int progressBarY = offset_y;
         
@@ -335,37 +337,6 @@ public class TaskInfo extends UIPage {
         progressBarBg.revalidate();
         progressBarFill.revalidate();
         progressLabel.revalidate();
-    }
-
-    private Dimension getTextDimension(Widget widget, String text, int maxWidth) {
-        if (text == null || text.isEmpty()) {
-            return new Dimension(0, 0);
-        }
-        String[] words = text.split(" ");
-        StringBuilder line = new StringBuilder();
-        int lineCount = 1;
-        int maxLineWidth = 0;
-        for (int i = 0; i < words.length; i++) {
-            String testLine = line.length() == 0 ? words[i] : line + " " + words[i];
-            int testWidth = widget.getFont().getTextWidth(testLine);
-            if (line.toString().contains("<br>") || testWidth > maxWidth && line.length() > 0) {
-                // Start new line
-                maxLineWidth = Math.max(maxLineWidth, widget.getFont().getTextWidth(line.toString()));
-                line = new StringBuilder(words[i]);
-                lineCount++;
-            } else {
-                if (line.length() > 0) {
-                    line.append(" ");
-                }
-                line.append(words[i]);
-            }
-        }
-        // Check last line
-        if (line.length() > 0) {
-            maxLineWidth = Math.max(maxLineWidth, widget.getFont().getTextWidth(line.toString()));
-        }
-        int lineHeight = widget.getFont().getBaseline();
-        return new Dimension(maxLineWidth, lineCount * lineHeight);
     }
 
     public void closeTask() {
