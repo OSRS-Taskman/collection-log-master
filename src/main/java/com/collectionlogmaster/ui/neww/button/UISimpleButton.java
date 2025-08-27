@@ -97,7 +97,8 @@ public class UISimpleButton extends UIButton<UISimpleButton> {
 		widget.revalidate();
 
 		icon.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
-				.setYPositionMode(WidgetPositionMode.ABSOLUTE_CENTER);
+				.setYPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
+				.setOriginalY(0);
 
 		text.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
 				.setYPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
@@ -115,12 +116,15 @@ public class UISimpleButton extends UIButton<UISimpleButton> {
 	public void revalidate() {
 		super.revalidate();
 
+		// remove gap when one of the widgets is not used
+		int effectiveGap = text.getText().isBlank() || getIconSprite() == -1 ? 0 : BASE_GAP;
+
 		text.setOriginalWidth(text.getFont().getTextWidth(text.getText()))
-				.setOriginalX((icon.getOriginalWidth() / 2) + (BASE_GAP / 2))
+				.setOriginalX((icon.getOriginalWidth() + effectiveGap) / 2)
 				.setTextColor(getTextColor())
 				.revalidate();
 
-		icon.setOriginalX((text.getOriginalWidth() / -2) - (BASE_GAP / 2))
+		icon.setOriginalX((text.getOriginalWidth() + effectiveGap) / -2)
 				.setSpriteId(getIconSprite())
 				.revalidate();
 	}
