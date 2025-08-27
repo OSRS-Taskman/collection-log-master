@@ -45,14 +45,13 @@ public class TaskList extends UIPage {
     private final static int ARROW_Y_OFFSET = 4;
     private final static int SCROLLBAR_WIDTH = 35; // Match arrow width
     private final static int SCROLLBAR_THUMB_MIN_HEIGHT = 8;
-    
+
 
     private final Widget window;
     private final CollectionLogMasterPlugin plugin;
     private final ClientThread clientThread;
     private final CollectionLogService collectionLogService;
     private final TaskService taskService;
-    private final TaskInfo taskInfo;
 
     private Rectangle bounds = new Rectangle();
 
@@ -85,14 +84,13 @@ public class TaskList extends UIPage {
 
     private final CollectionLogMasterConfig config;
 
-    public TaskList(Widget window, CollectionLogMasterPlugin plugin, ClientThread clientThread, CollectionLogMasterConfig config, CollectionLogService collectionLogService, TaskService taskService, TaskInfo taskInfo) {
+    public TaskList(Widget window, CollectionLogMasterPlugin plugin, ClientThread clientThread, CollectionLogMasterConfig config, CollectionLogService collectionLogService, TaskService taskService) {
         this.window = window;
         this.plugin = plugin;
         this.clientThread = clientThread;
         this.config = config;
         this.collectionLogService = collectionLogService;
         this.taskService = taskService;
-        this.taskInfo = taskInfo;
 
         updateBounds();
 
@@ -126,7 +124,7 @@ public class TaskList extends UIPage {
         scrollbarTrackWidget.setTextColor(0x665948);
         scrollbarTrackWidget.setSize(SCROLLBAR_WIDTH, 200);
         scrollbarTrackWidget.setPos(-ARROW_SPRITE_WIDTH, ARROW_SPRITE_HEIGHT*3 + ARROW_Y_OFFSET);
-        
+
         scrollbarThumbTopWidget = window.createChild(-1, WidgetType.GRAPHIC);
         scrollbarThumbTopWidget.setSpriteId(THUMB_TOP_SPRITE_ID);
         scrollbarThumbTopWidget.setSize(SCROLLBAR_WIDTH, 2);
@@ -156,7 +154,7 @@ public class TaskList extends UIPage {
         pageDownButton.setPosition(-ARROW_SPRITE_WIDTH, 0);
         pageDownButton.addAction("Page down", () -> refreshTasks(tasksPerPage));
     }
-    
+
     public void refreshTasks(int dir) {
         TaskTier relevantTier = plugin.getSelectedTier();
         if (relevantTier == null) {
@@ -253,7 +251,12 @@ public class TaskList extends UIPage {
 
                 // Add our right click actions
                 String taskId = task.getId();
-                taskBg.addAction("Show task info", () -> taskInfo.showTask(taskId));
+				taskBg.addAction("Show task info", () -> {
+					this.setVisibility(false);
+					TaskInfo.openInside(window, task)
+							.thenAccept((v) -> this.setVisibility(true));
+				});
+
                 if (taskService.isComplete(taskId)) {
                     taskBg.addAction("Mark incomplete", () -> toggleTask(taskId));
                 } else {
@@ -457,10 +460,10 @@ public class TaskList extends UIPage {
         int maxTopIndex = Math.max(0, totalTasks - tasksPerPageActual);
         double scrollRatio = (scrollbarTrackHeight - thumbHeight) > 0 ? (double)deltaY / (scrollbarTrackHeight - thumbHeight) : 0;
         int newTopIndex = dragStartTopIndex + (int)(scrollRatio * (totalTasks - tasksPerPageActual));
-        
+
         // Round to nearest column boundary
         newTopIndex = (newTopIndex / columns) * columns;
-        
+
         return Math.max(0, Math.min(maxTopIndex, newTopIndex));
     }
 
@@ -480,7 +483,7 @@ public class TaskList extends UIPage {
 
     public void handleMousePress(int mouseX, int mouseY) {
         if (!this.isVisible()) return;
-        
+
         if (isPointInScrollThumb(mouseX, mouseY)) {
             isDraggingThumb = true;
             dragStartY = mouseY;
@@ -490,9 +493,9 @@ public class TaskList extends UIPage {
 
     public void handleMouseDrag(int mouseX, int mouseY) {
         if (!isDraggingThumb || !this.isVisible()) return;
-        
+
         if (totalTasks <= tasksPerPage) return;
-        
+
         int newTopIndex = calculateNewScrollPosition(mouseY, totalTasks);
         if (newTopIndex != topTaskIndex) {
             topTaskIndex = newTopIndex;
@@ -504,13 +507,13 @@ public class TaskList extends UIPage {
     private boolean isPointInScrollThumb(int mouseX, int mouseY) {
         int baseX = wrapperX + windowX;
         int baseY = wrapperY + windowY;
-        
+
         // Check if point is in any of the three thumb components
         int thumbX = baseX + scrollbarThumbTopWidget.getRelativeX();
         int thumbTopY = baseY + scrollbarThumbTopWidget.getRelativeY();
         int thumbBottomY = baseY + scrollbarThumbBottomWidget.getRelativeY() + scrollbarThumbBottomWidget.getHeight();
         int thumbWidth = scrollbarThumbTopWidget.getWidth();
-        
+
         return mouseX >= thumbX && mouseX <= thumbX + thumbWidth &&
             mouseY >= thumbTopY && mouseY <= thumbBottomY;
     }

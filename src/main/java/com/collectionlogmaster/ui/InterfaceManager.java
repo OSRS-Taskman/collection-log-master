@@ -7,14 +7,14 @@ import com.collectionlogmaster.domain.TaskTier;
 import com.collectionlogmaster.synchronization.SyncService;
 import com.collectionlogmaster.synchronization.clog.CollectionLogService;
 import com.collectionlogmaster.task.TaskService;
-import com.collectionlogmaster.ui.component.BurgerMenuManager;
+import com.collectionlogmaster.ui.component.MenuManager;
 import com.collectionlogmaster.ui.component.TabManager;
 import com.collectionlogmaster.ui.component.TaskDashboard;
-import com.collectionlogmaster.ui.component.TaskInfo;
 import com.collectionlogmaster.ui.component.TaskList;
+import com.collectionlogmaster.ui.state.StateChanged;
+import com.collectionlogmaster.ui.state.StateStore;
 import com.collectionlogmaster.util.EventBusSubscriber;
 import com.collectionlogmaster.util.FileUtils;
-import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
 import net.runelite.api.SoundEffectID;
 import net.runelite.api.events.GameTick;
@@ -22,7 +22,6 @@ import net.runelite.api.events.WidgetClosed;
 import net.runelite.api.events.WidgetLoaded;
 import net.runelite.api.gameval.InterfaceID;
 import net.runelite.api.widgets.Widget;
-import net.runelite.api.widgets.WidgetType;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.ConfigChanged;
@@ -72,20 +71,20 @@ public class InterfaceManager extends EventBusSubscriber implements MouseListene
     private TaskService taskService;
 
     @Inject
-    private BurgerMenuManager burgerMenuManager;
+    private MenuManager burgerMenuManager;
+
+    @Inject
+    private StateStore stateStore;
 
     public TaskDashboard taskDashboard;
     private TaskList taskList;
     private TabManager tabManager;
-    private TaskInfo taskInfo;
 
     public void startUp() {
         super.startUp();
         mouseManager.registerMouseListener(this);
         mouseManager.registerMouseWheelListener(this);
         burgerMenuManager.startUp();
-
-        burgerMenuManager.setOnSelectChangedListener(this::toggleTaskDashboard);
 
         SpriteDefinition[] spriteDefinitions = FileUtils.loadDefinitionResource(SpriteDefinition[].class, DEF_FILE_SPRITES);
         this.spriteManager.addSpriteOverrides(spriteDefinitions);
@@ -98,13 +97,18 @@ public class InterfaceManager extends EventBusSubscriber implements MouseListene
         burgerMenuManager.shutDown();
     }
 
+    @Subscribe
+    public void onStateChanged(StateChanged ev) {
+        toggleTaskDashboard();
+    }
+
 	@Subscribe
 	public void onConfigChanged(ConfigChanged e) {
         if (!e.getGroup().equals(CONFIG_GROUP)) {
 			return;
 		}
 
-        if (!isTaskDashboardEnabled() || this.taskDashboard == null || this.tabManager == null) {
+        if (!stateStore.isDashboardEnabled() || this.taskDashboard == null || this.tabManager == null) {
             return;
         }
 
@@ -126,13 +130,12 @@ public class InterfaceManager extends EventBusSubscriber implements MouseListene
 		}
 
         Widget window = client.getWidget(InterfaceID.Collection.CONTENT);
+        if (window == null) return;
 
-        createTaskInfo(window);
         createTaskDashboard(window);
         createTaskList(window);
         createTabManager(window);
         this.tabManager.setComponents(taskDashboard, taskList);
-        this.taskInfo.setComponents(taskDashboard, taskList, tabManager);
 
         this.tabManager.updateTabs();
         this.taskDashboard.setVisibility(false);
@@ -148,7 +151,7 @@ public class InterfaceManager extends EventBusSubscriber implements MouseListene
         this.taskList.setVisibility(false);
         tabManager.hideTabs();
 	}
-    
+
     Rectangle oldBounds;
 
 	@Subscribe
@@ -173,9 +176,6 @@ public class InterfaceManager extends EventBusSubscriber implements MouseListene
         }
         if (this.tabManager != null) {
             tabManager.updateBounds();
-        }
-        if (this.taskInfo != null) {
-            taskInfo.updateBounds();
         }
 	}
 
@@ -256,21 +256,17 @@ public class InterfaceManager extends EventBusSubscriber implements MouseListene
     }
 
     private void createTaskDashboard(Widget window) {
-        this.taskDashboard = new TaskDashboard(plugin, config, window, syncService, taskService, client, taskInfo);
+        this.taskDashboard = new TaskDashboard(plugin, config, window, syncService, taskService, client);
         this.taskDashboard.setVisibility(false);
     }
 
     private void createTaskList(Widget window) {
-        this.taskList = new TaskList(window, plugin, clientThread, config, collectionLogService, taskService, taskInfo);
+        this.taskList = new TaskList(window, plugin, clientThread, config, collectionLogService, taskService);
         this.taskList.setVisibility(false);
     }
 
-    private void createTaskInfo(Widget window) {
-        this.taskInfo = new TaskInfo(window, plugin, collectionLogService, taskService);
-    }
-
     private void toggleTaskDashboard() {
-        if(this.taskDashboard == null) return;
+        if (this.taskDashboard == null) return;
 
         Task activeTask = taskService.getActiveTask();
         if (activeTask != null) {
@@ -279,8 +275,7 @@ public class InterfaceManager extends EventBusSubscriber implements MouseListene
             this.taskDashboard.clearTask();
         }
 
-        boolean enabled = isTaskDashboardEnabled();
-        
+        boolean enabled = stateStore.isDashboardEnabled();
         Widget contentWidget = client.getWidget(InterfaceID.Collection.CONTENT);
         if (contentWidget != null) {
             for (Widget c : contentWidget.getStaticChildren()) {
@@ -297,7 +292,6 @@ public class InterfaceManager extends EventBusSubscriber implements MouseListene
         if (enabled) {
             this.tabManager.activateTaskDashboard();
         } else {
-            this.taskInfo.setVisibility(false);
             this.taskDashboard.setVisibility(false);
             this.taskList.setVisibility(false);
             this.tabManager.hideTabs();
@@ -308,7 +302,7 @@ public class InterfaceManager extends EventBusSubscriber implements MouseListene
     }
 
     private boolean isTaskDashboardEnabled() {
-        return burgerMenuManager.isSelected();
+        return stateStore.isDashboardEnabled();
     }
 
     public void completeTask() {

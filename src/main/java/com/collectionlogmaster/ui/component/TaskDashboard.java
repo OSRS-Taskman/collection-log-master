@@ -41,7 +41,6 @@ public class TaskDashboard extends UIPage {
     private final SyncService syncService;
     private final TaskService taskService;
     private final Client client;
-    private final TaskInfo taskInfo;
 
     private UILabel title;
     private UILabel taskLabel;
@@ -55,14 +54,13 @@ public class TaskDashboard extends UIPage {
     private final UINativeButton faqBtn;
     private final UINativeButton syncBtn;
 
-    public TaskDashboard(CollectionLogMasterPlugin plugin, CollectionLogMasterConfig config, Widget window, SyncService syncService, TaskService taskService, Client client, TaskInfo taskInfo) {
+    public TaskDashboard(CollectionLogMasterPlugin plugin, CollectionLogMasterConfig config, Widget window, SyncService syncService, TaskService taskService, Client client) {
         this.window = window;
         this.plugin = plugin;
         this.config = config;
         this.syncService = syncService;
         this.taskService = taskService;
         this.client = client;
-        this.taskInfo = taskInfo;
 
         createTaskDetails();
 
@@ -192,7 +190,12 @@ public class TaskDashboard extends UIPage {
         this.taskLabel.setText(task.getName());
         this.taskImage.setItem(task.getDisplayItemId());
         this.taskBg.clearActions();
-        this.taskBg.addAction("View task info", () -> taskInfo.showTask(task.getId()));
+        this.taskBg.addAction("View task info", () -> {
+            this.setVisibility(false);
+			TaskInfo.openInside(window, task)
+                    .thenAccept((v) -> this.setVisibility(true));
+
+		});
         this.enableCompleteTask();
     }
 

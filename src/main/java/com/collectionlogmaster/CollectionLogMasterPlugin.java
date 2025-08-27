@@ -1,5 +1,6 @@
 package com.collectionlogmaster;
 
+import com.google.inject.Injector;
 import com.google.inject.Provides;
 import com.collectionlogmaster.domain.Task;
 import com.collectionlogmaster.domain.TaskTier;
@@ -29,6 +30,9 @@ import javax.inject.Inject;
 		conflicts = {"[DEPRECATED] Collection Log Master"}
 )
 public class CollectionLogMasterPlugin extends Plugin {
+	@Getter
+	private static Injector staticInjector;
+
 	@Inject
 	@SuppressWarnings("unused")
 	private GsonOverride gsonOverride;
@@ -67,6 +71,8 @@ public class CollectionLogMasterPlugin extends Plugin {
 
 	@Override
 	protected void startUp() {
+		CollectionLogMasterPlugin.staticInjector = getInjector();
+
 		taskService.startUp();
 		collectionLogService.startUp();
 		pluginUpdateNotifier.startUp();
