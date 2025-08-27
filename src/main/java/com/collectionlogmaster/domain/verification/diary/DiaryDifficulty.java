@@ -8,10 +8,10 @@ import lombok.extern.slf4j.Slf4j;
 @Getter
 @RequiredArgsConstructor
 public enum DiaryDifficulty {
-    EASY(2),
-    MEDIUM(5),
-    HARD(8),
-    ELITE(11);
+    EASY(0),
+    MEDIUM(3),
+    HARD(6),
+    ELITE(9);
 
     private final int stackOffset;
 }

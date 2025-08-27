@@ -1,5 +1,7 @@
 package com.collectionlogmaster.ui.component;
 
+import com.collectionlogmaster.ui.state.StateChanged;
+import com.collectionlogmaster.ui.state.StateStore;
 import com.google.inject.Inject;
 import com.collectionlogmaster.util.EventBusSubscriber;
 import lombok.Getter;
@@ -13,9 +15,14 @@ import net.runelite.api.widgets.WidgetType;
 import net.runelite.client.eventbus.Subscribe;
 
 import java.util.*;
+import org.intellij.lang.annotations.MagicConstant;
 
+/**
+ * Responsible for handling the interaction with the hamburger menu in the top-left corner of the
+ * collection log window. Heavily inspired by <a href="https://github.com/ReinhardtR/runeprofile-plugin/blob/master/src/main/java/com/runeprofile/ui/ManualUpdateButtonManager.java">RuneProfile's implementation</a>
+ */
 @Slf4j
-public class BurgerMenuManager extends EventBusSubscriber {
+public class MenuManager extends EventBusSubscriber {
     private static final int DRAW_BURGER_MENU_SCRIPT_ID = 7812;
     private static final int COLLECTION_LOG_SETUP_SCRIPT_ID = 7797;
     private static final int COLLECTION_LOG_BURGER_MENU_WIDGET_ID = 40697929;
@@ -34,6 +41,9 @@ public class BurgerMenuManager extends EventBusSubscriber {
     @Inject
     private Client client;
 
+    @Inject
+    private StateStore stateStore;
+
     private Widget menu;
     private Widget ourBackground;
     private Widget ourText;
@@ -42,18 +52,18 @@ public class BurgerMenuManager extends EventBusSubscriber {
 
     private int baseMenuHeight = -1;
 
-    @Getter
-    private boolean selected = false;
-
-    @Setter
-    private Runnable onSelectChangedListener = null;
+    @Subscribe
+    public void onStateChanged(StateChanged ev) {
+        restyleOptions();
+    }
 
     @Subscribe
     public void onScriptPreFired(ScriptPreFired event) {
         int scriptId = event.getScriptId();
         if (scriptId == COLLECTION_LOG_SETUP_SCRIPT_ID) {
-            setSelected(false);
+            stateStore.setDashboardEnabled(false);
             baseMenuHeight = -1;
+            return;
         }
 
         if (scriptId != DRAW_BURGER_MENU_SCRIPT_ID) {
@@ -67,27 +77,16 @@ public class BurgerMenuManager extends EventBusSubscriber {
         }
 
         try {
-            log.debug("Adding task dashboard button to menu with ID: {}", menuId);
             addButton(menuId);
         } catch (Exception e) {
-            log.debug("Failed to add task dashboard button to menu: {}", e.getMessage());
-        }
-    }
-
-    public void setSelected(boolean selected) {
-        if (this.selected == selected) return;
-
-        this.selected = selected;
-        restyleOptions();
-
-        if (this.onSelectChangedListener != null) {
-            this.onSelectChangedListener.run();
+            log.warn("Failed to add task dashboard button to menu: {}", e.getMessage());
         }
     }
 
     private void restyleOptions() {
         if (ourBackground == null || ourText == null) return;
 
+        boolean selected = stateStore.isDashboardEnabled();
         Widget selectedBackground = selected ? ourBackground : firstBackground;
         Widget selectedText = selected ? ourText : firstText;
         Widget defaultBackground = selected ? firstBackground : ourBackground;
@@ -151,11 +150,15 @@ public class BurgerMenuManager extends EventBusSubscriber {
                     .setXTextAlignment(lastText.getXTextAlignment())
                     .setYTextAlignment(lastText.getYTextAlignment());
             ourText.setHasListener(true);
-            ourText.setOnMouseOverListener((JavaScriptCallback) ev -> { if (!selected) ourText.setTextColor(TEXT_COLOR_HOVER); });
-            ourText.setOnMouseLeaveListener((JavaScriptCallback) ev -> { if (!selected) ourText.setTextColor(TEXT_COLOR); });
+            ourText.setOnMouseOverListener((JavaScriptCallback) ev -> {
+                if (!stateStore.isDashboardEnabled()) ourText.setTextColor(TEXT_COLOR_HOVER);
+            });
+            ourText.setOnMouseLeaveListener((JavaScriptCallback) ev -> {
+                if (!stateStore.isDashboardEnabled()) ourText.setTextColor(TEXT_COLOR);
+            });
             ourText.setAction(0, ACTION_TEXT);
             ourText.setOnOpListener((JavaScriptCallback) ev -> {
-                setSelected(true);
+                stateStore.setDashboardEnabled(true);
                 hideMenu();
             });
             ourText.revalidate();
@@ -177,11 +180,15 @@ public class BurgerMenuManager extends EventBusSubscriber {
         firstText = getFirstWidgetOfType(menuChildren, WidgetType.TEXT);
 
         firstText.setHasListener(true);
-        firstText.setOnMouseOverListener((JavaScriptCallback) ev -> { if (selected) firstText.setTextColor(TEXT_COLOR_HOVER); });
-        firstText.setOnMouseLeaveListener((JavaScriptCallback) ev -> { if (selected) firstText.setTextColor(TEXT_COLOR); });
+        firstText.setOnMouseOverListener((JavaScriptCallback) ev -> {
+            if (stateStore.isDashboardEnabled()) firstText.setTextColor(TEXT_COLOR_HOVER);
+        });
+        firstText.setOnMouseLeaveListener((JavaScriptCallback) ev -> {
+            if (stateStore.isDashboardEnabled()) firstText.setTextColor(TEXT_COLOR);
+        });
         firstText.setAction(0, firstText.getText());
         firstText.setOnOpListener((JavaScriptCallback) ev -> {
-            setSelected(false);
+            stateStore.setDashboardEnabled(false);
             hideMenu();
         });
     }
@@ -199,7 +206,7 @@ public class BurgerMenuManager extends EventBusSubscriber {
         }
     }
 
-    private static Widget getFirstWidgetOfType(List<Widget> menuChildren, int widgetType) {
+    private static Widget getFirstWidgetOfType(List<Widget> menuChildren, @MagicConstant(valuesFromClass = WidgetType.class) int widgetType) {
         return menuChildren.stream()
                 .filter(w -> w.getType() == widgetType)
                 .findFirst()
