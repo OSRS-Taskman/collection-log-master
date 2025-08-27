@@ -327,10 +327,12 @@ public class TaskInfo extends UIComponent {
 	public void revalidate() {
 		super.revalidate();
 		titleText.revalidate();
+		backButton.revalidate();
+		wikiButton.revalidate();
 		tipText.revalidate();
 		progressBar.revalidate();
-		wikiButton.revalidate();
+		scrollableContainer.revalidate();
+		itemGrid.revalidate();
 		markButton.revalidate();
-		backButton.revalidate();
 	}
 }
