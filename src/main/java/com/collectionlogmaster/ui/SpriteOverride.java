@@ -28,7 +28,11 @@ public enum SpriteOverride implements net.runelite.client.game.SpriteOverride {
     THUMB_TOP("thumb-top.png"),
     THUMB_MIDDLE("thumb-middle.png"),
     THUMB_BOTTOM("thumb-bottom.png"),
-    TRANSPARENT("transparent.png");
+    TRANSPARENT("transparent.png"),
+
+    // we'll override these later by flipping the original sprite on the fly
+    TALL_TABS_CORNER_VFLIP("transparent.png"),
+    TALL_TABS_CORNER_HOVER_VFLIP("transparent.png");
 
     // we put `lastSpriteId` into a nested static class to force the
     // JVM into initializing it before calling the enum constructor
