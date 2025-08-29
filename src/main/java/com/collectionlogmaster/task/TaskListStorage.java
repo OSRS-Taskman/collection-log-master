@@ -39,7 +39,7 @@ public class TaskListStorage {
     }
 
     private @NonNull TieredTaskList fetchLocal() {
-        return FileUtils.loadDefinitionResource(TieredTaskList.class, LOCAL_TASK_LIST_FILE);
+        return FileUtils.loadResource(LOCAL_TASK_LIST_FILE, TieredTaskList.class);
     }
 
     private CompletableFuture<TieredTaskList> fetchRemoteAsync() {
