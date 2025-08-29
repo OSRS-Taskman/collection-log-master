@@ -3,6 +3,7 @@ package com.collectionlogmaster.ui.component;
 import com.collectionlogmaster.CollectionLogMasterConfig;
 import com.collectionlogmaster.CollectionLogMasterPlugin;
 import com.collectionlogmaster.domain.TaskTier;
+import com.collectionlogmaster.ui.SpriteOverride;
 import com.collectionlogmaster.ui.generic.UIButton;
 import com.collectionlogmaster.ui.generic.UIGraphic;
 import net.runelite.api.widgets.Widget;
@@ -59,7 +60,7 @@ public class TabManager {
         }
         Widget dashboardTabWidget = window.createChild(-1, WidgetType.GRAPHIC);
         taskDashboardTab = new UIButton(dashboardTabWidget);
-        taskDashboardTab.setSprites(DASHBOARD_TAB_SPRITE_ID, DASHBOARD_TAB_HOVER_SPRITE_ID);
+        taskDashboardTab.setSprites(SpriteOverride.TAB_DASHBOARD.getSpriteId(), SpriteOverride.TAB_DASHBOARD.getSpriteId());
         taskDashboardTab.setSize(DASHBOARD_TAB_WIDTH, TAB_HEIGHT);
         taskDashboardTab.setPosition(10, 0);
         taskDashboardTab.addAction("View <col=ff9040>Dashboard</col>", this::activateTaskDashboard);
@@ -77,7 +78,7 @@ public class TabManager {
     private void createDivider() {
         Widget dividerWidget = window.createChild(-1, WidgetType.GRAPHIC);
         divider = new UIGraphic(dividerWidget);
-        divider.setSprite(DIVIDER_SPRITE_ID);
+        divider.setSprite(SpriteOverride.DIVIDER.getSpriteId());
         divider.setSize(window.getWidth(), 1); // Full width minus margins
         divider.setPosition(0, 20);
         divider.revalidate();
@@ -154,7 +155,7 @@ public class TabManager {
     }
 
     private void activateTaskListForTier(TaskTier tier, int tabIndex) {
-        taskDashboardTab.setSprites(DASHBOARD_TAB_SPRITE_ID, DASHBOARD_TAB_HOVER_SPRITE_ID);
+        taskDashboardTab.setSprites(SpriteOverride.TAB_DASHBOARD.getSpriteId(), SpriteOverride.TAB_DASHBOARD.getSpriteId());
         if (plugin.getSelectedTier() != tier) {
             this.taskList.goToTop();
             plugin.setSelectedTier(tier);
@@ -167,7 +168,7 @@ public class TabManager {
     }
 
     public void activateTaskDashboard() {
-        this.taskDashboardTab.setSprites(DASHBOARD_TAB_HOVER_SPRITE_ID);
+        this.taskDashboardTab.setSprites(SpriteOverride.TAB_DASHBOARD.getSpriteId());
         this.taskList.setVisibility(false);
         this.taskDashboard.setVisibility(true);
         updateTabs();

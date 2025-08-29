@@ -6,6 +6,7 @@ import com.collectionlogmaster.domain.Task;
 import com.collectionlogmaster.domain.TaskTier;
 import com.collectionlogmaster.synchronization.SyncService;
 import com.collectionlogmaster.task.TaskService;
+import com.collectionlogmaster.ui.SpriteOverride;
 import com.collectionlogmaster.ui.generic.UIGraphic;
 import com.collectionlogmaster.ui.generic.UILabel;
 import com.collectionlogmaster.ui.generic.UINativeButton;
@@ -31,7 +32,6 @@ public class TaskDashboard extends UIPage {
     private final static int SMALL_BUTTON_WIDTH = 68;
     private final static int DEFAULT_TASK_DETAILS_WIDTH = 300;
     private final static int DEFAULT_TASK_DETAILS_HEIGHT = 75;
-    private final static int TASK_BACKGROUND_SPRITE_ID = -20006;
 
     @Getter
     private Widget window;
@@ -134,7 +134,7 @@ public class TaskDashboard extends UIPage {
         this.taskBg = new UIGraphic(taskBgWidget);
         this.taskBg.setSize(DEFAULT_TASK_DETAILS_WIDTH, DEFAULT_TASK_DETAILS_HEIGHT);
         this.taskBg.setPosition(POS_X, POS_Y);
-        this.taskBg.setSprite(TASK_BACKGROUND_SPRITE_ID);
+        this.taskBg.setSprite(SpriteOverride.CURRENT_TASK.getSpriteId());
 
         Widget label = window.createChild(-1, WidgetType.TEXT);
         label.setTextColor(Color.WHITE.getRGB());

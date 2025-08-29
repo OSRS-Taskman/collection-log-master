@@ -8,6 +8,7 @@ import com.collectionlogmaster.domain.TaskTier;
 import com.collectionlogmaster.domain.verification.clog.CollectionLogVerification;
 import com.collectionlogmaster.synchronization.clog.CollectionLogService;
 import com.collectionlogmaster.task.TaskService;
+import com.collectionlogmaster.ui.SpriteOverride;
 import com.collectionlogmaster.ui.generic.UIButton;
 import com.collectionlogmaster.ui.generic.UIGraphic;
 import com.collectionlogmaster.ui.generic.UILabel;
@@ -33,13 +34,6 @@ public class TaskList extends UIPage {
     private final static int COLUMN_SPACING = 24;
     private final static int TASK_ITEM_HEIGHT = 32;
     private final static int TASK_ITEM_WIDTH = 36;
-    private final static int PAGE_UP_ARROW_SPRITE_ID = -20029;
-    private final static int UP_ARROW_SPRITE_ID = -20014;
-    private final static int DOWN_ARROW_SPRITE_ID = -20015;
-    private final static int PAGE_DOWN_ARROW_SPRITE_ID = -20030;
-    private final static int THUMB_TOP_SPRITE_ID = -20031;
-    private final static int THUMB_MIDDLE_SPRITE_ID = -20032;
-    private final static int THUMB_BOTTOM_SPRITE_ID = -20033;
     private final static int ARROW_SPRITE_WIDTH = 39;
     private final static int ARROW_SPRITE_HEIGHT = 20;
     private final static int ARROW_Y_OFFSET = 4;
@@ -107,14 +101,14 @@ public class TaskList extends UIPage {
     private void createScrollbarComponents() {
         Widget pageUpWidget = window.createChild(-1, WidgetType.GRAPHIC);
         pageUpButton = new UIButton(pageUpWidget);
-        pageUpButton.setSprites(PAGE_UP_ARROW_SPRITE_ID);
+        pageUpButton.setSprites(SpriteOverride.PAGE_UP_ARROW.getSpriteId());
         pageUpButton.setSize(ARROW_SPRITE_WIDTH, ARROW_SPRITE_HEIGHT);
         pageUpButton.setPosition(-ARROW_SPRITE_WIDTH, 0);
         pageUpButton.addAction("Page up", () -> refreshTasks(-tasksPerPage));
 
         Widget upWidget = window.createChild(-1, WidgetType.GRAPHIC);
         upArrowButton = new UIButton(upWidget);
-        upArrowButton.setSprites(UP_ARROW_SPRITE_ID);
+        upArrowButton.setSprites(SpriteOverride.UP_ARROW.getSpriteId());
         upArrowButton.setSize(ARROW_SPRITE_WIDTH, ARROW_SPRITE_HEIGHT);
         upArrowButton.setPosition(-ARROW_SPRITE_WIDTH, 0);
         upArrowButton.addAction("Scroll up", () -> refreshTasks(-1));
@@ -126,30 +120,30 @@ public class TaskList extends UIPage {
         scrollbarTrackWidget.setPos(-ARROW_SPRITE_WIDTH, ARROW_SPRITE_HEIGHT*3 + ARROW_Y_OFFSET);
 
         scrollbarThumbTopWidget = window.createChild(-1, WidgetType.GRAPHIC);
-        scrollbarThumbTopWidget.setSpriteId(THUMB_TOP_SPRITE_ID);
+        scrollbarThumbTopWidget.setSpriteId(SpriteOverride.THUMB_TOP.getSpriteId());
         scrollbarThumbTopWidget.setSize(SCROLLBAR_WIDTH, 2);
         scrollbarThumbTopWidget.setPos(-ARROW_SPRITE_WIDTH, ARROW_SPRITE_HEIGHT*3 + ARROW_Y_OFFSET);
 
         scrollbarThumbMiddleWidget = window.createChild(-1, WidgetType.GRAPHIC);
-        scrollbarThumbMiddleWidget.setSpriteId(THUMB_MIDDLE_SPRITE_ID);
+        scrollbarThumbMiddleWidget.setSpriteId(SpriteOverride.THUMB_MIDDLE.getSpriteId());
         scrollbarThumbMiddleWidget.setSize(SCROLLBAR_WIDTH, SCROLLBAR_THUMB_MIN_HEIGHT - 4);
         scrollbarThumbMiddleWidget.setPos(-ARROW_SPRITE_WIDTH, ARROW_SPRITE_HEIGHT*3 + ARROW_Y_OFFSET + 2);
 
         scrollbarThumbBottomWidget = window.createChild(-1, WidgetType.GRAPHIC);
-        scrollbarThumbBottomWidget.setSpriteId(THUMB_BOTTOM_SPRITE_ID);
+        scrollbarThumbBottomWidget.setSpriteId(SpriteOverride.THUMB_BOTTOM.getSpriteId());
         scrollbarThumbBottomWidget.setSize(SCROLLBAR_WIDTH, 2);
         scrollbarThumbBottomWidget.setPos(-ARROW_SPRITE_WIDTH, ARROW_SPRITE_HEIGHT*3 + ARROW_Y_OFFSET + SCROLLBAR_THUMB_MIN_HEIGHT - 2);
 
         Widget downWidget = window.createChild(-1, WidgetType.GRAPHIC);
         downArrowButton = new UIButton(downWidget);
-        downArrowButton.setSprites(DOWN_ARROW_SPRITE_ID);
+        downArrowButton.setSprites(SpriteOverride.DOWN_ARROW.getSpriteId());
         downArrowButton.setSize(ARROW_SPRITE_WIDTH, ARROW_SPRITE_HEIGHT);
         downArrowButton.setPosition(-ARROW_SPRITE_WIDTH, 0);
         downArrowButton.addAction("Scroll down", () -> refreshTasks(1));
 
         Widget pageDownWidget = window.createChild(-1, WidgetType.GRAPHIC);
         pageDownButton = new UIButton(pageDownWidget);
-        pageDownButton.setSprites(PAGE_DOWN_ARROW_SPRITE_ID);
+        pageDownButton.setSprites(SpriteOverride.PAGE_DOWN_ARROW.getSpriteId());
         pageDownButton.setSize(ARROW_SPRITE_WIDTH, ARROW_SPRITE_HEIGHT);
         pageDownButton.setPosition(-ARROW_SPRITE_WIDTH, 0);
         pageDownButton.addAction("Page down", () -> refreshTasks(tasksPerPage));
@@ -207,11 +201,11 @@ public class TaskList extends UIPage {
 
                 Task activeTask = taskService.getActiveTask();
                 if (activeTask != null && activeTask.getId().equals(task.getId())) {
-                    taskBg.setSprite(TASK_CURRENT_BACKGROUND_SPRITE_ID);
+                    taskBg.setSprite(SpriteOverride.TASK_LONG_CURRENT.getSpriteId());
                 } else if (taskCompleted) {
-                    taskBg.setSprite(TASK_COMPLETE_BACKGROUND_SPRITE_ID);
+                    taskBg.setSprite(SpriteOverride.TASK_LONG_COMPLETE.getSpriteId());
                 } else {
-                    taskBg.setSprite(TASK_LIST_BACKGROUND_SPRITE_ID);
+                    taskBg.setSprite(SpriteOverride.TASK_LONG.getSpriteId());
                 }
 
                 // Create the task label
@@ -322,7 +316,7 @@ public class TaskList extends UIPage {
             bg.getWidget().setHidden(true);
             bg.setPosition(-1000, 0);
             bg.getWidget().setPos(-1000, 0);
-            bg.setSprite(TRANSPARENT_SPRITE_ID);
+            bg.setSprite(SpriteOverride.TRANSPARENT.getSpriteId());
         }
         for (int i = visibleCount; i < taskLabels.size(); i++) {
             UILabel label = taskLabels.get(i);
