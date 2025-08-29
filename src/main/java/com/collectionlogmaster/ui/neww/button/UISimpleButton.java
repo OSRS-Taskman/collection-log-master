@@ -30,19 +30,16 @@ public class UISimpleButton extends UIButton<UISimpleButton> {
 		return new UISimpleButton(window.createChild(WidgetType.LAYER));
 	}
 
+	private final Widget icon;
+	private final Widget text;
+
 	protected UISimpleButton(Widget widget) {
 		super(widget);
 
-		applyStaticStyles();
-	}
-
-	private Widget icon;
-	private Widget text;
-
-	@Override
-	protected void createChildren(Widget widget) {
 		icon = widget.createChild(WidgetType.GRAPHIC);
 		text = widget.createChild(WidgetType.TEXT);
+
+		applyStaticStyles();
 	}
 
 	protected int getTextColor() {
