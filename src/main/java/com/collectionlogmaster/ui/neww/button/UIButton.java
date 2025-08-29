@@ -27,11 +27,7 @@ public abstract class UIButton<This extends UIButton<This>> extends UIComponent<
 		widget.setOnMouseOverListener((JavaScriptCallback) this::onMouseHover);
 		widget.setOnMouseLeaveListener((JavaScriptCallback) this::onMouseLeave);
 		widget.setHasListener(true);
-
-		createChildren(widget);
 	}
-
-	protected abstract void createChildren(Widget widget);
 
 	protected void onActionSelected(ScriptEvent e) {
 		if (state == State.DISABLED) return;
