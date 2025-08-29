@@ -50,12 +50,6 @@ public abstract class UIMultiSpriteButton<This extends UIMultiSpriteButton<This>
 			SpriteID.V2StoneButton.BOTTOM,
 	};
 
-	protected UIMultiSpriteButton(Widget widget) {
-		super(widget);
-
-		applyStaticStyles();
-	}
-
 	@Getter
 	@RequiredArgsConstructor
 	public enum StateTheme {
@@ -73,23 +67,22 @@ public abstract class UIMultiSpriteButton<This extends UIMultiSpriteButton<This>
 			entry(State.DISABLED, StateTheme.DISABLED)
 	);
 
-	private Widget background;
-	private Widget topLeftCorner;
-	private Widget topRightCorner;
-	private Widget bottomLeftCorner;
-	private Widget bottomRightCorner;
-	private Widget leftEdge;
-	private Widget topEdge;
-	private Widget rightEdge;
-	private Widget bottomEdge;
+	private final Widget background;
+	private final Widget topLeftCorner;
+	private final Widget topRightCorner;
+	private final Widget bottomLeftCorner;
+	private final Widget bottomRightCorner;
+	private final Widget leftEdge;
+	private final Widget topEdge;
+	private final Widget rightEdge;
+	private final Widget bottomEdge;
 	protected Widget content;
 
-	private Widget[] allGraphics;
+	private final Widget[] allGraphics;
 
-	protected abstract void createContent(Widget widget);
+	protected UIMultiSpriteButton(Widget widget) {
+		super(widget);
 
-	@Override
-	protected void createChildren(Widget widget) {
 		background = widget.createChild(WidgetType.GRAPHIC);
 		topLeftCorner = widget.createChild(WidgetType.GRAPHIC);
 		topRightCorner = widget.createChild(WidgetType.GRAPHIC);
@@ -106,7 +99,11 @@ public abstract class UIMultiSpriteButton<This extends UIMultiSpriteButton<This>
 		};
 
 		createContent(widget);
+
+		applyStaticStyles();
 	}
+
+	protected abstract void createContent(Widget widget);
 
 	protected StateTheme getTheme() {
 		return THEME_MAP.get(getState());
