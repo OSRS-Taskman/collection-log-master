@@ -14,7 +14,6 @@ import com.collectionlogmaster.ui.component.TaskList;
 import com.collectionlogmaster.ui.state.StateChanged;
 import com.collectionlogmaster.ui.state.StateStore;
 import com.collectionlogmaster.util.EventBusSubscriber;
-import com.collectionlogmaster.util.FileUtils;
 import net.runelite.api.Client;
 import net.runelite.api.SoundEffectID;
 import net.runelite.api.events.GameTick;
@@ -39,7 +38,6 @@ import java.awt.event.MouseWheelEvent;
 import java.util.List;
 
 import static com.collectionlogmaster.CollectionLogMasterConfig.CONFIG_GROUP;
-import static com.collectionlogmaster.ui.InterfaceConstants.DEF_FILE_SPRITES;
 
 @Singleton
 public class InterfaceManager extends EventBusSubscriber implements MouseListener, MouseWheelListener {
@@ -86,8 +84,7 @@ public class InterfaceManager extends EventBusSubscriber implements MouseListene
         mouseManager.registerMouseWheelListener(this);
         burgerMenuManager.startUp();
 
-        SpriteDefinition[] spriteDefinitions = FileUtils.loadDefinitionResource(SpriteDefinition[].class, DEF_FILE_SPRITES);
-        this.spriteManager.addSpriteOverrides(spriteDefinitions);
+        this.spriteManager.addSpriteOverrides(SpriteOverride.values());
     }
 
     public void shutDown() {
