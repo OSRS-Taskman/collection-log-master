@@ -1,5 +1,7 @@
 package com.collectionlogmaster.ui;
 
+import static com.collectionlogmaster.CollectionLogMasterConfig.CONFIG_GROUP;
+
 import com.collectionlogmaster.CollectionLogMasterConfig;
 import com.collectionlogmaster.CollectionLogMasterPlugin;
 import com.collectionlogmaster.domain.Task;
@@ -14,31 +16,32 @@ import com.collectionlogmaster.ui.component.TaskList;
 import com.collectionlogmaster.ui.state.StateChanged;
 import com.collectionlogmaster.ui.state.StateStore;
 import com.collectionlogmaster.util.EventBusSubscriber;
+import com.collectionlogmaster.util.ImageUtil;
+import java.awt.Rectangle;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseWheelEvent;
+import java.util.List;
+import javax.inject.Inject;
+import javax.inject.Singleton;
+import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
 import net.runelite.api.SoundEffectID;
 import net.runelite.api.events.GameTick;
 import net.runelite.api.events.WidgetClosed;
 import net.runelite.api.events.WidgetLoaded;
 import net.runelite.api.gameval.InterfaceID;
+import net.runelite.api.gameval.SpriteID;
 import net.runelite.api.widgets.Widget;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.ConfigChanged;
+import net.runelite.client.events.PluginMessage;
 import net.runelite.client.game.SpriteManager;
 import net.runelite.client.input.MouseListener;
 import net.runelite.client.input.MouseManager;
 import net.runelite.client.input.MouseWheelListener;
 
-import javax.inject.Inject;
-import javax.inject.Singleton;
-
-import java.awt.Rectangle;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseWheelEvent;
-import java.util.List;
-
-import static com.collectionlogmaster.CollectionLogMasterConfig.CONFIG_GROUP;
-
+@Slf4j
 @Singleton
 public class InterfaceManager extends EventBusSubscriber implements MouseListener, MouseWheelListener {
     @Inject
@@ -85,6 +88,7 @@ public class InterfaceManager extends EventBusSubscriber implements MouseListene
         burgerMenuManager.startUp();
 
         this.spriteManager.addSpriteOverrides(SpriteOverride.values());
+        overrideFlippedSprites();
     }
 
     public void shutDown() {
@@ -175,6 +179,26 @@ public class InterfaceManager extends EventBusSubscriber implements MouseListene
             tabManager.updateBounds();
         }
 	}
+
+    @Subscribe
+    public void onPluginMessage(PluginMessage e) {
+        if (!e.getNamespace().equals("resource-packs")) return;
+        if (!e.getName().equals("pack-loaded")) return;
+
+        overrideFlippedSprites();
+    }
+
+    private void overrideFlippedSprites() {
+        // we can't use SpriteManager because it only accepts resource paths as an input
+        client.getSpriteOverrides().put(
+                SpriteOverride.TALL_TABS_CORNER_VFLIP.getSpriteId(),
+                ImageUtil.getVFlippedSpritePixels(SpriteID.TabsTall._0, client)
+        );
+        client.getSpriteOverrides().put(
+                SpriteOverride.TALL_TABS_CORNER_HOVER_VFLIP.getSpriteId(),
+                ImageUtil.getVFlippedSpritePixels(SpriteID.TabsTall._1, client)
+        );
+    }
 
     public boolean isDashboardOpen() {
         return this.taskDashboard != null && this.taskDashboard.isVisible();

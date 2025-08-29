@@ -6,7 +6,7 @@ import javax.inject.Inject;
 
 public abstract class EventBusSubscriber {
     @Inject
-    EventBus eventBus = null;
+	protected EventBus eventBus = null;
 
     public void startUp() {
         eventBus.register(this);
