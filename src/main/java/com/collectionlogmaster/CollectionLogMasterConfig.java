@@ -96,12 +96,11 @@ public interface CollectionLogMasterConfig extends Config
             keyName = IS_COMMAND_ENABLED_KEY,
             name = "Enable command",
             description = "When you or others type !taskman in the chat, it will be replaced by your current task status",
-            warning = "Enabling this feature submits your IP address to a server not controlled or verified by the RuneLite developers.",
             section = command,
             position = 0
     )
     default boolean isCommandEnabled()
     {
-        return false;
+        return true;
     }
 }
