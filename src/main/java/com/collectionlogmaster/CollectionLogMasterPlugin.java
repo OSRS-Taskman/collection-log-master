@@ -24,7 +24,10 @@ import net.runelite.client.util.LinkBrowser;
 import javax.inject.Inject;
 
 @Slf4j
-@PluginDescriptor(name = "Collection Log Master")
+@PluginDescriptor(
+		name = "Collection Log Master",
+		conflicts = {"[DEPRECATED] Collection Log Master"}
+)
 public class CollectionLogMasterPlugin extends Plugin {
 	@Inject
 	@SuppressWarnings("unused")
