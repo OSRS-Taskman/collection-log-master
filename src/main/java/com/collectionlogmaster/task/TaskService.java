@@ -6,7 +6,7 @@ import com.collectionlogmaster.domain.Task;
 import com.collectionlogmaster.domain.TaskTier;
 import com.collectionlogmaster.domain.savedata.SaveData;
 import com.collectionlogmaster.domain.verification.clog.CollectionLogVerification;
-import com.collectionlogmaster.ui.TaskmanCommandManager;
+import com.collectionlogmaster.command.TaskmanCommandManager;
 import com.collectionlogmaster.util.EventBusSubscriber;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
