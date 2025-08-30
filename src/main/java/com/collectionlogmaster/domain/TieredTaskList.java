@@ -1,5 +1,8 @@
 package com.collectionlogmaster.domain;
 
+import java.util.Collection;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -13,6 +16,12 @@ public class TieredTaskList {
     private List<Task> hard = new ArrayList<>();
     private List<Task> elite = new ArrayList<>();
     private List<Task> master = new ArrayList<>();
+
+    public List<Task> all() {
+        return Stream.of(easy, medium, hard, elite, master)
+                .flatMap(Collection::stream)
+                .collect(Collectors.toList());
+    }
 
     public List<Task> getForTier(TaskTier tier) {
         switch (tier) {

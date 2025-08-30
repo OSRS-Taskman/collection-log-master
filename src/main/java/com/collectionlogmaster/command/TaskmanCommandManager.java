@@ -1,4 +1,4 @@
-package com.collectionlogmaster.ui;
+package com.collectionlogmaster.command;
 
 import com.collectionlogmaster.CollectionLogMasterConfig;
 import com.collectionlogmaster.domain.Task;
