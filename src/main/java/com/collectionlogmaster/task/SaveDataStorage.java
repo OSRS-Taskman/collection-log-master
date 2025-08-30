@@ -1,5 +1,6 @@
 package com.collectionlogmaster.task;
 
+import com.collectionlogmaster.CollectionLogMasterConfig;
 import com.google.gson.JsonSyntaxException;
 import com.collectionlogmaster.domain.savedata.BaseSaveData;
 import com.collectionlogmaster.domain.savedata.SaveData;
@@ -83,6 +84,7 @@ public class SaveDataStorage extends EventBusSubscriber {
     }
 
     private void load() {
+        importOldPluginSave();
         data = read();
     }
 
@@ -100,4 +102,23 @@ public class SaveDataStorage extends EventBusSubscriber {
 
         return new SaveData();
     }
+
+	private void importOldPluginSave() {
+		Boolean alreadyImported = configManager.getRSProfileConfiguration(
+				CollectionLogMasterConfig.CONFIG_GROUP,
+				"oldPluginSaveImported",
+				Boolean.class
+		);
+
+		if (alreadyImported != null && alreadyImported) {
+			return;
+		}
+
+        log.info("Importing old plugin save for profile {}", configManager.getRSProfileKey());
+        String oldSave = configManager.getRSProfileConfiguration("log-master", SAVE_DATA_KEY);
+        log.info("Old save: {}", oldSave);
+
+        configManager.setRSProfileConfiguration(CONFIG_GROUP, SAVE_DATA_KEY, oldSave);
+        configManager.setRSProfileConfiguration(CONFIG_GROUP, "oldPluginSaveImported", true);
+	}
 }
