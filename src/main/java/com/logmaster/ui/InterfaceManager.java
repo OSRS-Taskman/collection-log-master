@@ -334,6 +334,12 @@ public class InterfaceManager extends EventBusSubscriber implements MouseListene
         }
 
         if (enabled) {
+            String msg = "<col=ff392b>This version of Collection Log Master is being deprecated and"
+                    + " will soon stop working. Please open the plugin-hub and manually install the"
+                    + " newest version by searching for 'Collection Log Master'.";
+            client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", msg, "");
+            client.playSoundEffect(2277);
+
             this.tabManager.activateTaskDashboard();
         } else {
             this.taskInfo.setVisibility(false);
