@@ -20,6 +20,7 @@ import net.runelite.api.widgets.WidgetPositionMode;
 import net.runelite.api.widgets.WidgetSizeMode;
 import net.runelite.api.widgets.WidgetTextAlignment;
 import net.runelite.api.widgets.WidgetType;
+import org.jetbrains.annotations.Range;
 
 public class TaskComponent extends UIComponent<TaskComponent> {
 	private final UIBorderedContainer outerContainer;
@@ -52,6 +53,15 @@ public class TaskComponent extends UIComponent<TaskComponent> {
 		name = widget.createChild(WidgetType.TEXT);
 
 		applyStaticStyles();
+	}
+
+	@Override
+	public TaskComponent setOpacity(@Range(from = 0, to = 255) int transparency) {
+		outerContainer.setOpacity(transparency);
+		imageContainer.setOpacity(transparency);
+		image.setOpacity(transparency);
+		name.setOpacity(transparency);
+		return super.setOpacity(transparency);
 	}
 
 	public TaskComponent setTask(Task task) {
