@@ -15,27 +15,23 @@ import net.runelite.api.widgets.WidgetPositionMode;
 import net.runelite.api.widgets.WidgetSizeMode;
 import net.runelite.api.widgets.WidgetTextAlignment;
 import net.runelite.api.widgets.WidgetType;
-import org.intellij.lang.annotations.MagicConstant;
 
 public class UITab extends UIButton<UITab> {
 	public static final int TAB_HEIGHT = 20;
-
 	public static final int CORNER_SIZE = 20;
-
 	public static final int PADDING_X = 15;
-
 	public static final int TEXT_Y_OFFSET = 2;
 
 	private static final int[] DEFAULT_SPRITES = {
-			SpriteID.TabsTall._2,
-			SpriteID.TabsTall._3,
-			SpriteOverride.TALL_TABS_CORNER_VFLIP.getSpriteId()
+		SpriteID.TabsTall._2,
+		SpriteID.TabsTall._3,
+		SpriteOverride.TALL_TABS_CORNER_VFLIP.getSpriteId()
 	};
 
 	private static final int[] HOVER_SPRITES = {
-			SpriteID.TabsTall._0,
-			SpriteID.TabsTall._1,
-			SpriteOverride.TALL_TABS_CORNER_HOVER_VFLIP.getSpriteId()
+		SpriteID.TabsTall._0,
+		SpriteID.TabsTall._1,
+		SpriteOverride.TALL_TABS_CORNER_HOVER_VFLIP.getSpriteId()
 	};
 
 	private static final int[] DISABLED_SPRITES = HOVER_SPRITES;
@@ -52,9 +48,9 @@ public class UITab extends UIButton<UITab> {
 	}
 
 	private static final Map<State, StateTheme> THEME_MAP = Map.ofEntries(
-			entry(State.DEFAULT, StateTheme.DEFAULT),
-			entry(State.HOVER, StateTheme.HOVER),
-			entry(State.DISABLED, StateTheme.DISABLED)
+		entry(State.DEFAULT, StateTheme.DEFAULT),
+		entry(State.HOVER, StateTheme.HOVER),
+		entry(State.DISABLED, StateTheme.DISABLED)
 	);
 
 	private final Widget leftCorner;
@@ -74,12 +70,15 @@ public class UITab extends UIButton<UITab> {
 		rightCorner = widget.createChild(WidgetType.GRAPHIC);
 		textWidget = widget.createChild(WidgetType.TEXT);
 
-		applyStaticStyles();
+		initializeWidgets();
 	}
 
-	public UITab setFont(@MagicConstant(valuesFromClass = FontID.class) int font) {
-		textWidget.setFontId(font);
-		return this;
+	@Override
+	protected void onActionSelected(ScriptEvent e) {
+		super.onActionSelected(e);
+
+		setState(State.DISABLED)
+			.revalidate();
 	}
 
 	public UITab setText(String text) {
@@ -91,43 +90,35 @@ public class UITab extends UIButton<UITab> {
 		return THEME_MAP.get(getState());
 	}
 
-	@Override
-	protected void onActionSelected(ScriptEvent e) {
-		super.onActionSelected(e);
-
-		setState(State.DISABLED)
-				.revalidate();
-	}
-
-	protected void applyStaticStyles() {
+	protected void initializeWidgets() {
 		widget.setOriginalHeight(CORNER_SIZE)
-				.revalidate();
+			.revalidate();
 
 		leftCorner.setPos(0, 0)
-				.setSize(CORNER_SIZE, CORNER_SIZE)
-				.revalidate();
+			.setSize(CORNER_SIZE, CORNER_SIZE)
+			.revalidate();
 
 		middle.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
-				.setPos(0, 0)
-				.setWidthMode(WidgetSizeMode.MINUS)
-				.setHeightMode(WidgetSizeMode.MINUS)
-				.setSize(CORNER_SIZE * 2, 0)
-				.setSpriteTiling(true)
-				.revalidate();
+			.setPos(0, 0)
+			.setWidthMode(WidgetSizeMode.MINUS)
+			.setHeightMode(WidgetSizeMode.MINUS)
+			.setSize(CORNER_SIZE * 2, 0)
+			.setSpriteTiling(true)
+			.revalidate();
 
 		rightCorner.setXPositionMode(WidgetPositionMode.ABSOLUTE_RIGHT)
-				.setPos(0, 0)
-				.setSize(CORNER_SIZE, CORNER_SIZE)
-				.revalidate();
+			.setPos(0, 0)
+			.setSize(CORNER_SIZE, CORNER_SIZE)
+			.revalidate();
 
 		textWidget.setPos(0, TEXT_Y_OFFSET)
-				.setWidthMode(WidgetSizeMode.MINUS)
-				.setHeightMode(WidgetSizeMode.MINUS)
-				.setSize(0, 0)
-				.setXTextAlignment(WidgetTextAlignment.CENTER)
-				.setYTextAlignment(WidgetTextAlignment.CENTER)
-				.setFontId(FontID.PLAIN_12)
-				.revalidate();
+			.setWidthMode(WidgetSizeMode.MINUS)
+			.setHeightMode(WidgetSizeMode.MINUS)
+			.setSize(0, 0)
+			.setXTextAlignment(WidgetTextAlignment.CENTER)
+			.setYTextAlignment(WidgetTextAlignment.CENTER)
+			.setFontId(FontID.PLAIN_12)
+			.revalidate();
 	}
 
 	@Override
@@ -136,20 +127,20 @@ public class UITab extends UIButton<UITab> {
 
 		int textWidth = textWidget.getFont().getTextWidth(textWidget.getText());
 		widget.setOriginalWidth(textWidth + (PADDING_X * 2))
-				.revalidate();
+			.revalidate();
 
 		StateTheme theme = getTheme();
 		int[] themeSprites = theme.getSprites();
 		leftCorner.setSpriteId(themeSprites[0])
-				.revalidate();
+			.revalidate();
 
 		middle.setSpriteId(themeSprites[1])
-				.revalidate();
+			.revalidate();
 
 		rightCorner.setSpriteId(themeSprites[2])
-				.revalidate();
+			.revalidate();
 
 		textWidget.setTextColor(theme.getTextColor())
-				.revalidate();
+			.revalidate();
 	}
 }

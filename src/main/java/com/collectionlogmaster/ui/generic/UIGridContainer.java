@@ -1,17 +1,20 @@
 package com.collectionlogmaster.ui.generic;
 
+import java.util.ArrayList;
 import java.util.Collections;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.List;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetType;
 import org.intellij.lang.annotations.MagicConstant;
 
 public class UIGridContainer extends UIComponent<UIGridContainer> {
+	/**
+	 * Initial distance between grid items. Final gap will
+	 * be increased to accommodate for remaining space.
+	 */
 	private static final int BASE_GAP = 2;
 
-	// the LinkedHashSet is required to retain insertion order
-	private final LinkedHashSet<Widget> items = new LinkedHashSet<>();
+	private final List<Widget> items = new ArrayList<>();
 
 	public static UIGridContainer createInside(Widget window) {
 		return new UIGridContainer(window.createChild(WidgetType.LAYER));
@@ -21,14 +24,8 @@ public class UIGridContainer extends UIComponent<UIGridContainer> {
 		super(widget, WidgetType.LAYER);
 	}
 
-	public Set<Widget> getItems() {
-		return Collections.unmodifiableSet(items);
-	}
-
-	public UIGridContainer clearItems() {
-		widget.deleteAllChildren();
-		items.clear();
-		return this;
+	public List<Widget> getItems() {
+		return Collections.unmodifiableList(items);
 	}
 
 	public Widget createItem(@MagicConstant(valuesFromClass = WidgetType.class) int widgetType) {
@@ -37,13 +34,8 @@ public class UIGridContainer extends UIComponent<UIGridContainer> {
 		return newItem;
 	}
 
-	@Override
-	public void revalidate() {
-		widget.revalidate();
-
-		if (items.isEmpty()) return;
-
-		// we assume all items are square and same size
+	private void repositionItems() {
+		// we assume all items are same size
 		Widget anyItem = items.iterator().next();
 		int itemGap = BASE_GAP;
 		int itemWidth = anyItem.getWidth() + itemGap;
@@ -62,23 +54,35 @@ public class UIGridContainer extends UIComponent<UIGridContainer> {
 
 		// the last line needs to be offset to remain centered
 		int lastLineIndex = ((items.size() - 1) / maxItemsPerLine);
-		int lastLineYOffset = Math.floorMod(-items.size(), maxItemsPerLine) * itemWidth / 2;
+		int lastLineXOffset = Math.floorMod(-items.size(), maxItemsPerLine) * itemWidth / 2;
 
 		int i = 0;
-		for (Widget w : items) {
+		for (Widget item : items) {
 			int x = i % maxItemsPerLine;
 			int y = i / maxItemsPerLine;
-			int extraYOffset = y == lastLineIndex ? lastLineYOffset : 0;
+			int extraXOffset = y == lastLineIndex ? lastLineXOffset : 0;
 
-			int posX = x * itemWidth + gridOffset + extraYOffset;
+			int posX = x * itemWidth + gridOffset + extraXOffset;
 			int posY = y * itemHeight + BASE_GAP;
 
-			w.setPos(posX, posY)
-					.revalidate();
+			item.setPos(posX, posY)
+				.revalidate();
 
 			i++;
 		}
+	}
 
-		widget.setOriginalHeight((lastLineIndex + 1) * itemHeight + BASE_GAP);
+	@Override
+	public void revalidate() {
+		widget.revalidate();
+
+		if (items.isEmpty()) {
+			return;
+		}
+
+		repositionItems();
+
+		Widget lastItem = items.get(items.size() - 1);
+		widget.setOriginalHeight(lastItem.getRelativeY() + lastItem.getHeight() + BASE_GAP);
 	}
 }

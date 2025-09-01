@@ -22,8 +22,8 @@ public class UITextButton extends UIMultiSpriteButton<UITextButton> {
 	}
 
 	@Override
-	protected void applyStaticStyles() {
-		super.applyStaticStyles();
+	protected void initializeWidgets() {
+		super.initializeWidgets();
 
 		content.setPos(0, 0)
 				.setWidthMode(WidgetSizeMode.MINUS)

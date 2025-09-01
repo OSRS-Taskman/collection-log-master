@@ -28,7 +28,10 @@ public class UIBorderedContainer extends UIComponent<UIBorderedContainer> {
 		return new UIBorderedContainer(window.createChild(WidgetType.LAYER), WidgetType.LAYER);
 	}
 
-	public static UIBorderedContainer createInside(Widget window, @MagicConstant(valuesFromClass = WidgetType.class) int contentType) {
+	public static UIBorderedContainer createInside(
+		Widget window,
+		@MagicConstant(valuesFromClass = WidgetType.class) int contentType
+	) {
 		return new UIBorderedContainer(window.createChild(WidgetType.LAYER), contentType);
 	}
 
@@ -56,51 +59,51 @@ public class UIBorderedContainer extends UIComponent<UIBorderedContainer> {
 
 	private void initializeWidgets() {
 		background.setWidthMode(WidgetSizeMode.MINUS)
-				.setHeightMode(WidgetSizeMode.MINUS)
-				.setSpriteTiling(true)
-				.revalidate();
+			.setHeightMode(WidgetSizeMode.MINUS)
+			.setSpriteTiling(true)
+			.revalidate();
 
 		topLeftCorner.setPos(0, 0)
-				.revalidate();
+			.revalidate();
 
 		topRightCorner.setXPositionMode(WidgetPositionMode.ABSOLUTE_RIGHT)
-				.setPos(0, 0)
-				.revalidate();
+			.setPos(0, 0)
+			.revalidate();
 
 		bottomLeftCorner.setYPositionMode(WidgetPositionMode.ABSOLUTE_BOTTOM)
-				.setPos(0, 0)
-				.revalidate();
+			.setPos(0, 0)
+			.revalidate();
 
 		bottomRightCorner.setXPositionMode(WidgetPositionMode.ABSOLUTE_RIGHT)
-				.setYPositionMode(WidgetPositionMode.ABSOLUTE_BOTTOM)
-				.setPos(0, 0)
-				.revalidate();
+			.setYPositionMode(WidgetPositionMode.ABSOLUTE_BOTTOM)
+			.setPos(0, 0)
+			.revalidate();
 
 		leftEdge.setYPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
-				.setPos(0, 0)
-				.setHeightMode(WidgetSizeMode.MINUS)
-				.setSpriteTiling(true)
-				.revalidate();
+			.setPos(0, 0)
+			.setHeightMode(WidgetSizeMode.MINUS)
+			.setSpriteTiling(true)
+			.revalidate();
 
 		topEdge.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
-				.setPos(0, 0)
-				.setWidthMode(WidgetSizeMode.MINUS)
-				.setSpriteTiling(true)
-				.revalidate();
+			.setPos(0, 0)
+			.setWidthMode(WidgetSizeMode.MINUS)
+			.setSpriteTiling(true)
+			.revalidate();
 
 		rightEdge.setYPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
-				.setXPositionMode(WidgetPositionMode.ABSOLUTE_RIGHT)
-				.setPos(0, 0)
-				.setHeightMode(WidgetSizeMode.MINUS)
-				.setSpriteTiling(true)
-				.revalidate();
+			.setXPositionMode(WidgetPositionMode.ABSOLUTE_RIGHT)
+			.setPos(0, 0)
+			.setHeightMode(WidgetSizeMode.MINUS)
+			.setSpriteTiling(true)
+			.revalidate();
 
 		bottomEdge.setYPositionMode(WidgetPositionMode.ABSOLUTE_BOTTOM)
-				.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
-				.setPos(0, 0)
-				.setWidthMode(WidgetSizeMode.MINUS)
-				.setSpriteTiling(true)
-				.revalidate();
+			.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
+			.setPos(0, 0)
+			.setWidthMode(WidgetSizeMode.MINUS)
+			.setSpriteTiling(true)
+			.revalidate();
 	}
 
 	@Override
@@ -111,41 +114,41 @@ public class UIBorderedContainer extends UIComponent<UIBorderedContainer> {
 		widget.revalidate();
 
 		background.setPos(edgeSize, edgeSize)
-				.setSize(edgeSize * 2, edgeSize * 2)
-				.setSpriteId(theme.getBackground())
-				.revalidate();
+			.setSize(edgeSize * 2, edgeSize * 2)
+			.setSpriteId(theme.getBackground())
+			.revalidate();
 
 		topLeftCorner.setSize(cornerSize, cornerSize)
-				.setSpriteId(theme.getTopLeftCorner())
-				.revalidate();
+			.setSpriteId(theme.getTopLeftCorner())
+			.revalidate();
 
 		topRightCorner.setSize(cornerSize, cornerSize)
-				.setSpriteId(theme.getTopRightCorner())
-				.revalidate();
+			.setSpriteId(theme.getTopRightCorner())
+			.revalidate();
 
 		bottomLeftCorner.setSize(cornerSize, cornerSize)
-				.setSpriteId(theme.getBottomLeftCorner())
-				.revalidate();
+			.setSpriteId(theme.getBottomLeftCorner())
+			.revalidate();
 
 		bottomRightCorner.setSize(cornerSize, cornerSize)
-				.setSpriteId(theme.getBottomRightCorner())
-				.revalidate();
+			.setSpriteId(theme.getBottomRightCorner())
+			.revalidate();
 
 		leftEdge.setSize(edgeSize, cornerSize * 2)
-				.setSpriteId(theme.getLeftEdge())
-				.revalidate();
+			.setSpriteId(theme.getLeftEdge())
+			.revalidate();
 
 		topEdge.setSize(cornerSize * 2, edgeSize)
-				.setSpriteId(theme.getTopEdge())
-				.revalidate();
+			.setSpriteId(theme.getTopEdge())
+			.revalidate();
 
 		rightEdge.setSize(edgeSize, cornerSize * 2)
-				.setSpriteId(theme.getRightEdge())
-				.revalidate();
+			.setSpriteId(theme.getRightEdge())
+			.revalidate();
 
 		bottomEdge.setSize(cornerSize * 2, edgeSize)
-				.setSpriteId(theme.getBottomEdge())
-				.revalidate();
+			.setSpriteId(theme.getBottomEdge())
+			.revalidate();
 
 		content.revalidate();
 	}

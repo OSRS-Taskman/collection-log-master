@@ -46,19 +46,16 @@ public class MainTabbedContainer extends UIComponent<MainTabbedContainer> {
 		divider = tabsContainer.createChild(WidgetType.RECTANGLE);
 		contentContainer = widget.createChild(WidgetType.LAYER);
 
-		applyStaticStyles();
-
-		// open first tab
-		tabs.get(0).getAction().run();
+		initializeWidgets();
 	}
 
 	private void addTab(String label, Function<Widget, UIComponent<?>> renderer) {
 		UITab tab = UITab.createInside(tabsContainer)
-				.setYPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
-				.setOriginalY(0)
-				.setText(label)
-				.setName(UIUtil.formatName(label))
-				.setAction("View", () -> activateTab(renderer));
+			.setYPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
+			.setOriginalY(0)
+			.setText(label)
+			.setName(UIUtil.formatName(label))
+			.setAction("View", () -> activateTab(renderer));
 
 		tabs.add(tab);
 	}
@@ -66,7 +63,7 @@ public class MainTabbedContainer extends UIComponent<MainTabbedContainer> {
 	private void activateTab(Function<Widget, UIComponent<?>> renderer) {
 		for (UITab tab : tabs) {
 			tab.setState(UIButton.State.DEFAULT)
-					.revalidate();
+				.revalidate();
 		}
 
 		for (Widget tabContent : contentContainer.getDynamicChildren()) {
@@ -77,22 +74,19 @@ public class MainTabbedContainer extends UIComponent<MainTabbedContainer> {
 		contentComponent = renderer.apply(contentContainer);
 	}
 
-	private void applyStaticStyles() {
+	private void initializeWidgets() {
 		widget.setPos(0, 0)
-				.setHeightMode(WidgetSizeMode.MINUS)
-				.setWidthMode(WidgetSizeMode.MINUS)
-				.setSize(0, 0)
-				.revalidate();
+			.setHeightMode(WidgetSizeMode.MINUS)
+			.setWidthMode(WidgetSizeMode.MINUS)
+			.setSize(0, 0)
+			.revalidate();
 
 		scrollableContainer.setPos(0, 0)
-				.setWidthMode(WidgetSizeMode.MINUS)
-				.setSize(0, UITab.TAB_HEIGHT + 1)
-				.setScrollAxis(ScrollAxis.HORIZONTAL)
-				.setScrollSensitivity(2)
-				.revalidate();
-
-		tabsContainer.setHeightMode(WidgetSizeMode.MINUS)
-				.setOriginalHeight(0);
+			.setWidthMode(WidgetSizeMode.MINUS)
+			.setSize(0, UITab.TAB_HEIGHT + 1)
+			.setScrollAxis(ScrollAxis.HORIZONTAL)
+			.setScrollSensitivity(2)
+			.revalidate();
 
 		addTab("Dashboard", container -> {
 			TaskDashboard dashboard = TaskDashboard.createInside(container);
@@ -109,16 +103,19 @@ public class MainTabbedContainer extends UIComponent<MainTabbedContainer> {
 		}
 
 		divider.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
-				.setPos(0, UITab.TAB_HEIGHT)
-				.setWidthMode(WidgetSizeMode.MINUS)
-				.setSize(0, 1)
-				.setTextColor(0x606060)
-				.revalidate();
+			.setPos(0, UITab.TAB_HEIGHT)
+			.setWidthMode(WidgetSizeMode.MINUS)
+			.setSize(0, 1)
+			.setTextColor(0x606060)
+			.revalidate();
 
 		contentContainer.setPos(0, UITab.TAB_HEIGHT + 1)
-				.setWidthMode(WidgetSizeMode.MINUS)
-				.setHeightMode(WidgetSizeMode.MINUS)
-				.setSize(0, UITab.TAB_HEIGHT + 1);
+			.setWidthMode(WidgetSizeMode.MINUS)
+			.setHeightMode(WidgetSizeMode.MINUS)
+			.setSize(0, UITab.TAB_HEIGHT + 1);
+
+		// activate first tab
+		tabs.get(0).triggerAction();
 	}
 
 	@Override
@@ -130,14 +127,14 @@ public class MainTabbedContainer extends UIComponent<MainTabbedContainer> {
 		int previousTabX = TAB_GAP;
 		for (UITab tab : tabs) {
 			tab.setOriginalX(previousTabX)
-					.revalidate();
+				.revalidate();
 
 			previousTabX += tab.getWidth() + TAB_GAP;
 		}
 
 		int tabsWidth = Math.max(previousTabX, scrollableContainer.getWidth());
 		tabsContainer.setOriginalWidth(tabsWidth)
-				.revalidate();
+			.revalidate();
 
 		divider.revalidate();
 

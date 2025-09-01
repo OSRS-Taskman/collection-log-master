@@ -8,9 +8,10 @@ import com.collectionlogmaster.ui.generic.BorderTheme;
 import com.collectionlogmaster.ui.generic.UIBorderedContainer;
 import com.collectionlogmaster.ui.generic.UIComponent;
 import com.collectionlogmaster.ui.generic.UIUtil;
-import java.awt.Color;
 import javax.inject.Inject;
 import lombok.Getter;
+import lombok.Setter;
+import lombok.experimental.Accessors;
 import net.runelite.api.FontID;
 import net.runelite.api.ScriptEvent;
 import net.runelite.api.gameval.ItemID;
@@ -22,6 +23,7 @@ import net.runelite.api.widgets.WidgetTextAlignment;
 import net.runelite.api.widgets.WidgetType;
 import org.jetbrains.annotations.Range;
 
+@Accessors(chain = true)
 public class TaskComponent extends UIComponent<TaskComponent> {
 	private final UIBorderedContainer outerContainer;
 	private final UIBorderedContainer imageContainer;
@@ -29,8 +31,10 @@ public class TaskComponent extends UIComponent<TaskComponent> {
 	private final Widget name;
 
 	@Getter
+	@Setter
 	private Task task = null;
 
+	@Setter
 	private int paddingSize = 10;
 
 	@Inject
@@ -52,64 +56,13 @@ public class TaskComponent extends UIComponent<TaskComponent> {
 		image = imageContainer.getContent();
 		name = widget.createChild(WidgetType.TEXT);
 
-		applyStaticStyles();
+		initializeWidgets();
 	}
 
-	@Override
 	public TaskComponent setOpacity(@Range(from = 0, to = 255) int transparency) {
-		outerContainer.setOpacity(transparency);
-		imageContainer.setOpacity(transparency);
 		image.setOpacity(transparency);
 		name.setOpacity(transparency);
-		return super.setOpacity(transparency);
-	}
-
-	public TaskComponent setTask(Task task) {
-		this.task = task;
 		return this;
-	}
-
-	public TaskComponent setPadding(int padding) {
-		this.paddingSize = padding;
-		return this;
-	}
-
-	private void applyStaticStyles() {
-		widget.setHasListener(true)
-				.revalidate();
-
-		widget.setOnOpListener((JavaScriptCallback) this::onActionSelected);
-
-		outerContainer.setPos(0, 0)
-				.setWidthMode(WidgetSizeMode.MINUS)
-				.setHeightMode(WidgetSizeMode.MINUS)
-				.setSize(0, 0)
-				.setTheme(BorderTheme.ETCHED)
-				.revalidate();
-
-		imageContainer.setYPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
-				.setHeightMode(WidgetSizeMode.MINUS)
-				.setTheme(BorderTheme.ETCHED)
-				.revalidate();
-
-		image.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
-				.setYPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
-				.setPos(0, 0)
-				.setWidthMode(WidgetSizeMode.MINUS)
-				.setHeightMode(WidgetSizeMode.MINUS)
-				.setBorderType(1);
-
-		image.revalidate();
-
-		name.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
-				.setYPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
-				.setWidthMode(WidgetSizeMode.MINUS)
-				.setHeightMode(WidgetSizeMode.MINUS)
-				.setXTextAlignment(WidgetTextAlignment.CENTER)
-				.setYTextAlignment(WidgetTextAlignment.CENTER)
-				.setFontId(FontID.BOLD_12)
-				.setTextColor(Color.WHITE.getRGB())
-				.revalidate();
 	}
 
 	private void onActionSelected(ScriptEvent e) {
@@ -125,13 +78,50 @@ public class TaskComponent extends UIComponent<TaskComponent> {
 		}
 	}
 
+	private void initializeWidgets() {
+		widget.setHasListener(true)
+			.revalidate();
+
+		widget.setOnOpListener((JavaScriptCallback) this::onActionSelected);
+
+		outerContainer.setPos(0, 0)
+			.setWidthMode(WidgetSizeMode.MINUS)
+			.setHeightMode(WidgetSizeMode.MINUS)
+			.setSize(0, 0)
+			.setTheme(BorderTheme.ETCHED)
+			.revalidate();
+
+		imageContainer.setYPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
+			.setHeightMode(WidgetSizeMode.MINUS)
+			.setTheme(BorderTheme.ETCHED)
+			.revalidate();
+
+		image.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
+			.setYPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
+			.setPos(0, 0)
+			.setWidthMode(WidgetSizeMode.MINUS)
+			.setHeightMode(WidgetSizeMode.MINUS)
+			.setBorderType(1);
+
+		image.revalidate();
+
+		name.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
+			.setYPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
+			.setWidthMode(WidgetSizeMode.MINUS)
+			.setHeightMode(WidgetSizeMode.MINUS)
+			.setXTextAlignment(WidgetTextAlignment.CENTER)
+			.setYTextAlignment(WidgetTextAlignment.CENTER)
+			.setFontId(FontID.BOLD_12)
+			.setTextColor(0xFFFFFF)
+			.revalidate();
+	}
+
 	@Override
 	public void revalidate() {
 		super.revalidate();
 
 		if (task != null) {
 			widget.setName(UIUtil.formatName(task.getName()));
-
 			widget.setAction(0, "View");
 			widget.setAction(1, "Complete");
 		} else {
@@ -142,8 +132,8 @@ public class TaskComponent extends UIComponent<TaskComponent> {
 		outerContainer.revalidate();
 
 		imageContainer.setPos(paddingSize, 0)
-				.setSize(outerContainer.getHeight() - (paddingSize * 2), paddingSize * 2)
-				.revalidate();
+			.setSize(outerContainer.getHeight() - (paddingSize * 2), paddingSize * 2)
+			.revalidate();
 
 		int itemId = ItemID._100GUIDE_GUIDECAKE;
 		String taskName = "No active task";
@@ -153,12 +143,12 @@ public class TaskComponent extends UIComponent<TaskComponent> {
 		}
 
 		image.setSize(paddingSize, paddingSize)
-				.setItemId(itemId)
-				.revalidate();
+			.setItemId(itemId)
+			.revalidate();
 
 		name.setSize(outerContainer.getHeight() + paddingSize, 0)
-				.setPos((outerContainer.getHeight() - paddingSize) / 2, 0)
-				.setText(taskName)
-				.revalidate();
+			.setPos((outerContainer.getHeight() - paddingSize) / 2, 0)
+			.setText(taskName)
+			.revalidate();
 	}
 }

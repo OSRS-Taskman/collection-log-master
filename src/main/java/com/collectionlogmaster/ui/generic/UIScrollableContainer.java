@@ -4,12 +4,16 @@ import com.collectionlogmaster.CollectionLogMasterPlugin;
 import com.google.inject.Inject;
 import java.awt.event.MouseWheelEvent;
 import lombok.Getter;
+import lombok.Setter;
+import lombok.experimental.Accessors;
 import net.runelite.api.widgets.Widget;
+import net.runelite.api.widgets.WidgetSizeMode;
 import net.runelite.api.widgets.WidgetType;
 import net.runelite.client.input.MouseManager;
 import net.runelite.client.input.MouseWheelListener;
 
 // TODO: add scroll bar
+@Accessors(chain = true)
 public class UIScrollableContainer extends UIComponent<UIScrollableContainer> implements MouseWheelListener {
 	public enum ScrollAxis {
 		VERTICAL,
@@ -22,10 +26,13 @@ public class UIScrollableContainer extends UIComponent<UIScrollableContainer> im
 	@Inject
 	private MouseManager mouseManager;
 
+	@Setter
 	private ScrollAxis scrollAxis = ScrollAxis.VERTICAL;
 
+	@Setter
 	private int scrollBuffer = 0;
 
+	@Setter
 	private int scrollSensitivity = 4;
 
 	public static UIScrollableContainer createInside(Widget window) {
@@ -40,22 +47,7 @@ public class UIScrollableContainer extends UIComponent<UIScrollableContainer> im
 
 		content = widget.createChild(WidgetType.LAYER);
 
-		applyStaticStyles();
-	}
-
-	public UIScrollableContainer setScrollAxis(ScrollAxis scrollAxis) {
-		this.scrollAxis = scrollAxis;
-		return this;
-	}
-
-	public UIScrollableContainer setScrollBuffer(int scrollBuffer) {
-		this.scrollBuffer = scrollBuffer;
-		return this;
-	}
-
-	public UIScrollableContainer setScrollSensitivity(int scrollSensitivity) {
-		this.scrollSensitivity = scrollSensitivity;
-		return this;
+		initializeWidgets();
 	}
 
 	@Override
@@ -77,7 +69,7 @@ public class UIScrollableContainer extends UIComponent<UIScrollableContainer> im
 		return event;
 	}
 
-	private void applyStaticStyles() {
+	private void initializeWidgets() {
 		widget.revalidate();
 
 		content.setPos(0, 0)
@@ -87,6 +79,14 @@ public class UIScrollableContainer extends UIComponent<UIScrollableContainer> im
 	@Override
 	public void revalidate() {
 		widget.revalidate();
+
+		if (scrollAxis == ScrollAxis.VERTICAL) {
+			content.setWidthMode(WidgetSizeMode.MINUS)
+				.setOriginalWidth(0);
+		} else if (scrollAxis == ScrollAxis.HORIZONTAL) {
+			content.setHeightMode(WidgetSizeMode.MINUS)
+				.setOriginalHeight(0);
+		}
 
 		content.revalidate();
 	}

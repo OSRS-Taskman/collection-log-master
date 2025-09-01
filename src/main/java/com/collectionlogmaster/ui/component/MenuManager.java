@@ -93,7 +93,9 @@ public class MenuManager extends EventBusSubscriber {
 	}
 
 	private void restyleOptions() {
-		if (ourBackground == null || ourText == null) return;
+		if (ourBackground == null || ourText == null) {
+			return;
+		}
 
 		boolean selected = stateStore.isDashboardEnabled();
 		Widget selectedBackground = selected ? ourBackground : firstBackground;
@@ -103,11 +105,11 @@ public class MenuManager extends EventBusSubscriber {
 
 		selectedBackground.setOpacity(BG_OPACITY_SELECTED);
 		selectedText.setOpacity(TEXT_OPACITY_SELECTED)
-				.setTextColor(TEXT_COLOR_SELECTED);
+			.setTextColor(TEXT_COLOR_SELECTED);
 
 		defaultBackground.setOpacity(BG_OPACITY);
 		defaultText.setOpacity(TEXT_OPACITY)
-				.setTextColor(TEXT_COLOR);
+			.setTextColor(TEXT_COLOR);
 
 		selectedBackground.revalidate();
 		selectedText.revalidate();
@@ -132,38 +134,42 @@ public class MenuManager extends EventBusSubscriber {
 		final int buttonY = lastBackground.getOriginalY() + buttonHeight;
 
 		final boolean existingButton = menuChildren.stream()
-				.anyMatch(w -> w.getText().equals(BUTTON_TEXT));
+			.anyMatch(w -> w.getText().equals(BUTTON_TEXT));
 
 		if (!existingButton) {
 			this.menu = menu;
 
 			ourBackground = menu.createChild(WidgetType.RECTANGLE)
-					.setOriginalWidth(lastBackground.getOriginalWidth())
-					.setOriginalHeight(lastBackground.getOriginalHeight())
-					.setOriginalX(lastBackground.getOriginalX())
-					.setOriginalY(buttonY)
-					.setOpacity(lastBackground.getOpacity())
-					.setFilled(lastBackground.isFilled())
-					.setTextColor(lastBackground.getTextColor());
+				.setOriginalWidth(lastBackground.getOriginalWidth())
+				.setOriginalHeight(lastBackground.getOriginalHeight())
+				.setOriginalX(lastBackground.getOriginalX())
+				.setOriginalY(buttonY)
+				.setOpacity(lastBackground.getOpacity())
+				.setFilled(lastBackground.isFilled())
+				.setTextColor(lastBackground.getTextColor());
 			ourBackground.revalidate();
 
 			ourText = menu.createChild(WidgetType.TEXT)
-					.setText(BUTTON_TEXT)
-					.setTextColor(TEXT_COLOR)
-					.setFontId(lastText.getFontId())
-					.setTextShadowed(lastText.getTextShadowed())
-					.setOriginalWidth(lastText.getOriginalWidth())
-					.setOriginalHeight(lastText.getOriginalHeight())
-					.setOriginalX(lastText.getOriginalX())
-					.setOriginalY(buttonY)
-					.setXTextAlignment(lastText.getXTextAlignment())
-					.setYTextAlignment(lastText.getYTextAlignment());
+				.setText(BUTTON_TEXT)
+				.setTextColor(TEXT_COLOR)
+				.setFontId(lastText.getFontId())
+				.setTextShadowed(lastText.getTextShadowed())
+				.setOriginalWidth(lastText.getOriginalWidth())
+				.setOriginalHeight(lastText.getOriginalHeight())
+				.setOriginalX(lastText.getOriginalX())
+				.setOriginalY(buttonY)
+				.setXTextAlignment(lastText.getXTextAlignment())
+				.setYTextAlignment(lastText.getYTextAlignment());
 			ourText.setHasListener(true);
 			ourText.setOnMouseOverListener((JavaScriptCallback) ev -> {
-				if (!stateStore.isDashboardEnabled()) ourText.setTextColor(TEXT_COLOR_HOVER);
+				if (!stateStore.isDashboardEnabled()) {
+					ourText.setTextColor(TEXT_COLOR_HOVER);
+				}
 			});
 			ourText.setOnMouseLeaveListener((JavaScriptCallback) ev -> {
-				if (!stateStore.isDashboardEnabled()) ourText.setTextColor(TEXT_COLOR);
+				if (!stateStore.isDashboardEnabled()) {
+					ourText.setTextColor(TEXT_COLOR);
+				}
 			});
 			ourText.setAction(0, ACTION_TEXT);
 			ourText.setOnOpListener((JavaScriptCallback) ev -> {
@@ -191,10 +197,14 @@ public class MenuManager extends EventBusSubscriber {
 
 		firstText.setHasListener(true);
 		firstText.setOnMouseOverListener((JavaScriptCallback) ev -> {
-			if (stateStore.isDashboardEnabled()) firstText.setTextColor(TEXT_COLOR_HOVER);
+			if (stateStore.isDashboardEnabled()) {
+				firstText.setTextColor(TEXT_COLOR_HOVER);
+			}
 		});
 		firstText.setOnMouseLeaveListener((JavaScriptCallback) ev -> {
-			if (stateStore.isDashboardEnabled()) firstText.setTextColor(TEXT_COLOR);
+			if (stateStore.isDashboardEnabled()) {
+				firstText.setTextColor(TEXT_COLOR);
+			}
 		});
 		firstText.setAction(0, firstText.getText());
 		firstText.setOnOpListener((JavaScriptCallback) ev -> {
@@ -207,21 +217,23 @@ public class MenuManager extends EventBusSubscriber {
 	private void hideMenu() {
 		if (menu != null) {
 			menu.setHidden(true)
-					.revalidate();
+				.revalidate();
 		}
 
 		Widget burgerMenuOverlay = client.getWidget(40697874);
 		if (burgerMenuOverlay != null) {
 			burgerMenuOverlay.setHidden(true)
-					.revalidate();
+				.revalidate();
 		}
 	}
 
-	private static Widget getFirstWidgetOfType(List<Widget> menuChildren,
-											@MagicConstant(valuesFromClass = WidgetType.class) int widgetType) {
+	private static Widget getFirstWidgetOfType(
+		List<Widget> menuChildren,
+		@MagicConstant(valuesFromClass = WidgetType.class) int widgetType
+	) {
 		return menuChildren.stream()
-				.filter(w -> w.getType() == widgetType)
-				.findFirst()
-				.orElseThrow(() -> new NoSuchElementException("No widget of type" + widgetType + " found in menu"));
+			.filter(w -> w.getType() == widgetType)
+			.findFirst()
+			.orElseThrow(() -> new NoSuchElementException("No widget of type" + widgetType + " found in menu"));
 	}
 }

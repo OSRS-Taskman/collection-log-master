@@ -59,17 +59,21 @@ public class InterfaceManager extends EventBusSubscriber {
 
 	public void hideCollectionLogContent(boolean hidden) {
 		Widget window = getContentWidget();
-		if (window == null) return;
+		if (window == null) {
+			return;
+		}
 
 		for (Widget w : window.getStaticChildren()) {
 			w.setHidden(hidden)
-					.revalidate();
+				.revalidate();
 		}
 	}
 
 	public void openMainContainer() {
 		Widget content = getContentWidget();
-		if (content == null) return;
+		if (content == null) {
+			return;
+		}
 
 		hideCollectionLogContent(true);
 
@@ -78,30 +82,29 @@ public class InterfaceManager extends EventBusSubscriber {
 	}
 
 	public void closeMainContainer() {
-		Widget content = getContentWidget();
-		if (content == null) return;
+		hideCollectionLogContent(false);
 
 		if (container != null) {
 			container.setHidden(true)
-					.revalidate();
+				.revalidate();
 			container = null;
 		}
-
-		hideCollectionLogContent(false);
 	}
 
 	public void openTaskInfo(Task task) {
 		Widget content = getContentWidget();
-		if (content == null) return;
+		if (content == null) {
+			return;
+		}
 
 		container.setHidden(true)
-				.revalidate();
+			.revalidate();
 
 		TaskInfo.openInside(content, task)
-				.thenAccept((r) -> {
-					container.setHidden(false)
-							.revalidate();
-				});
+			.thenAccept((r) -> {
+				container.setHidden(false)
+					.revalidate();
+			});
 	}
 
 	private @Nullable Widget getContentWidget() {
@@ -111,12 +114,12 @@ public class InterfaceManager extends EventBusSubscriber {
 	private void overrideFlippedSprites() {
 		// we can't use SpriteManager because it only accepts resource paths as an input
 		client.getSpriteOverrides().put(
-				SpriteOverride.TALL_TABS_CORNER_VFLIP.getSpriteId(),
-				ImageUtil.getVFlippedSpritePixels(SpriteID.TabsTall._2, client)
+			SpriteOverride.TALL_TABS_CORNER_VFLIP.getSpriteId(),
+			ImageUtil.getVFlippedSpritePixels(SpriteID.TabsTall._2, client)
 		);
 		client.getSpriteOverrides().put(
-				SpriteOverride.TALL_TABS_CORNER_HOVER_VFLIP.getSpriteId(),
-				ImageUtil.getVFlippedSpritePixels(SpriteID.TabsTall._0, client)
+			SpriteOverride.TALL_TABS_CORNER_HOVER_VFLIP.getSpriteId(),
+			ImageUtil.getVFlippedSpritePixels(SpriteID.TabsTall._0, client)
 		);
 	}
 }
