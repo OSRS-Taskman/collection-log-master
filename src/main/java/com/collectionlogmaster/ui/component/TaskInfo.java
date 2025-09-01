@@ -19,7 +19,6 @@ import com.collectionlogmaster.ui.generic.UIUtil;
 import com.collectionlogmaster.ui.generic.button.UISimpleButton;
 import com.collectionlogmaster.ui.generic.button.UITextButton;
 import com.google.inject.Inject;
-import java.awt.Color;
 import java.util.Arrays;
 import java.util.concurrent.CompletableFuture;
 import lombok.NonNull;
@@ -53,9 +52,9 @@ public class TaskInfo extends UIComponent<TaskInfo> {
 	private final Widget divider;
 	private final Widget tipText;
 	private final UIProgressBar progressBar;
-	private final UITextButton markButton;
 	private final UIScrollableContainer scrollableContainer;
 	private final UIGridContainer itemGrid;
+	private final UITextButton markButton;
 
 	@Inject
 	private Client client;
@@ -99,178 +98,21 @@ public class TaskInfo extends UIComponent<TaskInfo> {
 		itemGrid = new UIGridContainer(scrollableContainer.getContent());
 		markButton = UITextButton.createInside(widget);
 
-		applyStaticStyles();
-		applyStatefulStyles();
-	}
-
-	private void applyStatefulStyles() {
-		itemGrid.clearItems();
-		if (task.getVerification() instanceof CollectionLogVerification) {
-			CollectionLogVerification verif = (CollectionLogVerification) task.getVerification();
-			for (int itemId : verif.getItemIds()) {
-				String itemName = itemManager.getItemComposition(itemId).getMembersName();
-				boolean itemObtained = collectionLogService.isItemObtained(itemId);
-
-				Widget w = itemGrid.createItem(WidgetType.GRAPHIC)
-						.setName(UIUtil.formatName(itemName))
-						.setSize(36, 32)
-						.setOpacity(itemObtained ? 0 : 175)
-						.setItemQuantityMode(ItemQuantityMode.NEVER)
-						.setItemQuantity(1000)
-						.setItemId(itemId);
-
-				w.setOnOpListener((JavaScriptCallback) e -> UIUtil.openWikiLink(itemName));
-				w.setHasListener(true);
-				w.setAction(0, "Wiki");
-				w.setBorderType(1);
-				w.revalidate();
-			}
-		}
-		itemGrid.revalidate();
-	}
-
-	private void applyStaticStyles() {
-		widget.setWidthMode(WidgetSizeMode.MINUS)
-				.setHeightMode(WidgetSizeMode.MINUS)
-				.setSize(0, 0)
-				.revalidate();
-
-		background.setPos(0, 0)
-				.setWidthMode(WidgetSizeMode.MINUS)
-				.setHeightMode(WidgetSizeMode.MINUS)
-				.setSize(0, 0)
-				.setSpriteId(SpriteID.TRADEBACKING)
-				.setSpriteTiling(true)
-				.revalidate();
-
-		titleText.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
-				.setPos(0, 0)
-				.setWidthMode(WidgetSizeMode.MINUS)
-				.setSize(0, TITLE_HEIGHT)
-				.setLineHeight(TITLE_HEIGHT)
-				.setXTextAlignment(WidgetTextAlignment.CENTER)
-				.setYTextAlignment(WidgetTextAlignment.CENTER)
-				.setFontId(FontID.BOLD_12)
-				.setTextShadowed(true)
-				.setTextColor(Color.WHITE.getRGB())
-				.setText(task.getName())
-				.revalidate();
-
-		backButton.setPos(BASE_GAP / 2, BASE_GAP / 2)
-				.setSize(40, titleText.getHeight() - BASE_GAP)
-				.setIconSpriteTheme(SpriteID.CloseArrows._0, SpriteID.CloseArrows._1, SpriteID.CloseArrows._0)
-				.setIconSize(13, 11)
-				.setFontId(FontID.PLAIN_11)
-				.setText("Back")
-				.setAction("Go back", this::close)
-				.revalidate();
-
-		wikiButton
-				.setXPositionMode(WidgetPositionMode.ABSOLUTE_RIGHT)
-				.setPos(BASE_GAP / 2, BASE_GAP / 2)
-				.setSize(40, titleText.getHeight() - BASE_GAP)
-				.setIconSpriteTheme(SpriteID.WikiIcon.DESELECTED, SpriteID.WikiIcon.SELECTED, SpriteID.WikiIcon.DESELECTED)
-				.setIconSize(40, 14)
-				.setFontId(FontID.PLAIN_11)
-				.setText("")
-				.setAction("Wiki", () -> LinkBrowser.browse(task.getWikiLink()))
-				.revalidate();
-
-		divider.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
-				.setPos(0, titleText.getRelativeY() + titleText.getHeight())
-				.setWidthMode(WidgetSizeMode.MINUS)
-				.setSize(BASE_GAP * 2, 1)
-				.setTextColor(0x606060)
-				.revalidate();
-
-		String tip = task.getTip();
-		if (tip == null || tip.isBlank()) {
-			tipText.setHidden(true)
-					.revalidate();
-		} else {
-			tipText.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
-					.setPos(0, divider.getRelativeY() + divider.getHeight() + BASE_GAP)
-					.setWidthMode(WidgetSizeMode.MINUS)
-					.setOriginalWidth(BASE_GAP * 2)
-					.setXTextAlignment(WidgetTextAlignment.CENTER)
-					.setYTextAlignment(WidgetTextAlignment.CENTER)
-					.setFontId(FontID.PLAIN_11)
-					.setTextColor(Color.WHITE.getRGB())
-					.setText(tip)
-					.revalidate();
-
-			// we need to revalidate before setting the height because
-			// we require the widget's width to be up to date
-			tipText.setOriginalHeight(UIUtil.getTextHeight(tip, tipText))
-					.revalidate();
-		}
-
-		Widget prev = tipText.isHidden() ? divider : tipText;
-		progressBar.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
-				.setPos(0, prev.getOriginalY() + prev.getHeight() + BASE_GAP)
-				.setWidthMode(WidgetSizeMode.MINUS)
-				.setSize(BASE_GAP, PROGRESS_BAR_HEIGHT)
-				.revalidate();
-
-		int gridOriginalY = progressBar.getOriginalY() + progressBar.getHeight() + BASE_GAP;
-		scrollableContainer.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
-				.setPos(0, gridOriginalY)
-				.setWidthMode(WidgetSizeMode.MINUS)
-				.setHeightMode(WidgetSizeMode.MINUS)
-				.setSize(BASE_GAP, gridOriginalY)
-				.setScrollBuffer(BUTTON_HEIGHT + (BASE_GAP * 2))
-				.revalidate();
-
-		Pair<Float, String> progressData = getProgressData(task.getVerification());
-		if (progressData == null) {
-			progressBar.setHidden(true)
-					.revalidate();
-		} else {
-			progressBar.setPercent(progressData.getLeft())
-					.setText(progressData.getRight())
-					.revalidate();
-		}
-
-		itemGrid.setPos(0, 0)
-				.setWidthMode(WidgetSizeMode.MINUS)
-				.setHeightMode(WidgetSizeMode.MINUS)
-				.setSize(0, 0)
-				.revalidate();
-
-		markButton.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
-				.setYPositionMode(WidgetPositionMode.ABSOLUTE_BOTTOM)
-				.setPos(0, BASE_GAP)
-				// TODO: constants
-				.setSize(BUTTON_WIDTH, BUTTON_HEIGHT)
-				.setFont(FontID.BOLD_12)
-				.setText("Mark Complete")
-				.setAction("Mark", () -> {
-					taskService.toggleComplete(task.getId());
-					applyMarkButtonText();
-				})
-				.revalidate();
-
-		applyMarkButtonText();
-	}
-
-	private void applyMarkButtonText() {
-		if (taskService.isComplete(task.getId())) {
-			markButton.setText("Mark Incomplete");
-		} else {
-			markButton.setText("Mark Complete");
-		}
+		initializeWidgets();
 	}
 
 	private void close() {
 		// we're only "leaking" the parent LAYER widget
 		widget.setHidden(true)
-				.deleteAllChildren();
+			.deleteAllChildren();
 
 		closeFuture.complete(null);
 	}
 
 	private Pair<@NonNull Float, @NonNull String> getProgressData(Verification verif) {
-		if (verif == null) return null;
+		if (verif == null) {
+			return null;
+		}
 
 		if (verif.isCollectionLog()) {
 			return getProgressData(verif.asCollectionLog());
@@ -290,12 +132,12 @@ public class TaskInfo extends UIComponent<TaskInfo> {
 	private Pair<@NonNull Float, @NonNull String> getProgressData(CollectionLogVerification verif) {
 		int totalCount = verif.getCount();
 		long obtainedCount = Arrays.stream(verif.getItemIds())
-				.filter(itemId -> collectionLogService.isItemObtained(itemId))
-				.count();
+			.filter(itemId -> collectionLogService.isItemObtained(itemId))
+			.count();
 
 		return Pair.of(
-				Math.min(1, (float) obtainedCount / totalCount),
-				String.format("Obtained %d/%d required items", obtainedCount, totalCount)
+			Math.min(1, (float) obtainedCount / totalCount),
+			String.format("Obtained %d/%d required items", obtainedCount, totalCount)
 		);
 	}
 
@@ -306,22 +148,175 @@ public class TaskInfo extends UIComponent<TaskInfo> {
 		int completedCount = achievementDiaryService.getCompleteTaskCount(region, difficulty);
 
 		return Pair.of(
-				(float) completedCount / totalCount,
-				String.format("Completed %d/%d required tasks", completedCount, totalCount)
+			(float) completedCount / totalCount,
+			String.format("Completed %d/%d required tasks", completedCount, totalCount)
 		);
 	}
 
 	private Pair<@NonNull Float, @NonNull String> getProgressData(SkillVerification verif) {
 		int totalCount = verif.getCount();
 		long achievedCount = verif.getExperience().entrySet().stream()
-				.filter(entry -> entry.getKey() != null)
-				.filter(entry -> client.getSkillExperience(entry.getKey()) > entry.getValue())
-				.count();
+			.filter(entry -> entry.getKey() != null)
+			.filter(entry -> client.getSkillExperience(entry.getKey()) > entry.getValue())
+			.count();
 
 		return Pair.of(
-				(float) achievedCount / totalCount,
-				String.format("Achieved in %d/%d required skills", achievedCount, totalCount)
+			(float) achievedCount / totalCount,
+			String.format("Achieved in %d/%d required skills", achievedCount, totalCount)
 		);
+	}
+
+
+	private void initializeWidgets() {
+		widget.setWidthMode(WidgetSizeMode.MINUS)
+			.setHeightMode(WidgetSizeMode.MINUS)
+			.setSize(0, 0)
+			.revalidate();
+
+		background.setPos(0, 0)
+			.setWidthMode(WidgetSizeMode.MINUS)
+			.setHeightMode(WidgetSizeMode.MINUS)
+			.setSize(0, 0)
+			.setSpriteId(SpriteID.TRADEBACKING)
+			.setSpriteTiling(true)
+			.revalidate();
+
+		titleText.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
+			.setPos(0, 0)
+			.setWidthMode(WidgetSizeMode.MINUS)
+			.setSize(0, TITLE_HEIGHT)
+			.setLineHeight(TITLE_HEIGHT)
+			.setXTextAlignment(WidgetTextAlignment.CENTER)
+			.setYTextAlignment(WidgetTextAlignment.CENTER)
+			.setFontId(FontID.BOLD_12)
+			.setTextShadowed(true)
+			.setTextColor(0xFFFFFF)
+			.setText(task.getName())
+			.revalidate();
+
+		backButton.setPos(BASE_GAP / 2, BASE_GAP / 2)
+			.setSize(40, titleText.getHeight() - BASE_GAP)
+			.setIconSpriteTheme(SpriteID.CloseArrows._0, SpriteID.CloseArrows._1, SpriteID.CloseArrows._0)
+			.setIconSize(13, 11)
+			.setFontId(FontID.PLAIN_11)
+			.setText("Back")
+			.setAction("Go back", this::close)
+			.revalidate();
+
+		wikiButton
+			.setXPositionMode(WidgetPositionMode.ABSOLUTE_RIGHT)
+			.setPos(BASE_GAP / 2, BASE_GAP / 2)
+			.setSize(40, titleText.getHeight() - BASE_GAP)
+			.setIconSpriteTheme(SpriteID.WikiIcon.DESELECTED, SpriteID.WikiIcon.SELECTED, SpriteID.WikiIcon.DESELECTED)
+			.setIconSize(40, 14)
+			.setFontId(FontID.PLAIN_11)
+			.setText("")
+			.setAction("Wiki", () -> LinkBrowser.browse(task.getWikiLink()))
+			.revalidate();
+
+		divider.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
+			.setPos(0, titleText.getRelativeY() + titleText.getHeight())
+			.setWidthMode(WidgetSizeMode.MINUS)
+			.setSize(BASE_GAP * 2, 1)
+			.setTextColor(0x606060)
+			.revalidate();
+
+		String tip = task.getTip();
+		if (tip == null || tip.isBlank()) {
+			tipText.setHidden(true)
+				.revalidate();
+		} else {
+			tipText.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
+				.setPos(0, divider.getRelativeY() + divider.getHeight() + BASE_GAP)
+				.setWidthMode(WidgetSizeMode.MINUS)
+				.setOriginalWidth(BASE_GAP * 2)
+				.setXTextAlignment(WidgetTextAlignment.CENTER)
+				.setYTextAlignment(WidgetTextAlignment.CENTER)
+				.setFontId(FontID.PLAIN_11)
+				.setTextColor(0xFFFFFF)
+				.setText(tip)
+				.revalidate();
+
+			// we need to revalidate before setting the height because
+			// we require the widget's width to be up to date
+			tipText.setOriginalHeight(UIUtil.getTextHeight(tip, tipText))
+				.revalidate();
+		}
+
+		Widget prev = tipText.isHidden() ? divider : tipText;
+		progressBar.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
+			.setPos(0, prev.getOriginalY() + prev.getHeight() + BASE_GAP)
+			.setWidthMode(WidgetSizeMode.MINUS)
+			.setSize(BASE_GAP, PROGRESS_BAR_HEIGHT)
+			.revalidate();
+
+		int gridOriginalY = progressBar.getOriginalY() + progressBar.getHeight() + BASE_GAP;
+		scrollableContainer.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
+			.setPos(0, gridOriginalY)
+			.setWidthMode(WidgetSizeMode.MINUS)
+			.setHeightMode(WidgetSizeMode.MINUS)
+			.setSize(BASE_GAP, gridOriginalY)
+			.setScrollBuffer(BUTTON_HEIGHT + (BASE_GAP * 2))
+			.revalidate();
+
+		Pair<Float, String> progressData = getProgressData(task.getVerification());
+		if (progressData == null) {
+			progressBar.setHidden(true)
+				.revalidate();
+		} else {
+			progressBar.setPercent(progressData.getLeft())
+				.setText(progressData.getRight())
+				.revalidate();
+		}
+
+		itemGrid.setPos(0, 0)
+			.setWidthMode(WidgetSizeMode.MINUS)
+			.setHeightMode(WidgetSizeMode.MINUS)
+			.setSize(0, 0)
+			.revalidate();
+
+		initializeItems();
+
+		markButton.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
+			.setYPositionMode(WidgetPositionMode.ABSOLUTE_BOTTOM)
+			.setPos(0, BASE_GAP)
+			.setSize(BUTTON_WIDTH, BUTTON_HEIGHT)
+			.setFont(FontID.BOLD_12)
+			.setText("Mark Complete")
+			.setAction("Mark", () -> {
+				taskService.toggleComplete(task.getId());
+				revalidate();
+			})
+			.revalidate();
+	}
+
+	private void initializeItems() {
+		// TODO: handle diary by listing individual tasks and skill by listing skills
+		if (!(task.getVerification() instanceof CollectionLogVerification)) {
+			return;
+		}
+
+		CollectionLogVerification verif = task.getVerification().asCollectionLog();
+		for (int itemId : verif.getItemIds()) {
+			String itemName = itemManager.getItemComposition(itemId).getMembersName();
+			boolean itemObtained = collectionLogService.isItemObtained(itemId);
+
+			Widget w = itemGrid.createItem(WidgetType.GRAPHIC)
+				.setName(UIUtil.formatName(itemName))
+				.setSize(36, 36)
+				.setOpacity(itemObtained ? 0 : 175)
+				.setItemQuantityMode(ItemQuantityMode.NEVER)
+				.setItemQuantity(1000)
+				.setItemId(itemId);
+
+			w.setHasListener(true);
+			w.setOnOpListener((JavaScriptCallback) e -> UIUtil.openWikiLink(itemName));
+			w.setAction(0, "Wiki");
+			w.setBorderType(1);
+			w.revalidate();
+		}
+
+		itemGrid.revalidate();
 	}
 
 	@Override
@@ -334,6 +329,13 @@ public class TaskInfo extends UIComponent<TaskInfo> {
 		progressBar.revalidate();
 		scrollableContainer.revalidate();
 		itemGrid.revalidate();
-		markButton.revalidate();
+
+		if (taskService.isComplete(task.getId())) {
+			markButton.setText("Mark Incomplete")
+				.revalidate();
+		} else {
+			markButton.setText("Mark Complete")
+				.revalidate();
+		}
 	}
 }

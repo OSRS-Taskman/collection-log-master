@@ -9,17 +9,17 @@ import net.runelite.api.gameval.SpriteID;
 public enum BorderTheme {
 	NULL(0, 0, -1, -1, -1, -1, -1, -1, -1, -1, -1),
 	ETCHED(
-			8,
-			4,
-			SpriteID.SettingsTabs._16,
-			SpriteID.TabsEtchedCorner._0,
-			SpriteID.TabsEtchedCorner._1,
-			SpriteID.TabsEtchedCorner._2,
-			SpriteID.TabsEtchedCorner._3,
-			SpriteID.SettingsTabs._14,
-			SpriteID.SettingsTabs._12,
-			SpriteID.SettingsTabs._15,
-			SpriteID.SettingsTabs._13
+		8,
+		4,
+		SpriteID.SettingsTabs._16,
+		SpriteID.TabsEtchedCorner._0,
+		SpriteID.TabsEtchedCorner._1,
+		SpriteID.TabsEtchedCorner._2,
+		SpriteID.TabsEtchedCorner._3,
+		SpriteID.SettingsTabs._14,
+		SpriteID.SettingsTabs._12,
+		SpriteID.SettingsTabs._15,
+		SpriteID.SettingsTabs._13
 	);
 
 	private final int cornerSize;

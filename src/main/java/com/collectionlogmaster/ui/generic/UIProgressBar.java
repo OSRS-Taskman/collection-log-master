@@ -1,6 +1,5 @@
 package com.collectionlogmaster.ui.generic;
 
-import java.awt.Color;
 import net.runelite.api.FontID;
 import net.runelite.api.gameval.SpriteID;
 import net.runelite.api.widgets.Widget;
@@ -27,10 +26,11 @@ public class UIProgressBar extends UIComponent<UIProgressBar> {
 		barFill = widget.createChild(WidgetType.GRAPHIC);
 		textWidget = widget.createChild(WidgetType.TEXT);
 
-		applyStaticStyles();
+		initializeWidgets();
 	}
 
 	public UIProgressBar setPercent(@Range(from = 0, to = 1) float percent) {
+		// we can easily set the width to the given percent by using WidgetSizeMode.ABSOLUTE_16384THS
 		barFill.setOriginalWidth(Math.round((1 << 14) * percent))
 				.revalidate();
 
@@ -39,11 +39,10 @@ public class UIProgressBar extends UIComponent<UIProgressBar> {
 
 	public UIProgressBar setText(String text) {
 		textWidget.setText(text);
-
 		return this;
 	}
 
-	private void applyStaticStyles() {
+	private void initializeWidgets() {
 		widget.revalidate();
 
 		border.setPos(0, 0)
@@ -77,7 +76,7 @@ public class UIProgressBar extends UIComponent<UIProgressBar> {
 				.setXTextAlignment(WidgetTextAlignment.CENTER)
 				.setYTextAlignment(WidgetTextAlignment.CENTER)
 				.setFontId(FontID.PLAIN_12)
-				.setTextColor(Color.WHITE.getRGB())
+				.setTextColor(0xFFFFFF)
 				.revalidate();
 	}
 

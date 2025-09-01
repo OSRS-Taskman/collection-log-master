@@ -48,39 +48,39 @@ public class TaskList extends UIComponent<TaskList> {
 		scrollableContainer = UIScrollableContainer.createInside(widget);
 		taskGrid = new UIGridContainer(scrollableContainer.getContent());
 
-		applyStaticStyles();
+		initializeWidgets();
 	}
 
-	private void applyStaticStyles() {
+	private void initializeWidgets() {
 		widget.setWidthMode(WidgetSizeMode.MINUS)
-				.setHeightMode(WidgetSizeMode.MINUS)
-				.setSize(0, 0)
-				.revalidate();
+			.setHeightMode(WidgetSizeMode.MINUS)
+			.setSize(0, 0)
+			.revalidate();
 
 		background.setPos(0, 0)
-				.setWidthMode(WidgetSizeMode.MINUS)
-				.setHeightMode(WidgetSizeMode.MINUS)
-				.setSize(0, 0)
-				.setSpriteId(SpriteID.TRADEBACKING)
-				.setSpriteTiling(true)
-				.revalidate();
+			.setWidthMode(WidgetSizeMode.MINUS)
+			.setHeightMode(WidgetSizeMode.MINUS)
+			.setSize(0, 0)
+			.setSpriteId(SpriteID.TRADEBACKING)
+			.setSpriteTiling(true)
+			.revalidate();
 
 		scrollableContainer.setPos(0, 0)
-				.setWidthMode(WidgetSizeMode.MINUS)
-				.setHeightMode(WidgetSizeMode.MINUS)
-				.setSize(0, 0)
-				.revalidate();
+			.setWidthMode(WidgetSizeMode.MINUS)
+			.setHeightMode(WidgetSizeMode.MINUS)
+			.setSize(0, 0)
+			.revalidate();
 
 		taskGrid.setPos(0, 0)
-				.setWidthMode(WidgetSizeMode.MINUS)
-				.setOriginalWidth(0)
-				.revalidate();
+			.setWidthMode(WidgetSizeMode.MINUS)
+			.setOriginalWidth(0)
+			.revalidate();
 
 		for (Task task : tasks) {
 			TaskComponent taskComponent = new TaskComponent(taskGrid.createItem(WidgetType.LAYER))
-					.setPadding(TASK_COMPONENT_PADDING)
-					.setSize(TASK_COMPONENT_WIDTH, TASK_COMPONENT_HEIGHT)
-					.setTask(task);
+				.setPaddingSize(TASK_COMPONENT_PADDING)
+				.setSize(TASK_COMPONENT_WIDTH, TASK_COMPONENT_HEIGHT)
+				.setTask(task);
 
 			taskComponent.revalidate();
 			taskComponents.add(taskComponent);
@@ -100,7 +100,7 @@ public class TaskList extends UIComponent<TaskList> {
 			boolean isComplete = taskService.isComplete(task.getId());
 
 			taskComponent.setOpacity(isComplete ? 0 : 175)
-					.revalidate();
+				.revalidate();
 		}
 	}
 }
