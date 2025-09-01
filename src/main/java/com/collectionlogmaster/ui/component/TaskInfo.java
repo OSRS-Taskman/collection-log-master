@@ -12,16 +12,15 @@ import com.collectionlogmaster.synchronization.clog.CollectionLogService;
 import com.collectionlogmaster.synchronization.diary.AchievementDiaryService;
 import com.collectionlogmaster.task.TaskService;
 import com.collectionlogmaster.ui.generic.UIComponent;
-import com.collectionlogmaster.ui.neww.UIGridContainer;
-import com.collectionlogmaster.ui.neww.UIProgressBar;
-import com.collectionlogmaster.ui.neww.UIScrollableContainer;
-import com.collectionlogmaster.ui.neww.UIUtil;
-import com.collectionlogmaster.ui.neww.button.UISimpleButton;
-import com.collectionlogmaster.ui.neww.button.UITextButton;
+import com.collectionlogmaster.ui.generic.UIGridContainer;
+import com.collectionlogmaster.ui.generic.UIProgressBar;
+import com.collectionlogmaster.ui.generic.UIScrollableContainer;
+import com.collectionlogmaster.ui.generic.UIUtil;
+import com.collectionlogmaster.ui.generic.button.UISimpleButton;
+import com.collectionlogmaster.ui.generic.button.UITextButton;
 import com.google.inject.Inject;
 import java.awt.Color;
 import java.util.Arrays;
-import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
@@ -39,9 +38,8 @@ import net.runelite.client.game.ItemManager;
 import net.runelite.client.util.LinkBrowser;
 import org.apache.commons.lang3.tuple.Pair;
 
-
 @Slf4j
-public class TaskInfo extends UIComponent {
+public class TaskInfo extends UIComponent<TaskInfo> {
 	private static final int TITLE_HEIGHT = 24;
 	private static final int BASE_GAP = 4;
 	public static final int PROGRESS_BAR_HEIGHT = 24;
@@ -84,7 +82,7 @@ public class TaskInfo extends UIComponent {
 	}
 
 	private TaskInfo(Widget widget, @NonNull Task task) {
-		super(widget, Set.of(WidgetType.LAYER));
+		super(widget, WidgetType.LAYER);
 		CollectionLogMasterPlugin.getStaticInjector().injectMembers(this);
 
 		closeFuture = new CompletableFuture<>();
@@ -97,7 +95,7 @@ public class TaskInfo extends UIComponent {
 		divider = widget.createChild(WidgetType.RECTANGLE);
 		tipText = widget.createChild(WidgetType.TEXT);
 		progressBar = UIProgressBar.createInside(widget);
-		scrollableContainer = UIScrollableContainer.createInside(widget, WidgetType.LAYER);
+		scrollableContainer = UIScrollableContainer.createInside(widget);
 		itemGrid = new UIGridContainer(scrollableContainer.getContent());
 		markButton = UITextButton.createInside(widget);
 
@@ -106,7 +104,6 @@ public class TaskInfo extends UIComponent {
 	}
 
 	private void applyStatefulStyles() {
-
 		itemGrid.clearItems();
 		if (task.getVerification() instanceof CollectionLogVerification) {
 			CollectionLogVerification verif = (CollectionLogVerification) task.getVerification();
@@ -204,7 +201,7 @@ public class TaskInfo extends UIComponent {
 
 			// we need to revalidate before setting the height because
 			// we require the widget's width to be up to date
-			tipText.setOriginalHeight(UIComponent.getTextHeight(tip, tipText))
+			tipText.setOriginalHeight(UIUtil.getTextHeight(tip, tipText))
 					.revalidate();
 		}
 
@@ -234,7 +231,11 @@ public class TaskInfo extends UIComponent {
 					.revalidate();
 		}
 
-		// TODO: grid
+		itemGrid.setPos(0, 0)
+				.setWidthMode(WidgetSizeMode.MINUS)
+				.setHeightMode(WidgetSizeMode.MINUS)
+				.setSize(0, 0)
+				.revalidate();
 
 		markButton.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
 				.setYPositionMode(WidgetPositionMode.ABSOLUTE_BOTTOM)
