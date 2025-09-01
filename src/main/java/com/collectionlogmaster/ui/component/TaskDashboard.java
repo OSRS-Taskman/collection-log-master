@@ -6,339 +6,272 @@ import com.collectionlogmaster.domain.Task;
 import com.collectionlogmaster.domain.TaskTier;
 import com.collectionlogmaster.synchronization.SyncService;
 import com.collectionlogmaster.task.TaskService;
-import com.collectionlogmaster.ui.SpriteOverride;
-import com.collectionlogmaster.ui.generic.UIGraphic;
-import com.collectionlogmaster.ui.generic.UILabel;
-import com.collectionlogmaster.ui.generic.UINativeButton;
-import com.collectionlogmaster.ui.generic.UIPage;
-import lombok.Getter;
-import net.runelite.api.Client;
-import net.runelite.api.FontID;
-import net.runelite.api.SoundEffectID;
-import net.runelite.api.widgets.Widget;
-import net.runelite.api.widgets.WidgetType;
-
-import javax.swing.*;
-import java.awt.*;
+import com.collectionlogmaster.ui.generic.UIComponent;
+import com.collectionlogmaster.ui.generic.UIUtil;
+import com.collectionlogmaster.ui.generic.button.UIButton.State;
+import com.collectionlogmaster.ui.generic.button.UITextButton;
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import java.util.Map;
+import java.util.Stack;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+import javax.inject.Inject;
+import net.runelite.api.FontID;
+import net.runelite.api.widgets.Widget;
+import net.runelite.api.widgets.WidgetPositionMode;
+import net.runelite.api.widgets.WidgetSizeMode;
+import net.runelite.api.widgets.WidgetTextAlignment;
+import net.runelite.api.widgets.WidgetType;
+import net.runelite.client.callback.ClientThread;
+import org.apache.commons.lang3.tuple.Pair;
+import org.jetbrains.annotations.NotNull;
 
-import static com.collectionlogmaster.ui.InterfaceConstants.COLLECTION_LOG_WINDOW_HEIGHT;
-import static com.collectionlogmaster.ui.InterfaceConstants.COLLECTION_LOG_WINDOW_WIDTH;
+public class TaskDashboard extends UIComponent<TaskDashboard> {
+	public static final int BASE_GAP = 16;
+	public static final int TITLE_HEIGHT = 50;
+	public static final int BUTTON_HEIGHT = 30;
+	public static final int BUTTON_WIDTH = 140;
+	public static final int TASK_COMPONENT_WIDTH = 300;
+	public static final int TASK_COMPONENT_HEIGHT = 70;
+	public static final int MAX_ROLLING_STEPS = 65;
 
-public class TaskDashboard extends UIPage {
-    private final static int DEFAULT_BUTTON_WIDTH = 140;
-    private final static int DEFAULT_BUTTON_HEIGHT = 30;
-    private final static int SMALL_BUTTON_WIDTH = 68;
-    private final static int DEFAULT_TASK_DETAILS_WIDTH = 300;
-    private final static int DEFAULT_TASK_DETAILS_HEIGHT = 75;
+	@Inject
+	private ScheduledExecutorService executorService;
 
-    @Getter
-    private Widget window;
-    private CollectionLogMasterPlugin plugin;
+	@Inject
+	private ClientThread clientThread;
 
-    private CollectionLogMasterConfig config;
-    private final SyncService syncService;
-    private final TaskService taskService;
-    private final Client client;
+	@Inject
+	private CollectionLogMasterConfig config;
 
-    private UILabel title;
-    private UILabel taskLabel;
-    private UILabel percentCompletion;
+	@Inject
+	private TaskService taskService;
 
-    private UIGraphic taskImage;
-    private UIGraphic taskBg;
+	@Inject
+	private SyncService syncService;
 
-    private final UINativeButton completeTaskBtn;
-    private final UINativeButton generateTaskBtn;
-    private final UINativeButton faqBtn;
-    private final UINativeButton syncBtn;
+	private final Widget title;
+	private final TaskComponent taskComponent;
+	private final UITextButton completeButton;
+	private final UITextButton generateButton;
+	private final UITextButton faqButton;
+	private final UITextButton syncButton;
+	private final Widget progress;
 
-    public TaskDashboard(CollectionLogMasterPlugin plugin, CollectionLogMasterConfig config, Widget window, SyncService syncService, TaskService taskService, Client client) {
-        this.window = window;
-        this.plugin = plugin;
-        this.config = config;
-        this.syncService = syncService;
-        this.taskService = taskService;
-        this.client = client;
+	public static TaskDashboard createInside(Widget window) {
+		return new TaskDashboard(window.createChild(WidgetType.LAYER));
+	}
 
-        createTaskDetails();
+	protected TaskDashboard(Widget widget) {
+		super(widget, WidgetType.LAYER);
+		CollectionLogMasterPlugin.getStaticInjector().injectMembers(this);
 
-        Widget titleWidget = window.createChild(-1, WidgetType.TEXT);
-        this.title = new UILabel(titleWidget);
-        this.title.setFont(FontID.QUILL_CAPS_LARGE);
-        this.title.setSize(COLLECTION_LOG_WINDOW_WIDTH, DEFAULT_TASK_DETAILS_HEIGHT);
-        this.title.setPosition(getCenterX(window, COLLECTION_LOG_WINDOW_WIDTH), 24);
-        this.title.setText("Current Task");
+		title = widget.createChild(WidgetType.TEXT);
+		taskComponent = TaskComponent.createInside(widget);
+		completeButton = UITextButton.createInside(widget);
+		generateButton = UITextButton.createInside(widget);
+		faqButton = UITextButton.createInside(widget);
+		syncButton = UITextButton.createInside(widget);
+		progress = widget.createChild(WidgetType.TEXT);
 
-        Widget percentWidget = window.createChild(-1, WidgetType.TEXT);
-        this.percentCompletion = new UILabel(percentWidget);
-        this.percentCompletion.setFont(FontID.BOLD_12);
-        this.percentCompletion.setSize(COLLECTION_LOG_WINDOW_WIDTH, 25);
-        this.percentCompletion.setPosition(getCenterX(window, COLLECTION_LOG_WINDOW_WIDTH), COLLECTION_LOG_WINDOW_HEIGHT - 91);
-        updatePercentages();
+		applyStaticStyles();
+	}
 
-        completeTaskBtn = new UINativeButton(window.createChild(WidgetType.LAYER));
-        completeTaskBtn.setSize(DEFAULT_BUTTON_WIDTH, DEFAULT_BUTTON_HEIGHT);
-        completeTaskBtn.setPosition(getCenterX(window, DEFAULT_BUTTON_WIDTH) + (DEFAULT_BUTTON_WIDTH / 2 + 15), getCenterY(window, DEFAULT_BUTTON_HEIGHT) + 62);
-        completeTaskBtn.setText("Complete Task");
-        completeTaskBtn.addAction("Complete", plugin::completeTask);
+	private void applyStaticStyles() {
+		widget.setPos(0, 0)
+				.setWidthMode(WidgetSizeMode.MINUS)
+				.setHeightMode(WidgetSizeMode.MINUS)
+				.setSize(0, 0)
+				.revalidate();
 
-        generateTaskBtn = new UINativeButton(window.createChild(WidgetType.LAYER));
-        generateTaskBtn.setSize(DEFAULT_BUTTON_WIDTH, DEFAULT_BUTTON_HEIGHT);
-        generateTaskBtn.setPosition(getCenterX(window, DEFAULT_BUTTON_WIDTH) - (DEFAULT_BUTTON_WIDTH / 2 + 15), getCenterY(window, DEFAULT_BUTTON_HEIGHT) + 62);
-        generateTaskBtn.setText("Generate Task");
-        generateTaskBtn.addAction("Generate task", this::generateTask);
+		title.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
+				.setPos(0, BASE_GAP)
+				.setWidthMode(WidgetSizeMode.MINUS)
+				.setSize(0, TITLE_HEIGHT)
+				.setFontId(FontID.QUILL_CAPS_LARGE)
+				.setTextColor(Color.WHITE.getRGB())
+				.setTextShadowed(true)
+				.setXTextAlignment(WidgetTextAlignment.CENTER)
+				.setYTextAlignment(WidgetTextAlignment.CENTER)
+				.setText("Current Task")
+				.revalidate();
 
-        faqBtn = new UINativeButton(window.createChild(WidgetType.LAYER));
-        faqBtn.setSize(SMALL_BUTTON_WIDTH, DEFAULT_BUTTON_HEIGHT);
-        faqBtn.setPosition(getCenterX(window, SMALL_BUTTON_WIDTH) + 190, getCenterY(window, DEFAULT_BUTTON_HEIGHT) + 112);
-        faqBtn.setText("FAQ");
-        faqBtn.addAction("Open FAQ", plugin::visitFaq);
+		taskComponent.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
+				.setPos(0, title.getRelativeY() + title.getHeight() + BASE_GAP)
+				.setSize(TASK_COMPONENT_WIDTH, TASK_COMPONENT_HEIGHT)
+				.revalidate();
 
-        syncBtn = new UINativeButton(window.createChild(WidgetType.LAYER));
-        syncBtn.setSize(SMALL_BUTTON_WIDTH, DEFAULT_BUTTON_HEIGHT);
-        syncBtn.setPosition(getCenterX(window, SMALL_BUTTON_WIDTH) - 190, getCenterY(window, DEFAULT_BUTTON_HEIGHT) + 112);
-        syncBtn.setText("Sync");
-        syncBtn.addAction("Sync completed tasks", syncService::sync);
+		completeButton.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
+				.setPos(-((BUTTON_WIDTH / 2) + BASE_GAP), taskComponent.getRelativeY() + taskComponent.getHeight() + BASE_GAP)
+				.setSize(BUTTON_WIDTH, BUTTON_HEIGHT)
+				.setText("Complete Task")
+				.revalidate();
 
-        this.add(this.title);
-        this.add(this.taskBg);
-        this.add(this.taskLabel);
-        this.add(this.taskImage);
-        this.add(this.percentCompletion);
-        this.add(completeTaskBtn);
-        this.add(generateTaskBtn);
-        this.add(faqBtn);
-        this.add(syncBtn);
-    }
+		generateButton.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
+				.setPos((BUTTON_WIDTH / 2) + BASE_GAP, taskComponent.getRelativeY() + taskComponent.getHeight() + BASE_GAP)
+				.setSize(BUTTON_WIDTH, BUTTON_HEIGHT)
+				.setText("Generate Task")
+				.revalidate();
 
-    @Override
-    public void setVisibility(boolean visible) {
-        super.setVisibility(visible);
-        if (visible) {
-            if (taskService.getActiveTask() == null) {
-                clearTask();
-            } else {
-                Task activeTask = taskService.getActiveTask();
-                setTask(activeTask, null);
-            }
-        }
-    }
+		progress.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
+				.setPos(0, generateButton.getRelativeY() + generateButton.getHeight() + BASE_GAP)
+				.setWidthMode(WidgetSizeMode.MINUS)
+				.setSize((BUTTON_WIDTH + BASE_GAP) * 2, BUTTON_HEIGHT)
+				.setFontId(FontID.BOLD_12)
+				.setTextColor(0xFFFFFF)
+				.setTextShadowed(true)
+				.setXTextAlignment(WidgetTextAlignment.CENTER)
+				.setYTextAlignment(WidgetTextAlignment.CENTER)
+				.revalidate();
 
-    private void createTaskDetails() {
-        final int POS_X = getCenterX(window, DEFAULT_TASK_DETAILS_WIDTH);
-        final int POS_Y = getCenterY(window, DEFAULT_TASK_DETAILS_HEIGHT)-3;
+		syncButton.setYPositionMode(WidgetPositionMode.ABSOLUTE_BOTTOM)
+				.setPos(BASE_GAP / 2, BASE_GAP / 2)
+				.setSize(BUTTON_WIDTH / 2, BUTTON_HEIGHT)
+				.setText("Sync")
+				.setName(UIUtil.formatName("Sync"))
+				.setAction("Visit", () -> {
+					syncService.sync();
+					revalidate();
+				})
+				.revalidate();
 
-        Widget taskBgWidget = window.createChild(-1, WidgetType.GRAPHIC);
-        this.taskBg = new UIGraphic(taskBgWidget);
-        this.taskBg.setSize(DEFAULT_TASK_DETAILS_WIDTH, DEFAULT_TASK_DETAILS_HEIGHT);
-        this.taskBg.setPosition(POS_X, POS_Y);
-        this.taskBg.setSprite(SpriteOverride.CURRENT_TASK.getSpriteId());
+		faqButton.setXPositionMode(WidgetPositionMode.ABSOLUTE_RIGHT)
+				.setYPositionMode(WidgetPositionMode.ABSOLUTE_BOTTOM)
+				.setPos(BASE_GAP / 2, BASE_GAP / 2)
+				.setSize(BUTTON_WIDTH / 2, BUTTON_HEIGHT)
+				.setText("FAQ")
+				.setName(UIUtil.formatName("FAQ"))
+				.setAction("Check", UIUtil::openFAQ)
+				.revalidate();
+	}
 
-        Widget label = window.createChild(-1, WidgetType.TEXT);
-        label.setTextColor(Color.WHITE.getRGB());
-        label.setTextShadowed(true);
-        label.setName("Task Label");
-        this.taskLabel = new UILabel(label);
-        this.taskLabel.setFont(496);
-        this.taskLabel.setPosition(POS_X+60, POS_Y);
-        this.taskLabel.setSize(DEFAULT_TASK_DETAILS_WIDTH-60, DEFAULT_TASK_DETAILS_HEIGHT);
+	@Override
+	public void revalidate() {
+		super.revalidate();
 
-        Widget taskImageWidget = window.createChild(-1, WidgetType.GRAPHIC);
-        this.taskImage = new UIGraphic(taskImageWidget);
-        this.taskImage.setPosition(POS_X+12, POS_Y+21);
-        this.taskImage.setSize(42, 36);
-        this.taskImage.getWidget().setBorderType(1);
-    }
+		title.revalidate();
 
-    public void clearTask() {
-        this.taskBg.getWidget().clearActions();
-        this.taskBg.clearActions();
-        this.taskLabel.setText("No active task.");
-        this.taskImage.setItem(7542);
-        this.disableCompleteTask();
-        this.enableGenerateTask();
-    }
+		Task activeTask = taskService.getActiveTask();
+		taskComponent.setTask(activeTask)
+				.revalidate();
 
-    public void setTask(Task task, List<Task> cyclingTasks) {
-        this.disableGenerateTask();
+		if (activeTask != null) {
+			completeButton.setState(State.DEFAULT)
+					.setName(UIUtil.formatName(activeTask.getName()))
+					.setAction("Complete", () -> {
+						taskService.complete();
+						revalidate();
+					})
+					.revalidate();
 
-        if (cyclingTasks != null) {
-            for (int i = 0; i < 250; i++) {
-                Task displayTask = cyclingTasks.get((int) Math.floor(Math.random() * cyclingTasks.size()));
-                // Seems the most natural timing
-                double decay = 450.0 / ((double) config.rollTime());
-                int delay = (int) ((config.rollTime() * 0.925) * Math.exp(-decay * i));
-                Timer fakeTaskTimer = new Timer(delay, ae -> {
-                    this.taskLabel.setText(displayTask.getName());
-                    this.taskImage.setItem(displayTask.getDisplayItemId());
-                });
-                fakeTaskTimer.setRepeats(false);
-                fakeTaskTimer.setCoalesce(true);
-                fakeTaskTimer.start();
-            }
-            Timer realTaskTimer = new Timer(config.rollTime(), ae -> {
-                setTask(task, null);
-            });
-            realTaskTimer.setRepeats(false);
-            realTaskTimer.setCoalesce(true);
-            realTaskTimer.start();
-            return;
-        }
+			generateButton.setState(State.DISABLED)
+					.setAction(null, null)
+					.revalidate();
+		} else {
+			completeButton.setState(State.DISABLED)
+					.setAction(null, null)
+					.revalidate();
 
-        this.taskLabel.setText(task.getName());
-        this.taskImage.setItem(task.getDisplayItemId());
-        this.taskBg.clearActions();
-        this.taskBg.addAction("View task info", () -> {
-            this.setVisibility(false);
-			TaskInfo.openInside(window, task)
-                    .thenAccept((v) -> this.setVisibility(true));
+			generateButton.setState(State.DEFAULT)
+					.setName(UIUtil.formatName("new task"))
+					.setAction("Generate", this::generateTask)
+					.revalidate();
+		}
 
-		});
-        this.enableCompleteTask();
-    }
+		String progressText = getProgressText();
+		progress.setText(progressText)
+				.revalidate();
+	}
 
-    private void generateTask() {
-		client.playSoundEffect(SoundEffectID.UI_BOOP);
+	private @NotNull String getProgressText() {
+		TaskTier tier = taskService.getCurrentTier();
+		float percent = taskService.getProgress().get(tier);
+
+		return String.format(
+				"<col=%x>%d%%</col> %s Completed",
+				UIUtil.getCompletionColor(percent),
+				UIUtil.roundCompletionPercent(percent),
+				tier.displayName
+		);
+	}
+
+	private void generateTask() {
 		Task generatedTask = taskService.generate();
+		List<Task> rollTasks = getRollTasks();
 
-		List<Task> rollTaskList = config.rollPastCompleted() ? taskService.getTierTasks() : taskService.getIncompleteTierTasks();
-		setTask(generatedTask, rollTaskList);
-        disableGenerateTask();
-        updatePercentages();
+		Stack<Pair<Task, Integer>> stepStack = new Stack<>();
+		stepStack.push(Pair.of(generatedTask, 0));
+
+		int timeLeft = config.rollTime();
+		while (timeLeft > 0) {
+			int stepDelay = calculateStepDelay(stepStack.size() - 1);
+
+			stepStack.push(Pair.of(
+					rollTasks.get(stepStack.size()),
+					stepDelay
+			));
+
+			timeLeft -= stepDelay;
+		}
+
+		executeRollStep(stepStack);
+
+		generateButton.setState(State.DISABLED)
+				.revalidate();
 	}
 
-    public void updatePercentages() {
-        Map<TaskTier, Float> progress = taskService.getProgress();
-        TaskTier currentTier = taskService.getCurrentTier();
-        float tierPercentage = progress.get(currentTier);
+	/**
+	 * Calculates the delay between the current step and the next one, in milliseconds. Uses an
+	 * exponential function as to start very start and quickly slow down, trying to emulate a
+	 * spinning prize wheel slowly decelerating.
+	 */
+	private int calculateStepDelay(int stepCount) {
+		// a magic constant used to fine tune the total duration of all
+		// steps, in order for it to match the configured roll time
+		final double K = 250;
 
-        String text = String.format(
-                "<col=%s>%d%%</col> %s Completed",
-                getCompletionColor(tierPercentage),
-                (int) tierPercentage,
-                currentTier.displayName
-        );
-        percentCompletion.setText(text);
-    }
+		// a magic constant used to fine tune how quickly the "wheel decelerates"
+		final double Q = 36;
 
-    private String getCompletionColor(double percent) {
-        int max = 255;
-        int amount = (int) Math.round(((percent % 50) / 50) * max);
+		// just the roll time divided by 1000
+		final double R = config.rollTime() / 1000d;
 
-        if(percent == 100) {
-            return "00ff00";
-        }
-        else if(percent > 50) {
-            int redValue = max - amount;
-            return String.format("%02x", redValue)+"ff00";
-
-        }
-        else if(percent == 50) {
-            return "ffff00";
-        }
-        else {
-            return "ff"+String.format("%02x", amount)+"00";
-        }
-    }
-
-
-    public void disableGenerateTask() {
-        generateTaskBtn.setState(UINativeButton.State.DISABLED);
-    }
-
-    public void enableGenerateTask() {
-        generateTaskBtn.setState(UINativeButton.State.DEFAULT);
-
-        this.disableCompleteTask();
-    }
-
-    public void disableCompleteTask() {
-        completeTaskBtn.setState(UINativeButton.State.DISABLED);
-    }
-
-    public void enableCompleteTask() {
-        completeTaskBtn.setState(UINativeButton.State.DEFAULT);
-    }
-
-    public void updateBounds() {
-        int windowWidth = window.getWidth();
-
-        // Update title position - force widget position update
-        int titleX = getCenterX(window, COLLECTION_LOG_WINDOW_WIDTH);
-        this.title.setPosition(titleX, 24);
-        this.title.getWidget().setPos(titleX, 24);
-
-        // Update task details (background, label, image)
-        final int taskPosX = getCenterX(window, DEFAULT_TASK_DETAILS_WIDTH);
-        final int taskPosY = getCenterY(window, DEFAULT_TASK_DETAILS_HEIGHT) - 3;
-        
-        this.taskBg.setPosition(taskPosX, taskPosY);
-        this.taskBg.getWidget().setPos(taskPosX, taskPosY);
-        
-        this.taskLabel.setPosition(taskPosX + 60, taskPosY);
-        this.taskLabel.getWidget().setPos(taskPosX + 60, taskPosY);
-        
-        this.taskImage.setPosition(taskPosX + 12, taskPosY + 21);
-        this.taskImage.getWidget().setPos(taskPosX + 12, taskPosY + 21);
-
-        // Update button positions - force widget position updates
-        int generateBtnX = getCenterX(window, DEFAULT_BUTTON_WIDTH) - (DEFAULT_BUTTON_WIDTH / 2 + 15);
-        int generateBtnY = getCenterY(window, DEFAULT_BUTTON_HEIGHT) + 62;
-        generateTaskBtn.setPosition(generateBtnX, generateBtnY);
-        
-        int completeBtnX = getCenterX(window, DEFAULT_BUTTON_WIDTH) + (DEFAULT_BUTTON_WIDTH / 2 + 15);
-        int completeBtnY = getCenterY(window, DEFAULT_BUTTON_HEIGHT) + 62;
-        completeTaskBtn.setPosition(completeBtnX, completeBtnY);
-        completeTaskBtn.getWidget().setPos(completeBtnX, completeBtnY);
-        
-        // Update FAQ button position with boundary checking
-        int faqBtnX = getCenterX(window, SMALL_BUTTON_WIDTH) + 238;
-        int faqBtnY = getCenterY(window, DEFAULT_BUTTON_HEIGHT) + 112;
-        
-        // Check if FAQ button would go outside the window and align with edge if needed
-        int faqBtnWidth = SMALL_BUTTON_WIDTH;
-        if (faqBtnX + faqBtnWidth + 10 > windowWidth) {
-            faqBtnX = windowWidth - faqBtnWidth - 10; // 10px margin from edge
-        }
-        faqBtn.setPosition(faqBtnX, faqBtnY);
-
-        // Update Sync button position with boundary checking
-        int syncBtnX = getCenterX(window, SMALL_BUTTON_WIDTH) - 238;
-        int syncBtnY = getCenterY(window, DEFAULT_BUTTON_HEIGHT) + 112;
-        if (syncBtnX < 10) {
-            syncBtnX = 10; // 10px margin from left edge
-        }
-        syncBtn.setPosition(syncBtnX, syncBtnY);
-
-        // Update percentage completion position - force widget position update
-        int percentX = getCenterX(window, COLLECTION_LOG_WINDOW_WIDTH);
-        int percentY = getCenterY(window, DEFAULT_BUTTON_HEIGHT) + 112; // Same Y as FAQ button
-        this.percentCompletion.setPosition(percentX, percentY);
-        this.percentCompletion.getWidget().setPos(percentX, percentY);
-        
-        // Force revalidation of all widgets
-        this.title.getWidget().revalidate();
-        this.taskBg.getWidget().revalidate();
-        this.taskLabel.getWidget().revalidate();
-        this.taskImage.getWidget().revalidate();
-        generateTaskBtn.revalidate();
-        completeTaskBtn.revalidate();
-        faqBtn.revalidate();
-        syncBtn.revalidate();
-        this.percentCompletion.getWidget().revalidate();
-    }
-
-	private int getCenterX(Widget window, int width) {
-		return (window.getWidth() / 2) - (width / 2);
+		// (K * cbrt(R)) * e^(-s / sqrt(Q * R))
+		return (int) ((K * Math.cbrt(R)) * Math.exp(-stepCount / Math.sqrt(Q * R)));
 	}
 
-	private int getCenterY(Widget window, int height) {
-		return (window.getHeight() / 2) - (height / 2);
+	private void executeRollStep(Stack<Pair<Task, Integer>> stepStack) {
+		Pair<Task, Integer> step = stepStack.pop();
+		Task task = step.getLeft();
+		int nextStepDelay = step.getRight();
+
+		clientThread.invoke(() -> {
+			taskComponent.setTask(task)
+					.revalidate();
+		});
+
+		if (stepStack.empty()) {
+			clientThread.invoke(this::revalidate);
+			return;
+		}
+
+		executorService.schedule(() -> executeRollStep(stepStack), nextStepDelay, TimeUnit.MILLISECONDS);
 	}
 
-	private void playFailSound() {
-		client.playSoundEffect(2277);
+	private @NotNull List<Task> getRollTasks() {
+		List<Task> candidateTasks = taskService.getIncompleteTierTasks();
+		if (candidateTasks.size() < MAX_ROLLING_STEPS && config.rollPastCompleted()) {
+			candidateTasks = taskService.getTierTasks();
+		}
+
+		while (candidateTasks.size() < MAX_ROLLING_STEPS) {
+			candidateTasks.addAll(new ArrayList<>(candidateTasks));
+		}
+
+		Collections.shuffle(candidateTasks);
+
+		return candidateTasks.subList(0, MAX_ROLLING_STEPS);
 	}
 }

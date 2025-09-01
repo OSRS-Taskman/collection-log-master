@@ -1,7 +1,6 @@
-package com.collectionlogmaster.ui.neww.button;
+package com.collectionlogmaster.ui.generic.button;
 
-import com.collectionlogmaster.ui.generic.MenuAction;
-import com.collectionlogmaster.ui.neww.UIComponent;
+import com.collectionlogmaster.ui.generic.UIComponent;
 import lombok.Getter;
 import net.runelite.api.ScriptEvent;
 import net.runelite.api.widgets.JavaScriptCallback;
@@ -18,7 +17,8 @@ public abstract class UIButton<This extends UIButton<This>> extends UIComponent<
 	@Getter
 	private State state = State.DEFAULT;
 
-	protected MenuAction action = null;
+	@Getter
+	protected Runnable action = null;
 
 	protected UIButton(Widget widget) {
 		super(widget, WidgetType.LAYER);
@@ -33,7 +33,7 @@ public abstract class UIButton<This extends UIButton<This>> extends UIComponent<
 		if (state == State.DISABLED) return;
 
 		if (action != null) {
-			action.onMenuAction();
+			action.run();
 		}
 	}
 
@@ -52,6 +52,13 @@ public abstract class UIButton<This extends UIButton<This>> extends UIComponent<
 	}
 
 	@SuppressWarnings("unchecked")
+	public This setName(String name) {
+		widget.setName(name);
+
+		return (This) this;
+	}
+
+	@SuppressWarnings("unchecked")
 	public This setState(State state) {
 		this.state = state;
 
@@ -59,7 +66,7 @@ public abstract class UIButton<This extends UIButton<This>> extends UIComponent<
 	}
 
 	@SuppressWarnings("unchecked")
-	public This setAction(String label, MenuAction action) {
+	public This setAction(String label, Runnable action) {
 		widget.setAction(0, label);
 		this.action = action;
 

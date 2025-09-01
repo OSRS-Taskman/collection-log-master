@@ -1,4 +1,4 @@
-package com.collectionlogmaster.ui.neww.button;
+package com.collectionlogmaster.ui.generic.button;
 
 import net.runelite.api.FontID;
 import net.runelite.api.widgets.Widget;

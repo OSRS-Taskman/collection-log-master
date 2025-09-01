@@ -1,304 +1,124 @@
 package com.collectionlogmaster.ui.generic;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
 import lombok.Getter;
-import lombok.NonNull;
-import lombok.Setter;
-import net.runelite.api.FontTypeFace;
-import net.runelite.api.ScriptEvent;
-import net.runelite.api.widgets.JavaScriptCallback;
 import net.runelite.api.widgets.Widget;
+import net.runelite.api.widgets.WidgetPositionMode;
+import net.runelite.api.widgets.WidgetSizeMode;
+import net.runelite.api.widgets.WidgetType;
+import org.intellij.lang.annotations.MagicConstant;
+import org.jetbrains.annotations.Range;
 
 /**
- * UI Component classes allow for complex user interface functionality by
- * wrapping the gaming widget and carefully controlling its behaviour
- * @author Antipixel
+ * @param <This> The child class; this is e for the chaining to work properly
  */
-public abstract class UIComponent
-{
-	private static final int MAX_OPACITY = 255;
-	private static final String BTN_NAME_FORMAT = "<col=ff9040>%s</col>";
-
+@SuppressWarnings("unchecked")
+public abstract class UIComponent<This extends UIComponent<This>> {
 	@Getter
 	protected Widget widget;
 
-	/* Actions and events */
-	protected List<MenuAction> actions;
-
-	@Setter
-	private ComponentEventListener<UIComponent> hoverListener;
-
-	@Setter
-	private ComponentEventListener<UIComponent> leaveListener;
-
-	@Setter
-	private ComponentEventListener<UIComponent> mousePressListener;
-
-	@Setter
-	private ComponentEventListener<UIComponent> mouseDragListener;
-
-	@Setter
-	private ComponentEventListener<UIComponent> mouseReleaseListener;
-
-	public static int getTextHeight(@NonNull String text, Widget widget) {
-		int lineHeight = widget.getLineHeight();
-		if (lineHeight == 0) {
-			lineHeight = widget.getFont().getBaseline();
-		}
-
-		return lineHeight * getTextLineCount(text, widget);
-	}
-
-	public static int getTextLineCount(@NonNull String text, Widget widget) {
-		int maxWidth = widget.getWidth();
-		FontTypeFace font = widget.getFont();
-
-		int spaceWidth = font.getTextWidth(" ");
-		int[] wordWidths = Arrays.stream(text.split(" "))
-				.mapToInt(font::getTextWidth)
-				.toArray();
-
-		int lineCount = 1;
-		// account for first word not having a space before it
-		int lineWidth = -spaceWidth;
-		for (int wordWidth : wordWidths) {
-			lineWidth += wordWidth + spaceWidth;
-
-			if (lineWidth > maxWidth) {
-				lineCount++;
-				// include overflow word into next line
-				lineWidth = wordWidth;
-			}
-		}
-
-		return lineCount;
-	}
-
-	/**
-	 * Constructs a new UIComponent
-	 * @param widget the underlying game widget
-	 */
-	public UIComponent(Widget widget)
-	{
-		this.widget = widget;
-
-		// Assign the event listeners to the widget
-		this.widget.setOnOpListener((JavaScriptCallback) this::onActionSelected);
-		this.widget.setOnMouseOverListener((JavaScriptCallback) this::onMouseHover);
-		this.widget.setOnMouseLeaveListener((JavaScriptCallback) this::onMouseLeave);
-		this.widget.setHasListener(true);
-
-		this.actions = new ArrayList<>();
-	}
-
-	public UIComponent(Widget widget, Set<Integer> allowedTypes) {
-		this(widget);
-
-		if (!allowedTypes.contains(widget.getType())) {
-			String msg = String.format("Incompatible widget's type given; %s given, %d expected", allowedTypes, widget.getType());
+	protected UIComponent(Widget widget, @MagicConstant(valuesFromClass = WidgetType.class) int allowedType) {
+		if (allowedType != widget.getType()) {
+			String msg = String.format("Incompatible widget's type given; %d given, %d expected", allowedType, widget.getType());
 			throw new RuntimeException(msg);
 		}
+
+		this.widget = widget;
 	}
 
-	/**
-	 * Adds an action option to the component's menu
-	 * @param action the action name
- 	 * @param callback the callback event, which is trigger upon the
-	 *                 selection of this menu option
-	 */
-	public void addAction(String action, MenuAction callback)
-	{
-		this.widget.setAction(actions.size(), action);
-		this.actions.add(callback);
+	public This setOpacity(@Range(from = 0, to = 255) int transparency) {
+		widget.setOpacity(transparency);
+		return (This) this;
 	}
 
-	/**
-	 * Triggered upon the selection of menu option
-	 * @param e the script event
-	 */
-	protected void onActionSelected(ScriptEvent e)
-	{
-		// If there's no actions specified, ignore
-		if (this.actions.isEmpty())
-			return;
-
-		// Get the action event object for this menu option
-		MenuAction actionEvent = this.actions.get(e.getOp() - 1);
-
-		// Call the action listener for this option
-		actionEvent.onMenuAction();
+	public This setOriginalX(int originalX) {
+		widget.setOriginalX(originalX);
+		return (This) this;
 	}
 
-	/**
-	 * Triggered upon the mouse entering the component
-	 * @param e the script event
-	 */
-	protected void onMouseHover(ScriptEvent e)
-	{
-		// If a hover event is specified, trigger it
-		if (this.hoverListener != null)
-			this.hoverListener.onComponentEvent(this);
+	public int getOriginalX() {
+		return widget.getOriginalX();
 	}
 
-	/**
-	 * Triggered upon the mouse leaving the component
-	 * @param e the script event
-	 */
-	protected void onMouseLeave(ScriptEvent e)
-	{
-		// If a leave event is specified, trigger it
-		if (this.leaveListener != null)
-			this.leaveListener.onComponentEvent(this);
+	public This setOriginalY(int originalY) {
+		widget.setOriginalY(originalY);
+		return (This) this;
 	}
 
-	/**
-	 * Sets a listener which will be called upon the mouse
-	 * hovering over the widget
-	 * @param listener the listener
-	 */
-	public void setOnHoverListener(ComponentEventListener<UIComponent> listener)
-	{
-		this.hoverListener = listener;
+	public int getOriginalY() {
+		return widget.getOriginalY();
 	}
 
-	/**
-	 * Sets a listener which will be called upon the mouse
-	 * exiting from over the widget
-	 * @param listener the listener
-	 */
-	public void setOnLeaveListener(ComponentEventListener<UIComponent> listener)
-	{
-		this.leaveListener = listener;
+	public int getRelativeX() {
+		return widget.getRelativeX();
 	}
 
-	/**
-	 * Sets the name of the component widget
-	 * @param name the component name
-	 */
-	public void setName(String name)
-	{
-		this.widget.setName(String.format(BTN_NAME_FORMAT, name));
+	public int getRelativeY() {
+		return widget.getRelativeY();
 	}
 
-	/**
-	 * Sets the component size
-	 * @param width the component width
-	 * @param height the component height
-	 */
-	public void setSize(int width, int height)
-	{
-		this.widget.setOriginalWidth(width);
-		this.widget.setOriginalHeight(height);
+	public This setPos(int x, int y) {
+		widget.setPos(x, y);
+		return (This) this;
 	}
 
-	public void setSizeMode(int widthMode, int heightMode)
-	{
-		this.widget.setWidthMode(widthMode);
-		this.widget.setHeightMode(heightMode);
+	public This setOriginalHeight(int originalHeight) {
+		widget.setOriginalHeight(originalHeight);
+		return (This) this;
 	}
 
-	/**
-	 * Sets the position of the component, relative
-	 * to the parent layer widget
-	 * @param x the x position
-	 * @param y the y position
-	 */
-	public void setPosition(int x, int y)
-	{
-		this.setX(x);
-		this.setY(y);
-	}
-
-	/**
-	 * Sets the X position of the component, relative
-	 * to the parent layer
-	 * @param x the x position
-	 */
-	public void setX(int x)
-	{
-		this.widget.setOriginalX(x);
-	}
-
-	/**
-	 * Sets the Y position of the component, relative
-	 * to the parent layer
-	 * @param y the x position
-	 */
-	public void setY(int y)
-	{
-		this.widget.setOriginalY(y);
-	}
-
-	/**
-	 * Gets the X position of the component, relative
-	 * to the the parent layer
-	 * @return the x position
-	 */
-	public int getX()
-	{
-		return this.widget.getOriginalX();
-	}
-
-	/**
-	 * Gets the Y position of the component, relative
-	 * to the the parent layer
-	 * @return the y position
-	 */
-	public int getY()
-	{
-		return this.widget.getOriginalY();
+	public int getOriginalHeight() {
+		return widget.getOriginalHeight();
 	}
 
 
-	/**
-	 * Sets the visibility of the component
-	 * @param visible true for visible, false for hidden
-	 */
-	public void setVisibility(boolean visible)
-	{
-		this.widget.setHidden(!visible);
+	public This setOriginalWidth(int originalWidth) {
+		widget.setOriginalWidth(originalWidth);
+		return (This) this;
 	}
 
-	/**
-	 * Sets the opacity of the widget
-	 * @param opacity the opacity value. Expects a value
-	 *                between 0.0 (transparent) and 1.0 (opaque)
-	 */
-	public void setOpacity(float opacity)
-	{
-		// Cap the opacity to 1.0
-		if (opacity > 1.0)
-			opacity = 1.0f;
-
-		// Invert the percentage
-		float percentage = 1.0f - opacity;
-
-		// Convert the percentage value to a 0-255 integer
-		this.widget.setOpacity((int)(percentage * MAX_OPACITY));
+	public int getOriginalWidth() {
+		return widget.getOriginalWidth();
 	}
 
-	/**
-	 * Gets the opacity of the widget
-	 * @return an opacity value between 0.0 (transparent) and 1.0 (opaque)
-	 */
-	public float getOpacity()
-	{
-		// Convert the opacity to a percentage
-		float opacity = (float)this.widget.getOpacity() / MAX_OPACITY;
-
-		// Invert the percentage
-		return 1.0f - opacity;
+	public int getHeight() {
+		return widget.getHeight();
 	}
 
-	public void clearActions() {
-		actions.clear();
-		this.widget.clearActions();
+	public int getWidth() {
+		return widget.getWidth();
+	}
+
+	public This setSize(int width, int height) {
+		widget.setSize(width, height);
+		return (This) this;
+	}
+
+	public This setXPositionMode(@MagicConstant(valuesFromClass = WidgetPositionMode.class) int xpm) {
+		widget.setXPositionMode(xpm);
+		return (This) this;
+	}
+
+	public This setYPositionMode(@MagicConstant(valuesFromClass = WidgetPositionMode.class) int ypm) {
+		widget.setYPositionMode(ypm);
+		return (This) this;
+	}
+
+	public This setWidthMode(@MagicConstant(valuesFromClass = WidgetSizeMode.class) int widthMode) {
+		widget.setWidthMode(widthMode);
+		return (This) this;
+	}
+
+	public This setHeightMode(@MagicConstant(valuesFromClass = WidgetSizeMode.class) int heightMode) {
+		widget.setHeightMode(heightMode);
+		return (This) this;
+	}
+
+	public This setHidden(boolean hidden) {
+		widget.setHidden(hidden);
+		return (This) this;
 	}
 
 	public void revalidate() {
-		this.widget.revalidate();
+		widget.revalidate();
 	}
 }

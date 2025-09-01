@@ -1,4 +1,4 @@
-package com.collectionlogmaster.ui.neww;
+package com.collectionlogmaster.ui.generic;
 
 import java.util.Collections;
 import java.util.LinkedHashSet;

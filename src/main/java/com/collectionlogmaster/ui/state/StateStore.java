@@ -4,16 +4,15 @@ import com.collectionlogmaster.domain.Task;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
+import javax.inject.Inject;
 import javax.inject.Singleton;
 import lombok.Getter;
 import lombok.NonNull;
 import net.runelite.client.eventbus.EventBus;
 
-import javax.inject.Inject;
-
 @Singleton
 public class StateStore {
-    @Inject
+	@Inject
 	private EventBus eventBus;
 
 	@Getter
