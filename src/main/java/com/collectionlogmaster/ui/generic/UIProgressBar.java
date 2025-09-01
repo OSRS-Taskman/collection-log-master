@@ -1,4 +1,4 @@
-package com.collectionlogmaster.ui.neww;
+package com.collectionlogmaster.ui.generic;
 
 import java.awt.Color;
 import net.runelite.api.FontID;

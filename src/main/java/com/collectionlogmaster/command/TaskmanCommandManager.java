@@ -1,5 +1,7 @@
 package com.collectionlogmaster.command;
 
+import static com.collectionlogmaster.util.GsonOverride.GSON;
+
 import com.collectionlogmaster.CollectionLogMasterConfig;
 import com.collectionlogmaster.domain.Task;
 import com.collectionlogmaster.domain.TaskTier;
@@ -9,6 +11,9 @@ import com.collectionlogmaster.task.TaskService;
 import com.collectionlogmaster.util.EventBusSubscriber;
 import com.collectionlogmaster.util.HttpClient;
 import com.collectionlogmaster.util.SimpleDebouncer;
+import java.time.Instant;
+import javax.inject.Inject;
+import javax.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
@@ -25,146 +30,140 @@ import net.runelite.client.events.ConfigChanged;
 import net.runelite.client.util.Text;
 import okhttp3.HttpUrl;
 
-import javax.inject.Inject;
-import javax.inject.Singleton;
-import java.time.Instant;
-
-import static com.collectionlogmaster.util.GsonOverride.GSON;
-
 @Slf4j
 @Singleton
 public class TaskmanCommandManager extends EventBusSubscriber {
-    @Inject
-    private Client client;
+	@Inject
+	private Client client;
 
-    @Inject
-    private ClientThread clientThread;
+	@Inject
+	private ClientThread clientThread;
 
-    @Inject
-    private ChatCommandManager chatCommandManager;
+	@Inject
+	private ChatCommandManager chatCommandManager;
 
-    @Inject
-    private CollectionLogMasterConfig config;
+	@Inject
+	private CollectionLogMasterConfig config;
 
-    @Inject
-    private HttpClient httpClient;
+	@Inject
+	private HttpClient httpClient;
 
-    @Inject
-    private TaskService taskService;
+	@Inject
+	private TaskService taskService;
 
-    @Inject
-    private SimpleDebouncer updateDebouncer;
+	@Inject
+	private SimpleDebouncer updateDebouncer;
 
-    private final HttpUrl baseApiUrl = new HttpUrl.Builder()
-            .scheme("https")
-            .host("taskman.up.railway.app")
-            .addPathSegment("task")
-            .addPathSegment("command")
-            .build();
+	private final HttpUrl baseApiUrl = new HttpUrl.Builder()
+			.scheme("https")
+			.host("taskman.up.railway.app")
+			.addPathSegment("task")
+			.addPathSegment("command")
+			.build();
 
-    private final String COLLECTION_LOG_COMMAND = "!taskman";
+	private final String COLLECTION_LOG_COMMAND = "!taskman";
 
-    public void startUp() {
-        super.startUp();
+	public void startUp() {
+		super.startUp();
 
-        if (config.isCommandEnabled()) {
-            chatCommandManager.registerCommand(COLLECTION_LOG_COMMAND, this::executeCommand);
-        }
-    }
+		if (config.isCommandEnabled()) {
+			chatCommandManager.registerCommand(COLLECTION_LOG_COMMAND, this::executeCommand);
+		}
+	}
 
-    public void shutDown() {
-        super.shutDown();
+	public void shutDown() {
+		super.shutDown();
 
-        if (config.isCommandEnabled()) {
-            chatCommandManager.unregisterCommand(COLLECTION_LOG_COMMAND);
-        }
-    }
+		if (config.isCommandEnabled()) {
+			chatCommandManager.unregisterCommand(COLLECTION_LOG_COMMAND);
+		}
+	}
 
-    @Subscribe
-    public void onConfigChanged(ConfigChanged event) {
-        if (!event.getGroup().equals(CollectionLogMasterConfig.CONFIG_GROUP)) return;
-        if (!event.getKey().equals(CollectionLogMasterConfig.IS_COMMAND_ENABLED_KEY)) return;
+	@Subscribe
+	public void onConfigChanged(ConfigChanged event) {
+		if (!event.getGroup().equals(CollectionLogMasterConfig.CONFIG_GROUP)) return;
+		if (!event.getKey().equals(CollectionLogMasterConfig.IS_COMMAND_ENABLED_KEY)) return;
 
-        if (config.isCommandEnabled()) {
-            chatCommandManager.registerCommand(COLLECTION_LOG_COMMAND, this::executeCommand);
-            updateServerImmediately();
-        } else {
-            chatCommandManager.unregisterCommand(COLLECTION_LOG_COMMAND);
-        }
-    }
+		if (config.isCommandEnabled()) {
+			chatCommandManager.registerCommand(COLLECTION_LOG_COMMAND, this::executeCommand);
+			updateServerImmediately();
+		} else {
+			chatCommandManager.unregisterCommand(COLLECTION_LOG_COMMAND);
+		}
+	}
 
-    @Subscribe
-    public void onGameStateChanged(GameStateChanged e) {
-        if (e.getGameState() != GameState.LOGGED_IN) return;
+	@Subscribe
+	public void onGameStateChanged(GameStateChanged e) {
+		if (e.getGameState() != GameState.LOGGED_IN) return;
 
-        clientThread.invokeAtTickEnd(this::updateServer);
-    }
+		clientThread.invokeAtTickEnd(this::updateServer);
+	}
 
-    private void executeCommand(ChatMessage chatMessage, String message) {
-        log.debug("Executing taskman command: {}", message);
+	private void executeCommand(ChatMessage chatMessage, String message) {
+		log.debug("Executing taskman command: {}", message);
 
-        String senderName = chatMessage.getType().equals(ChatMessageType.PRIVATECHATOUT)
-                ? client.getLocalPlayer().getName()
-                : Text.sanitize(chatMessage.getName());
+		String senderName = chatMessage.getType().equals(ChatMessageType.PRIVATECHATOUT)
+				? client.getLocalPlayer().getName()
+				: Text.sanitize(chatMessage.getName());
 
-        if (senderName == null) {
-            log.debug("Couldn't identify message sender");
-            return;
-        }
+		if (senderName == null) {
+			log.debug("Couldn't identify message sender");
+			return;
+		}
 
-        HttpUrl url = baseApiUrl.newBuilder().addPathSegment(senderName).build();
-        httpClient.getHttpRequestAsync(url.toString(), CommandResponse.class)
-            .thenAccept(res ->
-                clientThread.invokeLater(() -> replaceChatMessage(chatMessage, res))
-            );
-    }
+		HttpUrl url = baseApiUrl.newBuilder().addPathSegment(senderName).build();
+		httpClient.getHttpRequestAsync(url.toString(), CommandResponse.class)
+				.thenAccept(res ->
+						clientThread.invokeLater(() -> replaceChatMessage(chatMessage, res))
+				);
+	}
 
-    public void updateServer() {
-        log.debug("Scheduling command update; {}", Instant.now());
-        updateDebouncer.debounce(this::updateServerImmediately);
-    }
+	public void updateServer() {
+		log.debug("Scheduling command update; {}", Instant.now());
+		updateDebouncer.debounce(this::updateServerImmediately);
+	}
 
-    public void updateServerImmediately() {
-        if (!config.isCommandEnabled()) {
-            return;
-        }
+	public void updateServerImmediately() {
+		if (!config.isCommandEnabled()) {
+			return;
+		}
 
-        log.debug("Executing command update; {}", Instant.now());
+		log.debug("Executing command update; {}", Instant.now());
 
-        String rsn = client.getLocalPlayer().getName();
-        if (rsn == null) return;
+		String rsn = client.getLocalPlayer().getName();
+		if (rsn == null) return;
 
-        HttpUrl url = baseApiUrl.newBuilder().addPathSegment(rsn).build();
+		HttpUrl url = baseApiUrl.newBuilder().addPathSegment(rsn).build();
 
-        String taskId = "complete";
-        Task currentTask = taskService.getActiveTask();
-        if (currentTask != null) {
-            taskId = currentTask.getId();
-        }
+		String taskId = "complete";
+		Task currentTask = taskService.getActiveTask();
+		if (currentTask != null) {
+			taskId = currentTask.getId();
+		}
 
-        TaskTier currentTier = taskService.getCurrentTier();
-        float currentProgress = taskService.getProgress().get(currentTier);
+		TaskTier currentTier = taskService.getCurrentTier();
+		float currentProgress = taskService.getProgress().get(currentTier) * 100;
 
-        CommandRequest data = new CommandRequest(taskId, taskService.getCurrentTier().displayName, (int) currentProgress);
-        httpClient.putHttpRequestAsync(url.toString(), GSON.toJson(data), null);
-    }
+		CommandRequest data = new CommandRequest(taskId, taskService.getCurrentTier().displayName, (int) currentProgress);
+		httpClient.putHttpRequestAsync(url.toString(), GSON.toJson(data), null);
+	}
 
-    private void replaceChatMessage(ChatMessage chatMessage, CommandResponse res) {
-        if (res == null) return;
+	private void replaceChatMessage(ChatMessage chatMessage, CommandResponse res) {
+		if (res == null) return;
 
-        final String msg = new ChatMessageBuilder()
-                .append(ChatColorType.NORMAL)
-                .append("Progress: ")
-                .append(ChatColorType.HIGHLIGHT)
-                .append(res.getProgressPercentage() + "% " + res.getTier())
-                .append(ChatColorType.NORMAL)
-                .append(" Current task: ")
-                .append(ChatColorType.HIGHLIGHT)
-                .append(res.getTask().getName())
-                .build();
+		final String msg = new ChatMessageBuilder()
+				.append(ChatColorType.NORMAL)
+				.append("Progress: ")
+				.append(ChatColorType.HIGHLIGHT)
+				.append(res.getProgressPercentage() + "% " + res.getTier())
+				.append(ChatColorType.NORMAL)
+				.append(" Current task: ")
+				.append(ChatColorType.HIGHLIGHT)
+				.append(res.getTask().getName())
+				.build();
 
-        final MessageNode messageNode = chatMessage.getMessageNode();
-        messageNode.setRuneLiteFormatMessage(msg);
-        client.refreshChat();
-    }
+		final MessageNode messageNode = chatMessage.getMessageNode();
+		messageNode.setRuneLiteFormatMessage(msg);
+		client.refreshChat();
+	}
 }
