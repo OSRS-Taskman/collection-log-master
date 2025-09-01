@@ -10,7 +10,6 @@ import com.collectionlogmaster.ui.generic.UIComponent;
 import com.collectionlogmaster.ui.generic.UIUtil;
 import com.collectionlogmaster.ui.generic.button.UIButton.State;
 import com.collectionlogmaster.ui.generic.button.UITextButton;
-import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -76,113 +75,76 @@ public class TaskDashboard extends UIComponent<TaskDashboard> {
 		syncButton = UITextButton.createInside(widget);
 		progress = widget.createChild(WidgetType.TEXT);
 
-		applyStaticStyles();
+		initializeWidgets();
 	}
 
-	private void applyStaticStyles() {
+	private void initializeWidgets() {
 		widget.setPos(0, 0)
-				.setWidthMode(WidgetSizeMode.MINUS)
-				.setHeightMode(WidgetSizeMode.MINUS)
-				.setSize(0, 0)
-				.revalidate();
+			.setWidthMode(WidgetSizeMode.MINUS)
+			.setHeightMode(WidgetSizeMode.MINUS)
+			.setSize(0, 0)
+			.revalidate();
 
 		title.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
-				.setPos(0, BASE_GAP)
-				.setWidthMode(WidgetSizeMode.MINUS)
-				.setSize(0, TITLE_HEIGHT)
-				.setFontId(FontID.QUILL_CAPS_LARGE)
-				.setTextColor(Color.WHITE.getRGB())
-				.setTextShadowed(true)
-				.setXTextAlignment(WidgetTextAlignment.CENTER)
-				.setYTextAlignment(WidgetTextAlignment.CENTER)
-				.setText("Current Task")
-				.revalidate();
+			.setPos(0, BASE_GAP)
+			.setWidthMode(WidgetSizeMode.MINUS)
+			.setSize(0, TITLE_HEIGHT)
+			.setFontId(FontID.QUILL_CAPS_LARGE)
+			.setTextColor(0xFFFFFF)
+			.setTextShadowed(true)
+			.setXTextAlignment(WidgetTextAlignment.CENTER)
+			.setYTextAlignment(WidgetTextAlignment.CENTER)
+			.setText("Current Task")
+			.revalidate();
 
 		taskComponent.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
-				.setPos(0, title.getRelativeY() + title.getHeight() + BASE_GAP)
-				.setSize(TASK_COMPONENT_WIDTH, TASK_COMPONENT_HEIGHT)
-				.revalidate();
+			.setPos(0, title.getRelativeY() + title.getHeight() + BASE_GAP)
+			.setSize(TASK_COMPONENT_WIDTH, TASK_COMPONENT_HEIGHT)
+			.revalidate();
 
+		int actionButtonsY = taskComponent.getRelativeY() + taskComponent.getHeight() + BASE_GAP;
 		completeButton.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
-				.setPos(-((BUTTON_WIDTH / 2) + BASE_GAP), taskComponent.getRelativeY() + taskComponent.getHeight() + BASE_GAP)
-				.setSize(BUTTON_WIDTH, BUTTON_HEIGHT)
-				.setText("Complete Task")
-				.revalidate();
+			.setPos(-((BUTTON_WIDTH / 2) + BASE_GAP), actionButtonsY)
+			.setSize(BUTTON_WIDTH, BUTTON_HEIGHT)
+			.setText("Complete Task")
+			.revalidate();
 
 		generateButton.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
-				.setPos((BUTTON_WIDTH / 2) + BASE_GAP, taskComponent.getRelativeY() + taskComponent.getHeight() + BASE_GAP)
-				.setSize(BUTTON_WIDTH, BUTTON_HEIGHT)
-				.setText("Generate Task")
-				.revalidate();
+			.setPos((BUTTON_WIDTH / 2) + BASE_GAP, actionButtonsY)
+			.setSize(BUTTON_WIDTH, BUTTON_HEIGHT)
+			.setText("Generate Task")
+			.revalidate();
 
 		progress.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
-				.setPos(0, generateButton.getRelativeY() + generateButton.getHeight() + BASE_GAP)
-				.setWidthMode(WidgetSizeMode.MINUS)
-				.setSize((BUTTON_WIDTH + BASE_GAP) * 2, BUTTON_HEIGHT)
-				.setFontId(FontID.BOLD_12)
-				.setTextColor(0xFFFFFF)
-				.setTextShadowed(true)
-				.setXTextAlignment(WidgetTextAlignment.CENTER)
-				.setYTextAlignment(WidgetTextAlignment.CENTER)
-				.revalidate();
+			.setPos(0, generateButton.getRelativeY() + generateButton.getHeight() + BASE_GAP)
+			.setWidthMode(WidgetSizeMode.MINUS)
+			.setSize((BUTTON_WIDTH + BASE_GAP) * 2, BUTTON_HEIGHT)
+			.setFontId(FontID.BOLD_12)
+			.setTextColor(0xFFFFFF)
+			.setTextShadowed(true)
+			.setXTextAlignment(WidgetTextAlignment.CENTER)
+			.setYTextAlignment(WidgetTextAlignment.CENTER)
+			.revalidate();
 
 		syncButton.setYPositionMode(WidgetPositionMode.ABSOLUTE_BOTTOM)
-				.setPos(BASE_GAP / 2, BASE_GAP / 2)
-				.setSize(BUTTON_WIDTH / 2, BUTTON_HEIGHT)
-				.setText("Sync")
-				.setName(UIUtil.formatName("Sync"))
-				.setAction("Visit", () -> {
-					syncService.sync();
-					revalidate();
-				})
-				.revalidate();
+			.setPos(BASE_GAP / 2, BASE_GAP / 2)
+			.setSize(BUTTON_WIDTH / 2, BUTTON_HEIGHT)
+			.setText("Sync")
+			.setName(UIUtil.formatName("Sync"))
+			.setAction("Visit", () -> {
+				syncService.sync();
+				revalidate();
+			})
+			.revalidate();
 
 		faqButton.setXPositionMode(WidgetPositionMode.ABSOLUTE_RIGHT)
-				.setYPositionMode(WidgetPositionMode.ABSOLUTE_BOTTOM)
-				.setPos(BASE_GAP / 2, BASE_GAP / 2)
-				.setSize(BUTTON_WIDTH / 2, BUTTON_HEIGHT)
-				.setText("FAQ")
-				.setName(UIUtil.formatName("FAQ"))
-				.setAction("Check", UIUtil::openFAQ)
-				.revalidate();
-	}
-
-	@Override
-	public void revalidate() {
-		super.revalidate();
-
-		title.revalidate();
-
-		Task activeTask = taskService.getActiveTask();
-		taskComponent.setTask(activeTask)
-				.revalidate();
-
-		if (activeTask != null) {
-			completeButton.setState(State.DEFAULT)
-					.setName(UIUtil.formatName(activeTask.getName()))
-					.setAction("Complete", () -> {
-						taskService.complete();
-						revalidate();
-					})
-					.revalidate();
-
-			generateButton.setState(State.DISABLED)
-					.setAction(null, null)
-					.revalidate();
-		} else {
-			completeButton.setState(State.DISABLED)
-					.setAction(null, null)
-					.revalidate();
-
-			generateButton.setState(State.DEFAULT)
-					.setName(UIUtil.formatName("new task"))
-					.setAction("Generate", this::generateTask)
-					.revalidate();
-		}
-
-		String progressText = getProgressText();
-		progress.setText(progressText)
-				.revalidate();
+			.setYPositionMode(WidgetPositionMode.ABSOLUTE_BOTTOM)
+			.setPos(BASE_GAP / 2, BASE_GAP / 2)
+			.setSize(BUTTON_WIDTH / 2, BUTTON_HEIGHT)
+			.setText("FAQ")
+			.setName(UIUtil.formatName("FAQ"))
+			.setAction("Check", UIUtil::openFAQ)
+			.revalidate();
 	}
 
 	private @NotNull String getProgressText() {
@@ -190,10 +152,10 @@ public class TaskDashboard extends UIComponent<TaskDashboard> {
 		float percent = taskService.getProgress().get(tier);
 
 		return String.format(
-				"<col=%x>%d%%</col> %s Completed",
-				UIUtil.getCompletionColor(percent),
-				UIUtil.roundCompletionPercent(percent),
-				tier.displayName
+			"<col=%x>%d%%</col> %s Completed",
+			UIUtil.getCompletionColor(percent),
+			UIUtil.roundCompletionPercent(percent),
+			tier.displayName
 		);
 	}
 
@@ -209,8 +171,8 @@ public class TaskDashboard extends UIComponent<TaskDashboard> {
 			int stepDelay = calculateStepDelay(stepStack.size() - 1);
 
 			stepStack.push(Pair.of(
-					rollTasks.get(stepStack.size()),
-					stepDelay
+				rollTasks.get(stepStack.size()),
+				stepDelay
 			));
 
 			timeLeft -= stepDelay;
@@ -219,7 +181,7 @@ public class TaskDashboard extends UIComponent<TaskDashboard> {
 		executeRollStep(stepStack);
 
 		generateButton.setState(State.DISABLED)
-				.revalidate();
+			.revalidate();
 	}
 
 	/**
@@ -249,7 +211,7 @@ public class TaskDashboard extends UIComponent<TaskDashboard> {
 
 		clientThread.invoke(() -> {
 			taskComponent.setTask(task)
-					.revalidate();
+				.revalidate();
 		});
 
 		if (stepStack.empty()) {
@@ -273,5 +235,43 @@ public class TaskDashboard extends UIComponent<TaskDashboard> {
 		Collections.shuffle(candidateTasks);
 
 		return candidateTasks.subList(0, MAX_ROLLING_STEPS);
+	}
+
+	@Override
+	public void revalidate() {
+		super.revalidate();
+
+		title.revalidate();
+
+		Task activeTask = taskService.getActiveTask();
+		taskComponent.setTask(activeTask)
+			.revalidate();
+
+		if (activeTask != null) {
+			completeButton.setState(State.DEFAULT)
+				.setName(UIUtil.formatName(activeTask.getName()))
+				.setAction("Complete", () -> {
+					taskService.complete();
+					revalidate();
+				})
+				.revalidate();
+
+			generateButton.setState(State.DISABLED)
+				.setAction(null, null)
+				.revalidate();
+		} else {
+			completeButton.setState(State.DISABLED)
+				.setAction(null, null)
+				.revalidate();
+
+			generateButton.setState(State.DEFAULT)
+				.setName(UIUtil.formatName("new task"))
+				.setAction("Generate", this::generateTask)
+				.revalidate();
+		}
+
+		String progressText = getProgressText();
+		progress.setText(progressText)
+			.revalidate();
 	}
 }

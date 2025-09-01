@@ -2,11 +2,14 @@ package com.collectionlogmaster.ui.generic.button;
 
 import com.collectionlogmaster.ui.generic.UIComponent;
 import lombok.Getter;
+import lombok.Setter;
+import lombok.experimental.Accessors;
 import net.runelite.api.ScriptEvent;
 import net.runelite.api.widgets.JavaScriptCallback;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetType;
 
+@Accessors(chain = true)
 public abstract class UIButton<This extends UIButton<This>> extends UIComponent<This> {
 	public enum State {
 		DEFAULT,
@@ -15,6 +18,7 @@ public abstract class UIButton<This extends UIButton<This>> extends UIComponent<
 	}
 
 	@Getter
+	@Setter
 	private State state = State.DEFAULT;
 
 	@Getter
@@ -30,7 +34,9 @@ public abstract class UIButton<This extends UIButton<This>> extends UIComponent<
 	}
 
 	protected void onActionSelected(ScriptEvent e) {
-		if (state == State.DISABLED) return;
+		if (state == State.DISABLED) {
+			return;
+		}
 
 		if (action != null) {
 			action.run();
@@ -40,36 +46,30 @@ public abstract class UIButton<This extends UIButton<This>> extends UIComponent<
 	protected void onMouseHover(ScriptEvent e) {
 		if (state == State.DEFAULT) {
 			setState(State.HOVER)
-					.revalidate();
+				.revalidate();
 		}
 	}
 
 	protected void onMouseLeave(ScriptEvent e) {
 		if (state == State.HOVER) {
 			setState(State.DEFAULT)
-					.revalidate();
+				.revalidate();
 		}
 	}
 
-	@SuppressWarnings("unchecked")
 	public This setName(String name) {
 		widget.setName(name);
-
-		return (This) this;
+		return castThis();
 	}
 
-	@SuppressWarnings("unchecked")
-	public This setState(State state) {
-		this.state = state;
-
-		return (This) this;
-	}
-
-	@SuppressWarnings("unchecked")
 	public This setAction(String label, Runnable action) {
 		widget.setAction(0, label);
 		this.action = action;
 
-		return (This) this;
+		return castThis();
+	}
+
+	public void triggerAction() {
+		onActionSelected(null);
 	}
 }
