@@ -76,6 +76,10 @@ public class MainTabbedContainer extends UIComponent<MainTabbedContainer> {
 		}
 
 		clientThread.invoke(() -> {
+			if (contentComponent != null) {
+				contentComponent.unregister();
+			}
+
 			contentComponent = renderer.apply(contentContainer);
 		});
 	}
@@ -153,6 +157,15 @@ public class MainTabbedContainer extends UIComponent<MainTabbedContainer> {
 
 		if (contentComponent != null) {
 			contentComponent.revalidate();
+		}
+	}
+
+	@Override
+	public void unregister() {
+		scrollableContainer.unregister();
+
+		if (contentComponent != null) {
+			contentComponent.unregister();
 		}
 	}
 }

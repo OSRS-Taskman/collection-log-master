@@ -70,7 +70,7 @@ public class MenuManager extends EventBusSubscriber {
 		int scriptId = event.getScriptId();
 		if (scriptId == COLLECTION_LOG_SETUP_SCRIPT_ID) {
 			stateStore.setDashboardEnabled(false);
-			interfaceManager.closeMainContainer();
+			interfaceManager.hideMainContainer();
 			baseMenuHeight = -1;
 			return;
 		}
@@ -209,7 +209,7 @@ public class MenuManager extends EventBusSubscriber {
 		firstText.setAction(0, firstText.getText());
 		firstText.setOnOpListener((JavaScriptCallback) ev -> {
 			stateStore.setDashboardEnabled(false);
-			interfaceManager.closeMainContainer();
+			interfaceManager.hideMainContainer();
 			hideMenu();
 		});
 	}

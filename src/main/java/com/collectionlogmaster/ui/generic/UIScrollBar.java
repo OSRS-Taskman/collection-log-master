@@ -85,7 +85,7 @@ public class UIScrollBar extends UIComponent<UIScrollBar> implements MouseListen
 			return e;
 		}
 
-//		e.consume();
+		e.consume();
 
 		Point boundedPoint = new Point(point.x, point.y);
 		boundedPoint.translate(-trackerBounds.x, -trackerBounds.y);
@@ -108,7 +108,7 @@ public class UIScrollBar extends UIComponent<UIScrollBar> implements MouseListen
 			return e;
 		}
 
-//		e.consume();
+		e.consume();
 		thumbDragLast = point;
 
 		return e;
@@ -123,7 +123,7 @@ public class UIScrollBar extends UIComponent<UIScrollBar> implements MouseListen
 			return e;
 		}
 
-//		e.consume();
+		e.consume();
 		thumbDragLast = null;
 
 		return e;
@@ -136,7 +136,7 @@ public class UIScrollBar extends UIComponent<UIScrollBar> implements MouseListen
 			return e;
 		}
 
-//		e.consume();
+		e.consume();
 
 		int dragPixels = point.y - thumbDragLast.y;
 		if (dragPixels == 0) {
@@ -150,8 +150,6 @@ public class UIScrollBar extends UIComponent<UIScrollBar> implements MouseListen
 		int maxScroll = content.getOriginalHeight() - container.getHeight() + scrollBuffer;
 		int maxThumbPosition = tracker.getHeight() - thumbContainer.getHeight();
 		int dragOffset = dragPixels * maxScroll / maxThumbPosition;
-
-//		scrollToPercent(scrollPercent);
 
 		clientThread.invoke(() -> {
 			scroll(dragOffset)
@@ -301,5 +299,9 @@ public class UIScrollBar extends UIComponent<UIScrollBar> implements MouseListen
 		thumbBottom.revalidate();
 		upArrow.revalidate();
 		downArrow.revalidate();
+	}
+
+	public void unregister() {
+		mouseManager.unregisterMouseListener(this);
 	}
 }

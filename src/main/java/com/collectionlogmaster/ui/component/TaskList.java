@@ -104,4 +104,9 @@ public class TaskList extends UIComponent<TaskList> {
 				.revalidate();
 		}
 	}
+
+	@Override
+	public void unregister() {
+		scrollableContainer.unregister();
+	}
 }

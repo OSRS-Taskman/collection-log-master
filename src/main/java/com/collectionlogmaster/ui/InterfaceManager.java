@@ -10,6 +10,8 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
+import net.runelite.api.events.WidgetClosed;
+import net.runelite.api.events.WidgetLoaded;
 import net.runelite.api.gameval.InterfaceID;
 import net.runelite.api.gameval.SpriteID;
 import net.runelite.api.widgets.Widget;
@@ -36,6 +38,8 @@ public class InterfaceManager extends EventBusSubscriber {
 
 	private MainTabbedContainer container = null;
 
+	private TaskInfo taskInfo = null;
+
 	public void startUp() {
 		super.startUp();
 		menuManager.startUp();
@@ -55,6 +59,40 @@ public class InterfaceManager extends EventBusSubscriber {
 		if (configGroup.equals("resourcepacks")) {
 			clientThread.invokeAtTickEnd(this::overrideFlippedSprites);
 		}
+	}
+
+	@Subscribe
+	public void onWidgetLoaded(WidgetLoaded e) {
+		if (e.getGroupId() != InterfaceID.COLLECTION) {
+			return;
+		}
+
+		if (container != null) {
+			container.unregister();
+		}
+		container = null;
+
+		if (taskInfo != null) {
+			taskInfo.close();
+		}
+		taskInfo = null;
+	}
+
+	@Subscribe
+	public void onWidgetClosed(WidgetClosed e) {
+		if (e.getGroupId() != InterfaceID.COLLECTION) {
+			return;
+		}
+
+		if (container != null) {
+			container.unregister();
+		}
+		container = null;
+
+		if (taskInfo != null) {
+			taskInfo.close();
+		}
+		taskInfo = null;
 	}
 
 	public void hideCollectionLogContent(boolean hidden) {
@@ -77,11 +115,15 @@ public class InterfaceManager extends EventBusSubscriber {
 
 		hideCollectionLogContent(true);
 
+		if (container != null) {
+			container.unregister();
+		}
+
 		container = MainTabbedContainer.createInside(content);
 		container.revalidate();
 	}
 
-	public void closeMainContainer() {
+	public void hideMainContainer() {
 		hideCollectionLogContent(false);
 
 		if (container != null) {
@@ -100,8 +142,10 @@ public class InterfaceManager extends EventBusSubscriber {
 		container.setHidden(true)
 			.revalidate();
 
-		TaskInfo.openInside(content, task)
+		taskInfo = TaskInfo.openInside(content, task);
+		taskInfo.getCloseFuture()
 			.thenAccept((r) -> {
+				taskInfo = null;
 				container.setHidden(false)
 					.revalidate();
 			});

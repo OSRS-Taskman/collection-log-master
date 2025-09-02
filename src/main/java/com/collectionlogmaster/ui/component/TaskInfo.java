@@ -21,6 +21,7 @@ import com.collectionlogmaster.ui.generic.button.UITextButton;
 import com.google.inject.Inject;
 import java.util.Arrays;
 import java.util.concurrent.CompletableFuture;
+import lombok.Getter;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
@@ -73,11 +74,11 @@ public class TaskInfo extends UIComponent<TaskInfo> {
 
 	private final @NonNull Task task;
 
+	@Getter
 	private final CompletableFuture<Void> closeFuture;
 
-	public static CompletableFuture<Void> openInside(Widget window, @NonNull Task task) {
-		Widget widget = window.createChild(WidgetType.LAYER);
-		return new TaskInfo(widget, task).closeFuture;
+	public static TaskInfo openInside(Widget window, @NonNull Task task) {
+		return new TaskInfo(window.createChild(WidgetType.LAYER), task);
 	}
 
 	private TaskInfo(Widget widget, @NonNull Task task) {
@@ -101,10 +102,12 @@ public class TaskInfo extends UIComponent<TaskInfo> {
 		initializeWidgets();
 	}
 
-	private void close() {
+	public void close() {
 		// we're only "leaking" the parent LAYER widget
 		widget.setHidden(true)
 			.deleteAllChildren();
+
+		unregister();
 
 		closeFuture.complete(null);
 	}
@@ -337,5 +340,10 @@ public class TaskInfo extends UIComponent<TaskInfo> {
 			markButton.setText("Mark Complete")
 				.revalidate();
 		}
+	}
+
+	@Override
+	public void unregister() {
+		scrollableContainer.unregister();
 	}
 }
