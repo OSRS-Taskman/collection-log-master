@@ -3,9 +3,9 @@ package com.collectionlogmaster.ui.component;
 import com.collectionlogmaster.CollectionLogMasterPlugin;
 import com.collectionlogmaster.domain.TaskTier;
 import com.collectionlogmaster.task.TaskService;
+import com.collectionlogmaster.ui.generic.ScrollAxis;
 import com.collectionlogmaster.ui.generic.UIComponent;
 import com.collectionlogmaster.ui.generic.UIScrollableContainer;
-import com.collectionlogmaster.ui.generic.UIScrollableContainer.ScrollAxis;
 import com.collectionlogmaster.ui.generic.UITab;
 import com.collectionlogmaster.ui.generic.UIUtil;
 import com.collectionlogmaster.ui.generic.button.UIButton;
@@ -17,10 +17,14 @@ import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetPositionMode;
 import net.runelite.api.widgets.WidgetSizeMode;
 import net.runelite.api.widgets.WidgetType;
+import net.runelite.client.callback.ClientThread;
 
 // TODO: maybe extract into reusable component, if we ever need tabs elsewhere
 public class MainTabbedContainer extends UIComponent<MainTabbedContainer> {
 	public static final int TAB_GAP = 2;
+
+	@Inject
+	private ClientThread clientThread;
 
 	@Inject
 	private TaskService taskService;
@@ -71,7 +75,9 @@ public class MainTabbedContainer extends UIComponent<MainTabbedContainer> {
 			tabContent.setHidden(true);
 		}
 
-		contentComponent = renderer.apply(contentContainer);
+		clientThread.invoke(() -> {
+			contentComponent = renderer.apply(contentContainer);
+		});
 	}
 
 	private void initializeWidgets() {
@@ -95,6 +101,11 @@ public class MainTabbedContainer extends UIComponent<MainTabbedContainer> {
 		});
 
 		for (TaskTier tier : taskService.getVisibleTiers()) {
+			addTab(tier.displayName, (Widget container) -> {
+				TaskList taskList = TaskList.createInside(container, taskService.getTierTasks(tier));
+				taskList.revalidate();
+				return taskList;
+			});
 			addTab(tier.displayName, (Widget container) -> {
 				TaskList taskList = TaskList.createInside(container, taskService.getTierTasks(tier));
 				taskList.revalidate();
