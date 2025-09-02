@@ -57,7 +57,9 @@ public class UIScrollBar extends UIComponent<UIScrollBar> implements MouseListen
 		super(widget);
 		CollectionLogMasterPlugin.getStaticInjector().injectMembers(this);
 
-		mouseManager.registerMouseListener(this);
+		// registering with a lower position means newer instances will get priority
+		// we can't register at position 0 because of stretched mode
+		mouseManager.registerMouseListener(1, this);
 
 		tracker = widget.createChild(WidgetType.GRAPHIC);
 		thumbContainer = widget.createChild(WidgetType.LAYER);
@@ -141,10 +143,6 @@ public class UIScrollBar extends UIComponent<UIScrollBar> implements MouseListen
 		if (dragPixels == 0) {
 			return e;
 		}
-
-		Rectangle trackerBounds = tracker.getBounds();
-		Point boundedPoint = new Point(point.x, point.y);
-		boundedPoint.translate(-trackerBounds.x, -trackerBounds.y);
 
 		int maxScroll = content.getOriginalHeight() - container.getHeight() + scrollBuffer;
 		int maxThumbPosition = tracker.getHeight() - thumbContainer.getHeight();
