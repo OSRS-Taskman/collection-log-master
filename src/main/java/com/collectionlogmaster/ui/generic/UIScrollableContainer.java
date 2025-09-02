@@ -45,7 +45,9 @@ public class UIScrollableContainer extends UIComponent<UIScrollableContainer> im
 		super(widget);
 		CollectionLogMasterPlugin.getStaticInjector().injectMembers(this);
 
-		mouseManager.registerMouseWheelListener(this);
+		// registering with a lower position means newer instances will get priority
+		// we can't register at position 0 because of stretched mode
+		mouseManager.registerMouseWheelListener(1, this);
 
 		content = widget.createChild(WidgetType.LAYER);
 		scrollBar = UIScrollBar.createInside(widget, widget, content);

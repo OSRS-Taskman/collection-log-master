@@ -10,6 +10,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
+import net.runelite.api.events.ScriptPreFired;
 import net.runelite.api.events.WidgetClosed;
 import net.runelite.api.events.WidgetLoaded;
 import net.runelite.api.gameval.InterfaceID;
@@ -24,6 +25,9 @@ import org.jetbrains.annotations.Nullable;
 @Slf4j
 @Singleton
 public class InterfaceManager extends EventBusSubscriber {
+	public static final int COLLECTION_LOG_SETUP_SCRIPT_ID = 7797;
+	public static final int COLLECTION_LOG_OVERVIEW_SCRIPT_ID = 2388;
+
 	@Inject
 	private Client client;
 
@@ -62,20 +66,22 @@ public class InterfaceManager extends EventBusSubscriber {
 	}
 
 	@Subscribe
+	public void onScriptPreFired(ScriptPreFired event) {
+		int scriptId = event.getScriptId();
+		if (scriptId != COLLECTION_LOG_SETUP_SCRIPT_ID && scriptId != COLLECTION_LOG_OVERVIEW_SCRIPT_ID) {
+			return;
+		}
+
+		close();
+	}
+
+	@Subscribe
 	public void onWidgetLoaded(WidgetLoaded e) {
 		if (e.getGroupId() != InterfaceID.COLLECTION) {
 			return;
 		}
 
-		if (container != null) {
-			container.unregister();
-		}
-		container = null;
-
-		if (taskInfo != null) {
-			taskInfo.close();
-		}
-		taskInfo = null;
+		close();
 	}
 
 	@Subscribe
@@ -84,15 +90,7 @@ public class InterfaceManager extends EventBusSubscriber {
 			return;
 		}
 
-		if (container != null) {
-			container.unregister();
-		}
-		container = null;
-
-		if (taskInfo != null) {
-			taskInfo.close();
-		}
-		taskInfo = null;
+		close();
 	}
 
 	public void hideCollectionLogContent(boolean hidden) {
@@ -121,16 +119,6 @@ public class InterfaceManager extends EventBusSubscriber {
 
 		container = MainTabbedContainer.createInside(content);
 		container.revalidate();
-	}
-
-	public void hideMainContainer() {
-		hideCollectionLogContent(false);
-
-		if (container != null) {
-			container.setHidden(true)
-				.revalidate();
-			container = null;
-		}
 	}
 
 	public void openTaskInfo(Task task) {
@@ -165,5 +153,21 @@ public class InterfaceManager extends EventBusSubscriber {
 			SpriteOverride.TALL_TABS_CORNER_HOVER_VFLIP.getSpriteId(),
 			ImageUtil.getVFlippedSpritePixels(SpriteID.TabsTall._0, client)
 		);
+	}
+
+	public void close() {
+		hideCollectionLogContent(false);
+
+		if (container != null) {
+			container.setHidden(true)
+				.revalidate();
+			container.unregister();
+		}
+		container = null;
+
+		if (taskInfo != null) {
+			taskInfo.close();
+		}
+		taskInfo = null;
 	}
 }
