@@ -146,4 +146,8 @@ public abstract class UIComponent<This extends UIComponent<This>> {
 	public void revalidate() {
 		widget.revalidate();
 	}
+
+	public void unregister() {
+
+	}
 }

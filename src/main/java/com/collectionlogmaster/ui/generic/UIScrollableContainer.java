@@ -74,7 +74,7 @@ public class UIScrollableContainer extends UIComponent<UIScrollableContainer> im
 			return e;
 		}
 
-//		e.consume();
+		e.consume();
 
 		// scroll faster when scrolling on top of scrollbar
 		int multiplier = scrollBar.getBounds().contains(e.getPoint()) ? SCROLLBAR_SENSITIVITY_MULTIPLIER : 1;
@@ -125,5 +125,11 @@ public class UIScrollableContainer extends UIComponent<UIScrollableContainer> im
 			scrollBar.setHidden(true)
 				.revalidate();
 		}
+	}
+
+	@Override
+	public void unregister() {
+		mouseManager.unregisterMouseWheelListener(this);
+		scrollBar.unregister();
 	}
 }
