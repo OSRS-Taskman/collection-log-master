@@ -1,6 +1,8 @@
 package com.collectionlogmaster.ui.generic;
 
+import java.awt.Rectangle;
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetPositionMode;
 import net.runelite.api.widgets.WidgetSizeMode;
@@ -15,6 +17,7 @@ import org.intellij.lang.annotations.MagicConstant;
  * @param <This> The class that is extending UIComponent; this
  *               is required for the chaining to work properly
  */
+@Slf4j
 public abstract class UIComponent<This extends UIComponent<This>> {
 	@Getter
 	protected Widget widget;
@@ -117,6 +120,14 @@ public abstract class UIComponent<This extends UIComponent<This>> {
 	public This setHidden(boolean hidden) {
 		widget.setHidden(hidden);
 		return castThis();
+	}
+
+	public Rectangle getBounds() {
+		return widget.getBounds();
+	}
+
+	public boolean isHidden() {
+		return widget.isHidden();
 	}
 
 	/**
