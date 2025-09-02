@@ -1,5 +1,7 @@
 package com.collectionlogmaster.ui.component;
 
+import static com.collectionlogmaster.ui.InterfaceManager.COLLECTION_LOG_SETUP_SCRIPT_ID;
+
 import com.collectionlogmaster.ui.InterfaceManager;
 import com.collectionlogmaster.ui.state.StateChanged;
 import com.collectionlogmaster.ui.state.StateStore;
@@ -29,7 +31,6 @@ import org.intellij.lang.annotations.MagicConstant;
 @Singleton
 public class MenuManager extends EventBusSubscriber {
 	private static final int DRAW_BURGER_MENU_SCRIPT_ID = 7812;
-	private static final int COLLECTION_LOG_SETUP_SCRIPT_ID = 7797;
 	private static final int COLLECTION_LOG_BURGER_MENU_WIDGET_ID = 40697929;
 
 	private static final int BG_OPACITY = 255;
@@ -70,7 +71,7 @@ public class MenuManager extends EventBusSubscriber {
 		int scriptId = event.getScriptId();
 		if (scriptId == COLLECTION_LOG_SETUP_SCRIPT_ID) {
 			stateStore.setDashboardEnabled(false);
-			interfaceManager.hideMainContainer();
+			interfaceManager.close();
 			baseMenuHeight = -1;
 			return;
 		}
@@ -209,7 +210,7 @@ public class MenuManager extends EventBusSubscriber {
 		firstText.setAction(0, firstText.getText());
 		firstText.setOnOpListener((JavaScriptCallback) ev -> {
 			stateStore.setDashboardEnabled(false);
-			interfaceManager.hideMainContainer();
+			interfaceManager.close();
 			hideMenu();
 		});
 	}
