@@ -69,6 +69,7 @@ public class TaskList extends UIComponent<TaskList> {
 			.setWidthMode(WidgetSizeMode.MINUS)
 			.setHeightMode(WidgetSizeMode.MINUS)
 			.setSize(0, 0)
+			.setDrawScrollbar(true)
 			.revalidate();
 
 		taskGrid.setPos(0, 0)

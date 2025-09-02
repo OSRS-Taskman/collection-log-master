@@ -7,87 +7,123 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 import net.runelite.api.widgets.Widget;
+import net.runelite.api.widgets.WidgetPositionMode;
 import net.runelite.api.widgets.WidgetSizeMode;
 import net.runelite.api.widgets.WidgetType;
+import net.runelite.client.callback.ClientThread;
 import net.runelite.client.input.MouseManager;
 import net.runelite.client.input.MouseWheelListener;
 
 // TODO: add scroll bar
 @Accessors(chain = true)
 public class UIScrollableContainer extends UIComponent<UIScrollableContainer> implements MouseWheelListener {
-	public enum ScrollAxis {
-		VERTICAL,
-		HORIZONTAL;
-	}
+	private static final int SCROLLBAR_SENSITIVITY_MULTIPLIER = 4;
 
-	@Getter
-	private final Widget content;
+	@Inject
+	private ClientThread clientThread;
 
 	@Inject
 	private MouseManager mouseManager;
 
-	@Setter
-	private ScrollAxis scrollAxis = ScrollAxis.VERTICAL;
-
-	@Setter
-	private int scrollBuffer = 0;
+	@Getter
+	private final Widget content;
+	private final UIScrollBar scrollBar;
 
 	@Setter
 	private int scrollSensitivity = 4;
+
+	/**
+	 * Only supported when scrollAxis is VERTICAL
+	 */
+	@Setter
+	private boolean drawScrollbar = false;
 
 	public static UIScrollableContainer createInside(Widget window) {
 		return new UIScrollableContainer(window.createChild(WidgetType.LAYER));
 	}
 
 	public UIScrollableContainer(Widget widget) {
-		super(widget, WidgetType.LAYER);
+		super(widget);
 		CollectionLogMasterPlugin.getStaticInjector().injectMembers(this);
 
+		// TODO: handle unregistering
 		mouseManager.registerMouseWheelListener(this);
 
 		content = widget.createChild(WidgetType.LAYER);
+		scrollBar = UIScrollBar.createInside(widget, widget, content);
 
 		initializeWidgets();
 	}
 
-	@Override
-	public MouseWheelEvent mouseWheelMoved(MouseWheelEvent event) {
-		if (event.getScrollType() != MouseWheelEvent.WHEEL_UNIT_SCROLL) return event;
-		if (!widget.getBounds().contains(event.getPoint())) return event;
+	public UIScrollableContainer setScrollBuffer(int scrollBuffer) {
+		scrollBar.setScrollBuffer(scrollBuffer);
+		return this;
+	}
 
-		int scrollDistance = event.getUnitsToScroll() * scrollSensitivity;
-		if (scrollAxis == ScrollAxis.VERTICAL) {
-			int scrollY = content.getScrollY() + scrollDistance;
-			scrollY = Math.max(0, Math.min(content.getOriginalHeight() - widget.getHeight() + scrollBuffer, scrollY));
-			content.setScrollY(scrollY);
-		} else if (scrollAxis == ScrollAxis.HORIZONTAL) {
-			int scrollX = content.getScrollX() + scrollDistance;
-			scrollX = Math.max(0, Math.min(content.getOriginalWidth() - widget.getWidth() + scrollBuffer, scrollX));
-			content.setScrollX(scrollX);
+	public UIScrollableContainer setScrollAxis(ScrollAxis scrollAxis) {
+		scrollBar.setScrollAxis(scrollAxis);
+		return this;
+	}
+
+	@Override
+	public MouseWheelEvent mouseWheelMoved(MouseWheelEvent e) {
+		if (e.getScrollType() != MouseWheelEvent.WHEEL_UNIT_SCROLL) {
+			return e;
+		}
+		if (!widget.getBounds().contains(e.getPoint())) {
+			return e;
 		}
 
-		return event;
+//		e.consume();
+
+		// scroll faster when scrolling on top of scrollbar
+		int multiplier = scrollBar.getBounds().contains(e.getPoint()) ? SCROLLBAR_SENSITIVITY_MULTIPLIER : 1;
+		int scrollDistance = e.getUnitsToScroll() * scrollSensitivity * multiplier;
+
+		clientThread.invoke(() -> {
+			scrollBar.scroll(scrollDistance)
+				.revalidate();
+		});
+
+		return e;
 	}
 
 	private void initializeWidgets() {
 		widget.revalidate();
 
+		scrollBar.setXPositionMode(WidgetPositionMode.ABSOLUTE_RIGHT)
+			.setPos(0, 0)
+			.setHeightMode(WidgetSizeMode.MINUS)
+			.setSize(UIScrollBar.ARROW_SIZE, 0)
+			.revalidate();
+
 		content.setPos(0, 0)
-				.revalidate();
+			.revalidate();
 	}
 
 	@Override
 	public void revalidate() {
 		widget.revalidate();
 
-		if (scrollAxis == ScrollAxis.VERTICAL) {
-			content.setWidthMode(WidgetSizeMode.MINUS)
-				.setOriginalWidth(0);
-		} else if (scrollAxis == ScrollAxis.HORIZONTAL) {
-			content.setHeightMode(WidgetSizeMode.MINUS)
-				.setOriginalHeight(0);
-		}
+		if (scrollBar.getScrollAxis() == ScrollAxis.VERTICAL) {
+			int minusWidth = 0;
+			if (drawScrollbar) {
+				minusWidth = UIScrollBar.ARROW_SIZE;
+			}
 
-		content.revalidate();
+			content.setWidthMode(WidgetSizeMode.MINUS)
+				.setOriginalWidth(minusWidth)
+				.revalidate();
+
+			scrollBar.setHidden(!drawScrollbar)
+				.revalidate();
+		} else if (scrollBar.getScrollAxis() == ScrollAxis.HORIZONTAL) {
+			content.setHeightMode(WidgetSizeMode.MINUS)
+				.setOriginalHeight(0)
+				.revalidate();
+
+			scrollBar.setHidden(true)
+				.revalidate();
+		}
 	}
 }

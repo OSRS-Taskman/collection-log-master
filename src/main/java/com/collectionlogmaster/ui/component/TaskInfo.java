@@ -255,8 +255,9 @@ public class TaskInfo extends UIComponent<TaskInfo> {
 			.setPos(0, gridOriginalY)
 			.setWidthMode(WidgetSizeMode.MINUS)
 			.setHeightMode(WidgetSizeMode.MINUS)
-			.setSize(BASE_GAP, gridOriginalY)
+			.setSize(BASE_GAP, gridOriginalY + BASE_GAP)
 			.setScrollBuffer(BUTTON_HEIGHT + (BASE_GAP * 2))
+			.setDrawScrollbar(true)
 			.revalidate();
 
 		Pair<Float, String> progressData = getProgressData(task.getVerification());
@@ -269,13 +270,12 @@ public class TaskInfo extends UIComponent<TaskInfo> {
 				.revalidate();
 		}
 
+		initializeItems();
+
 		itemGrid.setPos(0, 0)
-			.setWidthMode(WidgetSizeMode.MINUS)
-			.setHeightMode(WidgetSizeMode.MINUS)
-			.setSize(0, 0)
 			.revalidate();
 
-		initializeItems();
+		scrollableContainer.revalidate();
 
 		markButton.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)
 			.setYPositionMode(WidgetPositionMode.ABSOLUTE_BOTTOM)
