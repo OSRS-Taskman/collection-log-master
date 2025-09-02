@@ -14,7 +14,6 @@ import net.runelite.client.callback.ClientThread;
 import net.runelite.client.input.MouseManager;
 import net.runelite.client.input.MouseWheelListener;
 
-// TODO: add scroll bar
 @Accessors(chain = true)
 public class UIScrollableContainer extends UIComponent<UIScrollableContainer> implements MouseWheelListener {
 	private static final int SCROLLBAR_SENSITIVITY_MULTIPLIER = 4;
@@ -46,7 +45,6 @@ public class UIScrollableContainer extends UIComponent<UIScrollableContainer> im
 		super(widget);
 		CollectionLogMasterPlugin.getStaticInjector().injectMembers(this);
 
-		// TODO: handle unregistering
 		mouseManager.registerMouseWheelListener(this);
 
 		content = widget.createChild(WidgetType.LAYER);

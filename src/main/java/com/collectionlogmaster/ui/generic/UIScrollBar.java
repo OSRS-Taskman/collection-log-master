@@ -57,7 +57,6 @@ public class UIScrollBar extends UIComponent<UIScrollBar> implements MouseListen
 		super(widget);
 		CollectionLogMasterPlugin.getStaticInjector().injectMembers(this);
 
-		// TODO: handle unregistering
 		mouseManager.registerMouseListener(this);
 
 		tracker = widget.createChild(WidgetType.GRAPHIC);
