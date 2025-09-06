@@ -1,6 +1,7 @@
 package com.collectionlogmaster.ui.generic;
 
 import com.collectionlogmaster.CollectionLogMasterPlugin;
+import com.collectionlogmaster.input.MouseManager;
 import com.google.inject.Inject;
 import java.awt.event.MouseWheelEvent;
 import lombok.Getter;
@@ -11,7 +12,6 @@ import net.runelite.api.widgets.WidgetPositionMode;
 import net.runelite.api.widgets.WidgetSizeMode;
 import net.runelite.api.widgets.WidgetType;
 import net.runelite.client.callback.ClientThread;
-import net.runelite.client.input.MouseManager;
 import net.runelite.client.input.MouseWheelListener;
 
 @Accessors(chain = true)
@@ -45,9 +45,7 @@ public class UIScrollableContainer extends UIComponent<UIScrollableContainer> im
 		super(widget);
 		CollectionLogMasterPlugin.getStaticInjector().injectMembers(this);
 
-		// registering with a lower position means newer instances will get priority
-		// we can't register at position 0 because of stretched mode
-		mouseManager.registerMouseWheelListener(1, this);
+		mouseManager.registerMouseWheelListener(this);
 
 		content = widget.createChild(WidgetType.LAYER);
 		scrollBar = UIScrollBar.createInside(widget, widget, content);
