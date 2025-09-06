@@ -1,6 +1,8 @@
 package com.collectionlogmaster.ui.generic;
 
 import com.collectionlogmaster.CollectionLogMasterPlugin;
+import com.collectionlogmaster.input.MouseListener;
+import com.collectionlogmaster.input.MouseManager;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
@@ -14,8 +16,6 @@ import net.runelite.api.widgets.WidgetPositionMode;
 import net.runelite.api.widgets.WidgetSizeMode;
 import net.runelite.api.widgets.WidgetType;
 import net.runelite.client.callback.ClientThread;
-import net.runelite.client.input.MouseListener;
-import net.runelite.client.input.MouseManager;
 import org.jetbrains.annotations.Range;
 
 @Accessors(chain = true)
@@ -57,9 +57,7 @@ public class UIScrollBar extends UIComponent<UIScrollBar> implements MouseListen
 		super(widget);
 		CollectionLogMasterPlugin.getStaticInjector().injectMembers(this);
 
-		// registering with a lower position means newer instances will get priority
-		// we can't register at position 0 because of stretched mode
-		mouseManager.registerMouseListener(1, this);
+		mouseManager.registerMouseListener(this);
 
 		tracker = widget.createChild(WidgetType.GRAPHIC);
 		thumbContainer = widget.createChild(WidgetType.LAYER);
@@ -155,21 +153,6 @@ public class UIScrollBar extends UIComponent<UIScrollBar> implements MouseListen
 
 		thumbDragLast = point;
 
-		return e;
-	}
-
-	@Override
-	public MouseEvent mouseEntered(MouseEvent e) {
-		return e;
-	}
-
-	@Override
-	public MouseEvent mouseExited(MouseEvent e) {
-		return e;
-	}
-
-	@Override
-	public MouseEvent mouseMoved(MouseEvent e) {
 		return e;
 	}
 
