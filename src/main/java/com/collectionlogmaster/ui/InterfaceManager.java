@@ -1,128 +1,79 @@
 package com.collectionlogmaster.ui;
 
-import com.collectionlogmaster.CollectionLogMasterConfig;
-import com.collectionlogmaster.CollectionLogMasterPlugin;
 import com.collectionlogmaster.domain.Task;
-import com.collectionlogmaster.domain.TaskTier;
-import com.collectionlogmaster.synchronization.SyncService;
-import com.collectionlogmaster.synchronization.clog.CollectionLogService;
-import com.collectionlogmaster.task.TaskService;
-import com.collectionlogmaster.ui.component.BurgerMenuManager;
-import com.collectionlogmaster.ui.component.TabManager;
-import com.collectionlogmaster.ui.component.TaskDashboard;
+import com.collectionlogmaster.ui.component.MainTabbedContainer;
+import com.collectionlogmaster.ui.component.MenuManager;
 import com.collectionlogmaster.ui.component.TaskInfo;
-import com.collectionlogmaster.ui.component.TaskList;
-import com.collectionlogmaster.ui.generic.UICheckBox;
 import com.collectionlogmaster.util.EventBusSubscriber;
-import com.collectionlogmaster.util.FileUtils;
-import net.runelite.api.ChatMessageType;
+import com.collectionlogmaster.util.ImageUtil;
+import javax.inject.Inject;
+import javax.inject.Singleton;
+import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
-import net.runelite.api.SoundEffectID;
-import net.runelite.api.events.GameTick;
+import net.runelite.api.events.ScriptPreFired;
 import net.runelite.api.events.WidgetClosed;
 import net.runelite.api.events.WidgetLoaded;
 import net.runelite.api.gameval.InterfaceID;
+import net.runelite.api.gameval.SpriteID;
 import net.runelite.api.widgets.Widget;
-import net.runelite.api.widgets.WidgetType;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.ConfigChanged;
 import net.runelite.client.game.SpriteManager;
-import net.runelite.client.input.MouseListener;
-import net.runelite.client.input.MouseManager;
-import net.runelite.client.input.MouseWheelListener;
+import org.jetbrains.annotations.Nullable;
 
-import javax.inject.Inject;
-import javax.inject.Singleton;
-
-import java.awt.Rectangle;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseWheelEvent;
-import java.util.List;
-
-import static com.collectionlogmaster.CollectionLogMasterConfig.CONFIG_GROUP;
-import static com.collectionlogmaster.ui.InterfaceConstants.DEF_FILE_SPRITES;
-
+@Slf4j
 @Singleton
-public class InterfaceManager extends EventBusSubscriber implements MouseListener, MouseWheelListener {
-    @Inject
-    private Client client;
-
-    @Inject
-    private ClientThread clientThread;
-
-    @Inject
-    private CollectionLogMasterConfig config;
-
-    @Inject
-    private CollectionLogMasterPlugin plugin;
+public class InterfaceManager extends EventBusSubscriber {
+	public static final int COLLECTION_LOG_SETUP_SCRIPT_ID = 7797;
+	public static final int COLLECTION_LOG_OVERVIEW_SCRIPT_ID = 2388;
 
 	@Inject
-	private MouseManager mouseManager;
+	private Client client;
 
-    @Inject
-    private SpriteManager spriteManager;
+	@Inject
+	private ClientThread clientThread;
 
-    @Inject
-    private CollectionLogService collectionLogService;
+	@Inject
+	private SpriteManager spriteManager;
 
-    @Inject
-    private SyncService syncService;
+	@Inject
+	private MenuManager menuManager;
 
-    @Inject
-    private TaskService taskService;
+	private MainTabbedContainer container = null;
 
-    @Inject
-    private BurgerMenuManager burgerMenuManager;
+	private TaskInfo taskInfo = null;
 
-    public TaskDashboard taskDashboard;
-    private TaskList taskList;
-    private TabManager tabManager;
-    private TaskInfo taskInfo;
+	public void startUp() {
+		super.startUp();
+		menuManager.startUp();
 
-    private UICheckBox taskDashboardCheckbox;
+		this.spriteManager.addSpriteOverrides(SpriteOverride.values());
+		clientThread.invokeAtTickEnd(this::overrideFlippedSprites);
+	}
 
-    private boolean checkboxDeprecationWarned = false;
-
-    public void startUp() {
-        super.startUp();
-        mouseManager.registerMouseListener(this);
-        mouseManager.registerMouseWheelListener(this);
-        burgerMenuManager.startUp();
-
-        burgerMenuManager.setOnSelectChangedListener(this::toggleTaskDashboard);
-
-        SpriteDefinition[] spriteDefinitions = FileUtils.loadDefinitionResource(SpriteDefinition[].class, DEF_FILE_SPRITES);
-        this.spriteManager.addSpriteOverrides(spriteDefinitions);
-    }
-
-    public void shutDown() {
-        super.shutDown();
-        mouseManager.unregisterMouseListener(this);
-        mouseManager.unregisterMouseWheelListener(this);
-        burgerMenuManager.shutDown();
-    }
+	public void shutDown() {
+		super.shutDown();
+		menuManager.shutDown();
+	}
 
 	@Subscribe
 	public void onConfigChanged(ConfigChanged e) {
-        if (!e.getGroup().equals(CONFIG_GROUP)) {
+		String configGroup = e.getGroup();
+		if (configGroup.equals("resourcepacks")) {
+			clientThread.invokeAtTickEnd(this::overrideFlippedSprites);
+		}
+	}
+
+	@Subscribe
+	public void onScriptPreFired(ScriptPreFired event) {
+		int scriptId = event.getScriptId();
+		if (scriptId != COLLECTION_LOG_SETUP_SCRIPT_ID && scriptId != COLLECTION_LOG_OVERVIEW_SCRIPT_ID) {
 			return;
 		}
 
-        if (!isTaskDashboardEnabled() || this.taskDashboard == null || this.tabManager == null) {
-            return;
-        }
-
-        taskDashboard.updatePercentages();
-
-        clientThread.invoke(tabManager::updateTabs);
-
-        List<TaskTier> visibleTiers = taskService.getVisibleTiers();
-        TaskTier activeTier = plugin.getSelectedTier();
-        if (activeTier != null && !visibleTiers.contains(activeTier)) {
-            clientThread.invoke(tabManager::activateTaskDashboard);
-        }
-    }
+		close();
+	}
 
 	@Subscribe
 	public void onWidgetLoaded(WidgetLoaded e) {
@@ -130,18 +81,7 @@ public class InterfaceManager extends EventBusSubscriber implements MouseListene
 			return;
 		}
 
-        Widget window = client.getWidget(InterfaceID.Collection.CONTENT);
-
-        createTaskInfo(window);
-        createTaskDashboard(window);
-        createTaskList(window);
-        createTabManager(window);
-        createTaskCheckbox();
-        this.tabManager.setComponents(taskDashboard, taskList);
-        this.taskInfo.setComponents(taskDashboard, taskList, tabManager);
-
-        this.tabManager.updateTabs();
-        this.taskDashboard.setVisibility(false);
+		close();
 	}
 
 	@Subscribe
@@ -150,213 +90,84 @@ public class InterfaceManager extends EventBusSubscriber implements MouseListene
 			return;
 		}
 
-        this.taskDashboard.setVisibility(false);
-        this.taskList.setVisibility(false);
-        tabManager.hideTabs();
-	}
-    
-    Rectangle oldBounds;
-
-	@Subscribe
-	public void onGameTick(GameTick e) {
-        Widget window = client.getWidget(621, 88);
-        if (window == null) {
-            oldBounds = null;
-            return;
-        }
-        // Check if the window bounds have changed
-        Rectangle newBounds = window.getBounds();
-        if (oldBounds != null && oldBounds.equals(newBounds)) {
-            return;
-        }
-        oldBounds = newBounds;
-
-        if (this.taskList != null) {
-            taskList.updateBounds();
-        }
-        if (this.taskDashboard != null) {
-            taskDashboard.updateBounds();
-        }
-        if (this.tabManager != null) {
-            tabManager.updateBounds();
-        }
-        if (this.taskInfo != null) {
-            taskInfo.updateBounds();
-        }
-        if (this.taskDashboardCheckbox != null) {
-            taskDashboardCheckbox.alignToRightEdge(window, 35, 10);
-        }
+		close();
 	}
 
-    public boolean isDashboardOpen() {
-        return this.taskDashboard != null && this.taskDashboard.isVisible();
-    }
+	public void hideCollectionLogContent(boolean hidden) {
+		Widget window = getContentWidget();
+		if (window == null) {
+			return;
+		}
 
-    public void handleMouseWheel(MouseWheelEvent event) {
-        if (this.taskList != null) {
-            taskList.handleWheel(event);
-        }
-    }
+		for (Widget w : window.getStaticChildren()) {
+			w.setHidden(hidden)
+				.revalidate();
+		}
+	}
 
-    public void handleMousePress(int mouseX, int mouseY) {
-        if (this.taskList != null && this.taskList.isVisible()) {
-            taskList.handleMousePress(mouseX, mouseY);
-        }
-    }
+	public void openMainContainer() {
+		Widget content = getContentWidget();
+		if (content == null) {
+			return;
+		}
 
-    public void handleMouseDrag(int mouseX, int mouseY) {
-        if (this.taskList != null && this.taskList.isVisible()) {
-            taskList.handleMouseDrag(mouseX, mouseY);
-        }
-    }
+		hideCollectionLogContent(true);
 
-    public void handleMouseRelease() {
-        if (this.taskList != null) {
-            taskList.handleMouseRelease();
-        }
-    }
+		if (container != null) {
+			container.unregister();
+		}
 
-    @Override
-    public MouseWheelEvent mouseWheelMoved(MouseWheelEvent event) {
-        handleMouseWheel(event);
-        return event;
-    }
+		container = MainTabbedContainer.createInside(content);
+		container.revalidate();
+	}
 
-    @Override
-    public MouseEvent mouseClicked(MouseEvent event) {
-        return event;
-    }
+	public void openTaskInfo(Task task) {
+		Widget content = getContentWidget();
+		if (content == null) {
+			return;
+		}
 
-    @Override
-    public MouseEvent mousePressed(MouseEvent event) {
-        handleMousePress(event.getX(), event.getY());
-        return event;
-    }
+		container.setHidden(true)
+			.revalidate();
 
-    @Override
-    public MouseEvent mouseReleased(MouseEvent event) {
-        handleMouseRelease();
-        return event;
-    }
+		taskInfo = TaskInfo.openInside(content, task);
+		taskInfo.getCloseFuture()
+			.thenAccept((r) -> {
+				taskInfo = null;
+				container.setHidden(false)
+					.revalidate();
+			});
+	}
 
-    @Override
-    public MouseEvent mouseDragged(MouseEvent event) {
-        handleMouseDrag(event.getX(), event.getY());
-        return event;
-    }
+	private @Nullable Widget getContentWidget() {
+		return client.getWidget(InterfaceID.Collection.CONTENT);
+	}
 
-    @Override
-    public MouseEvent mouseMoved(MouseEvent event) {
-        return event;
-    }
+	private void overrideFlippedSprites() {
+		// we can't use SpriteManager because it only accepts resource paths as an input
+		client.getSpriteOverrides().put(
+			SpriteOverride.TALL_TABS_CORNER_VFLIP.getSpriteId(),
+			ImageUtil.getVFlippedSpritePixels(SpriteID.TabsTall._2, client)
+		);
+		client.getSpriteOverrides().put(
+			SpriteOverride.TALL_TABS_CORNER_HOVER_VFLIP.getSpriteId(),
+			ImageUtil.getVFlippedSpritePixels(SpriteID.TabsTall._0, client)
+		);
+	}
 
-    @Override
-    public MouseEvent mouseEntered(MouseEvent event) {
-        return event;
-    }
+	public void close() {
+		hideCollectionLogContent(false);
 
-    @Override
-    public MouseEvent mouseExited(MouseEvent event) {
-        return event;
-    }
+		if (container != null) {
+			container.setHidden(true)
+				.revalidate();
+			container.unregister();
+		}
+		container = null;
 
-    private void createTabManager(Widget window) {
-        this.tabManager = new TabManager(window, config, plugin);
-    }
-
-    private void createTaskDashboard(Widget window) {
-        this.taskDashboard = new TaskDashboard(plugin, config, window, syncService, taskService, client, taskInfo);
-        this.taskDashboard.setVisibility(false);
-    }
-
-    private void createTaskList(Widget window) {
-        this.taskList = new TaskList(window, plugin, clientThread, config, collectionLogService, taskService, taskInfo);
-        this.taskList.setVisibility(false);
-    }
-
-    private void createTaskInfo(Widget window) {
-        this.taskInfo = new TaskInfo(window, plugin, collectionLogService, taskService);
-    }
-
-    private void createTaskCheckbox() {
-        Widget window = client.getWidget(621, 88);
-        if (window != null) {
-            // Create the graphic widget for the checkbox
-            Widget toggleWidget = window.createChild(-1, WidgetType.GRAPHIC);
-            Widget labelWidget = window.createChild(-1, WidgetType.TEXT);
-
-            // Wrap in checkbox, set size, position, etc.
-            taskDashboardCheckbox = new UICheckBox(toggleWidget, labelWidget);
-            taskDashboardCheckbox.setPosition(360, 10);
-            taskDashboardCheckbox.setName("Task Dashboard");
-            taskDashboardCheckbox.setEnabled(false);
-            taskDashboardCheckbox.setText("Task Dashboard");
-            labelWidget.setPos(375, 10);
-
-
-            taskDashboardCheckbox.setToggleListener((UICheckBox src) -> {
-                if (!checkboxDeprecationWarned) {
-                    checkboxDeprecationWarned = true;
-                    String msg = "<col=ff392b>Please use the hamburger menu on the top-left corner to open the task dashboard;"
-                            + " this checkbox will be removed in the future";
-                    client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", msg, "");
-                    client.playSoundEffect(2277);
-                }
-
-                this.burgerMenuManager.setSelected(taskDashboardCheckbox.isEnabled());
-            });
-        }
-    }
-
-    private void toggleTaskDashboard() {
-        if(this.taskDashboard == null) return;
-
-        Task activeTask = taskService.getActiveTask();
-        if (activeTask != null) {
-            this.taskDashboard.setTask(activeTask, null);
-        } else {
-            this.taskDashboard.clearTask();
-        }
-
-        boolean enabled = isTaskDashboardEnabled();
-        
-        
-        this.taskDashboardCheckbox.setEnabled(enabled);
-        Widget contentWidget = client.getWidget(InterfaceID.Collection.CONTENT);
-        if (contentWidget != null) {
-            for (Widget c : contentWidget.getStaticChildren()) {
-                c.setHidden(enabled);
-            }
-        }
-        Widget searchTitleWidget = client.getWidget(InterfaceID.Collection.SEARCH_TITLE);
-        if (searchTitleWidget != null) {
-            searchTitleWidget.setHidden(enabled);
-        }
-
-        if (enabled) {
-            this.tabManager.activateTaskDashboard();
-        } else {
-            this.taskInfo.setVisibility(false);
-            this.taskDashboard.setVisibility(false);
-            this.taskList.setVisibility(false);
-            this.tabManager.hideTabs();
-        }
-
-        // *Boop*
-        this.client.playSoundEffect(SoundEffectID.UI_BOOP);
-    }
-
-    private boolean isTaskDashboardEnabled() {
-        return burgerMenuManager.isSelected();
-    }
-
-    public void completeTask() {
-        boolean wasDashboardVisible = this.taskDashboard.isVisible();
-        this.taskDashboard.updatePercentages();
-        taskList.refreshTasks(0);
-        // Restore previous visibility state
-        this.taskDashboard.setVisibility(wasDashboardVisible);
-        this.taskList.setVisibility(!wasDashboardVisible);
-        this.tabManager.showTabs();
-    }
+		if (taskInfo != null) {
+			taskInfo.close();
+		}
+		taskInfo = null;
+	}
 }
