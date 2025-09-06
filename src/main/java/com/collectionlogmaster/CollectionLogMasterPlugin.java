@@ -2,6 +2,7 @@ package com.collectionlogmaster;
 
 import com.collectionlogmaster.command.DevCommandsManager;
 import com.collectionlogmaster.command.TaskmanCommandManager;
+import com.collectionlogmaster.input.MouseManager;
 import com.collectionlogmaster.synchronization.clog.CollectionLogService;
 import com.collectionlogmaster.task.TaskService;
 import com.collectionlogmaster.ui.InterfaceManager;
@@ -36,6 +37,9 @@ public class CollectionLogMasterPlugin extends Plugin {
 	private OverlayManager overlayManager;
 
 	@Inject
+	private MouseManager mouseManager;
+
+	@Inject
 	private InterfaceManager interfaceManager;
 
 	@Inject
@@ -57,6 +61,7 @@ public class CollectionLogMasterPlugin extends Plugin {
 	protected void startUp() {
 		CollectionLogMasterPlugin.staticInjector = getInjector();
 
+		mouseManager.startUp();
 		taskService.startUp();
 		collectionLogService.startUp();
 		pluginUpdateNotifier.startUp();
@@ -69,6 +74,7 @@ public class CollectionLogMasterPlugin extends Plugin {
 
 	@Override
 	protected void shutDown() {
+		mouseManager.shutDown();
 		taskService.shutDown();
 		collectionLogService.shutDown();
 		pluginUpdateNotifier.shutDown();
