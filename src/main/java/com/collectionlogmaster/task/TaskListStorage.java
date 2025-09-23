@@ -15,7 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 public class TaskListStorage {
 	private static final String LOCAL_TASK_LIST_FILE = "task-list.json";
 
-	private static final String REMOTE_TASK_LIST_URL = "https://raw.githubusercontent.com/OSRS-Taskman/generate-task/refs/heads/main/src/main/resources/com/logmaster/domain/task-list.json";
+	private static final String REMOTE_TASK_LIST_URL = "https://raw.githubusercontent.com/OSRS-Taskman/collection-log-master/refs/heads/main/src/main/resources/com/collectionlogmaster/task-list.json";
 
 	private final HttpClient httpClient;
 
