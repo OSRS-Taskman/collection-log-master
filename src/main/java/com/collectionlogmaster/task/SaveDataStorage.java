@@ -118,7 +118,10 @@ public class SaveDataStorage extends EventBusSubscriber {
         String oldSave = configManager.getRSProfileConfiguration("log-master", SAVE_DATA_KEY);
         log.info("Old save: {}", oldSave);
 
-        configManager.setRSProfileConfiguration(CONFIG_GROUP, SAVE_DATA_KEY, oldSave);
+        if (oldSave != null) {
+            configManager.setRSProfileConfiguration(CONFIG_GROUP, SAVE_DATA_KEY, oldSave);
+        }
+
         configManager.setRSProfileConfiguration(CONFIG_GROUP, "oldPluginSaveImported", true);
 	}
 }

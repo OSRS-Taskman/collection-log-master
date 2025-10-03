@@ -24,9 +24,7 @@ import static com.collectionlogmaster.CollectionLogMasterConfig.PLUGIN_VERSION_K
 public class PluginUpdateNotifier extends EventBusSubscriber {
     private static final String[] UPDATE_MESSAGES = {
             "<colHIGHLIGHT>Collection Log Master updated to v" + getPluginVersion(),
-            "<colHIGHLIGHT>- Added option to disable LMS tasks",
-            "<colHIGHLIGHT>- Removed the command reminder",
-            "<colHIGHLIGHT>- Other minor fixes and improvements",
+            "<colHIGHLIGHT>- Fixed an issue where save data wouldn't be persisted",
     };
 
     @Inject
