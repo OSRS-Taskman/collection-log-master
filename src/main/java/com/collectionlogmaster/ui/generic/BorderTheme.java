@@ -1,5 +1,6 @@
 package com.collectionlogmaster.ui.generic;
 
+import com.collectionlogmaster.ui.sprites.SpriteOverride;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import net.runelite.api.gameval.SpriteID;
@@ -20,6 +21,32 @@ public enum BorderTheme {
 		SpriteID.SettingsTabs._12,
 		SpriteID.SettingsTabs._15,
 		SpriteID.SettingsTabs._13
+	),
+	ETCHED_GREEN_DYED(
+		8,
+		4,
+		SpriteOverride.SETTINGS_TAB_BACKGROUND_GREEN_DYED.getSpriteId(),
+		SpriteOverride.TABS_ETCHED_TOP_LEFT_CORNER_GREEN_DYED.getSpriteId(),
+		SpriteOverride.TABS_ETCHED_TOP_RIGHT_CORNER_GREEN_DYED.getSpriteId(),
+		SpriteOverride.TABS_ETCHED_BOTTOM_LEFT_CORNER_GREEN_DYED.getSpriteId(),
+		SpriteOverride.TABS_ETCHED_BOTTOM_RIGHT_CORNER_GREEN_DYED.getSpriteId(),
+		SpriteOverride.SETTINGS_TAB_LEFT_EDGE_GREEN_DYED.getSpriteId(),
+		SpriteOverride.SETTINGS_TAB_TOP_EDGE_GREEN_DYED.getSpriteId(),
+		SpriteOverride.SETTINGS_TAB_RIGHT_EDGE_GREEN_DYED.getSpriteId(),
+		SpriteOverride.SETTINGS_TAB_BOTTOM_EDGE_GREEN_DYED.getSpriteId()
+	),
+	ETCHED_GOLD_DYED(
+		8,
+		4,
+		SpriteOverride.SETTINGS_TAB_BACKGROUND_GOLD_DYED.getSpriteId(),
+		SpriteOverride.TABS_ETCHED_TOP_LEFT_CORNER_GOLD_DYED.getSpriteId(),
+		SpriteOverride.TABS_ETCHED_TOP_RIGHT_CORNER_GOLD_DYED.getSpriteId(),
+		SpriteOverride.TABS_ETCHED_BOTTOM_LEFT_CORNER_GOLD_DYED.getSpriteId(),
+		SpriteOverride.TABS_ETCHED_BOTTOM_RIGHT_CORNER_GOLD_DYED.getSpriteId(),
+		SpriteOverride.SETTINGS_TAB_LEFT_EDGE_GOLD_DYED.getSpriteId(),
+		SpriteOverride.SETTINGS_TAB_TOP_EDGE_GOLD_DYED.getSpriteId(),
+		SpriteOverride.SETTINGS_TAB_RIGHT_EDGE_GOLD_DYED.getSpriteId(),
+		SpriteOverride.SETTINGS_TAB_BOTTOM_EDGE_GOLD_DYED.getSpriteId()
 	);
 
 	private final int cornerSize;

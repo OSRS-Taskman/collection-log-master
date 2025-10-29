@@ -2,7 +2,7 @@ package com.collectionlogmaster.ui.generic;
 
 import static java.util.Map.entry;
 
-import com.collectionlogmaster.ui.SpriteOverride;
+import com.collectionlogmaster.ui.sprites.SpriteOverride;
 import com.collectionlogmaster.ui.generic.button.UIButton;
 import java.util.Map;
 import lombok.Getter;
