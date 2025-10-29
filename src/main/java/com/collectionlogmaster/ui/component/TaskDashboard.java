@@ -273,5 +273,8 @@ public class TaskDashboard extends UIComponent<TaskDashboard> {
 		String progressText = getProgressText();
 		progress.setText(progressText)
 			.revalidate();
+
+		syncButton.revalidate();
+		faqButton.revalidate();
 	}
 }
