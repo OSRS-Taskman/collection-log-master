@@ -1,6 +1,14 @@
 package com.collectionlogmaster;
 
+import static com.collectionlogmaster.CollectionLogMasterConfig.CONFIG_GROUP;
+import static com.collectionlogmaster.CollectionLogMasterConfig.PLUGIN_VERSION_KEY;
+
 import com.collectionlogmaster.util.EventBusSubscriber;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import javax.inject.Inject;
+import javax.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.ChatMessageType;
 import net.runelite.api.GameState;
@@ -10,69 +18,60 @@ import net.runelite.client.chat.QueuedMessage;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 
-import javax.inject.Inject;
-import javax.inject.Singleton;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
-
-import static com.collectionlogmaster.CollectionLogMasterConfig.CONFIG_GROUP;
-import static com.collectionlogmaster.CollectionLogMasterConfig.PLUGIN_VERSION_KEY;
-
 @Slf4j
 @Singleton
 public class PluginUpdateNotifier extends EventBusSubscriber {
-    private static final String[] UPDATE_MESSAGES = {
-            "<colHIGHLIGHT>Collection Log Master updated to v" + getPluginVersion(),
-            "<colHIGHLIGHT>- Rewritten entire interface code; now supports resource packs",
-    };
+	private static final String[] UPDATE_MESSAGES = {
+			"<colHIGHLIGHT>Collection Log Master updated to v" + getPluginVersion(),
+			"<colHIGHLIGHT>- Rewritten entire interface code; now supports resource packs",
+	};
 
-    @Inject
-    ConfigManager configManager;
+	@Inject
+	ConfigManager configManager;
 
-    @Inject
-    ChatMessageManager chatMessageManager;
+	@Inject
+	ChatMessageManager chatMessageManager;
 
-    public static String getPluginVersion() {
-        try (InputStream is = CollectionLogMasterPlugin.class.getResourceAsStream("version")) {
-            assert is != null;
-            return new String(is.readAllBytes(), StandardCharsets.UTF_8)
-                    .replace("-SNAPSHOT", "");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
+	public static String getPluginVersion() {
+		try (InputStream is = CollectionLogMasterPlugin.class.getResourceAsStream("version")) {
+			assert is != null;
+			return new String(is.readAllBytes(), StandardCharsets.UTF_8)
+					.replace("-SNAPSHOT", "");
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
-    @Subscribe
-    public void onGameStateChanged(GameStateChanged gameStateChanged) {
-        GameState gameState = gameStateChanged.getGameState();
-        if (gameState == GameState.LOGGED_IN) {
-            checkUpdate();
-        }
-    }
+	@Subscribe
+	public void onGameStateChanged(GameStateChanged gameStateChanged) {
+		GameState gameState = gameStateChanged.getGameState();
+		if (gameState == GameState.LOGGED_IN) {
+			checkUpdate();
+		}
+	}
 
-    private void checkUpdate() {
-        boolean isDebug = false;
-        String curVersion = getPluginVersion();
-        String lastVersion = configManager.getRSProfileConfiguration(CONFIG_GROUP, PLUGIN_VERSION_KEY);
+	private void checkUpdate() {
+		boolean isDebug = false;
+		String curVersion = getPluginVersion();
+		String lastVersion = configManager.getRSProfileConfiguration(CONFIG_GROUP, PLUGIN_VERSION_KEY);
 
-        //noinspection ConstantValue
-        if (isDebug || !curVersion.equals(lastVersion)) {
-            configManager.setRSProfileConfiguration(CONFIG_GROUP, PLUGIN_VERSION_KEY, curVersion);
-            notifyUpdate();
-        }
-    }
+		//noinspection ConstantValue
+		if (isDebug || !curVersion.equals(lastVersion)) {
+			configManager.setRSProfileConfiguration(CONFIG_GROUP, PLUGIN_VERSION_KEY, curVersion);
+			notifyUpdate();
+		}
+	}
 
-    private void notifyUpdate() {
-        //noinspection ConstantConditions
-        if (UPDATE_MESSAGES == null) return;
+	private void notifyUpdate() {
+		//noinspection ConstantConditions
+		if (UPDATE_MESSAGES == null) return;
 
-        String replacedMessage = String.join("<br>", UPDATE_MESSAGES);
-        chatMessageManager.queue(
-                QueuedMessage.builder()
-                        .type(ChatMessageType.CONSOLE)
-                        .runeLiteFormattedMessage(replacedMessage)
-                        .build()
-        );
-    }
+		String replacedMessage = String.join("<br>", UPDATE_MESSAGES);
+		chatMessageManager.queue(
+				QueuedMessage.builder()
+						.type(ChatMessageType.CONSOLE)
+						.runeLiteFormattedMessage(replacedMessage)
+						.build()
+		);
+	}
 }
