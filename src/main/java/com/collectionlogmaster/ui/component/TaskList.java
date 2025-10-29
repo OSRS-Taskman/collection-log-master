@@ -3,6 +3,7 @@ package com.collectionlogmaster.ui.component;
 import com.collectionlogmaster.CollectionLogMasterPlugin;
 import com.collectionlogmaster.domain.Task;
 import com.collectionlogmaster.task.TaskService;
+import com.collectionlogmaster.ui.generic.BorderTheme;
 import com.collectionlogmaster.ui.generic.UIComponent;
 import com.collectionlogmaster.ui.generic.UIGridContainer;
 import com.collectionlogmaster.ui.generic.UIScrollableContainer;
@@ -96,11 +97,30 @@ public class TaskList extends UIComponent<TaskList> {
 		scrollableContainer.revalidate();
 		taskGrid.revalidate();
 
+		Task activeTask = taskService.getActiveTask();
 		for (TaskComponent taskComponent : taskComponents) {
 			Task task = taskComponent.getTask();
-			boolean isComplete = taskService.isComplete(task.getId());
 
-			taskComponent.setOpacity(isComplete ? 0 : 175)
+			boolean isActive = task.equals(activeTask);
+			if (isActive) {
+				taskComponent.setOpacity(0)
+					.setTheme(BorderTheme.ETCHED_GOLD_DYED)
+					.revalidate();
+
+				continue;
+			}
+
+			boolean isComplete = taskService.isComplete(task.getId());
+			if (isComplete) {
+				taskComponent.setOpacity(0)
+					.setTheme(BorderTheme.ETCHED_GREEN_DYED)
+					.revalidate();
+
+				continue;
+			}
+
+			taskComponent.setOpacity(125)
+				.setTheme(BorderTheme.ETCHED)
 				.revalidate();
 		}
 	}

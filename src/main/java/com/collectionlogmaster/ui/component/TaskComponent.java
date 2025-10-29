@@ -65,6 +65,12 @@ public class TaskComponent extends UIComponent<TaskComponent> {
 		return this;
 	}
 
+	public TaskComponent setTheme(BorderTheme theme) {
+		outerContainer.setTheme(theme);
+		imageContainer.setTheme(theme);
+		return this;
+	}
+
 	private void onActionSelected(ScriptEvent e) {
 		int actionIndex = e.getOp();
 		switch (actionIndex) {
@@ -73,7 +79,10 @@ public class TaskComponent extends UIComponent<TaskComponent> {
 				return;
 
 			case 2:
-				taskService.complete(task.getId());
+				boolean isComplete = taskService.toggleComplete(task.getId());
+				setOpacity(isComplete ? 0 : 175)
+					.setTheme(isComplete ? BorderTheme.ETCHED_GREEN_DYED : BorderTheme.ETCHED)
+					.revalidate();
 				return;
 		}
 	}
@@ -123,7 +132,11 @@ public class TaskComponent extends UIComponent<TaskComponent> {
 		if (task != null) {
 			widget.setName(UIUtil.formatName(task.getName()));
 			widget.setAction(0, "View");
-			widget.setAction(1, "Complete");
+			if (taskService.isComplete(task.getId())) {
+				widget.setAction(1, "Uncomplete");
+			} else {
+				widget.setAction(1, "Complete");
+			}
 		} else {
 			widget.setAction(0, null);
 			widget.setAction(1, null);

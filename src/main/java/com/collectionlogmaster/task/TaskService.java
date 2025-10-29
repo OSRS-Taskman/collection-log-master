@@ -188,11 +188,13 @@ public class TaskService extends EventBusSubscriber {
 		taskmanCommandManager.updateServer();
 	}
 
-	public void toggleComplete(String taskId) {
+	public boolean toggleComplete(String taskId) {
 		if (isComplete(taskId)) {
 			uncomplete(taskId);
+			return false;
 		} else {
 			complete(taskId);
+			return true;
 		}
 	}
 

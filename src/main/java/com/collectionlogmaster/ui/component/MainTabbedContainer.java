@@ -110,11 +110,6 @@ public class MainTabbedContainer extends UIComponent<MainTabbedContainer> {
 				taskList.revalidate();
 				return taskList;
 			});
-			addTab(tier.displayName, (Widget container) -> {
-				TaskList taskList = TaskList.createInside(container, taskService.getTierTasks(tier));
-				taskList.revalidate();
-				return taskList;
-			});
 		}
 
 		divider.setXPositionMode(WidgetPositionMode.ABSOLUTE_CENTER)

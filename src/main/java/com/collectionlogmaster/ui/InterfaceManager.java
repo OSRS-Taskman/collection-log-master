@@ -116,6 +116,7 @@ public class InterfaceManager extends EventBusSubscriber {
 			.revalidate();
 
 		taskInfo = TaskInfo.openInside(content, task);
+		taskInfo.revalidate();
 		taskInfo.getCloseFuture()
 			.thenAccept((r) -> {
 				taskInfo = null;
