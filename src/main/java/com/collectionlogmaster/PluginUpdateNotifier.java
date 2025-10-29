@@ -24,7 +24,7 @@ import static com.collectionlogmaster.CollectionLogMasterConfig.PLUGIN_VERSION_K
 public class PluginUpdateNotifier extends EventBusSubscriber {
     private static final String[] UPDATE_MESSAGES = {
             "<colHIGHLIGHT>Collection Log Master updated to v" + getPluginVersion(),
-            "<colHIGHLIGHT>- Fixed an issue where save data wouldn't be persisted",
+            "<colHIGHLIGHT>- Rewritten entire interface code; now supports resource packs",
     };
 
     @Inject
