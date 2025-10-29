@@ -15,8 +15,6 @@ import net.runelite.api.events.WidgetClosed;
 import net.runelite.api.events.WidgetLoaded;
 import net.runelite.api.gameval.InterfaceID;
 import net.runelite.api.widgets.Widget;
-import net.runelite.api.widgets.WidgetID;
-import net.runelite.client.callback.ClientThread;
 import net.runelite.client.eventbus.Subscribe;
 import org.jetbrains.annotations.Nullable;
 
