@@ -4,8 +4,8 @@ import com.collectionlogmaster.domain.Task;
 import com.collectionlogmaster.ui.component.MainTabbedContainer;
 import com.collectionlogmaster.ui.component.MenuManager;
 import com.collectionlogmaster.ui.component.TaskInfo;
+import com.collectionlogmaster.ui.sprites.SpriteManager;
 import com.collectionlogmaster.util.EventBusSubscriber;
-import com.collectionlogmaster.util.ImageUtil;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
@@ -14,12 +14,9 @@ import net.runelite.api.events.ScriptPreFired;
 import net.runelite.api.events.WidgetClosed;
 import net.runelite.api.events.WidgetLoaded;
 import net.runelite.api.gameval.InterfaceID;
-import net.runelite.api.gameval.SpriteID;
 import net.runelite.api.widgets.Widget;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.eventbus.Subscribe;
-import net.runelite.client.events.ConfigChanged;
-import net.runelite.client.game.SpriteManager;
 import org.jetbrains.annotations.Nullable;
 
 @Slf4j
@@ -30,9 +27,6 @@ public class InterfaceManager extends EventBusSubscriber {
 
 	@Inject
 	private Client client;
-
-	@Inject
-	private ClientThread clientThread;
 
 	@Inject
 	private SpriteManager spriteManager;
@@ -47,22 +41,13 @@ public class InterfaceManager extends EventBusSubscriber {
 	public void startUp() {
 		super.startUp();
 		menuManager.startUp();
-
-		this.spriteManager.addSpriteOverrides(SpriteOverride.values());
-		clientThread.invokeAtTickEnd(this::overrideFlippedSprites);
+		spriteManager.startUp();
 	}
 
 	public void shutDown() {
 		super.shutDown();
 		menuManager.shutDown();
-	}
-
-	@Subscribe
-	public void onConfigChanged(ConfigChanged e) {
-		String configGroup = e.getGroup();
-		if (configGroup.equals("resourcepacks")) {
-			clientThread.invokeAtTickEnd(this::overrideFlippedSprites);
-		}
+		spriteManager.shutDown();
 	}
 
 	@Subscribe
@@ -141,18 +126,6 @@ public class InterfaceManager extends EventBusSubscriber {
 
 	private @Nullable Widget getContentWidget() {
 		return client.getWidget(InterfaceID.Collection.CONTENT);
-	}
-
-	private void overrideFlippedSprites() {
-		// we can't use SpriteManager because it only accepts resource paths as an input
-		client.getSpriteOverrides().put(
-			SpriteOverride.TALL_TABS_CORNER_VFLIP.getSpriteId(),
-			ImageUtil.getVFlippedSpritePixels(SpriteID.TabsTall._2, client)
-		);
-		client.getSpriteOverrides().put(
-			SpriteOverride.TALL_TABS_CORNER_HOVER_VFLIP.getSpriteId(),
-			ImageUtil.getVFlippedSpritePixels(SpriteID.TabsTall._0, client)
-		);
 	}
 
 	public void close() {
