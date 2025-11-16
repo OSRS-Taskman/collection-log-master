@@ -4,11 +4,11 @@ buildscript {
     }
 
     // avoids requiring to whitelist spotless in plugin hub
-    if (gradle.startParameter.taskNames.any { it.contains('spotless') }) {
-        dependencies {
-            classpath("com.diffplug.gradle.spotless:com.diffplug.gradle.spotless.gradle.plugin:7.2.1")
-        }
-    }
+//    if (gradle.startParameter.taskNames.any { it.contains('spotless') }) {
+//        dependencies {
+//            classpath("com.diffplug.gradle.spotless:com.diffplug.gradle.spotless.gradle.plugin:7.2.1")
+//        }
+//    }
 }
 
 plugins {
