@@ -11,11 +11,13 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import javax.inject.Inject;
 import javax.inject.Singleton;
+import lombok.extern.slf4j.Slf4j;
 import net.runelite.client.config.RuneLiteConfig;
 import net.runelite.client.game.ItemManager;
 import net.runelite.client.ui.overlay.Overlay;
 
 @Singleton
+@Slf4j
 public class TaskOverlay extends Overlay {
 	private static final Dimension EMPTY = new Dimension(0, 0);
 
@@ -83,7 +85,7 @@ public class TaskOverlay extends Overlay {
 			g.drawImage(icon, 5 + 18 - (iconWidth / 2), 5 + 18 - (iconHeight / 2), iconWidth, iconHeight, null);
 			return new Dimension(width, height);
 		} catch (Throwable t) {
-			t.printStackTrace();
+			log.warn("", new RuntimeException("Failed to render overlay"));
 			return EMPTY;
 		}
 	}
