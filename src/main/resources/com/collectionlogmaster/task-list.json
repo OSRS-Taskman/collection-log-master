@@ -5462,27 +5462,33 @@
 		},
 		{
 			"id": "62d2ad72-d063-46b3-9348-75efcea0bb11",
-			"name": "Get 1 unique drop from Zamorak GWD",
-			"tip": "Received as a drop from the Zamorak God Wards Dungeon Boss.",
+			"name": "Get 1 unique drop from God Wars Dungeon",
+			"tip": "Can be received as a drop from the God Wars Dungeon Bosses. Saradomin is easiest to kill, but requires stamina potions, while Zamorak spear can be useful in elite tier.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/K'ril_Tsutsaroth",
 			"imageLink": "https://oldschool.runescape.wiki/images/f/fc/Staff_of_the_dead.png",
 			"displayItemId": 11791,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 11787, 11791, 11816, 11824 ],
+				"itemIds": [
+					11785, 11787, 11791, 11810, 11812, 11814, 11816, 11824, 11826, 11828, 11830,
+					11832, 11834, 11836, 11838, 13256, 26235, 26370, 26372, 26376, 26378, 26380
+				],
 				"count": 1
 			}
 		},
 		{
 			"id": "09ebb79c-c629-4900-a0a1-bc06c88e2571",
-			"name": "Get 1 unique drop from Zamorak GWD",
-			"tip": "Received as a drop from the Zamorak God Wards Dungeon Boss.",
+			"name": "Get 1 unique drop from God Wars Dungeon",
+			"tip": "Can be received as a drop from the God Wars Dungeon Bosses. Saradomin is easiest to kill, but requires stamina potions, while Zamorak spear can be useful in elite tier.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/K'ril_Tsutsaroth",
 			"imageLink": "https://oldschool.runescape.wiki/images/f/fc/Staff_of_the_dead.png",
 			"displayItemId": 11791,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 11787, 11791, 11816, 11824 ],
+				"itemIds": [
+					11785, 11787, 11791, 11810, 11812, 11814, 11816, 11824, 11826, 11828, 11830,
+					11832, 11834, 11836, 11838, 13256, 26235, 26370, 26372, 26376, 26378, 26380
+				],
 				"count": 2
 			}
 		},
@@ -7480,8 +7486,8 @@
 		},
 		{
 			"id": "5a4fd126-9c0c-4031-a612-8b8615c57708",
-			"name": "Get a Vial of blood (from Story mode ToB)",
-			"tip": "Can be received as a reward from the Theatre of Blood Story/Entry Mode.",
+			"name": "Get a Vial of blood",
+			"tip": "Can be received as a reward from completing the Theatre of Blood in any mode. Entry mode is easiest to solo, but Normal can be easier to find teams.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Theatre_of_Blood/Entry_Mode",
 			"imageLink": "https://oldschool.runescape.wiki/images/3/3d/Vial_of_blood.png",
 			"displayItemId": 22446,
