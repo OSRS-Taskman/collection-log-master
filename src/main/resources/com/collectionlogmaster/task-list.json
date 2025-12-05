@@ -2430,7 +2430,7 @@
 		},
 		{
 			"id": "4e70e2c5-e2a6-41d0-b6f4-18a4ef2edf89",
-			"name": "Get a Ray barbs",
+			"name": "Get Ray barbs",
 			"tip": "Obtained as a drop from Butterfly Rays; these can be safespotted from land, on the northern shore of the Isle of Souls.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Ray_barbs",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Ray_barbs_detail.png/320px-Ray_barbs_detail.png",
@@ -2456,11 +2456,11 @@
 		},
 		{
 			"id": "a2b53f89-3b42-43f4-a208-75d24ceb11cb",
-			"name": "Get a Sea Treasure",
-			"tip": "Obtained while sorting salvage. Each sea treasure can be found in a unique salvage type, except for the Sailors' amulet which can be found in any.",
+			"name": "Get the next Sea Treasure",
+			"tip": "Obtained while sorting salvage. Each sea treasure can be found in a unique salvage type. The Sailors' amulet can be found in all salvages and also completes the task.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Sea_treasure",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Sailors'_amulet_(inert)_detail.png/320px-Sailors'_amulet_(inert)_detail.png",
-			"displayItemId": 32398,
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Plundered_salvage_detail.png/320px-Plundered_salvage_detail.png",
+			"displayItemId": 32855,
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [ 32398, 32863, 32864, 32865, 32866, 32867, 32868, 32869, 32870 ],
@@ -2469,11 +2469,11 @@
 		},
 		{
 			"id": "924f0d22-b935-45b6-a7c6-31f1187f7cbe",
-			"name": "Get a Sea Treasure",
-			"tip": "Obtained while sorting salvage. Each sea treasure can be found in a unique salvage type, except for the Sailors' amulet which can be found in any.",
+			"name": "Get the next Sea Treasure",
+			"tip": "Obtained while sorting salvage. Each sea treasure can be found in a unique salvage type. The Sailors' amulet can be found in all salvages and also completes the task.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Sea_treasure",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Sailors'_amulet_(inert)_detail.png/320px-Sailors'_amulet_(inert)_detail.png",
-			"displayItemId": 32398,
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Plundered_salvage_detail.png/320px-Plundered_salvage_detail.png",
+			"displayItemId": 32855,
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [ 32398, 32863, 32864, 32865, 32866, 32867, 32868, 32869, 32870 ],
@@ -2482,11 +2482,11 @@
 		},
 		{
 			"id": "a61dc64d-1e9f-44de-bec8-4c9c64c10fef",
-			"name": "Get a Sea Treasure",
-			"tip": "Obtained while sorting salvage. Each sea treasure can be found in a unique salvage type, except for the Sailors' amulet which can be found in any.",
+			"name": "Get the next Sea Treasure",
+			"tip": "Obtained while sorting salvage. Each sea treasure can be found in a unique salvage type. The Sailors' amulet can be found in all salvages and also completes the task.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Sea_treasure",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Sailors'_amulet_(inert)_detail.png/320px-Sailors'_amulet_(inert)_detail.png",
-			"displayItemId": 32398,
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Plundered_salvage_detail.png/320px-Plundered_salvage_detail.png",
+			"displayItemId": 32855,
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [ 32398, 32863, 32864, 32865, 32866, 32867, 32868, 32869, 32870 ],
@@ -2495,11 +2495,11 @@
 		},
 		{
 			"id": "4dc96a62-263a-4083-a0b9-4772e15ee6d4",
-			"name": "Get a Sea Treasure",
-			"tip": "Obtained while sorting salvage. Each sea treasure can be found in a unique salvage type, except for the Sailors' amulet which can be found in any.",
+			"name": "Get the next Sea Treasure",
+			"tip": "Obtained while sorting salvage. Each sea treasure can be found in a unique salvage type. The Sailors' amulet can be found in all salvages and also completes the task.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Sea_treasure",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Sailors'_amulet_(inert)_detail.png/320px-Sailors'_amulet_(inert)_detail.png",
-			"displayItemId": 32398,
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Plundered_salvage_detail.png/320px-Plundered_salvage_detail.png",
+			"displayItemId": 32855,
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [ 32398, 32863, 32864, 32865, 32866, 32867, 32868, 32869, 32870 ],
@@ -5310,11 +5310,11 @@
 		},
 		{
 			"id": "7838827a-8e44-4b39-876f-25149957bc8f",
-			"name": "Get a Sea Treasure",
-			"tip": "Obtained while sorting salvage. Each sea treasure can be found in a unique salvage type, except for the Sailors' amulet which can be found in any.",
+			"name": "Get the next Sea Treasure",
+			"tip": "Obtained while sorting salvage. Each sea treasure can be found in a unique salvage type. The Sailors' amulet can be found in all salvages and also completes the task.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Sea_treasure",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Sailors'_amulet_(inert)_detail.png/320px-Sailors'_amulet_(inert)_detail.png",
-			"displayItemId": 32398,
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Plundered_salvage_detail.png/320px-Plundered_salvage_detail.png",
+			"displayItemId": 32855,
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [ 32398, 32863, 32864, 32865, 32866, 32867, 32868, 32869, 32870 ],
@@ -5323,11 +5323,11 @@
 		},
 		{
 			"id": "a7096674-124f-4ec6-9913-576dec586b61",
-			"name": "Get a Sea Treasure",
-			"tip": "Obtained while sorting salvage. Each sea treasure can be found in a unique salvage type, except for the Sailors' amulet which can be found in any.",
+			"name": "Get the next Sea Treasure",
+			"tip": "Obtained while sorting salvage. Each sea treasure can be found in a unique salvage type. The Sailors' amulet can be found in all salvages and also completes the task.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Sea_treasure",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Sailors'_amulet_(inert)_detail.png/320px-Sailors'_amulet_(inert)_detail.png",
-			"displayItemId": 32398,
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Plundered_salvage_detail.png/320px-Plundered_salvage_detail.png",
+			"displayItemId": 32855,
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [ 32398, 32863, 32864, 32865, 32866, 32867, 32868, 32869, 32870 ],
@@ -5349,7 +5349,7 @@
 		},
 		{
 			"id": "b6b250b7-34e6-4aef-b6d9-8b4280b045fe",
-			"name": "Catch a Giant blue krill",
+			"name": "Get a Giant blue krill",
 			"tip": "Obtained while deep sea trawling for Giant krill.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Giant_blue_krill",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Giant_blue_krill_detail.png/320px-Giant_blue_krill_detail.png",
@@ -8707,11 +8707,11 @@
 		},
 		{
 			"id": "3d46da29-1604-4847-b084-9f7a7629d803",
-			"name": "Get a Sea Treasure",
-			"tip": "Obtained while sorting salvage. Each sea treasure can be found in a unique salvage type, except for the Sailors' amulet which can be found in any.",
+			"name": "Get the next Sea Treasure",
+			"tip": "Obtained while sorting salvage. Each sea treasure can be found in a unique salvage type. The Sailors' amulet can be found in all salvages and also completes the task.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Sea_treasure",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Sailors'_amulet_(inert)_detail.png/320px-Sailors'_amulet_(inert)_detail.png",
-			"displayItemId": 32398,
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Plundered_salvage_detail.png/320px-Plundered_salvage_detail.png",
+			"displayItemId": 32855,
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [ 32398, 32863, 32864, 32865, 32866, 32867, 32868, 32869, 32870 ],
@@ -8733,7 +8733,7 @@
 		},
 		{
 			"id": "7d0e1c12-26df-44d2-af93-544302152393",
-			"name": "Catch a Golden haddock",
+			"name": "Get a Golden haddock",
 			"tip": "Obtained while deep sea trawling for Haddock.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Golden_haddock",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Golden_haddock_detail.png/320px-Golden_haddock_detail.png",
@@ -8746,7 +8746,7 @@
 		},
 		{
 			"id": "f5575959-0ffa-4aa1-a6a6-eb39168ff831",
-			"name": "Catch an Orangefin",
+			"name": "Get an Orangefin",
 			"tip": "Obtained while deep sea trawling for Yellowfin.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Orangefin",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Orangefin_detail.png/320px-Orangefin_detail.png",
@@ -8759,7 +8759,7 @@
 		},
 		{
 			"id": "ec9b47be-3655-4f9e-b9a2-444ff3456293",
-			"name": "Catch a Huge halibut",
+			"name": "Get a Huge halibut",
 			"tip": "Obtained while deep sea trawling for Halibut",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Huge_halibut",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Huge_halibut_detail.png/320px-Huge_halibut_detail.png",
@@ -12207,11 +12207,11 @@
 		},
 		{
 			"id": "dd768477-d668-4df2-a44e-73f7df214923",
-			"name": "Get a Sea Treasure",
-			"tip": "Obtained while sorting salvage. Each sea treasure can be found in a unique salvage type, except for the Sailors' amulet which can be found in any.",
+			"name": "Get the next Sea Treasure",
+			"tip": "Obtained while sorting salvage. Each sea treasure can be found in a unique salvage type. The Sailors' amulet can be found in all salvages and also completes the task.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Sea_treasure",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Sailors'_amulet_(inert)_detail.png/320px-Sailors'_amulet_(inert)_detail.png",
-			"displayItemId": 32398,
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Plundered_salvage_detail.png/320px-Plundered_salvage_detail.png",
+			"displayItemId": 32855,
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [ 32398, 32863, 32864, 32865, 32866, 32867, 32868, 32869, 32870 ],
@@ -12220,11 +12220,11 @@
 		},
 		{
 			"id": "173a1455-d8fe-46aa-a891-2854995015c1",
-			"name": "Get a Sea Treasure",
-			"tip": "Obtained while sorting salvage. Each sea treasure can be found in a unique salvage type, except for the Sailors' amulet which can be found in any.",
+			"name": "Get the next Sea Treasure",
+			"tip": "Obtained while sorting salvage. Each sea treasure can be found in a unique salvage type. The Sailors' amulet can be found in all salvages and also completes the task.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Sea_treasure",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Sailors'_amulet_(inert)_detail.png/320px-Sailors'_amulet_(inert)_detail.png",
-			"displayItemId": 32398,
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Plundered_salvage_detail.png/320px-Plundered_salvage_detail.png",
+			"displayItemId": 32855,
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [ 32398, 32863, 32864, 32865, 32866, 32867, 32868, 32869, 32870 ],
@@ -12233,7 +12233,7 @@
 		},
 		{
 			"id": "e1326b1f-e4c3-44a5-a4b9-4f22172149ec",
-			"name": "Catch a Purplefin",
+			"name": "Get a Purplefin",
 			"tip": "Obtained while deep sea trawling for Bluefin",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Purplefin",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Purplefin_detail.png/320px-Purplefin_detail.png",
@@ -12246,7 +12246,7 @@
 		},
 		{
 			"id": "cf84ac1b-1ee2-40de-8e04-ad0e0bf7642c",
-			"name": "Catch a Swift marlin",
+			"name": "Get a Swift marlin",
 			"tip": "Obtained while deep sea trawling for Marlin",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Swift_marlin",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Swift_marlin_detail.png/320px-Swift_marlin_detail.png",
