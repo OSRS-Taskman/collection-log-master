@@ -2349,6 +2349,162 @@
 				"itemIds": [ 31032, 31052, 31043, 31034 ],
 				"count": 2
 			}
+		},
+		{
+			"id": "b9298587-5e62-4a65-af06-ef7032cca3f1",
+			"name": "Get a Gryphon feather",
+			"tip": "Obtained as a guaranteed drop from regular Gryphons.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Gryphon_feather",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Gryphon_feather_detail.png/320px-Gryphon_feather_detail.png",
+			"displayItemId": 31235,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31235 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "c986eb1e-33f4-4dea-95f8-f335a0add59f",
+			"name": "Get the next reward from The Tempor Tantrum",
+			"tip": "Obtained by completing the next rank's course under the corresponding time.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/The_Tempor_Tantrum",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Stormy_key_detail.png/320px-Stormy_key_detail.png",
+			"displayItemId": 31732,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31732, 31733, 31734 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "8caef83f-cec6-4518-a537-8ec68c2d517d",
+			"name": "Get the next reward from The Tempor Tantrum",
+			"tip": "Obtained by completing the next rank's course under the corresponding time.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/The_Tempor_Tantrum",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Stormy_key_detail.png/320px-Stormy_key_detail.png",
+			"displayItemId": 31732,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31732, 31733, 31734 ],
+				"count": 2
+			}
+		},
+		{
+			"id": "18170f6d-d0f5-476a-9832-3b8f3df3b3b3",
+			"name": "Get the next reward from The Tempor Tantrum",
+			"tip": "Obtained by completing the next rank's course under the corresponding time.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/The_Tempor_Tantrum",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Stormy_key_detail.png/320px-Stormy_key_detail.png",
+			"displayItemId": 31732,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31732, 31733, 31734 ],
+				"count": 3
+			}
+		},
+		{
+			"id": "26a417bd-9635-4bc3-9739-c019b458247b",
+			"name": "Get the Shark paint",
+			"tip": "Can be obtained by completing port tasks.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Shark_paint",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Shark_paint_detail.png/320px-Shark_paint_detail.png",
+			"displayItemId": 32090,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 32090 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "53f410fd-6adc-4ec3-96d3-2cab2f2cfd39",
+			"name": "Get the Salvaging station schematic",
+			"tip": "Obtained from the locked lockbox on Chinchompa Island. The key is buried on The Pandemonium.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Salvaging_station_schematic",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Salvaging_station_schematic_detail.png/320px-Salvaging_station_schematic_detail.png",
+			"displayItemId": 32401,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 32401 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "4e70e2c5-e2a6-41d0-b6f4-18a4ef2edf89",
+			"name": "Get a Ray barbs",
+			"tip": "Obtained as a drop from Butterfly Rays; these can be safespotted from land, on the northern shore of the Isle of Souls.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Ray_barbs",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Ray_barbs_detail.png/320px-Ray_barbs_detail.png",
+			"displayItemId": 31959,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31959 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "89225e24-54f1-497d-a23d-65627f62e0ec",
+			"name": "Get a Boat bottle",
+			"tip": "Obtained while sorting Small, Fishy and Barracuda salvages.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Boat_bottle",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Boat_bottle_(full)_detail.png/320px-Boat_bottle_(full)_detail.png",
+			"displayItemId": 31992,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31989 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "a2b53f89-3b42-43f4-a208-75d24ceb11cb",
+			"name": "Get a Sea Treasure",
+			"tip": "Obtained while sorting salvage. Each sea treasure can be found in a unique salvage type, except for the Sailors' amulet which can be found in any.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Sea_treasure",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Sailors'_amulet_(inert)_detail.png/320px-Sailors'_amulet_(inert)_detail.png",
+			"displayItemId": 32398,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 32398, 32863, 32864, 32865, 32866, 32867, 32868, 32869, 32870 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "924f0d22-b935-45b6-a7c6-31f1187f7cbe",
+			"name": "Get a Sea Treasure",
+			"tip": "Obtained while sorting salvage. Each sea treasure can be found in a unique salvage type, except for the Sailors' amulet which can be found in any.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Sea_treasure",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Sailors'_amulet_(inert)_detail.png/320px-Sailors'_amulet_(inert)_detail.png",
+			"displayItemId": 32398,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 32398, 32863, 32864, 32865, 32866, 32867, 32868, 32869, 32870 ],
+				"count": 2
+			}
+		},
+		{
+			"id": "a61dc64d-1e9f-44de-bec8-4c9c64c10fef",
+			"name": "Get a Sea Treasure",
+			"tip": "Obtained while sorting salvage. Each sea treasure can be found in a unique salvage type, except for the Sailors' amulet which can be found in any.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Sea_treasure",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Sailors'_amulet_(inert)_detail.png/320px-Sailors'_amulet_(inert)_detail.png",
+			"displayItemId": 32398,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 32398, 32863, 32864, 32865, 32866, 32867, 32868, 32869, 32870 ],
+				"count": 3
+			}
+		},
+		{
+			"id": "4dc96a62-263a-4083-a0b9-4772e15ee6d4",
+			"name": "Get a Sea Treasure",
+			"tip": "Obtained while sorting salvage. Each sea treasure can be found in a unique salvage type, except for the Sailors' amulet which can be found in any.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Sea_treasure",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Sailors'_amulet_(inert)_detail.png/320px-Sailors'_amulet_(inert)_detail.png",
+			"displayItemId": 32398,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 32398, 32863, 32864, 32865, 32866, 32867, 32868, 32869, 32870 ],
+				"count": 4
+			}
 		}
 	],
 	"medium": [
@@ -4956,6 +5112,253 @@
 				"itemIds": [ 30957 ],
 				"count": 1
 			}
+		},
+		{
+			"id": "0d2de6e1-2149-40e4-a6a6-8b8facc9201a",
+			"name": "Get Belle's folly (tarnished)",
+			"tip": "Obtained as a drop by the Shellbane gryphon.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Belle%27s_folly_(tarnished)",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Belle%27s_folly_detail.png/320px-Belle%27s_folly_detail.png",
+			"displayItemId": 31248,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31245 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "5bb661d8-21f3-45e7-9eff-13fd3f8113bb",
+			"name": "Get a Horn of plenty",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Horn_of_plenty",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Horn_of_plenty_detail.png/320px-Horn_of_plenty_detail.png",
+			"displayItemId": 31241,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31243 ],
+				"count": 1
+			},
+			"tip": "Obtained as a drop by regular Gryphons; being on a slayer task significantly improves the drop rate."
+		},
+		{
+			"id": "f1f6e3dc-135e-4c44-a52b-f57136a1f5f8",
+			"name": "Get the next reward from The Jubbly Jive",
+			"tip": "Obtained by completing the next rank's course under the corresponding time.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/The_Jubbly_Jive",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Fetid_key_detail.png/320px-Fetid_key_detail.png",
+			"displayItemId": 31744,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31744, 31745, 31746 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "9c2beabf-87b9-4c37-896c-e4a61b662f24",
+			"name": "Get the next reward from The Jubbly Jive",
+			"tip": "Obtained by completing the next rank's course under the corresponding time.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/The_Jubbly_Jive",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Fetid_key_detail.png/320px-Fetid_key_detail.png",
+			"displayItemId": 31744,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31744, 31745, 31746 ],
+				"count": 2
+			}
+		},
+		{
+			"id": "205111de-b502-4cde-baa9-9c977668d05f",
+			"name": "Get the next reward from The Jubbly Jive",
+			"tip": "Obtained by completing the next rank's course under the corresponding time.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/The_Jubbly_Jive",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Fetid_key_detail.png/320px-Fetid_key_detail.png",
+			"displayItemId": 31744,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31744, 31745, 31746 ],
+				"count": 3
+			}
+		},
+		{
+			"id": "7fce4152-4fa5-4950-ac77-92d5976e0b78",
+			"name": "Get the Zamorakian paint",
+			"tip": "Obtained by fully charting the Unquiet Ocean. Show your Captain's Log to Gerardus on Port Roberts, then use the key on the chest on Charred Island.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Zamorakian_paint",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Zamorakian_paint_detail.png/320px-Zamorakian_paint_detail.png",
+			"displayItemId": 32104,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 32104 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "28e4b31a-3f1f-4828-9e0a-4e47872b5ee3",
+			"name": "Get the Saradominist paint",
+			"tip": "Obtained by fully charting the Ardent Ocean. Show your Captain's Log to Gerardus on Port Roberts, and trade the item you receive to the Head Priest for the paint.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Saradominist_paint",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Saradominist_paint_detail.png/320px-Saradominist_paint_detail.png",
+			"displayItemId": 32108,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 32108 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "4ab5c99d-e065-4957-97e5-510f869420be",
+			"name": "Get the Sandy paint",
+			"tip": "Obtained by killing a Hermit crab while performing the Crab Dance emote.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Sandy_paint",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Sandy_paint_detail.png/320px-Sandy_paint_detail.png",
+			"displayItemId": 32113,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 32113 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "169d6627-6980-4f79-8c86-3409e690d2c3",
+			"name": "Get the Gale catcher schematic",
+			"tip": "Obtained from the locked lockbox on Angler's Retreat. The key is buried on The Onyx Crest.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Gale_catcher_schematic",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Gale_catcher_schematic_detail.png/320px-Gale_catcher_schematic_detail.png",
+			"displayItemId": 32402,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 32402 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "25500d75-e554-4f8a-b3ba-68c83f396c44",
+			"name": "Get the Rosewood cargo hold schematic",
+			"tip": "Obtained from the locked lockbox on The Crown Jewel. The key is buried on Minotaur's Rest.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Rosewood_cargo_hold_schematic",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Rosewood_cargo_hold_schematic_detail.png/320px-Rosewood_cargo_hold_schematic_detail.png",
+			"displayItemId": 32405,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 32405 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "32c1a615-dde3-4b8e-9da7-94c74633a95a",
+			"name": "Get the Rosewood hull schematic",
+			"tip": "Obtained from the locked lockbox on Shimmering Atoll. The key is buried on the Isle of Bones.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Rosewood_hull_schematic",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Rosewood_hull_schematic_detail.png/320px-Rosewood_hull_schematic_detail.png",
+			"displayItemId": 32407,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 32407 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "a2292aef-4feb-4d86-a6d7-6f0b37173093",
+			"name": "Get a Dragon metal sheet",
+			"tip": "Obtained as a drop from Lava Strykewyrms.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Dragon_metal_sheet",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dragon_metal_sheet_detail.png/320px-Dragon_metal_sheet_detail.png",
+			"displayItemId": 31996,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31996 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "b53fc9b2-63bf-4a81-864e-ccb0b1c1ed2c",
+			"name": "Get a Dragon cannonball",
+			"tip": "Obtained as a drop from Great White Sharks, which can be safespotted.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Dragon_cannonball",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dragon_cannonball_detail.png/320px-Dragon_cannonball_detail.png",
+			"displayItemId": 31916,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31916 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "5deadb8c-2f6c-4290-9385-8fa32490c281",
+			"name": "Get a Swift albatross feather",
+			"tip": "Obtained as a drop from Albatross.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Swift_albatross_feather",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Swift_albatross_feather_detail.png/320px-Swift_albatross_feather_detail.png",
+			"displayItemId": 31952,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31952 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "ab247599-a55c-4fb0-bbfc-9127f3bde7aa",
+			"name": "Assemble the Medallion of the deep",
+			"tip": "Assembled from eight fragments, which are found on different islands and through different methods. Check the wiki for more information.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Medallion_of_the_deep",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Medallion_of_the_deep_detail.png/320px-Medallion_of_the_deep_detail.png",
+			"displayItemId": 32386,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 32388, 32389, 32390, 32391, 32392, 32393, 32394, 32395 ],
+				"count": 8
+			}
+		},
+		{
+			"id": "7838827a-8e44-4b39-876f-25149957bc8f",
+			"name": "Get a Sea Treasure",
+			"tip": "Obtained while sorting salvage. Each sea treasure can be found in a unique salvage type, except for the Sailors' amulet which can be found in any.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Sea_treasure",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Sailors'_amulet_(inert)_detail.png/320px-Sailors'_amulet_(inert)_detail.png",
+			"displayItemId": 32398,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 32398, 32863, 32864, 32865, 32866, 32867, 32868, 32869, 32870 ],
+				"count": 5
+			}
+		},
+		{
+			"id": "a7096674-124f-4ec6-9913-576dec586b61",
+			"name": "Get a Sea Treasure",
+			"tip": "Obtained while sorting salvage. Each sea treasure can be found in a unique salvage type, except for the Sailors' amulet which can be found in any.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Sea_treasure",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Sailors'_amulet_(inert)_detail.png/320px-Sailors'_amulet_(inert)_detail.png",
+			"displayItemId": 32398,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 32398, 32863, 32864, 32865, 32866, 32867, 32868, 32869, 32870 ],
+				"count": 6
+			}
+		},
+		{
+			"id": "5f9f93be-6e86-4dd7-8b40-0747464c6ae7",
+			"name": "Get a Squid beak",
+			"tip": "Obtained while cutting squids caught with lantern harpooning",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Squid_beak",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Squid_beak_detail.png/320px-Squid_beak_detail.png",
+			"displayItemId": 31572,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31572 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "b6b250b7-34e6-4aef-b6d9-8b4280b045fe",
+			"name": "Catch a Giant blue krill",
+			"tip": "Obtained while deep sea trawling for Giant krill.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Giant_blue_krill",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Giant_blue_krill_detail.png/320px-Giant_blue_krill_detail.png",
+			"displayItemId": 31408,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31408 ],
+				"count": 1
+			}
 		}
 	],
 	"hard": [
@@ -5455,7 +5858,7 @@
 					12653, 12655, 12816, 12921, 13177, 13178, 13179, 13181, 13225, 13247, 13262,
 					20851, 21273, 21291, 21748, 21992, 22473, 22746, 23495, 23757, 24491, 26348,
 					27352, 27590, 28246, 28248, 28250, 28252, 28801, 28960, 29836, 30152, 30154,
-					30622, 30888, 31130
+					30622, 30888, 31130, 31285
 				],
 				"count": 1
 			}
@@ -8132,6 +8535,240 @@
 				"itemIds": [ 31111, 31099, 31109, 31115, 31088 ],
 				"count": 2
 			}
+		},
+		{
+			"id": "c7215dcc-13c5-44e5-92f7-ae02954e91e1",
+			"name": "Get the next reward from The Gwenith Glide",
+			"tip": "Obtained by completing the next rank's course under the corresponding time.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/The_Gwenith_Glide",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Serrated_key_detail.png/320px-Serrated_key_detail.png",
+			"displayItemId": 31756,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31756, 31757, 31758 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "a2e1f807-809c-4c63-a86a-3110b770aa5d",
+			"name": "Get the next reward from The Gwenith Glide",
+			"tip": "Obtained by completing the next rank's course under the corresponding time.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/The_Gwenith_Glide",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Serrated_key_detail.png/320px-Serrated_key_detail.png",
+			"displayItemId": 31756,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31756, 31757, 31758 ],
+				"count": 2
+			}
+		},
+		{
+			"id": "6781ff7e-19d5-49ae-b0b7-5ade51fc6938",
+			"name": "Get the next reward from The Gwenith Glide",
+			"tip": "Obtained by completing the next rank's course under the corresponding time.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/The_Gwenith_Glide",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Serrated_key_detail.png/320px-Serrated_key_detail.png",
+			"displayItemId": 31756,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31756, 31757, 31758 ],
+				"count": 3
+			}
+		},
+		{
+			"id": "1049b6c8-4368-4ad4-aa47-a0dbdcc6a01d",
+			"name": "Get the Armadylean paint",
+			"tip": "Obtained by fully charting the Northern Ocean. Show your Captain's Log to Gerardus on Port Roberts, and trade the item you receive to Larissa for the paint.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Armadylean_paint",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Armadylean_paint_detail.png/320px-Armadylean_paint_detail.png",
+			"displayItemId": 32102,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 32102 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "06a6ff87-cd1a-4e4e-81bd-6c2cb31dfbfe",
+			"name": "Get the Guthixian paint",
+			"tip": "Obtained by fully charting the Shrouded Ocean. Show your Captain's Log to Gerardus on Port Roberts, and trade the item you receive to the Elite Void Knight for the paint.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Guthixian_paint",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Guthixian_paint_detail.png/320px-Guthixian_paint_detail.png",
+			"displayItemId": 32106,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 32106 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "0e0beed5-a5fd-4380-b46d-b8effd37463d",
+			"name": "Get the Eternal brazier schematic",
+			"tip": "Obtained from the locked lockbox on Buccaneers' Haven. The key is buried on Tear of the Soul.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Eternal_brazier_schematic",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Eternal_brazier_schematic_detail.png/320px-Eternal_brazier_schematic_detail.png",
+			"displayItemId": 32403,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 32403 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "4dcd3e06-1c39-405d-a5fd-992e3b60f6b3",
+			"name": "Get the Dragon helm schematic",
+			"tip": "Obtained from the locked lockbox on Sunbleak Island. The key is buried on Laguna Aurorae.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Dragon_helm_schematic",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dragon_helm_schematic_detail.png/320px-Dragon_helm_schematic_detail.png",
+			"displayItemId": 32409,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 32409 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "5180ff8f-97d8-4447-8ad9-a4c2984f5c5a",
+			"name": "Get the Dragon salvaging hook schematic",
+			"tip": "Obtained from the locked lockbox on Lledrith Island. The key is buried on Ynysdail.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Dragon_salvaging_hook_schematic",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dragon_salvaging_hook_schematic_detail.png/320px-Dragon_salvaging_hook_schematic_detail.png",
+			"displayItemId": 32404,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 32404 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "82a78d08-7dfe-4b99-882f-cf86ea336d4f",
+			"name": "Get the Dragon cannon schematic",
+			"tip": "Obtained from the locked lockbox on Deepfin Point. The key is buried on Buccaneers' Haven.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Dragon_cannon_schematic",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dragon_cannon_schematic_detail.png/320px-Dragon_cannon_schematic_detail.png",
+			"displayItemId": 32406,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 32406 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "3ad2a052-e9e7-495a-9d47-02e30194d8de",
+			"name": "Get some Dragon nails",
+			"tip": "Obtained as a drop from Narwhals.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Dragon_nails",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dragon_nails_detail.png/320px-Dragon_nails_detail.png",
+			"displayItemId": 31406,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31406 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "99fbd170-991a-48dc-858f-3c1bb7e63da0",
+			"name": "Get an Echo pearl",
+			"tip": "Obtained as a drop from Dolphins.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Echo_pearl",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Echo_pearl_detail.png/320px-Echo_pearl_detail.png",
+			"displayItemId": 31946,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31946 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "051b908c-c675-4946-a508-1816cb35022c",
+			"name": "Get a Narwhal horn",
+			"tip": "Obtained as a drop from Narwhals.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Narwhal_horn",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Narwhal_horn_detail.png/320px-Narwhal_horn_detail.png",
+			"displayItemId": 31954,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31954 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "b5278998-7a38-4f11-a816-0cd3256cfbcc",
+			"name": "Get a Broken dragon hook",
+			"tip": "Obtained as a drop from Great White Sharks.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Broken_dragon_hook",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Broken_dragon_hook_detail.png/320px-Broken_dragon_hook_detail.png",
+			"displayItemId": 31961,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31961 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "3d46da29-1604-4847-b084-9f7a7629d803",
+			"name": "Get a Sea Treasure",
+			"tip": "Obtained while sorting salvage. Each sea treasure can be found in a unique salvage type, except for the Sailors' amulet which can be found in any.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Sea_treasure",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Sailors'_amulet_(inert)_detail.png/320px-Sailors'_amulet_(inert)_detail.png",
+			"displayItemId": 32398,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 32398, 32863, 32864, 32865, 32866, 32867, 32868, 32869, 32870 ],
+				"count": 7
+			}
+		},
+		{
+			"id": "9f9ee429-2271-432c-ae0c-bbe0b01321da",
+			"name": "Get an Aquanite tendon",
+			"tip": "Obtained as a drop from Aquanites; being on a slayer task significantly improves the drop rate.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Aquanite_tendon",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Aquanite_tendon_detail.png/320px-Aquanite_tendon_detail.png",
+			"displayItemId": 32876,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 32876 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "7d0e1c12-26df-44d2-af93-544302152393",
+			"name": "Catch a Golden haddock",
+			"tip": "Obtained while deep sea trawling for Haddock.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Golden_haddock",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Golden_haddock_detail.png/320px-Golden_haddock_detail.png",
+			"displayItemId": 31412,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31412 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "f5575959-0ffa-4aa1-a6a6-eb39168ff831",
+			"name": "Catch an Orangefin",
+			"tip": "Obtained while deep sea trawling for Yellowfin.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Orangefin",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Orangefin_detail.png/320px-Orangefin_detail.png",
+			"displayItemId": 31416,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31416 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "ec9b47be-3655-4f9e-b9a2-444ff3456293",
+			"name": "Catch a Huge halibut",
+			"tip": "Obtained while deep sea trawling for Halibut",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Huge_halibut",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Huge_halibut_detail.png/320px-Huge_halibut_detail.png",
+			"displayItemId": 31420,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31420 ],
+				"count": 1
+			}
 		}
 	],
 	"elite": [
@@ -8675,7 +9312,7 @@
 					12653, 12655, 12816, 12921, 13177, 13178, 13179, 13181, 13225, 13247, 13262,
 					20851, 21273, 21291, 21748, 21992, 22473, 22746, 23495, 23757, 24491, 26348,
 					27352, 27590, 28246, 28248, 28250, 28252, 28801, 28960, 29836, 30152, 30154,
-					30622, 30888, 31130
+					30622, 30888, 31130, 31285
 				],
 				"count": 2
 			}
@@ -8694,7 +9331,7 @@
 					12653, 12655, 12816, 12921, 13177, 13178, 13179, 13181, 13225, 13247, 13262,
 					20851, 21273, 21291, 21748, 21992, 22473, 22746, 23495, 23757, 24491, 26348,
 					27352, 27590, 28246, 28248, 28250, 28252, 28801, 28960, 29836, 30152, 30154,
-					30622, 30888
+					30622, 30888, 31130, 31285
 				],
 				"count": 3
 			}
@@ -11489,6 +12126,136 @@
 				"itemIds": [ 31111, 31099, 31109, 31115, 31088 ],
 				"count": 4
 			}
+		},
+		{
+			"id": "23dbabbb-6778-4d25-875c-f35499d58b65",
+			"name": "Get the Barracuda paint",
+			"tip": "Can be obtained by achieving Marlin rank time at any Barracuda trial.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Barracuda_paint",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Barracuda_paint_detail.png/320px-Barracuda_paint_detail.png",
+			"displayItemId": 32087,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 32087 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "6c529085-f58f-4311-bf83-80468ee2dfe9",
+			"name": "Get the Inky paint",
+			"tip": "Can be rarely obtained from sailing krakens.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Inky_paint",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Inky_paint_detail.png/320px-Inky_paint_detail.png",
+			"displayItemId": 32093,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 32093 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "e85538a2-4c04-4736-b4f0-c6cc96506d33",
+			"name": "Get the Rosewood & cotton sails schematic",
+			"tip": "Obtained from the locked lockbox on Brittle Isle. The key is buried on Charred Island.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Rosewood_&_cotton_sails_schematic",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Rosewood_&_cotton_sails_schematic_detail.png/320px-Rosewood_&_cotton_sails_schematic_detail.png",
+			"displayItemId": 32408,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 32408 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "3fd9a26f-9cd1-46a2-9d1a-f460387e98f9",
+			"name": "Get the Dragon keel schematic",
+			"tip": "Obtained from the locked lockbox on Grimstone. The key is buried on Drumstick Isle.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Dragon_keel_schematic",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dragon_keel_schematic_detail.png/320px-Dragon_keel_schematic_detail.png",
+			"displayItemId": 32410,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 32410 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "7344d43a-dac1-4fbb-bdba-ce2bc37aa417",
+			"name": "Get a Bottled storm",
+			"tip": "Obtained as a drop from Armoured and Vampyre Krakens.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Bottled_storm",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Bottled_storm_detail.png/320px-Bottled_storm_detail.png",
+			"displayItemId": 31949,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31949 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "80227b8c-1983-4102-9b0f-170a2a40f152",
+			"name": "Get a Dragon cannon barrel",
+			"tip": "Obtained as a very rare drop from Merchant shipwrecks.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Dragon_cannon_barrel",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dragon_cannon_barrel_detail.png/320px-Dragon_cannon_barrel_detail.png",
+			"displayItemId": 32115,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 32115 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "dd768477-d668-4df2-a44e-73f7df214923",
+			"name": "Get a Sea Treasure",
+			"tip": "Obtained while sorting salvage. Each sea treasure can be found in a unique salvage type, except for the Sailors' amulet which can be found in any.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Sea_treasure",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Sailors'_amulet_(inert)_detail.png/320px-Sailors'_amulet_(inert)_detail.png",
+			"displayItemId": 32398,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 32398, 32863, 32864, 32865, 32866, 32867, 32868, 32869, 32870 ],
+				"count": 8
+			}
+		},
+		{
+			"id": "173a1455-d8fe-46aa-a891-2854995015c1",
+			"name": "Get a Sea Treasure",
+			"tip": "Obtained while sorting salvage. Each sea treasure can be found in a unique salvage type, except for the Sailors' amulet which can be found in any.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Sea_treasure",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Sailors'_amulet_(inert)_detail.png/320px-Sailors'_amulet_(inert)_detail.png",
+			"displayItemId": 32398,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 32398, 32863, 32864, 32865, 32866, 32867, 32868, 32869, 32870 ],
+				"count": 9
+			}
+		},
+		{
+			"id": "e1326b1f-e4c3-44a5-a4b9-4f22172149ec",
+			"name": "Catch a Purplefin",
+			"tip": "Obtained while deep sea trawling for Bluefin",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Purplefin",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Purplefin_detail.png/320px-Purplefin_detail.png",
+			"displayItemId": 31424,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31424 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "cf84ac1b-1ee2-40de-8e04-ad0e0bf7642c",
+			"name": "Catch a Swift marlin",
+			"tip": "Obtained while deep sea trawling for Marlin",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Swift_marlin",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Swift_marlin_detail.png/320px-Swift_marlin_detail.png",
+			"displayItemId": 31428,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31428 ],
+				"count": 1
+			}
 		}
 	],
 	"master": [
@@ -12308,7 +13075,8 @@
 					12816, 12650, 12652, 12655, 12649, 12648, 12921, 12651, 12653, 13181, 28801,
 					21273, 23495, 13225, 27352, 13177, 13179, 21992, 28960, 30622, 28250, 28252,
 					28246, 28248, 30888, 23760, 23757, 12007, 12885, 12936, 13245, 13277, 19701,
-					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130
+					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130, 31285,
+					32921, 31285, 32921
 				],
 				"count": 5
 			}
@@ -12328,7 +13096,8 @@
 					12816, 12650, 12652, 12655, 12649, 12648, 12921, 12651, 12653, 13181, 28801,
 					21273, 23495, 13225, 27352, 13177, 13179, 21992, 28960, 30622, 28250, 28252,
 					28246, 28248, 30888, 23760, 23757, 12007, 12885, 12936, 13245, 13277, 19701,
-					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130
+					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130, 31285,
+					32921
 				],
 				"count": 6
 			}
@@ -12348,7 +13117,8 @@
 					12816, 12650, 12652, 12655, 12649, 12648, 12921, 12651, 12653, 13181, 28801,
 					21273, 23495, 13225, 27352, 13177, 13179, 21992, 28960, 30622, 28250, 28252,
 					28246, 28248, 30888, 23760, 23757, 12007, 12885, 12936, 13245, 13277, 19701,
-					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130
+					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130, 31285,
+					32921
 				],
 				"count": 7
 			}
@@ -12368,7 +13138,8 @@
 					12816, 12650, 12652, 12655, 12649, 12648, 12921, 12651, 12653, 13181, 28801,
 					21273, 23495, 13225, 27352, 13177, 13179, 21992, 28960, 30622, 28250, 28252,
 					28246, 28248, 30888, 23760, 23757, 12007, 12885, 12936, 13245, 13277, 19701,
-					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130
+					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130, 31285,
+					32921
 				],
 				"count": 8
 			}
@@ -12388,7 +13159,8 @@
 					12816, 12650, 12652, 12655, 12649, 12648, 12921, 12651, 12653, 13181, 28801,
 					21273, 23495, 13225, 27352, 13177, 13179, 21992, 28960, 30622, 28250, 28252,
 					28246, 28248, 30888, 23760, 23757, 12007, 12885, 12936, 13245, 13277, 19701,
-					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130
+					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130, 31285,
+					32921
 				],
 				"count": 9
 			}
@@ -12408,7 +13180,8 @@
 					12816, 12650, 12652, 12655, 12649, 12648, 12921, 12651, 12653, 13181, 28801,
 					21273, 23495, 13225, 27352, 13177, 13179, 21992, 28960, 30622, 28250, 28252,
 					28246, 28248, 30888, 23760, 23757, 12007, 12885, 12936, 13245, 13277, 19701,
-					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130
+					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130, 31285,
+					32921
 				],
 				"count": 10
 			}
@@ -12428,7 +13201,8 @@
 					12816, 12650, 12652, 12655, 12649, 12648, 12921, 12651, 12653, 13181, 28801,
 					21273, 23495, 13225, 27352, 13177, 13179, 21992, 28960, 30622, 28250, 28252,
 					28246, 28248, 30888, 23760, 23757, 12007, 12885, 12936, 13245, 13277, 19701,
-					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130
+					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130, 31285,
+					32921
 				],
 				"count": 11
 			}
@@ -12448,7 +13222,8 @@
 					12816, 12650, 12652, 12655, 12649, 12648, 12921, 12651, 12653, 13181, 28801,
 					21273, 23495, 13225, 27352, 13177, 13179, 21992, 28960, 30622, 28250, 28252,
 					28246, 28248, 30888, 23760, 23757, 12007, 12885, 12936, 13245, 13277, 19701,
-					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130
+					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130, 31285,
+					32921
 				],
 				"count": 12
 			}
@@ -12468,7 +13243,8 @@
 					12816, 12650, 12652, 12655, 12649, 12648, 12921, 12651, 12653, 13181, 28801,
 					21273, 23495, 13225, 27352, 13177, 13179, 21992, 28960, 30622, 28250, 28252,
 					28246, 28248, 30888, 23760, 23757, 12007, 12885, 12936, 13245, 13277, 19701,
-					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130
+					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130, 31285,
+					32921
 				],
 				"count": 13
 			}
@@ -12488,7 +13264,8 @@
 					12816, 12650, 12652, 12655, 12649, 12648, 12921, 12651, 12653, 13181, 28801,
 					21273, 23495, 13225, 27352, 13177, 13179, 21992, 28960, 30622, 28250, 28252,
 					28246, 28248, 30888, 23760, 23757, 12007, 12885, 12936, 13245, 13277, 19701,
-					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130
+					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130, 31285,
+					32921
 				],
 				"count": 14
 			}
@@ -12508,7 +13285,8 @@
 					12816, 12650, 12652, 12655, 12649, 12648, 12921, 12651, 12653, 13181, 28801,
 					21273, 23495, 13225, 27352, 13177, 13179, 21992, 28960, 30622, 28250, 28252,
 					28246, 28248, 30888, 23760, 23757, 12007, 12885, 12936, 13245, 13277, 19701,
-					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130
+					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130, 31285,
+					32921
 				],
 				"count": 15
 			}
@@ -12528,7 +13306,8 @@
 					12816, 12650, 12652, 12655, 12649, 12648, 12921, 12651, 12653, 13181, 28801,
 					21273, 23495, 13225, 27352, 13177, 13179, 21992, 28960, 30622, 28250, 28252,
 					28246, 28248, 30888, 23760, 23757, 12007, 12885, 12936, 13245, 13277, 19701,
-					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130
+					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130, 31285,
+					32921
 				],
 				"count": 16
 			}
@@ -12548,7 +13327,8 @@
 					12816, 12650, 12652, 12655, 12649, 12648, 12921, 12651, 12653, 13181, 28801,
 					21273, 23495, 13225, 27352, 13177, 13179, 21992, 28960, 30622, 28250, 28252,
 					28246, 28248, 30888, 23760, 23757, 12007, 12885, 12936, 13245, 13277, 19701,
-					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130
+					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130, 31285,
+					32921
 				],
 				"count": 17
 			}
@@ -12568,7 +13348,8 @@
 					12816, 12650, 12652, 12655, 12649, 12648, 12921, 12651, 12653, 13181, 28801,
 					21273, 23495, 13225, 27352, 13177, 13179, 21992, 28960, 30622, 28250, 28252,
 					28246, 28248, 30888, 23760, 23757, 12007, 12885, 12936, 13245, 13277, 19701,
-					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130
+					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130, 31285,
+					32921
 				],
 				"count": 18
 			}
@@ -12588,7 +13369,8 @@
 					12816, 12650, 12652, 12655, 12649, 12648, 12921, 12651, 12653, 13181, 28801,
 					21273, 23495, 13225, 27352, 13177, 13179, 21992, 28960, 30622, 28250, 28252,
 					28246, 28248, 30888, 23760, 23757, 12007, 12885, 12936, 13245, 13277, 19701,
-					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130
+					21745, 22106, 23064, 23525, 24495, 25521, 25524, 29786, 23760, 31130, 31285,
+					32921
 				],
 				"count": 19
 			}
@@ -13642,6 +14424,44 @@
 			}
 		},
 		{
+			"id": "744cd2a7-5ecd-4298-9ee3-0f72b3fceb4d",
+			"name": "Get a level 99",
+			"tip": "Ok it's grind time!",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Skills",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Max_cape_detail.png/124px-Max_cape_detail.png",
+			"displayItemId": 13280,
+			"verification": {
+				"method": "skill",
+				"experience": {
+					"attack"      : 13034431,
+					"strength"    : 13034431,
+					"defence"     : 13034431,
+					"ranged"      : 13034431,
+					"prayer"      : 13034431,
+					"magic"       : 13034431,
+					"runecraft"   : 13034431,
+					"hitpoints"   : 13034431,
+					"crafting"    : 13034431,
+					"mining"      : 13034431,
+					"smithing"    : 13034431,
+					"fishing"     : 13034431,
+					"cooking"     : 13034431,
+					"firemaking"  : 13034431,
+					"woodcutting" : 13034431,
+					"agility"     : 13034431,
+					"herblore"    : 13034431,
+					"thieving"    : 13034431,
+					"fletching"   : 13034431,
+					"slayer"      : 13034431,
+					"farming"     : 13034431,
+					"construction": 13034431,
+					"hunter"      : 13034431,
+					"sailing"     : 13034431
+				},
+				"count": 17
+			}
+		},
+		{
 			"id": "ef6ad784-9b0f-490d-813c-6256089e3653",
 			"name": "Master tier Combat Achievements",
 			"tip": "Master tier Combat Achievements",
@@ -13917,6 +14737,19 @@
 				"method": "collection-log",
 				"itemIds": [ 31111, 31099, 31109, 31115, 31088 ],
 				"count": 5
+			}
+		},
+		{
+			"id": "5d089860-d548-4305-9f46-aeb8a0292bb4",
+			"name": "Get the Salvor's paint",
+			"tip": "Can be very rarely obtained while salvaging mercenary shipwrecks.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Salvor's_paint",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Salvor's_paint_detail.png/320px-Salvor's_paint_detail.png",
+			"displayItemId": 32099,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 32099 ],
+				"count": 1
 			}
 		}
 	]
