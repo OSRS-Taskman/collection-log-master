@@ -82,7 +82,6 @@ processResources {
     }
 }
 
-// avoids requiring to whitelist spotless in plugin hub
 if (gradle.startParameter.taskNames.any { it.contains('spotless') }) {
     apply plugin: 'com.diffplug.spotless'
     spotless {
@@ -116,7 +115,7 @@ if (gradle.startParameter.taskNames.any { it.contains('spotless') }) {
 
         json {
             target 'src/**/*.json'
-            targetExclude 'src/main/resources/com/collectionlogmaster/task-list.json'
+            targetExclude 'src/main/resources/**/task-list.json'
             gson()
         }
     }
