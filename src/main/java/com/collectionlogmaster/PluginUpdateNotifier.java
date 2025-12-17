@@ -23,7 +23,8 @@ import net.runelite.client.eventbus.Subscribe;
 public class PluginUpdateNotifier extends EventBusSubscriber {
 	private static final String[] UPDATE_MESSAGES = {
 			"<colHIGHLIGHT>Collection Log Master updated to v" + getPluginVersion(),
-			"<colHIGHLIGHT>- Rewritten entire interface code; now supports resource packs",
+			"<colHIGHLIGHT>- Fixed issue with disabling LMS tasks while a LMS task is active",
+			"<colHIGHLIGHT>- Fixed issue overlay not being shown under some circumstances",
 	};
 
 	@Inject
