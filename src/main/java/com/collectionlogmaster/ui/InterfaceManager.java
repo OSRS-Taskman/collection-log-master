@@ -5,6 +5,7 @@ import com.collectionlogmaster.ui.component.MainTabbedContainer;
 import com.collectionlogmaster.ui.component.MenuManager;
 import com.collectionlogmaster.ui.component.TaskInfo;
 import com.collectionlogmaster.ui.sprites.SpriteManager;
+import com.collectionlogmaster.ui.state.StateStore;
 import com.collectionlogmaster.util.EventBusSubscriber;
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -32,6 +33,9 @@ public class InterfaceManager extends EventBusSubscriber {
 
 	@Inject
 	private MenuManager menuManager;
+
+	@Inject
+	private StateStore stateStore;
 
 	private MainTabbedContainer container = null;
 
@@ -146,5 +150,7 @@ public class InterfaceManager extends EventBusSubscriber {
 			taskInfo.close();
 		}
 		taskInfo = null;
+
+		stateStore.setDashboardEnabled(false);
 	}
 }
