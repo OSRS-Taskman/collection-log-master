@@ -20,6 +20,8 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
+import net.runelite.client.eventbus.Subscribe;
+import net.runelite.client.events.ConfigChanged;
 import org.jetbrains.annotations.Range;
 
 @Singleton
@@ -49,6 +51,25 @@ public class TaskService extends EventBusSubscriber {
 		saveDataStorage.shutDown();
 	}
 
+	@Subscribe
+	public void onConfigChanged(ConfigChanged e) {
+		if (!e.getGroup().equals(CollectionLogMasterConfig.CONFIG_GROUP)) {
+			return;
+		}
+
+		if (!e.getKey().equals(CollectionLogMasterConfig.IS_LMS_ENABLED_KEY)) {
+			return;
+		}
+
+		if (!config.isLMSEnabled()) {
+			Task activeTask = getActiveTask();
+			if (activeTask != null && activeTask.isLMS()) {
+				saveDataStorage.get().setActiveTaskId(null);
+				saveDataStorage.save();
+			}
+		}
+	}
+
 	public Task getActiveTask() {
 		String activeTaskId = saveDataStorage.get().getActiveTaskId();
 
@@ -58,7 +79,7 @@ public class TaskService extends EventBusSubscriber {
 	// we might want to build a cache map in the future
 	public Task getTaskById(String taskId) {
 		for (TaskTier t : TaskTier.values()) {
-			List<Task> tasks = getTierTasks(t);
+			List<Task> tasks = getTierTasks(t, true);
 			for (Task task : tasks) {
 				if (task.getId().equals(taskId)) {
 					return task;
@@ -83,9 +104,13 @@ public class TaskService extends EventBusSubscriber {
 	}
 
 	public List<Task> getTierTasks(TaskTier tier) {
+		return getTierTasks(tier, false);
+	}
+
+	public List<Task> getTierTasks(TaskTier tier, boolean skipLMSCheck) {
 		List<Task> tierTasks = taskListStorage.get().getForTier(tier);
 
-		if (!config.isLMSEnabled()) {
+		if (!skipLMSCheck && !config.isLMSEnabled()) {
 			return filterTag(tierTasks, Tag.LMS);
 		}
 
