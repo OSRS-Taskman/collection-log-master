@@ -1,107 +1,107 @@
 package com.collectionlogmaster;
 
+import static com.collectionlogmaster.CollectionLogMasterConfig.CONFIG_GROUP;
+
 import com.collectionlogmaster.domain.DynamicTaskImages;
 import com.collectionlogmaster.domain.TaskTier;
 import net.runelite.client.config.*;
 
-import static com.collectionlogmaster.CollectionLogMasterConfig.CONFIG_GROUP;
-
 @ConfigGroup(CONFIG_GROUP)
 public interface CollectionLogMasterConfig extends Config
 {
-    String CONFIG_GROUP = "collection-log-master";
+	String CONFIG_GROUP = "collection-log-master";
 
-    String PLUGIN_VERSION_KEY = "plugin-version";
-    String IS_LMS_ENABLED_KEY = "isLMSEnabled";
-    String IS_COMMAND_ENABLED_KEY = "isCommandEnabled";
+	String PLUGIN_VERSION_KEY = "plugin-version";
+	String IS_LMS_ENABLED_KEY = "isLMSEnabled";
+	String IS_COMMAND_ENABLED_KEY = "isCommandEnabled";
 
-    @Range(
-            min = 1000,
-            max = 10000
-    )
-    @Units(Units.MILLISECONDS)
-    @ConfigItem(
-            keyName = "rollTime",
-            name = "Roll Time",
-            description = "How long new tasks will take to roll",
-            position = 1
-    )
-    default int rollTime()
-    {
-        return 5000;
-    }
+	@Range(
+			min = 1000,
+			max = 10000
+	)
+	@Units(Units.MILLISECONDS)
+	@ConfigItem(
+			keyName = "rollTime",
+			name = "Roll Time",
+			description = "How long new tasks will take to roll",
+			position = 1
+	)
+	default int rollTime()
+	{
+		return 5000;
+	}
 
-    @ConfigItem(
-            keyName = "rollPastCompleted",
-            name = "Roll past completed",
-            description = "When rolling tasks, include those you've already completed in the roll animation. Helpful when you're getting to the end of a tier!",
-            position = 2
-    )
-    default boolean rollPastCompleted()
-    {
-        return false;
-    }
+	@ConfigItem(
+			keyName = "rollPastCompleted",
+			name = "Roll past completed",
+			description = "When rolling tasks, include those you've already completed in the roll animation. Helpful when you're getting to the end of a tier!",
+			position = 2
+	)
+	default boolean rollPastCompleted()
+	{
+		return false;
+	}
 
-    @ConfigItem(
-            keyName = "hideBelow",
-            name = "Hide Tasks Below",
-            description = "Disabled the showing up/assigning of tasks at or below the specified tier",
-            position = 3
-    )
-    default TaskTier hideBelow()
-    {
-        return TaskTier.EASY;
-    }
+	@ConfigItem(
+			keyName = "hideBelow",
+			name = "Hide Tasks Below",
+			description = "Disabled the showing up/assigning of tasks at or below the specified tier",
+			position = 3
+	)
+	default TaskTier hideBelow()
+	{
+		return TaskTier.EASY;
+	}
 
-    @ConfigItem(
-            keyName = "displayCurrentTaskOverlay",
-            name = "Display current task overlay",
-            description = "Enable an overlay showing the currently assigned task (when one exists)",
-            position = 5
-    )
-    default boolean displayCurrentTaskOverlay()
-    {
-        return true;
-    }
+	@ConfigItem(
+			keyName = "displayCurrentTaskOverlay",
+			name = "Display current task overlay",
+			description = "Enable an overlay showing the currently assigned task (when one exists)",
+			position = 5
+	)
+	default boolean displayCurrentTaskOverlay()
+	{
+		return true;
+	}
 
-    @ConfigItem(
-            keyName = "dynamicTaskImages",
-            name = "Dynamic task images",
-            description = "Display dynamic task images based on required/acquired items",
-            position = 6
-    )
-    default DynamicTaskImages dynamicTaskImages()
-    {
-        return DynamicTaskImages.COMPLETE;
-    }
+	@ConfigItem(
+			keyName = "dynamicTaskImages",
+			name = "Dynamic task images",
+			description = "Display dynamic task images based on required/acquired items",
+			position = 6
+	)
+	default DynamicTaskImages dynamicTaskImages()
+	{
+		return DynamicTaskImages.COMPLETE;
+	}
 
-    @ConfigItem(
-            keyName = IS_LMS_ENABLED_KEY,
-            name = "Enable LMS tasks",
-            description = "Whether to include LMS tasks in the list.",
-            position = 7
-    )
-    default boolean isLMSEnabled()
-    {
-        return true;
-    }
+	@ConfigItem(
+			keyName = IS_LMS_ENABLED_KEY,
+			name = "Enable LMS tasks",
+			description = "Whether to include LMS tasks in the list.",
+			position = 7
+	)
+	default boolean isLMSEnabled()
+	{
+		return true;
+	}
 
-    @ConfigSection(
-            name = "!taskman Command",
-            description = "Configuration options for the !taskman command",
-            position = 8
-    )
-    String command = "command";
+	@ConfigSection(
+			name = "!taskman Command",
+			description = "Configuration options for the !taskman command",
+			position = 8
+	)
+	String command = "command";
 
-    @ConfigItem(
-            keyName = IS_COMMAND_ENABLED_KEY,
-            name = "Enable command",
-            description = "When you or others type !taskman in the chat, it will be replaced by your current task status",
-            section = command,
-            position = 0
-    )
-    default boolean isCommandEnabled()
-    {
-        return true;
-    }
+	@ConfigItem(
+			keyName = IS_COMMAND_ENABLED_KEY,
+			name = "Enable command",
+			description = "When you or others type !taskman in the chat, it will be replaced by your current task status",
+			section = command,
+			position = 0
+	)
+	default boolean isCommandEnabled()
+	{
+		return true;
+	}
 }
