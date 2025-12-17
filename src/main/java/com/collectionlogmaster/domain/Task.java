@@ -25,4 +25,8 @@ public class Task {
 
         return tags;
     }
+
+    public boolean isLMS() {
+        return getTags().contains(Tag.LMS);
+    }
 }

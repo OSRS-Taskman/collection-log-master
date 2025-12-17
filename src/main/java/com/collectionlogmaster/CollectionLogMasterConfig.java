@@ -12,6 +12,7 @@ public interface CollectionLogMasterConfig extends Config
     String CONFIG_GROUP = "collection-log-master";
 
     String PLUGIN_VERSION_KEY = "plugin-version";
+    String IS_LMS_ENABLED_KEY = "isLMSEnabled";
     String IS_COMMAND_ENABLED_KEY = "isCommandEnabled";
 
     @Range(
@@ -75,7 +76,7 @@ public interface CollectionLogMasterConfig extends Config
     }
 
     @ConfigItem(
-            keyName = "isLMSEnabled",
+            keyName = IS_LMS_ENABLED_KEY,
             name = "Enable LMS tasks",
             description = "Whether to include LMS tasks in the list.",
             position = 7
