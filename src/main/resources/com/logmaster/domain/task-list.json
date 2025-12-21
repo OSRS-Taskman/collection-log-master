@@ -5820,7 +5820,7 @@
 		},
 		{
 			"id": "0a0bb681-bc2f-4f79-a884-c4ec2e962fd7",
-			"name": "Get a unique shard 1",
+			"name": "Get 1 unique shard from Chaos Fanatic",
 			"tip": "Received as a drop from the Chaos Fanatic.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Chaos_Fanatic",
 			"imageLink": "https://oldschool.runescape.wiki/images/f/ff/Odium_shard_1.png",
@@ -5833,8 +5833,8 @@
 		},
 		{
 			"id": "17d6fa60-2dec-4fef-906a-f54484dfd937",
-			"name": "Get a unique shard 1",
-			"tip": "Received as a drop from the Chaos Fanatic",
+			"name": "Get 1 unique shard from Chaos Fanatic",
+			"tip": "Received as a drop from the Chaos Fanatic.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Chaos_Fanatic",
 			"imageLink": "https://oldschool.runescape.wiki/images/f/ff/Odium_shard_1.png",
 			"displayItemId": 11928,
@@ -6105,8 +6105,8 @@
 		},
 		{
 			"id": "1ce7abb3-ab35-4164-a297-1e666220c3d0",
-			"name": "Get a unique shard 3",
-			"tip": "Received as a drop from the Scorpia boss.",
+			"name": "Get 1 unique shard from Scorpia",
+			"tip": "Received as a drop from Scorpia.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Scorpia",
 			"imageLink": "https://oldschool.runescape.wiki/images/3/37/Odium_shard_3.png",
 			"displayItemId": 11930,
@@ -6118,8 +6118,8 @@
 		},
 		{
 			"id": "d9a2e3ab-138d-4ec2-abc5-846171d6f9cd",
-			"name": "Get a unique shard 3",
-			"tip": "Received as a drop from the Scorpia boss.",
+			"name": "Get 1 unique shard from Scorpia",
+			"tip": "Received as a drop from Scorpia.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Scorpia",
 			"imageLink": "https://oldschool.runescape.wiki/images/3/37/Odium_shard_3.png",
 			"displayItemId": 11930,
