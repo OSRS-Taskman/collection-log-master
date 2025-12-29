@@ -7496,7 +7496,7 @@
 		{
 			"id": "36137e21-5010-4760-9df0-cdf25ef34d9c",
 			"name": "Get an Enhanced crystal teleport seed",
-			"tip": "Can be received as a drop whilst pick pocketing Elves in Prifddinas.",
+			"tip": "Can be received as a drop from Iorwerth Warriors in the Iorwerth Dungeon. Alternatively, if already 85 thieving, can be pick pocketed from Elves in Priffdinas.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Enhanced_crystal_teleport_seed",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/5/54/Enhanced_crystal_teleport_seed_detail.png/80px-Enhanced_crystal_teleport_seed_detail.png",
 			"displayItemId": 23959,
@@ -8669,7 +8669,7 @@
 		{
 			"id": "99fbd170-991a-48dc-858f-3c1bb7e63da0",
 			"name": "Get an Echo pearl",
-			"tip": "Obtained as a drop from Dolphins.",
+			"tip": "Obtained as a drop from Orcas, which can be safespotted.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Echo_pearl",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Echo_pearl_detail.png/320px-Echo_pearl_detail.png",
 			"displayItemId": 31946,
