@@ -6755,19 +6755,6 @@
 			}
 		},
 		{
-			"id": "f496e5d7-722f-4ef5-bb5e-d1b88a7b1555",
-			"name": "Get 1 new halo",
-			"tip": "Can be purchased as a reward from the Castle Wars minigame. Playing on official worlds is recommended, as you get about the same amount of tickets in addition to other resources. Alternatively, you may play with an alt account (works in F2P) for complete AFK.",
-			"wikiLink": "https://oldschool.runescape.wiki/w/Castle_Wars",
-			"imageLink": "https://oldschool.runescape.wiki/images/6/67/Saradomin_halo.png",
-			"displayItemId": 12637,
-			"verification": {
-				"method": "collection-log",
-				"itemIds": [ 12637, 12638, 12639 ],
-				"count": 3
-			}
-		},
-		{
 			"id": "4136c505-f687-4687-9e3b-de149b29f7c4",
 			"name": "Get 1 new unique from Gnome Restaurant",
 			"tip": "Potential reward from the Gnome Restaurant minigame. Last one yay!",
@@ -10602,6 +10589,19 @@
 				"method": "collection-log",
 				"itemIds": [ 11892 ],
 				"count": 1
+			}
+		},
+		{
+			"id": "f496e5d7-722f-4ef5-bb5e-d1b88a7b1555",
+			"name": "Get 1 new halo",
+			"tip": "Can be purchased as a reward from the Castle Wars minigame. Playing on official worlds is recommended, as you get about the same amount of tickets in addition to other resources. Alternatively, you may play with an alt account (works in F2P) for complete AFK.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Castle_Wars",
+			"imageLink": "https://oldschool.runescape.wiki/images/6/67/Saradomin_halo.png",
+			"displayItemId": 12637,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 12637, 12638, 12639 ],
+				"count": 3
 			}
 		},
 		{
