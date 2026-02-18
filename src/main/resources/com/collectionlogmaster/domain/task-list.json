@@ -5359,6 +5359,19 @@
 				"itemIds": [ 31408 ],
 				"count": 1
 			}
+		},
+		{
+			"id": "ccabe194-35db-4e30-8dda-b1c66382805a",
+			"name": "Get a Facility bottle",
+			"tip": "Obtained while sorting Large, Plundered, Martial, Fremennik and Opulent salvages.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Facility_bottle",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Facility_bottle_detail.png/320px-Facility_bottle_detail.png",
+			"displayItemId": 33077,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 33074 ],
+				"count": 1
+			}
 		}
 	],
 	"hard": [
