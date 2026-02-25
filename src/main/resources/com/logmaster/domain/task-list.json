@@ -2505,6 +2505,45 @@
 				"itemIds": [ 32398, 32863, 32864, 32865, 32866, 32867, 32868, 32869, 32870 ],
 				"count": 4
 			}
+		},
+		{
+			"id": "37a47530-6b37-4a59-b2b2-953987f96c1c",
+			"name": "Get 1 unique from Brutus",
+			"tip": "Can be received as a drop from Brutus. Unlocked after completing the Ides of Milk. Moooo",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Brutus",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Mooleta_detail.png/320px-Mooleta_detail.png",
+			"displayItemId": 33101,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 33101, 33091, 33093 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "68fd60c9-2903-48d1-abad-bc963e9a4081",
+			"name": "Get 1 unique from Brutus",
+			"tip": "Can be received as a drop from Brutus. Unlocked after completing the Ides of Milk. Moooo",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Brutus",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Mooleta_detail.png/320px-Mooleta_detail.png",
+			"displayItemId": 33101,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 33101, 33091, 33093 ],
+				"count": 2
+			}
+		},
+		{
+			"id": "4e0db17e-f799-42cb-b7be-9b6870c99527",
+			"name": "Get 1 unique from Brutus",
+			"tip": "Can be received as a drop from Brutus. Unlocked after completing the Ides of Milk. Moooo",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Brutus",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Mooleta_detail.png/320px-Mooleta_detail.png",
+			"displayItemId": 33101,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 33101, 33091, 33093 ],
+				"count": 3
+			}
 		}
 	],
 	"medium": [
