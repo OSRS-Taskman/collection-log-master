@@ -4265,15 +4265,28 @@
 		},
 		{
 			"id": "77c2f0db-7e25-4396-a0e0-19d3c49b2ea6",
-			"name": "Get a Giant egg sac(full)",
+			"name": "Get 1 unique from Sarachnis",
 			"tip": "Can be received as a drop from Sarachnis.",
-			"wikiLink": "https://oldschool.runescape.wiki/w/Giant_egg_sac",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/6/68/Giant_egg_sac(full)_detail.png/150px-Giant_egg_sac(full)_detail.png",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Sarachnis",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Giant_egg_sac(full)_detail.png/320px-Giant_egg_sac(full)_detail.png",
 			"displayItemId": 23517,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 23517 ],
+				"itemIds": [ 23517, 33133, 23528 ],
 				"count": 1
+			}
+		},
+		{
+			"id": "c4d502d5-4857-452c-9df3-803aa8bbe6f4",
+			"name": "Get 1 unique from Sarachnis",
+			"tip": "Can be received as a drop from the Sarachnis boss.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Sarachnis",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Giant_egg_sac(full)_detail.png/320px-Giant_egg_sac(full)_detail.png",
+			"displayItemId": 23517,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 23517, 33133, 23528 ],
+				"count": 2
 			}
 		},
 		{
@@ -7500,16 +7513,16 @@
 			}
 		},
 		{
-			"id": "c4d502d5-4857-452c-9df3-803aa8bbe6f4",
-			"name": "Get a Sarachnis Cudgel",
+			"id": "590f82c0-944f-4b54-b119-3beb6d2da7c9",
+			"name": "Get 1 unique from Sarachnis",
 			"tip": "Can be received as a drop from the Sarachnis boss. You can't make me go back to that hellish boss.",
-			"wikiLink": "https://oldschool.runescape.wiki/w/Sarachnis_cudgel",
-			"imageLink": "https://oldschool.runescape.wiki/images/2/20/Sarachnis_cudgel.png",
-			"displayItemId": 23528,
+			"wikiLink": "https://oldschool.runescape.wiki/w/Sarachnis",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Giant_egg_sac(full)_detail.png/320px-Giant_egg_sac(full)_detail.png",
+			"displayItemId": 23517,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 23528 ],
-				"count": 1
+				"itemIds": [ 23517, 33133, 23528 ],
+				"count": 3
 			}
 		},
 		{
