@@ -2429,6 +2429,19 @@
 			}
 		},
 		{
+			"id": "882891b2-149f-4994-9c75-8c2efe5b02b9",
+			"name": "Get the Ballistic attractor schematic",
+			"tip": "Obtained by talking to Ava after completion of Animal Magnetism. Back in my day piss gems didn't have Ava's...",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Ballistic_attractor_schematic",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Ballistic_attractor_schematic_detail.png/320px-Ballistic_attractor_schematic_detail.png",
+			"displayItemId": 33143,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 33143 ],
+				"count": 1
+			}
+		},
+		{
 			"id": "4e70e2c5-e2a6-41d0-b6f4-18a4ef2edf89",
 			"name": "Get Ray barbs",
 			"tip": "Obtained as a drop from Butterfly Rays; these can be safespotted from land, on the northern shore of the Isle of Souls.",
