@@ -5482,6 +5482,19 @@
 				],
 				"count": 1
 			}
+		},
+		{
+			"id": "95b2e04f-5876-46d5-abe3-bb62ede76166",
+			"name": "Get an Immaculate mole skin",
+			"tip": "Can be obtained from the Giant Mole.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Immaculate_mole_skin",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Immaculate_mole_skin_detail.png/320px-Immaculate_mole_skin.png",
+			"displayItemId": 33382,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 33382 ],
+				"count": 1
+			}
 		}
 	],
 	"hard": [
