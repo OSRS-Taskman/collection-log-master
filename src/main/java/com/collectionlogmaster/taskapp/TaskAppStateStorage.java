@@ -19,7 +19,7 @@ public class TaskAppStateStorage extends EventBusSubscriber {
 	@Inject
 	private TaskmanCommandManager taskmanCommandManager;
 
-	private TaskAppState data = new TaskAppState();
+	private volatile TaskAppState state = new TaskAppState();
 
 	@Override
 	public void startUp() {
@@ -28,25 +28,29 @@ public class TaskAppStateStorage extends EventBusSubscriber {
 	}
 
 	public TaskAppState get() {
-		return data;
+		return state;
 	}
 
 	public CompletableFuture<Void> fetch() {
-		int hashBefore = data.hashCode();
 		return taskAppClient.getUserProfile()
 			.thenAccept(res -> {
-				data.setActiveTaskId(res.getActiveTaskId());
-				data.setOfficial(res.isOfficial());
-				data.setLmsEnabled(res.isLmsEnabled());
-
-				Set<String> newCompletedTasks = res.getCompletedTasks().stream()
+				Set<String> completedTasks = res.getCompletedTasks().stream()
 					.map(CompletedTask::getId)
-					.collect(Collectors.toSet());
-				data.setCompletedTasks(newCompletedTasks);
+					.collect(Collectors.toUnmodifiableSet());
 
-				if (data.hashCode() != hashBefore) {
-					taskmanCommandManager.updateServer();
+				TaskAppState newState = new TaskAppState(
+					res.getActiveTaskId(),
+					res.isOfficial(),
+					res.isLmsEnabled(),
+					completedTasks
+				);
+
+				if (state.equals(newState)) {
+					return;
 				}
+
+				state = newState;
+				taskmanCommandManager.updateServer();
 			});
 	}
 }

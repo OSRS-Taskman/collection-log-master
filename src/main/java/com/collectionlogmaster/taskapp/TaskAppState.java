@@ -1,13 +1,18 @@
 package com.collectionlogmaster.taskapp;
 
 import lombok.Data;
-import java.util.HashSet;
 import java.util.Set;
+import lombok.RequiredArgsConstructor;
 
 @Data
+@RequiredArgsConstructor
 public class TaskAppState {
-    private String activeTaskId = null;
-    private boolean isOfficial = false;
-    private boolean isLmsEnabled = false;
-    private Set<String> completedTasks = new HashSet<>();
+    private final String activeTaskId;
+    private final boolean isOfficial;
+    private final boolean isLmsEnabled;
+    private final Set<String> completedTasks;
+
+    public TaskAppState() {
+        this(null, true, true, Set.of());
+    }
 }
