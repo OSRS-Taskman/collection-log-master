@@ -17,14 +17,14 @@ public class TaskListStorage {
 	@Inject
 	public TaskListStorage(TaskAppClient taskAppClient) {
 		this.taskAppClient = taskAppClient;
-		loadAsync();
+		fetch();
 	}
 
 	public @NonNull TieredTaskList get() {
 		return taskList;
 	}
 
-	private void loadAsync() {
+	public void fetch() {
 		taskAppClient.getTaskList()
 				.thenAccept(taskList -> this.taskList = taskList);
 	}

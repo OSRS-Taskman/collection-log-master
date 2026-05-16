@@ -4,9 +4,7 @@ import com.collectionlogmaster.CollectionLogMasterConfig;
 import com.collectionlogmaster.domain.Tag;
 import com.collectionlogmaster.domain.Task;
 import com.collectionlogmaster.domain.TaskTier;
-import com.collectionlogmaster.taskapp.response.LoginResponse;
 import com.collectionlogmaster.util.EventBusSubscriber;
-import com.collectionlogmaster.util.SimpleDebouncer;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -37,9 +35,6 @@ public class TaskService extends EventBusSubscriber {
 	@Inject
 	private TaskAppClient taskAppClient;
 
-	@Inject
-	private SimpleDebouncer loginDebouncer;
-
 	@Override
 	public void startUp() {
 		super.startUp();
@@ -60,21 +55,14 @@ public class TaskService extends EventBusSubscriber {
 
 		String configKey = e.getKey();
 		if (
-			!configKey.equals(CollectionLogMasterConfig.TASK_APP_USERNAME)
-			&& !configKey.equals(CollectionLogMasterConfig.TASK_APP_PASSWORD)
+			configKey.equals(CollectionLogMasterConfig.TASK_APP_USERNAME)
+			|| configKey.equals(CollectionLogMasterConfig.TASK_APP_PASSWORD)
 		) {
-			return;
+			taskAppClient.invalidateToken();
+			taskAppStateStorage.fetch();
+			taskListStorage.fetch();
 		}
-
-		// TODO: handle reauth when credentials change
-//		loginDebouncer.debounce(this::login);
 	}
-
-	private CompletableFuture<LoginResponse> login() {
-		return taskAppClient.login(config.username(), config.password());
-	}
-
-
 
 	public Task getActiveTask() {
 		String activeTaskId = taskAppStateStorage.get().getActiveTaskId();

@@ -17,9 +17,9 @@ public class TaskAppAuthInterceptor implements Interceptor {
 
 	private final CollectionLogMasterConfig config;
 
-	private String jwtToken;
+	private volatile String jwtToken;
 
-	private Instant tokenExpiresAt;
+	private volatile Instant tokenExpiresAt;
 
 	public TaskAppAuthInterceptor(TaskAppClient taskAppClient, CollectionLogMasterConfig config) {
 		this.taskAppClient = taskAppClient;
@@ -31,11 +31,17 @@ public class TaskAppAuthInterceptor implements Interceptor {
 			&& tokenExpiresAt.isAfter(Instant.now());
 	}
 
+	public void invalidateToken() {
+		jwtToken = null;
+		tokenExpiresAt = null;
+	}
+
 	private boolean isLoginRequest(Request req) {
 		return req.url().encodedPath().endsWith("/login");
 	}
 
 	private void authenticate() {
+		// it's fine to block here because this executes in the same thread as the request
 		LoginResponse res = taskAppClient.login(config.username(), config.password()).join();
 		jwtToken = res.getToken();
 		tokenExpiresAt = Instant.now().plus(TOKEN_DURATION);

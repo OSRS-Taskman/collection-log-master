@@ -36,11 +36,13 @@ public class TaskAppClient extends HttpClient {
 	@Named("developerMode")
 	private boolean isDeveloperMode;
 
+	private final TaskAppAuthInterceptor taskAppAuthInterceptor;
+
 	@Inject
 	public TaskAppClient(OkHttpClient okHttpClient, CollectionLogMasterConfig config) {
 		super(okHttpClient);
 
-		TaskAppAuthInterceptor taskAppAuthInterceptor = new TaskAppAuthInterceptor(this, config);
+		taskAppAuthInterceptor = new TaskAppAuthInterceptor(this, config);
 		this.okHttpClient = okHttpClient.newBuilder()
 			.addInterceptor(taskAppAuthInterceptor)
 			.build();
@@ -55,6 +57,10 @@ public class TaskAppClient extends HttpClient {
 		}
 
 		return builder.build();
+	}
+
+	public void invalidateToken() {
+		taskAppAuthInterceptor.invalidateToken();
 	}
 
 	public CompletableFuture<LoginResponse> login(String username, String password) {
