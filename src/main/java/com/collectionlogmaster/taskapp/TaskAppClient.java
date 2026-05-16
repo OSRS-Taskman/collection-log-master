@@ -21,7 +21,7 @@ import org.jetbrains.annotations.NotNull;
 public class TaskAppClient extends HttpClient {
 	private static final HttpUrl DEVELOPMENT_BASE_API_URL = new HttpUrl.Builder()
 		.scheme("http")
-		.host("192.168.15.15")
+		.host("127.0.0.1")
 		.port(5001)
 		.addPathSegments("api/v2")
 		.build();
