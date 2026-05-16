@@ -26,6 +26,10 @@ public class TaskListStorage {
 
 	public void fetch() {
 		taskAppClient.getTaskList()
-				.thenAccept(taskList -> this.taskList = taskList);
+				.thenAccept(taskList -> this.taskList = taskList)
+				.exceptionally(e -> {
+					log.error("Failed to load task list", e);
+					return null;
+				});
 	}
 }
