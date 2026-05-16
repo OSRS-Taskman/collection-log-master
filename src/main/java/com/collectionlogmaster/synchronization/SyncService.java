@@ -1,12 +1,11 @@
 package com.collectionlogmaster.synchronization;
 
-import com.collectionlogmaster.CollectionLogMasterPlugin;
 import com.collectionlogmaster.domain.Task;
 import com.collectionlogmaster.domain.TaskTier;
 import com.collectionlogmaster.synchronization.clog.CollectionLogVerifier;
 import com.collectionlogmaster.synchronization.diary.AchievementDiaryVerifier;
 import com.collectionlogmaster.synchronization.skill.SkillVerifier;
-import com.collectionlogmaster.task.TaskService;
+import com.collectionlogmaster.taskapp.TaskService;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import lombok.NonNull;
@@ -19,9 +18,6 @@ import net.runelite.api.Client;
 public class SyncService {
 	@Inject
 	private Client client;
-
-	@Inject
-	private CollectionLogMasterPlugin plugin;
 
 	@Inject
 	private TaskService taskService;
@@ -57,30 +53,32 @@ public class SyncService {
 	}
 
 	public void sync() {
-		int updatedCount = 0;
-		for (TaskTier tier : TaskTier.values()) {
-			for (Task task : taskService.getTierTasks(tier)) {
-				Boolean isVerified = syncService.verify(task);
-				if (isVerified == null) {
-					continue;
-				}
-
-				boolean taskChanged = isVerified != taskService.isComplete(task.getId());
-				if (!taskChanged) {
-					continue;
-				}
-
-				taskService.toggleComplete(task.getId());
-
-				String newStatus = isVerified ? "<col=27ae60>complete</col>" : "<col=c0392b>incomplete</col>";
-				String msg = String.format("%s tier task '%s' marked as %s", tier.displayName, task.getName(), newStatus);
-				client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", msg, "");
-
-				updatedCount++;
-			}
-		}
-
-		String msg = String.format("Task synchronization finalized; %d tasks updated", updatedCount);
-		client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", msg, null);
+		// TODO: implement syncing
+		client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", "Sync disabled", null);
+//		int updatedCount = 0;
+//		for (TaskTier tier : TaskTier.values()) {
+//			for (Task task : taskService.getTierTasks(tier)) {
+//				Boolean isVerified = syncService.verify(task);
+//				if (isVerified == null) {
+//					continue;
+//				}
+//
+//				boolean taskChanged = isVerified != taskService.isComplete(task.getId());
+//				if (!taskChanged) {
+//					continue;
+//				}
+//
+//				taskService.toggleComplete(task.getId());
+//
+//				String newStatus = isVerified ? "<col=27ae60>complete</col>" : "<col=c0392b>incomplete</col>";
+//				String msg = String.format("%s tier task '%s' marked as %s", tier.displayName, task.getName(), newStatus);
+//				client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", msg, "");
+//
+//				updatedCount++;
+//			}
+//		}
+//
+//		String msg = String.format("Task synchronization finalized; %d tasks updated", updatedCount);
+//		client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", msg, null);
 	}
 }

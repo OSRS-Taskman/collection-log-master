@@ -4,7 +4,7 @@ import com.collectionlogmaster.command.DevCommandsManager;
 import com.collectionlogmaster.command.TaskmanCommandManager;
 import com.collectionlogmaster.input.MouseManager;
 import com.collectionlogmaster.synchronization.clog.CollectionLogService;
-import com.collectionlogmaster.task.TaskService;
+import com.collectionlogmaster.taskapp.TaskService;
 import com.collectionlogmaster.ui.InterfaceManager;
 import com.collectionlogmaster.ui.TaskOverlay;
 import com.collectionlogmaster.util.GsonOverride;

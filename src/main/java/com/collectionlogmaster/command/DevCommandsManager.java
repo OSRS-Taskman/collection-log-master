@@ -2,8 +2,8 @@ package com.collectionlogmaster.command;
 
 
 import com.collectionlogmaster.domain.Task;
-import com.collectionlogmaster.task.SaveDataStorage;
-import com.collectionlogmaster.task.TaskListStorage;
+import com.collectionlogmaster.taskapp.TaskAppStateStorage;
+import com.collectionlogmaster.taskapp.TaskListStorage;
 import com.collectionlogmaster.util.EventBusSubscriber;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -18,7 +18,7 @@ public class DevCommandsManager extends EventBusSubscriber {
 	private final String SET_ACTIVE_TASK_COMMAND = "set-active-task";
 
 	@Inject
-	private SaveDataStorage saveDataStorage;
+	private TaskAppStateStorage taskAppStateStorage;
 
 	@Inject
 	private TaskListStorage taskListStorage;
@@ -48,7 +48,7 @@ public class DevCommandsManager extends EventBusSubscriber {
 			String taskId = task.getId();
 			if (taskId.startsWith(taskPrefix)) {
 				log.debug("Setting active task to {}", taskId);
-				saveDataStorage.get().setActiveTaskId(taskId);
+				taskAppStateStorage.get().setActiveTaskId(taskId);
 				return;
 			}
 		}

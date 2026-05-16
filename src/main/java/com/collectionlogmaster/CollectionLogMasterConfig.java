@@ -18,7 +18,6 @@ public interface CollectionLogMasterConfig extends Config
 	String GENERAL_SECTION = "general";
 
 	String PLUGIN_VERSION_KEY = "plugin-version";
-	String IS_LMS_ENABLED_KEY = "isLMSEnabled";
 	String IS_COMMAND_ENABLED_KEY = "isCommandEnabled";
 
 	@ConfigSection(
@@ -124,18 +123,6 @@ public interface CollectionLogMasterConfig extends Config
 	default DynamicTaskImages dynamicTaskImages()
 	{
 		return DynamicTaskImages.COMPLETE;
-	}
-
-	@ConfigItem(
-			keyName = IS_LMS_ENABLED_KEY,
-			name = "Enable LMS tasks",
-			description = "Whether to include LMS tasks in the list.",
-			section = generalSection,
-			position = 26
-	)
-	default boolean isLMSEnabled()
-	{
-		return true;
 	}
 
 	@ConfigSection(
