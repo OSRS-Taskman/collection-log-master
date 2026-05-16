@@ -17,9 +17,9 @@ public class TaskAppAuthInterceptor implements Interceptor {
 
 	private final CollectionLogMasterConfig config;
 
-	private volatile String jwtToken;
+	private volatile String jwtToken = null;
 
-	private volatile Instant tokenExpiresAt;
+	private volatile Instant tokenExpiresAt = Instant.MIN;
 
 	public TaskAppAuthInterceptor(TaskAppClient taskAppClient, CollectionLogMasterConfig config) {
 		this.taskAppClient = taskAppClient;
@@ -33,7 +33,7 @@ public class TaskAppAuthInterceptor implements Interceptor {
 
 	public void invalidateToken() {
 		jwtToken = null;
-		tokenExpiresAt = null;
+		tokenExpiresAt = Instant.MIN;
 	}
 
 	private boolean isLoginRequest(Request req) {
