@@ -1,19 +1,25 @@
 package com.collectionlogmaster.taskapp;
 
 import com.collectionlogmaster.CollectionLogMasterConfig;
+import com.collectionlogmaster.domain.verification.diary.DiaryDifficulty;
+import com.collectionlogmaster.domain.verification.diary.DiaryRegion;
+import com.collectionlogmaster.taskapp.request.SyncRequest;
 import com.collectionlogmaster.taskapp.request.LoginRequest;
 import com.collectionlogmaster.taskapp.request.UpdateTaskRequest;
 import com.collectionlogmaster.taskapp.response.GenerateTaskResponse;
 import com.collectionlogmaster.taskapp.response.LoginResponse;
+import com.collectionlogmaster.taskapp.response.SyncResponse;
 import com.collectionlogmaster.taskapp.response.TaskListResponse;
 import com.collectionlogmaster.taskapp.response.UserProfileResponse;
 import com.collectionlogmaster.util.HttpClient;
-import com.google.gson.JsonObject;
+import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
+import net.runelite.api.Skill;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import org.jetbrains.annotations.NotNull;
@@ -95,5 +101,16 @@ public class TaskAppClient extends HttpClient {
 		HttpUrl url = buildApiUrl("user/generate-task");
 
 		return post(url, GenerateTaskResponse.class);
+	}
+
+	public CompletableFuture<SyncResponse> sync(
+		Set<Integer> collectionLog,
+		Map<DiaryRegion, Map<DiaryDifficulty, Boolean>> diaries,
+		Map<Skill, Integer> skills
+	) {
+		HttpUrl url = buildApiUrl("user/sync");
+		SyncRequest data = new SyncRequest(collectionLog, diaries, skills);
+
+		return post(url, data, SyncResponse.class);
 	}
 }

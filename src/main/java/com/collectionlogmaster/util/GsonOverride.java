@@ -23,6 +23,7 @@ public class GsonOverride {
     @Inject
     public GsonOverride(Gson originalGson) {
         GsonBuilder gsonBuilder = originalGson.newBuilder()
+                .enableComplexMapKeySerialization()
                 .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
                 .registerTypeAdapter(Verification.class, new VerificationAdapter())
                 .registerTypeAdapter(VerificationMethod.class, new EnumAdapter<>(VerificationMethod.class))

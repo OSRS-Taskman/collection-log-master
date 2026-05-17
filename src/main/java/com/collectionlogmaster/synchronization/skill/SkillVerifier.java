@@ -3,14 +3,19 @@ package com.collectionlogmaster.synchronization.skill;
 import com.collectionlogmaster.domain.Task;
 import com.collectionlogmaster.domain.verification.skill.SkillVerification;
 import com.collectionlogmaster.synchronization.Verifier;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 import lombok.NonNull;
 import net.runelite.api.Client;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+import net.runelite.api.Skill;
 
 @Singleton
-public class SkillVerifier implements Verifier {
+public class SkillVerifier implements Verifier<Map<Skill, Integer>> {
     @Inject
     private Client client;
 
@@ -28,5 +33,13 @@ public class SkillVerifier implements Verifier {
                 .count();
 
         return totalAchieved >= verif.getCount();
+    }
+
+    public Map<Skill, Integer> verificationData() {
+        return Arrays.stream(Skill.values())
+            .collect(Collectors.toMap(
+                skill -> skill,
+                skill -> client.getSkillExperience(skill)
+            ));
     }
 }
