@@ -36,8 +36,10 @@ public class TaskAppAuthInterceptor implements Interceptor {
 		tokenExpiresAt = Instant.MIN;
 	}
 
-	private boolean isLoginRequest(Request req) {
-		return req.url().encodedPath().endsWith("/login");
+	private boolean requestSkipsAuth(Request req) {
+		String path = req.url().encodedPath();
+		return path.endsWith("/login")
+			|| path.endsWith("/task-list");
 	}
 
 	private void authenticate() {
@@ -51,7 +53,7 @@ public class TaskAppAuthInterceptor implements Interceptor {
 	public @NotNull Response intercept(@NotNull Chain chain) throws IOException {
 		Request originalRequest = chain.request();
 
-		if (isLoginRequest(originalRequest)) {
+		if (requestSkipsAuth(originalRequest)) {
 			return chain.proceed(originalRequest);
 		}
 
