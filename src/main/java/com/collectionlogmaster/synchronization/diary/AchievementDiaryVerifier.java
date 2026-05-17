@@ -5,13 +5,16 @@ import com.collectionlogmaster.domain.verification.diary.AchievementDiaryVerific
 import com.collectionlogmaster.domain.verification.diary.DiaryDifficulty;
 import com.collectionlogmaster.domain.verification.diary.DiaryRegion;
 import com.collectionlogmaster.synchronization.Verifier;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.stream.Collectors;
 import lombok.NonNull;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
 @Singleton
-public class AchievementDiaryVerifier implements Verifier {
+public class AchievementDiaryVerifier implements Verifier<Map<DiaryRegion, Map<DiaryDifficulty, Boolean>>> {
     @Inject
     private AchievementDiaryService achievementDiaryService;
 
@@ -23,9 +26,25 @@ public class AchievementDiaryVerifier implements Verifier {
         assert task.getVerification() instanceof AchievementDiaryVerification;
         AchievementDiaryVerification verif = (AchievementDiaryVerification) task.getVerification();
 
-        DiaryRegion diary = verif.getRegion();
+        DiaryRegion region = verif.getRegion();
         DiaryDifficulty difficulty = verif.getDifficulty();
 
-        return achievementDiaryService.isComplete(diary, difficulty);
+        return achievementDiaryService.isComplete(region, difficulty);
+    }
+
+    public Map<DiaryRegion, Map<DiaryDifficulty, Boolean>> verificationData() {
+        return Arrays.stream(DiaryRegion.values())
+            .collect(Collectors.toMap(
+                region -> region,
+				this::verificationData
+            ));
+    }
+
+    private Map<DiaryDifficulty, Boolean> verificationData(DiaryRegion region) {
+        return Arrays.stream(DiaryDifficulty.values())
+            .collect(Collectors.toMap(
+                difficulty -> difficulty,
+				difficulty -> achievementDiaryService.isComplete(region, difficulty)
+            ));
     }
 }

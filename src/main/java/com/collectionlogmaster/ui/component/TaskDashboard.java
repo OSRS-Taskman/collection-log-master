@@ -5,7 +5,7 @@ import com.collectionlogmaster.CollectionLogMasterPlugin;
 import com.collectionlogmaster.domain.Task;
 import com.collectionlogmaster.domain.TaskTier;
 import com.collectionlogmaster.synchronization.SyncService;
-import com.collectionlogmaster.task.TaskService;
+import com.collectionlogmaster.taskapp.TaskService;
 import com.collectionlogmaster.ui.generic.UIComponent;
 import com.collectionlogmaster.ui.generic.UIUtil;
 import com.collectionlogmaster.ui.generic.button.UIButton.State;
@@ -160,28 +160,30 @@ public class TaskDashboard extends UIComponent<TaskDashboard> {
 	}
 
 	private void generateTask() {
-		Task generatedTask = taskService.generate();
-		List<Task> rollTasks = getRollTasks();
+		taskService.generate()
+			.thenAccept(generatedTask -> {
+				List<Task> rollTasks = getRollTasks();
 
-		Stack<Pair<Task, Integer>> stepStack = new Stack<>();
-		stepStack.push(Pair.of(generatedTask, 0));
+				Stack<Pair<Task, Integer>> stepStack = new Stack<>();
+				stepStack.push(Pair.of(generatedTask, 0));
 
-		int timeLeft = config.rollTime();
-		while (timeLeft > 0) {
-			int stepDelay = calculateStepDelay(stepStack.size() - 1);
+				int timeLeft = config.rollTime();
+				while (timeLeft > 0) {
+					int stepDelay = calculateStepDelay(stepStack.size() - 1);
 
-			stepStack.push(Pair.of(
-				rollTasks.get(stepStack.size()),
-				stepDelay
-			));
+					stepStack.push(Pair.of(
+						rollTasks.get(stepStack.size()),
+						stepDelay
+					));
 
-			timeLeft -= stepDelay;
-		}
+					timeLeft -= stepDelay;
+				}
 
-		executeRollStep(stepStack);
+				executeRollStep(stepStack);
 
-		generateButton.setState(State.DISABLED)
-			.revalidate();
+				generateButton.setState(State.DISABLED)
+					.revalidate();
+			});
 	}
 
 	/**
@@ -250,10 +252,10 @@ public class TaskDashboard extends UIComponent<TaskDashboard> {
 		if (activeTask != null) {
 			completeButton.setState(State.DEFAULT)
 				.setName(UIUtil.formatName(activeTask.getName()))
-				.setAction("Complete", () -> {
-					taskService.complete();
-					revalidate();
-				})
+				.setAction("Complete", () ->
+					taskService.complete()
+						.thenRun(() -> clientThread.invoke(this::revalidate))
+				)
 				.revalidate();
 
 			generateButton.setState(State.DISABLED)

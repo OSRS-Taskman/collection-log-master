@@ -1,10 +1,9 @@
 package com.collectionlogmaster;
 
-import com.collectionlogmaster.command.DevCommandsManager;
 import com.collectionlogmaster.command.TaskmanCommandManager;
 import com.collectionlogmaster.input.MouseManager;
 import com.collectionlogmaster.synchronization.clog.CollectionLogService;
-import com.collectionlogmaster.task.TaskService;
+import com.collectionlogmaster.taskapp.TaskService;
 import com.collectionlogmaster.ui.InterfaceManager;
 import com.collectionlogmaster.ui.TaskOverlay;
 import com.collectionlogmaster.util.GsonOverride;
@@ -54,9 +53,6 @@ public class CollectionLogMasterPlugin extends Plugin {
 	@Inject
 	public TaskmanCommandManager taskmanCommand;
 
-	@Inject
-	public DevCommandsManager devCommands;
-
 	@Override
 	protected void startUp() {
 		CollectionLogMasterPlugin.staticInjector = getInjector();
@@ -67,7 +63,6 @@ public class CollectionLogMasterPlugin extends Plugin {
 		pluginUpdateNotifier.startUp();
 		interfaceManager.startUp();
 		taskmanCommand.startUp();
-		devCommands.startUp();
 		this.taskOverlay.setResizable(true);
 		this.overlayManager.add(this.taskOverlay);
 	}
@@ -80,7 +75,6 @@ public class CollectionLogMasterPlugin extends Plugin {
 		pluginUpdateNotifier.shutDown();
 		interfaceManager.shutDown();
 		taskmanCommand.shutDown();
-		devCommands.shutDown();
 		this.overlayManager.remove(this.taskOverlay);
 	}
 

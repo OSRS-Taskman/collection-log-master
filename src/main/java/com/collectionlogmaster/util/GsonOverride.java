@@ -1,5 +1,6 @@
 package com.collectionlogmaster.util;
 
+import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.collectionlogmaster.domain.Tag;
@@ -22,6 +23,8 @@ public class GsonOverride {
     @Inject
     public GsonOverride(Gson originalGson) {
         GsonBuilder gsonBuilder = originalGson.newBuilder()
+                .enableComplexMapKeySerialization()
+                .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
                 .registerTypeAdapter(Verification.class, new VerificationAdapter())
                 .registerTypeAdapter(VerificationMethod.class, new EnumAdapter<>(VerificationMethod.class))
                 .registerTypeAdapter(DiaryRegion.class, new EnumAdapter<>(DiaryRegion.class))

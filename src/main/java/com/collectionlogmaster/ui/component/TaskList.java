@@ -2,7 +2,7 @@ package com.collectionlogmaster.ui.component;
 
 import com.collectionlogmaster.CollectionLogMasterPlugin;
 import com.collectionlogmaster.domain.Task;
-import com.collectionlogmaster.task.TaskService;
+import com.collectionlogmaster.taskapp.TaskService;
 import com.collectionlogmaster.ui.generic.BorderTheme;
 import com.collectionlogmaster.ui.generic.UIComponent;
 import com.collectionlogmaster.ui.generic.UIGridContainer;
