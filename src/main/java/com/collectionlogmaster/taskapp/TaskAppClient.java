@@ -1,6 +1,8 @@
 package com.collectionlogmaster.taskapp;
 
 import com.collectionlogmaster.CollectionLogMasterConfig;
+import com.collectionlogmaster.taskapp.request.LoginRequest;
+import com.collectionlogmaster.taskapp.request.UpdateTaskRequest;
 import com.collectionlogmaster.taskapp.response.GenerateTaskResponse;
 import com.collectionlogmaster.taskapp.response.LoginResponse;
 import com.collectionlogmaster.taskapp.response.TaskListResponse;
@@ -65,12 +67,9 @@ public class TaskAppClient extends HttpClient {
 
 	public CompletableFuture<LoginResponse> login(String username, String password) {
 		HttpUrl url = buildApiUrl("login");
+		LoginRequest data = new LoginRequest(username, password);
 
-		JsonObject body = new JsonObject();
-		body.addProperty("username", username);
-		body.addProperty("password", password);
-
-		return post(url, body, LoginResponse.class);
+		return post(url, data, LoginResponse.class);
 	}
 
 	public CompletableFuture<TaskListResponse> getTaskList() {
@@ -87,11 +86,9 @@ public class TaskAppClient extends HttpClient {
 
 	public CompletableFuture<Void> updateTask(String taskId, boolean completed) {
 		HttpUrl url = buildApiUrl("user/tasks", taskId);
+		UpdateTaskRequest data = new UpdateTaskRequest(completed);
 
-		JsonObject body = new JsonObject();
-		body.addProperty("completed", completed);
-
-		return patch(url, body, null);
+		return patch(url, data, null);
 	}
 
 	public CompletableFuture<GenerateTaskResponse> generateTask() {

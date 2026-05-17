@@ -73,24 +73,24 @@ public class HttpClient {
         return post(url, new JsonObject(), clazz);
     }
 
-    public <T> CompletableFuture<T> post(HttpUrl url, JsonObject json, @Nullable Class<T> clazz) {
-        RequestBody body = RequestBody.create(JSON_MEDIA_TYPE, json.toString());
+    public <T> CompletableFuture<T> post(HttpUrl url, Object data, @Nullable Class<T> clazz) {
+        RequestBody body = RequestBody.create(JSON_MEDIA_TYPE, GSON.toJson(data));
         Request request = buildRequest(url, builder -> builder.post(body)).build();
 
         return executeRequest(request)
                 .thenApply((response) -> parseResponse(response, clazz));
     }
 
-    public <T> CompletableFuture<T> put(HttpUrl url, String jsonBody, @Nullable Class<T> clazz) {
-        RequestBody body = RequestBody.create(JSON_MEDIA_TYPE, jsonBody);
+    public <T> CompletableFuture<T> put(HttpUrl url, Object data, @Nullable Class<T> clazz) {
+        RequestBody body = RequestBody.create(JSON_MEDIA_TYPE, GSON.toJson(data));
         Request request = buildRequest(url, builder -> builder.put(body)).build();
 
         return executeRequest(request)
                 .thenApply((response) -> parseResponse(response, clazz));
     }
 
-    public <T> CompletableFuture<T> patch(HttpUrl url, JsonObject json, @Nullable Class<T> clazz) {
-        RequestBody body = RequestBody.create(JSON_MEDIA_TYPE, json.toString());
+    public <T> CompletableFuture<T> patch(HttpUrl url, Object data, @Nullable Class<T> clazz) {
+        RequestBody body = RequestBody.create(JSON_MEDIA_TYPE, GSON.toJson(data));
         Request request = buildRequest(url, builder -> builder.patch(body)).build();
 
         return executeRequest(request)

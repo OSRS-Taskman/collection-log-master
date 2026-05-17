@@ -146,7 +146,7 @@ public class TaskmanCommandManager extends EventBusSubscriber {
 
 		CommandRequest data = new CommandRequest(taskId, taskService.getCurrentTier().displayName, (int) currentProgress);
 
-		httpClient.put(url, GSON.toJson(data), null);
+		httpClient.put(url, data, null);
 	}
 
 	private void replaceChatMessage(ChatMessage chatMessage, CommandResponse res) {
