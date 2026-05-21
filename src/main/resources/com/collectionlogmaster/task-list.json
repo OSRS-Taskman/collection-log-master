@@ -5495,6 +5495,19 @@
 				"itemIds": [ 33382 ],
 				"count": 1
 			}
+		},
+		{
+			"id": "065d4bbf-a066-4a31-a7a5-e44df0347586",
+			"name": "Get the Bosun's workbench schematic",
+			"tip": "Obtained by completing The Red Reef quest.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Bosun's_workbench_schematic",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Bosun's_workbench_schematic_detail.png/320px-Bosun's_workbench_schematic_detail.png",
+			"displayItemId": 33423,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 33423 ],
+				"count": 1
+			}
 		}
 	],
 	"hard": [
