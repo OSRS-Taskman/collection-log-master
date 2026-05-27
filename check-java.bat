@@ -1,6 +1,6 @@
 @echo off
 
-set JAVA_EXE=javad.exe
+set JAVA_EXE=java.exe
 
 %JAVA_EXE% -version
 echo.
