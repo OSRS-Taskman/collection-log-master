@@ -10,6 +10,8 @@ import com.collectionlogmaster.taskapp.TaskAppStateStorage;
 import com.collectionlogmaster.taskapp.TaskService;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import lombok.NonNull;
@@ -45,7 +47,7 @@ public class SyncService {
 	@Inject
 	private SkillVerifier skillVerifier;
 
-	private @NonNull Verifier[] getVerifiers() {
+	private @NonNull Verifier<?>[] getVerifiers() {
 		return new Verifier[] {
 				this.collectionLogVerifier,
 				this.achievementDiaryVerifier,
@@ -54,7 +56,7 @@ public class SyncService {
 	}
 
 	private Boolean verify(Task task) {
-		for (Verifier verif : this.getVerifiers()) {
+		for (Verifier<?> verif : this.getVerifiers()) {
 			if (verif.supports(task)) {
 				return verif.verify(task);
 			}
@@ -63,8 +65,39 @@ public class SyncService {
 		return null;
 	}
 
-	public void sync() {
-		taskAppClient.sync(
+	public List<Task> check() {
+		return check(false);
+	}
+
+	public List<Task> check(boolean excludeActive) {
+		Task activeTask = taskService.getActiveTask();
+		List<Task> desyncedTasks = new ArrayList<>();
+
+		for (TaskTier tier : TaskTier.values()) {
+			for (Task task : taskService.getTierTasks(tier)) {
+				if (excludeActive && task.equals(activeTask)) {
+					continue;
+				}
+
+				Boolean isVerified = verify(task);
+				if (isVerified == null) {
+					continue;
+				}
+
+				boolean isSynced = isVerified == taskService.isComplete(task.getId());
+				if (isSynced) {
+					continue;
+				}
+
+				desyncedTasks.add(task);
+			}
+		}
+
+		return desyncedTasks;
+	}
+
+	public CompletableFuture<Void> sync() {
+		return taskAppClient.sync(
 			collectionLogVerifier.verificationData(),
 			achievementDiaryVerifier.verificationData(),
 			skillVerifier.verificationData()
@@ -89,6 +122,6 @@ public class SyncService {
 					client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", msg, null);
 				}
 			});
-		}).thenAccept((v) -> taskAppStateStorage.fetch());
+		}).thenCompose((v) -> taskAppStateStorage.fetch());
 	}
 }

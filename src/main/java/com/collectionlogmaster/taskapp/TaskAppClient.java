@@ -3,6 +3,7 @@ package com.collectionlogmaster.taskapp;
 import com.collectionlogmaster.CollectionLogMasterConfig;
 import com.collectionlogmaster.domain.verification.diary.DiaryDifficulty;
 import com.collectionlogmaster.domain.verification.diary.DiaryRegion;
+import com.collectionlogmaster.taskapp.request.MigrateRequest;
 import com.collectionlogmaster.taskapp.request.SyncRequest;
 import com.collectionlogmaster.taskapp.request.LoginRequest;
 import com.collectionlogmaster.taskapp.request.UpdateTaskRequest;
@@ -112,5 +113,12 @@ public class TaskAppClient extends HttpClient {
 		SyncRequest data = new SyncRequest(collectionLog, diaries, skills);
 
 		return post(url, data, SyncResponse.class);
+	}
+
+	public CompletableFuture<Void> migrate(String taskId) {
+		HttpUrl url = buildApiUrl("user/migrate");
+		MigrateRequest data = new MigrateRequest(taskId);
+
+		return post(url, data, null);
 	}
 }

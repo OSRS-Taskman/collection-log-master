@@ -37,6 +37,9 @@ public class InterfaceManager extends EventBusSubscriber {
 	@Inject
 	private StateStore stateStore;
 
+	@Inject
+	protected TooltipOverlay tooltipOverlay;
+
 	private MainTabbedContainer container = null;
 
 	private TaskInfo taskInfo = null;
@@ -152,5 +155,6 @@ public class InterfaceManager extends EventBusSubscriber {
 		taskInfo = null;
 
 		stateStore.setDashboardEnabled(false);
+		tooltipOverlay.clearTooltip();
 	}
 }

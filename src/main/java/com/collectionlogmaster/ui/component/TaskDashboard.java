@@ -4,7 +4,6 @@ import com.collectionlogmaster.CollectionLogMasterConfig;
 import com.collectionlogmaster.CollectionLogMasterPlugin;
 import com.collectionlogmaster.domain.Task;
 import com.collectionlogmaster.domain.TaskTier;
-import com.collectionlogmaster.synchronization.SyncService;
 import com.collectionlogmaster.taskapp.TaskService;
 import com.collectionlogmaster.ui.generic.UIComponent;
 import com.collectionlogmaster.ui.generic.UIUtil;
@@ -48,15 +47,12 @@ public class TaskDashboard extends UIComponent<TaskDashboard> {
 	@Inject
 	private TaskService taskService;
 
-	@Inject
-	private SyncService syncService;
-
 	private final Widget title;
 	private final TaskComponent taskComponent;
 	private final UITextButton completeButton;
 	private final UITextButton generateButton;
 	private final UITextButton faqButton;
-	private final UITextButton syncButton;
+	private final SyncButton syncButton;
 	private final Widget progress;
 
 	public static TaskDashboard createInside(Widget window) {
@@ -72,7 +68,7 @@ public class TaskDashboard extends UIComponent<TaskDashboard> {
 		completeButton = UITextButton.createInside(widget);
 		generateButton = UITextButton.createInside(widget);
 		faqButton = UITextButton.createInside(widget);
-		syncButton = UITextButton.createInside(widget);
+		syncButton = SyncButton.createInside(widget);
 		progress = widget.createChild(WidgetType.TEXT);
 
 		initializeWidgets();
@@ -129,13 +125,9 @@ public class TaskDashboard extends UIComponent<TaskDashboard> {
 		syncButton.setYPositionMode(WidgetPositionMode.ABSOLUTE_BOTTOM)
 			.setPos(BASE_GAP / 2, BASE_GAP / 2)
 			.setSize(BUTTON_WIDTH / 2, BUTTON_HEIGHT)
-			.setText("Sync")
-			.setName(UIUtil.formatName("Sync"))
-			.setAction("Visit", () -> {
-				syncService.sync();
-				revalidate();
-			})
 			.revalidate();
+
+		syncButton.setTaskDashboard(this);
 
 		faqButton.setXPositionMode(WidgetPositionMode.ABSOLUTE_RIGHT)
 			.setYPositionMode(WidgetPositionMode.ABSOLUTE_BOTTOM)
