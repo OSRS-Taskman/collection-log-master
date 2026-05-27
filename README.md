@@ -1,6 +1,6 @@
 # TaskApp Integration Beta Test
 
-This is the first beta release of _Collection Log Master_ with integration to the _TaskApp_ website. Because some functionality is still missing, **this version is only aimed towards people who are still using the TaskApp website** and have not yet migrated to the _Collection Log Master_ plugin.
+This is the second beta release of _Collection Log Master_ with integration to the _TaskApp_ website. Now with support for users migrating from the old version.
 
 ## Running the beta
 
@@ -19,7 +19,13 @@ To run this beta version of the _Collection Log Master_ plugin, please follow th
 
 1. Open the plugin configuration and input your _TaskApp_ credentials at the very top
 2. Open the task dashboard and check whether the UI reflects your current and completed tasks
+   1. If you were already a _Collection Log Master_ user, check migration instructions below
 3. Just keep using the plugin, completing tasks as you go
+
+## Migration
+
+If you were already using the _Collection Log Master_ plugin, you'll need to migrate your state to the website. To do so, simply open the task dashboard and click the _Sync_ button on the bottom left corner. If you had an active task, this will allow you to migrate that too, but only once!
+
 
 If you have any issues, please tag @Phapha in the [#runelite-plugin](https://discord.com/channels/569436224457146388/1013862714243821649) discord channel.
 
