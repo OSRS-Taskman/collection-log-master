@@ -112,11 +112,11 @@ public class SyncButton extends UITextButton {
 	}
 
 	private String getMigrationTooltip() {
-		Task oldActiveTask = migrationHelper.getOldActiveTask();
-		if (oldActiveTask == null) {
+		if (!migrationHelper.canMigrate()) {
 			return "";
 		}
 
+		Task oldActiveTask = migrationHelper.getOldActiveTask();
 		String header = "You have a mismatching active task from your old plugin save data:";
 
 		return ColorUtil.wrapWithColorTag(header, HIGHLIGHT_COLOR)
