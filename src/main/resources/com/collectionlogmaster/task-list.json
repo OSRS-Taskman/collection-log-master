@@ -4407,118 +4407,6 @@
 			}
 		},
 		{
-			"id": "df3f714e-eb7e-4b86-8b73-f25d6ebc3020",
-			"name": "Get a Ward upgrade kit",
-			"tip": "Can be purchased as a reward from the Last Man Standing PVP minigame.",
-			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Ward_upgrade_kit_detail.png/320px-Ward_upgrade_kit_detail.png",
-			"displayItemId": 12802,
-			"tags": [ "lms" ],
-			"verification": {
-				"method": "collection-log",
-				"itemIds": [ 12802 ],
-				"count": 1
-			}
-		},
-		{
-			"id": "bf07a401-9a81-4520-9dd8-1c5af2bc5986",
-			"name": "Get a Granite clamp",
-			"tip": "Can be purchased as a reward from the Last Man Standing PVP minigame.",
-			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Granite_clamp_detail.png/320px-Granite_clamp_detail.png",
-			"displayItemId": 12849,
-			"tags": [ "lms" ],
-			"verification": {
-				"method": "collection-log",
-				"itemIds": [ 12849 ],
-				"count": 1
-			}
-		},
-		{
-			"id": "69b50b44-33f2-485e-a4e0-195e8f8fa044",
-			"name": "Get a Volcanic whip mix",
-			"tip": "Can be purchased as a reward from the Last Man Standing PVP minigame.",
-			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Volcanic_whip_mix_detail_animated.gif/320px-Volcanic_whip_mix_detail_animated.gif",
-			"displayItemId": 12771,
-			"tags": [ "lms" ],
-			"verification": {
-				"method": "collection-log",
-				"itemIds": [ 12771 ],
-				"count": 1
-			}
-		},
-		{
-			"id": "60cbbdb2-b233-48a0-8413-8867217ce53a",
-			"name": "Get a Frozen whip mix",
-			"tip": "Can be purchased as a reward from the Last Man Standing PVP minigame.",
-			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Frozen_whip_mix_detail.png/320px-Frozen_whip_mix_detail.png",
-			"displayItemId": 12769,
-			"tags": [ "lms" ],
-			"verification": {
-				"method": "collection-log",
-				"itemIds": [ 12769 ],
-				"count": 1
-			}
-		},
-		{
-			"id": "4ba185cd-ee9b-45ce-b2c9-10462a8ee843",
-			"name": "Get a Steam staff upgrade kit",
-			"tip": "Can be purchased as a reward from the Last Man Standing PVP minigame.",
-			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Steam_staff_upgrade_kit_detail.png/320px-Steam_staff_upgrade_kit_detail.png",
-			"displayItemId": 12798,
-			"tags": [ "lms" ],
-			"verification": {
-				"method": "collection-log",
-				"itemIds": [ 12798 ],
-				"count": 1
-			}
-		},
-		{
-			"id": "0e7ab87d-cde1-4224-b731-0f4b16308e59",
-			"name": "Get a Lava staff upgrade kit",
-			"tip": "Can be purchased as a reward from the Last Man Standing PVP minigame.",
-			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Lava_staff_upgrade_kit_detail.png/320px-Lava_staff_upgrade_kit_detail.png",
-			"displayItemId": 21202,
-			"tags": [ "lms" ],
-			"verification": {
-				"method": "collection-log",
-				"itemIds": [ 21202 ],
-				"count": 1
-			}
-		},
-		{
-			"id": "2cff2acd-a0c8-446b-a83b-9ac734b308ad",
-			"name": "Get a Dragon pickaxe upgrade kit",
-			"tip": "Can be purchased as a reward from the Last Man Standing PVP minigame.",
-			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dragon_pickaxe_upgrade_kit_detail.png/320px-Dragon_pickaxe_upgrade_kit_detail.png",
-			"displayItemId": 12800,
-			"tags": [ "lms" ],
-			"verification": {
-				"method": "collection-log",
-				"itemIds": [ 12800 ],
-				"count": 1
-			}
-		},
-		{
-			"id": "bc76ea57-5ef9-4ab0-bdcb-37c410c2183a",
-			"name": "Get an Ornate maul handle",
-			"tip": "Can be purchased as a reward from the Last Man Standing PVP minigame.",
-			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Ornate_maul_handle_detail.png/320px-Ornate_maul_handle_detail.png",
-			"displayItemId": 24229,
-			"tags": [ "lms" ],
-			"verification": {
-				"method": "collection-log",
-				"itemIds": [ 24229 ],
-				"count": 1
-			}
-		},
-		{
 			"id": "1718dd85-443c-41ad-8b49-96e3e405a7e6",
 			"name": "Get a Celestial ring",
 			"tip": "Can be purchased as a reward from the Shooting Stars Diversion and Distraction minigame. Star Miners Clan Chat to find stars.",
@@ -5506,6 +5394,32 @@
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [ 33423 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "a06faa16-1d31-44bc-9e38-df68f1e59c6b",
+			"name": "Get a Volcanic mine teleport",
+			"tip": "Can be purchased as a reward from the Volcanic Mine minigame.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Volcanic_Mine",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Volcanic_mine_teleport_detail.png/320px-Volcanic_mine_teleport_detail.png",
+			"displayItemId": 21541,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 21541 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "bc2a8bdc-c562-480d-bca7-ea8727114dbe",
+			"name": "Get a Heat-proof vessel",
+			"tip": "Can be purchased as a reward from the Volcanic Mine minigame.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Volcanic_Mine",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Heat-proof_vessel_detail.png/320px-Heat-proof_vessel_detail.png",
+			"displayItemId": 25615,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 25615 ],
 				"count": 1
 			}
 		}
@@ -7885,88 +7799,6 @@
 					25474, 25476, 25630
 				],
 				"count": 7
-			}
-		},
-		{
-			"id": "1cf06859-ff55-476e-9387-80ca82f480ca",
-			"name": "Get a new dark bow paint from LMS",
-			"tip": "Can be purchased as a reward from the Last Man Standing PVP minigame.",
-			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Yellow_dark_bow_paint_detail.png/320px-Yellow_dark_bow_paint_detail.png",
-			"displayItemId": 12757,
-			"tags": [ "lms" ],
-			"verification": {
-				"method": "collection-log",
-				"itemIds": [ 12757, 12759, 12761, 12763 ],
-				"count": 1
-			}
-		},
-		{
-			"id": "5407a890-c3dd-4453-96a2-59f97fc98479",
-			"name": "Get a new dark bow paint from LMS",
-			"tip": "Can be purchased as a reward from the Last Man Standing PVP minigame.",
-			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Yellow_dark_bow_paint_detail.png/320px-Yellow_dark_bow_paint_detail.png",
-			"displayItemId": 12757,
-			"tags": [ "lms" ],
-			"verification": {
-				"method": "collection-log",
-				"itemIds": [ 12757, 12759, 12761, 12763 ],
-				"count": 2
-			}
-		},
-		{
-			"id": "11f65391-8e33-49dc-bd81-47744eb34ed9",
-			"name": "Get a new dark bow paint from LMS",
-			"tip": "Can be purchased as a reward from the Last Man Standing PVP minigame.",
-			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Yellow_dark_bow_paint_detail.png/320px-Yellow_dark_bow_paint_detail.png",
-			"displayItemId": 12757,
-			"tags": [ "lms" ],
-			"verification": {
-				"method": "collection-log",
-				"itemIds": [ 12757, 12759, 12761, 12763 ],
-				"count": 3
-			}
-		},
-		{
-			"id": "2a5428a2-a6a5-44fd-ad89-d8bb4d1cf516",
-			"name": "Get a new dark bow paint from LMS",
-			"tip": "Can be purchased as a reward from the Last Man Standing PVP minigame.",
-			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Yellow_dark_bow_paint_detail.png/320px-Yellow_dark_bow_paint_detail.png",
-			"displayItemId": 12757,
-			"tags": [ "lms" ],
-			"verification": {
-				"method": "collection-log",
-				"itemIds": [ 12757, 12759, 12761, 12763 ],
-				"count": 4
-			}
-		},
-		{
-			"id": "a06faa16-1d31-44bc-9e38-df68f1e59c6b",
-			"name": "Get a Volcanic mine teleport",
-			"tip": "Can be purchased as a reward from the Volcanic Mine minigame.",
-			"wikiLink": "https://oldschool.runescape.wiki/w/Volcanic_Mine",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Volcanic_mine_teleport_detail.png/320px-Volcanic_mine_teleport_detail.png",
-			"displayItemId": 21541,
-			"verification": {
-				"method": "collection-log",
-				"itemIds": [ 21541 ],
-				"count": 1
-			}
-		},
-		{
-			"id": "bc2a8bdc-c562-480d-bca7-ea8727114dbe",
-			"name": "Get a Heat-proof vessel",
-			"tip": "Can be purchased as a reward from the Volcanic Mine minigame.",
-			"wikiLink": "https://oldschool.runescape.wiki/w/Volcanic_Mine",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Heat-proof_vessel_detail.png/320px-Heat-proof_vessel_detail.png",
-			"displayItemId": 25615,
-			"verification": {
-				"method": "collection-log",
-				"itemIds": [ 25615 ],
-				"count": 1
 			}
 		},
 		{
@@ -11425,62 +11257,6 @@
 					25474, 25476, 25630
 				],
 				"count": 14
-			}
-		},
-		{
-			"id": "116ba1f6-6416-4f8f-8e32-42f096b3fe04",
-			"name": "Get a new Golden godsword special from LMS",
-			"tip": "Can be purchased as a reward from the Last Man Standing PVP minigame.",
-			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Armadyl_hilt_detail.png/320px-Armadyl_hilt_detail.png",
-			"displayItemId": 11810,
-			"tags": [ "lms" ],
-			"verification": {
-				"method": "collection-log",
-				"itemIds": [ 24868, 24869, 24870, 24871 ],
-				"count": 1
-			}
-		},
-		{
-			"id": "ccf42f4a-78e9-4968-b696-b75522198ef4",
-			"name": "Get a new Golden godsword special from LMS",
-			"tip": "Can be purchased as a reward from the Last Man Standing PVP minigame.",
-			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Armadyl_hilt_detail.png/320px-Armadyl_hilt_detail.png",
-			"displayItemId": 11810,
-			"tags": [ "lms" ],
-			"verification": {
-				"method": "collection-log",
-				"itemIds": [ 24868, 24869, 24870, 24871 ],
-				"count": 2
-			}
-		},
-		{
-			"id": "fa5841dd-eb4f-4140-84aa-e10201e3f1cb",
-			"name": "Get a new Golden godsword special from LMS",
-			"tip": "Can be purchased as a reward from the Last Man Standing PVP minigame.",
-			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Armadyl_hilt_detail.png/320px-Armadyl_hilt_detail.png",
-			"displayItemId": 11810,
-			"tags": [ "lms" ],
-			"verification": {
-				"method": "collection-log",
-				"itemIds": [ 24868, 24869, 24870, 24871 ],
-				"count": 3
-			}
-		},
-		{
-			"id": "e218b954-430c-4baf-b2eb-aa174cddbfc7",
-			"name": "Get a new Golden godsword special from LMS",
-			"tip": "Can be purchased as a reward from the Last Man Standing PVP minigame.",
-			"wikiLink": "https://oldschool.runescape.wiki/w/Last_Man_Standing",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Armadyl_hilt_detail.png/320px-Armadyl_hilt_detail.png",
-			"displayItemId": 11810,
-			"tags": [ "lms" ],
-			"verification": {
-				"method": "collection-log",
-				"itemIds": [ 24868, 24869, 24870, 24871 ],
-				"count": 4
 			}
 		},
 		{
