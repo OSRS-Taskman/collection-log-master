@@ -30,17 +30,17 @@ repositories {
 }
 
 def runeLiteVersion = 'latest.release'
+def pluginMainClass = 'com.collectionlogmaster.CollectionLogMasterPluginTest'
 
 dependencies {
     compileOnly group: 'net.runelite', name:'client', version: runeLiteVersion
 
-    compileOnly 'org.jetbrains:annotations:23.0.0'
-    compileOnly 'org.projectlombok:lombok:1.18.30'
-    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+	compileOnly 'org.projectlombok:lombok:1.18.30'
+	annotationProcessor 'org.projectlombok:lombok:1.18.30'
 
-    testImplementation 'junit:junit:4.12'
-    testImplementation group: 'net.runelite', name:'client', version: runeLiteVersion
-    testImplementation group: 'net.runelite', name:'jshell', version: runeLiteVersion
+	testImplementation 'junit:junit:4.12'
+	testImplementation group: 'net.runelite', name:'client', version: runeLiteVersion
+	testImplementation group: 'net.runelite', name:'jshell', version: runeLiteVersion
 }
 
 tasks.withType(JavaCompile).configureEach {
@@ -48,10 +48,18 @@ tasks.withType(JavaCompile).configureEach {
     options.release.set(11)
 }
 
+tasks.register('run', JavaExec) {
+	classpath = sourceSets.test.runtimeClasspath
+	mainClass = pluginMainClass
+
+	jvmArgs "-ea"
+	args "--developer-mode", "--debug"
+}
+
 tasks.register('shadowJar', Jar) {
     dependsOn configurations.testRuntimeClasspath
     manifest {
-        attributes('Main-Class': 'com.collectionlogmaster.CollectionLogMasterPluginTest', 'Multi-Release': true)
+        attributes('Main-Class': pluginMainClass, 'Multi-Release': true)
     }
 
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
