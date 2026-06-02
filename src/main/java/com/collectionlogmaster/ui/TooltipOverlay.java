@@ -20,15 +20,6 @@ public class TooltipOverlay extends Overlay {
 
 	private Tooltip tooltip;
 
-	public TooltipOverlay() {
-		// setting these so it runs exactly after the tooltip overlay for
-		// the Mouse Tooltips plugin, that way we can clear its tooltip
-		setPosition(OverlayPosition.DYNAMIC);
-		setLayer(OverlayLayer.ABOVE_WIDGETS);
-		drawAfterInterface(InterfaceID.TOPLEVEL_DISPLAY);
-		setPriority(Math.nextUp(PRIORITY_DEFAULT));
-	}
-
 	public void setTooltip(String tooltipText) {
 		tooltip = new Tooltip(tooltipText);
 	}
@@ -40,7 +31,6 @@ public class TooltipOverlay extends Overlay {
 	@Override
 	public Dimension render(Graphics2D g) {
 		if (tooltip != null) {
-			tooltipManager.clear();
 			tooltipManager.add(tooltip);
 		}
 
