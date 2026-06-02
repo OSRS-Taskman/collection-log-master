@@ -9,6 +9,7 @@ import lombok.experimental.Accessors;
 @Data
 @RequiredArgsConstructor
 public class TaskAppState {
+    private final boolean isLoggedIn;
     private final String activeTaskId;
     private final boolean isOfficial;
     private final boolean isLmsEnabled;
@@ -17,6 +18,6 @@ public class TaskAppState {
     private final Set<String> completedTasks;
 
     public TaskAppState() {
-        this(null, true, true, true, Set.of());
+        this(false, null, true, true, true, Set.of());
     }
 }
