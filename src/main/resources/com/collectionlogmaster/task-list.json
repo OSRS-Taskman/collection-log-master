@@ -5238,7 +5238,7 @@
 		{
 			"id": "a2292aef-4feb-4d86-a6d7-6f0b37173093",
 			"name": "Get a Dragon metal sheet",
-			"tip": "Obtained as a drop from Lava Strykewyrms.",
+			"tip": "Obtained as a drop from Orcas, which can be safespotted. Bounty Tasks increase the drop rate.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Dragon_metal_sheet",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dragon_metal_sheet_detail.png/320px-Dragon_metal_sheet_detail.png",
 			"displayItemId": 31996,
@@ -8611,7 +8611,7 @@
 		{
 			"id": "99fbd170-991a-48dc-858f-3c1bb7e63da0",
 			"name": "Get an Echo pearl",
-			"tip": "Obtained as a drop from Orcas, which can be safespotted.",
+			"tip": "Obtained as a drop from Orcas, which can be safespotted. Bounty Tasks increase the drop rate.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Echo_pearl",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Echo_pearl_detail.png/320px-Echo_pearl_detail.png",
 			"displayItemId": 31946,
@@ -8637,7 +8637,7 @@
 		{
 			"id": "b5278998-7a38-4f11-a816-0cd3256cfbcc",
 			"name": "Get a Broken dragon hook",
-			"tip": "Obtained as a drop from Great White Sharks.",
+			"tip": "Obtained as a drop from Great White Sharks. Bounty Tasks increase the drop rate.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Broken_dragon_hook",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Broken_dragon_hook_detail.png/320px-Broken_dragon_hook_detail.png",
 			"displayItemId": 31961,
@@ -12081,7 +12081,7 @@
 		{
 			"id": "7344d43a-dac1-4fbb-bdba-ce2bc37aa417",
 			"name": "Get a Bottled storm",
-			"tip": "Obtained as a drop from Armoured and Vampyre Krakens.",
+			"tip": "Obtained as a drop from Armoured and Vampyre Krakens. Bounty Tasks increase the drop rate.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Bottled_storm",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Bottled_storm_detail.png/320px-Bottled_storm_detail.png",
 			"displayItemId": 31949,
@@ -12094,7 +12094,7 @@
 		{
 			"id": "80227b8c-1983-4102-9b0f-170a2a40f152",
 			"name": "Get a Dragon cannon barrel",
-			"tip": "Obtained as a very rare drop from Merchant shipwrecks.",
+			"tip": "Obtained as a drop from Veiled Krakens. Bounty Tasks increase the drop rate.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Dragon_cannon_barrel",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dragon_cannon_barrel_detail.png/320px-Dragon_cannon_barrel_detail.png",
 			"displayItemId": 32115,
