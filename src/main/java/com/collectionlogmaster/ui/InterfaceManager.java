@@ -1,9 +1,12 @@
 package com.collectionlogmaster.ui;
 
 import com.collectionlogmaster.domain.Task;
+import com.collectionlogmaster.taskapp.TaskAppStateStorage;
+import com.collectionlogmaster.ui.component.LoginRequiredOverlay;
 import com.collectionlogmaster.ui.component.MainTabbedContainer;
 import com.collectionlogmaster.ui.component.MenuManager;
 import com.collectionlogmaster.ui.component.TaskInfo;
+import com.collectionlogmaster.ui.generic.UIComponent;
 import com.collectionlogmaster.ui.sprites.SpriteManager;
 import com.collectionlogmaster.ui.state.StateStore;
 import com.collectionlogmaster.util.EventBusSubscriber;
@@ -16,6 +19,7 @@ import net.runelite.api.events.WidgetClosed;
 import net.runelite.api.events.WidgetLoaded;
 import net.runelite.api.gameval.InterfaceID;
 import net.runelite.api.widgets.Widget;
+import net.runelite.client.callback.ClientThread;
 import net.runelite.client.eventbus.Subscribe;
 import org.jetbrains.annotations.Nullable;
 
@@ -29,6 +33,9 @@ public class InterfaceManager extends EventBusSubscriber {
 	private Client client;
 
 	@Inject
+	private ClientThread clientThread;
+
+	@Inject
 	private SpriteManager spriteManager;
 
 	@Inject
@@ -37,7 +44,13 @@ public class InterfaceManager extends EventBusSubscriber {
 	@Inject
 	private StateStore stateStore;
 
-	private MainTabbedContainer container = null;
+	@Inject
+	private TaskAppStateStorage taskAppStateStorage;
+
+	@Inject
+	protected TooltipOverlay tooltipOverlay;
+
+	private UIComponent<?> container = null;
 
 	private TaskInfo taskInfo = null;
 
@@ -103,14 +116,24 @@ public class InterfaceManager extends EventBusSubscriber {
 			return;
 		}
 
-		hideCollectionLogContent(true);
+		taskAppStateStorage.fetch()
+			.whenComplete((v, t) -> {
+				clientThread.invoke(() -> {
+					hideCollectionLogContent(true);
 
-		if (container != null) {
-			container.unregister();
-		}
+					if (container != null) {
+						container.unregister();
+					}
 
-		container = MainTabbedContainer.createInside(content);
-		container.revalidate();
+					if (taskAppStateStorage.get().isLoggedIn()) {
+						container = MainTabbedContainer.createInside(content);
+					} else {
+						container = LoginRequiredOverlay.createInside(content);
+					}
+
+					container.revalidate();
+				});
+			});
 	}
 
 	public void openTaskInfo(Task task) {
@@ -152,5 +175,6 @@ public class InterfaceManager extends EventBusSubscriber {
 		taskInfo = null;
 
 		stateStore.setDashboardEnabled(false);
+		tooltipOverlay.clearTooltip();
 	}
 }

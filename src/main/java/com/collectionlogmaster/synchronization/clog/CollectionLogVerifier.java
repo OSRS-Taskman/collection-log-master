@@ -3,6 +3,7 @@ package com.collectionlogmaster.synchronization.clog;
 import com.collectionlogmaster.domain.Task;
 import com.collectionlogmaster.domain.verification.clog.CollectionLogVerification;
 import com.collectionlogmaster.synchronization.Verifier;
+import java.util.Set;
 import lombok.NonNull;
 
 import javax.inject.Inject;
@@ -10,7 +11,7 @@ import javax.inject.Singleton;
 import java.util.Arrays;
 
 @Singleton
-public class CollectionLogVerifier implements Verifier {
+public class CollectionLogVerifier implements Verifier<Set<Integer>> {
     @Inject
     private CollectionLogService collectionLogService;
 
@@ -27,5 +28,9 @@ public class CollectionLogVerifier implements Verifier {
                 .count();
 
         return totalObtained >= verif.getCount();
+    }
+
+    public Set<Integer> verificationData() {
+        return collectionLogService.getObtainedItems();
     }
 }

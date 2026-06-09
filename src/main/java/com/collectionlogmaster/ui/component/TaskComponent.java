@@ -2,7 +2,7 @@ package com.collectionlogmaster.ui.component;
 
 import com.collectionlogmaster.CollectionLogMasterPlugin;
 import com.collectionlogmaster.domain.Task;
-import com.collectionlogmaster.task.TaskService;
+import com.collectionlogmaster.taskapp.TaskService;
 import com.collectionlogmaster.ui.InterfaceManager;
 import com.collectionlogmaster.ui.generic.BorderTheme;
 import com.collectionlogmaster.ui.generic.UIBorderedContainer;
@@ -21,6 +21,7 @@ import net.runelite.api.widgets.WidgetPositionMode;
 import net.runelite.api.widgets.WidgetSizeMode;
 import net.runelite.api.widgets.WidgetTextAlignment;
 import net.runelite.api.widgets.WidgetType;
+import net.runelite.client.callback.ClientThread;
 import org.jetbrains.annotations.Range;
 
 @Accessors(chain = true)
@@ -39,6 +40,9 @@ public class TaskComponent extends UIComponent<TaskComponent> {
 
 	@Inject
 	private InterfaceManager interfaceManager;
+
+	@Inject
+	private ClientThread clientThread;
 
 	@Inject
 	private TaskService taskService;
@@ -79,11 +83,12 @@ public class TaskComponent extends UIComponent<TaskComponent> {
 				return;
 
 			case 2:
-				boolean isComplete = taskService.toggleComplete(task.getId());
-				setOpacity(isComplete ? 0 : 175)
-					.setTheme(isComplete ? BorderTheme.ETCHED_GREEN_DYED : BorderTheme.ETCHED)
-					.revalidate();
-				return;
+				taskService.toggleComplete(task.getId()).thenAccept(
+					(isComplete) -> clientThread.invoke(
+						() -> setOpacity(isComplete ? 0 : 175)
+							.setTheme(isComplete ? BorderTheme.ETCHED_GREEN_DYED : BorderTheme.ETCHED)
+							.revalidate()
+					));
 		}
 	}
 

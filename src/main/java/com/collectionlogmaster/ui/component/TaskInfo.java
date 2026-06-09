@@ -10,7 +10,7 @@ import com.collectionlogmaster.domain.verification.diary.DiaryRegion;
 import com.collectionlogmaster.domain.verification.skill.SkillVerification;
 import com.collectionlogmaster.synchronization.clog.CollectionLogService;
 import com.collectionlogmaster.synchronization.diary.AchievementDiaryService;
-import com.collectionlogmaster.task.TaskService;
+import com.collectionlogmaster.taskapp.TaskService;
 import com.collectionlogmaster.ui.generic.UIComponent;
 import com.collectionlogmaster.ui.generic.UIGridContainer;
 import com.collectionlogmaster.ui.generic.UIProgressBar;
@@ -34,6 +34,7 @@ import net.runelite.api.widgets.WidgetPositionMode;
 import net.runelite.api.widgets.WidgetSizeMode;
 import net.runelite.api.widgets.WidgetTextAlignment;
 import net.runelite.api.widgets.WidgetType;
+import net.runelite.client.callback.ClientThread;
 import net.runelite.client.game.ItemManager;
 import net.runelite.client.util.LinkBrowser;
 import org.apache.commons.lang3.tuple.Pair;
@@ -62,6 +63,9 @@ public class TaskInfo extends UIComponent<TaskInfo> {
 
 	@Inject
 	private ItemManager itemManager;
+
+	@Inject
+	private ClientThread clientThread;
 
 	@Inject
 	private TaskService taskService;
@@ -287,8 +291,8 @@ public class TaskInfo extends UIComponent<TaskInfo> {
 			.setFont(FontID.BOLD_12)
 			.setText("Mark Complete")
 			.setAction("Mark", () -> {
-				taskService.toggleComplete(task.getId());
-				revalidate();
+				taskService.toggleComplete(task.getId())
+					.thenRun(() -> clientThread.invoke(this::revalidate));
 			})
 			.revalidate();
 	}

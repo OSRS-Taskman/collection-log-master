@@ -11,6 +11,7 @@ import org.jetbrains.annotations.Range;
 public class UIUtil {
 	private static final String WIDGET_NAME_FORMAT = "<col=ff9040>%s</col>";
 	private static final String BASE_OSRS_WIKI_URL = "https://oldschool.runescape.wiki/w/%s";
+	public static final String TASKAPP_URL = "https://www.osrstaskapp.com/";
 	public static final String FAQ_URL =
 		"https://docs.google.com/document/d/e/2PACX-1vTHfXHzMQFbt_iYAP-O88uRhhz3wigh1KMiiuomU7ftli-rL_c3bRqfGYmUliE1EHcIr3LfMx2UTf2U/pub";
 
@@ -21,6 +22,10 @@ public class UIUtil {
 
 	public static void openFAQ() {
 		LinkBrowser.browse(FAQ_URL);
+	}
+
+	public static void openTaskApp() {
+		LinkBrowser.browse(TASKAPP_URL);
 	}
 
 	public static String formatName(String name) {

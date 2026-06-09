@@ -1,25 +1,27 @@
-package com.collectionlogmaster.task;
+package com.collectionlogmaster.taskapp;
+
+import static com.collectionlogmaster.CollectionLogMasterConfig.CONFIG_GROUP;
+import static com.collectionlogmaster.util.GsonOverride.GSON;
 
 import com.collectionlogmaster.CollectionLogMasterConfig;
-import com.collectionlogmaster.command.TaskmanCommandManager;
 import com.collectionlogmaster.domain.Tag;
 import com.collectionlogmaster.domain.Task;
 import com.collectionlogmaster.domain.TaskTier;
-import com.collectionlogmaster.domain.savedata.SaveData;
-import com.collectionlogmaster.domain.verification.clog.CollectionLogVerification;
+import com.collectionlogmaster.taskapp.response.SyncResponse;
 import com.collectionlogmaster.util.EventBusSubscriber;
+import com.google.gson.JsonObject;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
+import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.ConfigChanged;
 import org.jetbrains.annotations.Range;
@@ -31,47 +33,45 @@ public class TaskService extends EventBusSubscriber {
 	private CollectionLogMasterConfig config;
 
 	@Inject
-	private SaveDataStorage saveDataStorage;
+	private TaskAppStateStorage taskAppStateStorage;
 
 	@Inject
 	private TaskListStorage taskListStorage;
 
 	@Inject
-	private TaskmanCommandManager taskmanCommandManager;
+	private TaskAppClient taskAppClient;
 
 	@Override
 	public void startUp() {
 		super.startUp();
-		saveDataStorage.startUp();
+		taskAppStateStorage.startUp();
 	}
 
 	@Override
 	public void shutDown() {
 		super.shutDown();
-		saveDataStorage.shutDown();
+		taskAppStateStorage.shutDown();
 	}
 
 	@Subscribe
 	public void onConfigChanged(ConfigChanged e) {
-		if (!e.getGroup().equals(CollectionLogMasterConfig.CONFIG_GROUP)) {
+		if (!e.getGroup().equals(CONFIG_GROUP)) {
 			return;
 		}
 
-		if (!e.getKey().equals(CollectionLogMasterConfig.IS_LMS_ENABLED_KEY)) {
-			return;
-		}
-
-		if (!config.isLMSEnabled()) {
-			Task activeTask = getActiveTask();
-			if (activeTask != null && activeTask.isLMS()) {
-				saveDataStorage.get().setActiveTaskId(null);
-				saveDataStorage.save();
-			}
+		String configKey = e.getKey();
+		if (
+			configKey.equals(CollectionLogMasterConfig.TASK_APP_USERNAME)
+			|| configKey.equals(CollectionLogMasterConfig.TASK_APP_PASSWORD)
+		) {
+			taskAppClient.invalidateToken();
+			taskAppStateStorage.fetch();
+			taskListStorage.fetch();
 		}
 	}
 
 	public Task getActiveTask() {
-		String activeTaskId = saveDataStorage.get().getActiveTaskId();
+		String activeTaskId = taskAppStateStorage.get().getActiveTaskId();
 
 		return activeTaskId == null ? null : getTaskById(activeTaskId);
 	}
@@ -110,7 +110,7 @@ public class TaskService extends EventBusSubscriber {
 	public List<Task> getTierTasks(TaskTier tier, boolean skipLMSCheck) {
 		List<Task> tierTasks = taskListStorage.get().getForTier(tier);
 
-		if (!skipLMSCheck && !config.isLMSEnabled()) {
+		if (!skipLMSCheck && !taskAppStateStorage.get().isLmsEnabled()) {
 			return filterTag(tierTasks, Tag.LMS);
 		}
 
@@ -138,7 +138,7 @@ public class TaskService extends EventBusSubscriber {
 	}
 
 	public @NonNull Map<TaskTier, @Range(from = 0, to = 1) Float> getProgress() {
-		SaveData data = saveDataStorage.get();
+		TaskAppState data = taskAppStateStorage.get();
 		Set<String> completedTasks = data.getCompletedTasks();
 
 		Map<TaskTier, @Range(from = 0, to = 1) Float> completionPercentages = new HashMap<>();
@@ -158,95 +158,40 @@ public class TaskService extends EventBusSubscriber {
 		return completionPercentages;
 	}
 
-	public Task generate() {
-		SaveData data = saveDataStorage.get();
-
-		String activeTaskId = data.getActiveTaskId();
-		if (activeTaskId != null) {
-			log.warn("Tried to generate task when previous one wasn't completed yet");
-			return null;
-		}
-
-		List<Task> incompleteTierTasks = getIncompleteTierTasks();
-		if (incompleteTierTasks.isEmpty()) {
-			log.warn("No tasks left");
-			return null;
-		}
-
-		Task generatedTask = pickRandomTask(incompleteTierTasks);
-		log.debug("New task generated: {}", generatedTask);
-
-		data.setActiveTaskId(generatedTask.getId());
-		saveDataStorage.save();
-		taskmanCommandManager.updateServer();
-
-		return generatedTask;
+	public CompletableFuture<Task> generate() {
+		return taskAppClient.generateTask()
+			.thenCompose((res) -> taskAppStateStorage.fetch())
+			.thenApply((v) -> getActiveTask());
 	}
 
-	public void complete() {
-		Task activeTask = getActiveTask();
-		if (activeTask == null) {
-			return;
-		}
-
-		complete(activeTask.getId());
+	public CompletableFuture<Void> complete() {
+		return complete(taskAppStateStorage.get().getActiveTaskId());
 	}
 
-	public void complete(String taskId) {
-		SaveData data = saveDataStorage.get();
-		Set<String> completedTasks = data.getCompletedTasks();
-		completedTasks.add(taskId);
-
-		if (taskId.equals(data.getActiveTaskId())) {
-			data.setActiveTaskId(null);
-		}
-
-		saveDataStorage.save();
-		taskmanCommandManager.updateServer();
+	public CompletableFuture<Void> complete(String taskId) {
+		return taskAppClient.updateTask(taskId, true)
+			.thenCompose((res) -> taskAppStateStorage.fetch());
 	}
 
-	public void uncomplete(String taskId) {
-		Set<String> completedTasks = saveDataStorage.get().getCompletedTasks();
-		completedTasks.remove(taskId);
-
-		saveDataStorage.save();
-		taskmanCommandManager.updateServer();
+	public CompletableFuture<Void> uncomplete(String taskId) {
+		return taskAppClient.updateTask(taskId, false)
+			.thenCompose((res) -> taskAppStateStorage.fetch());
 	}
 
-	public boolean toggleComplete(String taskId) {
+	public CompletableFuture<Boolean> toggleComplete(String taskId) {
 		if (isComplete(taskId)) {
-			uncomplete(taskId);
-			return false;
+			return uncomplete(taskId)
+				.thenApply(v -> false);
 		} else {
-			complete(taskId);
-			return true;
+			return complete(taskId)
+				.thenApply(v -> true);
 		}
 	}
 
 	public boolean isComplete(String taskId) {
-		Set<String> completedTasks = saveDataStorage.get().getCompletedTasks();
+		Set<String> completedTasks = taskAppStateStorage.get().getCompletedTasks();
 
 		return completedTasks.contains(taskId);
-	}
-
-	private Task pickRandomTask(List<Task> tasks) {
-		int index = (int) Math.floor(Math.random() * tasks.size());
-		Task pickedTask = tasks.get(index);
-
-		if (!(pickedTask.getVerification() instanceof CollectionLogVerification)) {
-			return pickedTask;
-		}
-
-		// get first of similarly named tasks
-		String taskName = pickedTask.getName();
-		Stream<Task> similarTasks = tasks.stream()
-				.filter(t -> taskName.equals(t.getName()))
-				.filter(t -> t.getVerification() instanceof CollectionLogVerification);
-
-		//noinspection DataFlowIssue
-		return similarTasks.min(Comparator.comparingInt(
-				t -> ((CollectionLogVerification) t.getVerification()).getCount()
-		)).orElse(pickedTask);
 	}
 
 	private List<Task> filterTag(List<Task> list, Tag tag) {

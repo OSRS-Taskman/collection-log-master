@@ -39,6 +39,10 @@ public class CollectionLogService extends EventBusSubscriber {
         }
     }
 
+    public Set<Integer> getObtainedItems() {
+        return Set.copyOf(obtainedItems);
+    }
+
     public boolean isItemObtained(int itemId) {
         return obtainedItems.contains(itemId);
     }

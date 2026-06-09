@@ -4,8 +4,7 @@ import com.collectionlogmaster.CollectionLogMasterConfig;
 import com.collectionlogmaster.CollectionLogMasterPlugin;
 import com.collectionlogmaster.domain.Task;
 import com.collectionlogmaster.domain.TaskTier;
-import com.collectionlogmaster.synchronization.SyncService;
-import com.collectionlogmaster.task.TaskService;
+import com.collectionlogmaster.taskapp.TaskService;
 import com.collectionlogmaster.ui.generic.UIComponent;
 import com.collectionlogmaster.ui.generic.UIUtil;
 import com.collectionlogmaster.ui.generic.button.UIButton.State;
@@ -48,15 +47,12 @@ public class TaskDashboard extends UIComponent<TaskDashboard> {
 	@Inject
 	private TaskService taskService;
 
-	@Inject
-	private SyncService syncService;
-
 	private final Widget title;
 	private final TaskComponent taskComponent;
 	private final UITextButton completeButton;
 	private final UITextButton generateButton;
 	private final UITextButton faqButton;
-	private final UITextButton syncButton;
+	private final SyncButton syncButton;
 	private final Widget progress;
 
 	public static TaskDashboard createInside(Widget window) {
@@ -72,7 +68,7 @@ public class TaskDashboard extends UIComponent<TaskDashboard> {
 		completeButton = UITextButton.createInside(widget);
 		generateButton = UITextButton.createInside(widget);
 		faqButton = UITextButton.createInside(widget);
-		syncButton = UITextButton.createInside(widget);
+		syncButton = SyncButton.createInside(widget);
 		progress = widget.createChild(WidgetType.TEXT);
 
 		initializeWidgets();
@@ -129,13 +125,9 @@ public class TaskDashboard extends UIComponent<TaskDashboard> {
 		syncButton.setYPositionMode(WidgetPositionMode.ABSOLUTE_BOTTOM)
 			.setPos(BASE_GAP / 2, BASE_GAP / 2)
 			.setSize(BUTTON_WIDTH / 2, BUTTON_HEIGHT)
-			.setText("Sync")
-			.setName(UIUtil.formatName("Sync"))
-			.setAction("Visit", () -> {
-				syncService.sync();
-				revalidate();
-			})
 			.revalidate();
+
+		syncButton.setTaskDashboard(this);
 
 		faqButton.setXPositionMode(WidgetPositionMode.ABSOLUTE_RIGHT)
 			.setYPositionMode(WidgetPositionMode.ABSOLUTE_BOTTOM)
@@ -160,28 +152,30 @@ public class TaskDashboard extends UIComponent<TaskDashboard> {
 	}
 
 	private void generateTask() {
-		Task generatedTask = taskService.generate();
-		List<Task> rollTasks = getRollTasks();
+		taskService.generate()
+			.thenAccept(generatedTask -> {
+				List<Task> rollTasks = getRollTasks();
 
-		Stack<Pair<Task, Integer>> stepStack = new Stack<>();
-		stepStack.push(Pair.of(generatedTask, 0));
+				Stack<Pair<Task, Integer>> stepStack = new Stack<>();
+				stepStack.push(Pair.of(generatedTask, 0));
 
-		int timeLeft = config.rollTime();
-		while (timeLeft > 0) {
-			int stepDelay = calculateStepDelay(stepStack.size() - 1);
+				int timeLeft = config.rollTime();
+				while (timeLeft > 0) {
+					int stepDelay = calculateStepDelay(stepStack.size() - 1);
 
-			stepStack.push(Pair.of(
-				rollTasks.get(stepStack.size()),
-				stepDelay
-			));
+					stepStack.push(Pair.of(
+						rollTasks.get(stepStack.size()),
+						stepDelay
+					));
 
-			timeLeft -= stepDelay;
-		}
+					timeLeft -= stepDelay;
+				}
 
-		executeRollStep(stepStack);
+				executeRollStep(stepStack);
 
-		generateButton.setState(State.DISABLED)
-			.revalidate();
+				generateButton.setState(State.DISABLED)
+					.revalidate();
+			});
 	}
 
 	/**
@@ -250,10 +244,10 @@ public class TaskDashboard extends UIComponent<TaskDashboard> {
 		if (activeTask != null) {
 			completeButton.setState(State.DEFAULT)
 				.setName(UIUtil.formatName(activeTask.getName()))
-				.setAction("Complete", () -> {
-					taskService.complete();
-					revalidate();
-				})
+				.setAction("Complete", () ->
+					taskService.complete()
+						.thenRun(() -> clientThread.invoke(this::revalidate))
+				)
 				.revalidate();
 
 			generateButton.setState(State.DISABLED)
