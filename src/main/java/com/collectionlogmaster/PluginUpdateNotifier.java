@@ -23,7 +23,7 @@ import net.runelite.client.eventbus.Subscribe;
 public class PluginUpdateNotifier extends EventBusSubscriber {
 	private static final String[] UPDATE_MESSAGES = {
 			"<colHIGHLIGHT>Collection Log Master updated to v" + getPluginVersion(),
-			"<colHIGHLIGHT>- Thanks you for trying out the beta version! Please report any issues in Discord.",
+			"<colHIGHLIGHT>- Basic TaskApp integration; please create an account to keep using the plugin.",
 	};
 
 	@Inject
