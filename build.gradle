@@ -1,22 +1,13 @@
-buildscript {
-    repositories {
-        gradlePluginPortal()
-    }
-
-    // avoids requiring to whitelist spotless in plugin hub
-    if (gradle.startParameter.taskNames.any { it.contains('spotless') }) {
-        dependencies {
-            classpath("com.diffplug.gradle.spotless:com.diffplug.gradle.spotless.gradle.plugin:7.2.1")
-        }
-    }
-}
-
 plugins {
     id 'java'
+    id 'com.diffplug.spotless' version '7.2.1'
 }
 
+def pluginProps = new Properties()
+pluginProps.load(file('runelite-plugin.properties').newInputStream())
+
 group = 'com.collectionlogmaster'
-version = '2.0.0'
+version = pluginProps.version
 
 repositories {
     mavenLocal()
@@ -42,6 +33,45 @@ dependencies {
 	testImplementation 'junit:junit:4.12'
 	testImplementation group: 'net.runelite', name:'client', version: runeLiteVersion
 	testImplementation group: 'net.runelite', name:'jshell', version: runeLiteVersion
+}
+
+spotless {
+    ratchetFrom 'origin/main'
+
+    format 'misc', {
+        target '*.gradle', '.gitattributes', '.gitignore'
+        trimTrailingWhitespace()
+        leadingSpacesToTabs(4)
+        endWithNewline()
+    }
+
+    java {
+        toggleOffOn()
+        importOrder()
+        removeUnusedImports()
+        cleanthat()
+        leadingSpacesToTabs(4)
+        custom '@Annotation diff line', { it.replaceAll("(\n(\t+)@[A-Z][A-Za-z]+) ", "\$1\n\$2") }
+    }
+
+    flexmark {
+        target '**/*.md'
+        flexmark()
+    }
+
+    json {
+        target 'src/**/*.json'
+        targetExclude 'src/main/resources/**/task-list.json'
+        gson()
+    }
+}
+
+processResources {
+    filesMatching ('**/version') {
+        filter {
+            it.replace('%PLUGIN_VERSION%', version)
+        }
+    }
 }
 
 tasks.withType(JavaCompile).configureEach {
@@ -81,51 +111,4 @@ tasks.register('shadowJar', Jar) {
     group = BasePlugin.BUILD_GROUP
     archiveClassifier.set('shadow')
     archiveFileName.set("${rootProject.name}-${project.version}-all.jar")
-}
-
-processResources {
-    filesMatching ('**/version') {
-        filter {
-            it.replace('%PLUGIN_VERSION%', version)
-        }
-    }
-}
-
-if (gradle.startParameter.taskNames.any { it.contains('spotless') }) {
-    apply plugin: 'com.diffplug.spotless'
-    spotless {
-        ratchetFrom 'origin/main'
-
-        format 'misc', {
-            target '*.gradle', '.gitattributes', '.gitignore'
-
-            trimTrailingWhitespace()
-            leadingTabsToSpaces(4)
-            endWithNewline()
-        }
-
-        java {
-            toggleOffOn()
-
-            importOrder()
-            removeUnusedImports()
-
-            cleanthat()
-
-            leadingSpacesToTabs(4)
-
-            custom '@Annotation diff line', { it.replaceAll("(\n(\t+)@[A-Z][A-Za-z]+) ", "\$1\n\$2") }
-        }
-
-        flexmark {
-            target '**/*.md'
-            flexmark()
-        }
-
-        json {
-            target 'src/**/*.json'
-            targetExclude 'src/main/resources/**/task-list.json'
-            gson()
-        }
-    }
 }
