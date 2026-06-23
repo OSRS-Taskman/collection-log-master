@@ -16,6 +16,7 @@ import java.util.Stack;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import javax.inject.Inject;
+import lombok.NonNull;
 import net.runelite.api.FontID;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetPositionMode;
@@ -24,7 +25,6 @@ import net.runelite.api.widgets.WidgetTextAlignment;
 import net.runelite.api.widgets.WidgetType;
 import net.runelite.client.callback.ClientThread;
 import org.apache.commons.lang3.tuple.Pair;
-import org.jetbrains.annotations.NotNull;
 
 public class TaskDashboard extends UIComponent<TaskDashboard> {
 	public static final int BASE_GAP = 16;
@@ -139,7 +139,7 @@ public class TaskDashboard extends UIComponent<TaskDashboard> {
 			.revalidate();
 	}
 
-	private @NotNull String getProgressText() {
+	private @NonNull String getProgressText() {
 		TaskTier tier = taskService.getCurrentTier();
 		float percent = taskService.getProgress().get(tier);
 
@@ -216,7 +216,7 @@ public class TaskDashboard extends UIComponent<TaskDashboard> {
 		executorService.schedule(() -> executeRollStep(stepStack), nextStepDelay, TimeUnit.MILLISECONDS);
 	}
 
-	private @NotNull List<Task> getRollTasks() {
+	private @NonNull List<Task> getRollTasks() {
 		List<Task> candidateTasks = taskService.getIncompleteTierTasks();
 		if (candidateTasks.size() < MAX_ROLLING_STEPS && config.rollPastCompleted()) {
 			candidateTasks = taskService.getTierTasks();

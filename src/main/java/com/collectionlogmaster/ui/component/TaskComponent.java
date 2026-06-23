@@ -22,7 +22,6 @@ import net.runelite.api.widgets.WidgetSizeMode;
 import net.runelite.api.widgets.WidgetTextAlignment;
 import net.runelite.api.widgets.WidgetType;
 import net.runelite.client.callback.ClientThread;
-import org.jetbrains.annotations.Range;
 
 @Accessors(chain = true)
 public class TaskComponent extends UIComponent<TaskComponent> {
@@ -63,7 +62,7 @@ public class TaskComponent extends UIComponent<TaskComponent> {
 		initializeWidgets();
 	}
 
-	public TaskComponent setOpacity(@Range(from = 0, to = 255) int transparency) {
+	public TaskComponent setOpacity(int transparency) {
 		image.setOpacity(transparency);
 		name.setOpacity(transparency);
 		return this;

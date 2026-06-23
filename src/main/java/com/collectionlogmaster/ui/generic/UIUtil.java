@@ -6,7 +6,6 @@ import lombok.NonNull;
 import net.runelite.api.FontTypeFace;
 import net.runelite.api.widgets.Widget;
 import net.runelite.client.util.LinkBrowser;
-import org.jetbrains.annotations.Range;
 
 public class UIUtil {
 	private static final String WIDGET_NAME_FORMAT = "<col=ff9040>%s</col>";
@@ -66,11 +65,11 @@ public class UIUtil {
 		return lineCount;
 	}
 
-	public static int getCompletionColor(@Range(from = 0, to = 1) float percent) {
+	public static int getCompletionColor(float percent) {
 		return Color.HSBtoRGB(percent / 3, 1, 1) & 0xFFFFFF;
 	}
 
-	public static int roundCompletionPercent(@Range(from = 0, to = 1) float percent) {
+	public static int roundCompletionPercent(float percent) {
 		int roundedPercent = (int) (percent * 100);
 
 		// prevent showing 0% unless it's really 0

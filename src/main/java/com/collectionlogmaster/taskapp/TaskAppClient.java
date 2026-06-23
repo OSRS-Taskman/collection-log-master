@@ -19,11 +19,11 @@ import java.util.concurrent.CompletableFuture;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
+import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Skill;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
-import org.jetbrains.annotations.NotNull;
 
 @Slf4j
 @Singleton
@@ -57,7 +57,7 @@ public class TaskAppClient extends HttpClient {
 			.build();
 	}
 
-	private @NotNull HttpUrl buildApiUrl(String... segments) {
+	private @NonNull HttpUrl buildApiUrl(String... segments) {
 		HttpUrl baseApiUrl = isDeveloperMode ? DEVELOPMENT_BASE_API_URL : PRODUCTION_BASE_API_URL;
 		HttpUrl.Builder builder = baseApiUrl.newBuilder();
 

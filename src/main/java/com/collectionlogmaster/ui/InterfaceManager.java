@@ -10,6 +10,7 @@ import com.collectionlogmaster.ui.generic.UIComponent;
 import com.collectionlogmaster.ui.sprites.SpriteManager;
 import com.collectionlogmaster.ui.state.StateStore;
 import com.collectionlogmaster.util.EventBusSubscriber;
+import javax.annotation.Nullable;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
@@ -21,7 +22,6 @@ import net.runelite.api.gameval.InterfaceID;
 import net.runelite.api.widgets.Widget;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.eventbus.Subscribe;
-import org.jetbrains.annotations.Nullable;
 
 @Slf4j
 @Singleton

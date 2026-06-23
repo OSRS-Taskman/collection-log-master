@@ -5,14 +5,10 @@ import com.collectionlogmaster.taskapp.response.LoginResponse;
 import java.io.IOException;
 import java.time.Duration;
 import java.time.Instant;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
-import lombok.SneakyThrows;
+import lombok.NonNull;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
-import org.jetbrains.annotations.NotNull;
 
 public class TaskAppAuthInterceptor implements Interceptor {
 	private static final Duration TOKEN_DURATION = Duration.ofHours(12);
@@ -54,7 +50,7 @@ public class TaskAppAuthInterceptor implements Interceptor {
 	}
 
 	@Override
-	public @NotNull Response intercept(@NotNull Chain chain) throws IOException {
+	public @NonNull Response intercept(@NonNull Chain chain) throws IOException {
 		Request originalRequest = chain.request();
 
 		if (requestSkipsAuth(originalRequest)) {

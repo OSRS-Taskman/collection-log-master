@@ -24,7 +24,6 @@ import lombok.extern.slf4j.Slf4j;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.ConfigChanged;
-import org.jetbrains.annotations.Range;
 
 @Singleton
 @Slf4j
@@ -137,11 +136,11 @@ public class TaskService extends EventBusSubscriber {
 				.collect(Collectors.toList());
 	}
 
-	public @NonNull Map<TaskTier, @Range(from = 0, to = 1) Float> getProgress() {
+	public @NonNull Map<TaskTier, Float> getProgress() {
 		TaskAppState data = taskAppStateStorage.get();
 		Set<String> completedTasks = data.getCompletedTasks();
 
-		Map<TaskTier, @Range(from = 0, to = 1) Float> completionPercentages = new HashMap<>();
+		Map<TaskTier, Float> completionPercentages = new HashMap<>();
 		for (TaskTier tier : TaskTier.values()) {
 			Set<String> tierTasks = getTierTasks(tier).stream()
 					.map(Task::getId)
