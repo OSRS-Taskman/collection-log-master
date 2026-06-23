@@ -31,7 +31,6 @@ public class MigrationHelper {
 	private TaskAppClient taskAppClient;
 
 	public boolean canMigrate() {
-		markAsMigrated(false);
 		SaveData saveData = getOldSaveData();
 		String oldActiveTaskId = saveData.getActiveTaskId();
 		boolean isSameActiveTask = isIsSameActiveTask(oldActiveTaskId);
