@@ -5422,6 +5422,19 @@
 				"itemIds": [ 25615 ],
 				"count": 1
 			}
+		},
+		{
+			"id": "61a10400-1e3e-405e-9b12-1c8feb4981dc",
+			"name": "Get 1 unique from the Hueycoatl",
+			"tip": "Obtained by killing The Hueycoatl",
+			"wikiLink": "https://oldschool.runescape.wiki/w/The_Hueycoatl",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dragon_hunter_wand_detail.png/320px-Dragon_hunter_wand_detail.png",
+			"displayItemId": 30070,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 30066, 30068, 30070, 30085 ],
+				"count": 1
+			}
 		}
 	],
 	"hard": [
@@ -8397,19 +8410,6 @@
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [ 29992 ],
-				"count": 1
-			}
-		},
-		{
-			"id": "61a10400-1e3e-405e-9b12-1c8feb4981dc",
-			"name": "Get 1 unique from the Hueycoatl",
-			"tip": "Obtained by killing The Hueycoatl",
-			"wikiLink": "https://oldschool.runescape.wiki/w/The_Hueycoatl",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dragon_hunter_wand_detail.png/320px-Dragon_hunter_wand_detail.png",
-			"displayItemId": 30070,
-			"verification": {
-				"method": "collection-log",
-				"itemIds": [ 30066, 30068, 30070, 30085 ],
 				"count": 1
 			}
 		},
