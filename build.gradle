@@ -1,6 +1,6 @@
 plugins {
-    id 'java'
-    id 'com.diffplug.spotless' version '7.2.1'
+	id 'java'
+	id 'com.diffplug.spotless' version '7.2.1'
 }
 
 def pluginProps = new Properties()
@@ -10,21 +10,21 @@ group = 'com.collectionlogmaster'
 version = pluginProps.version
 
 repositories {
-    mavenLocal()
-    maven {
-        url = 'https://repo.runelite.net'
-        content {
-            includeGroupByRegex("net\\.runelite.*")
-        }
-    }
-    mavenCentral()
+	mavenLocal()
+	maven {
+		url = 'https://repo.runelite.net'
+		content {
+			includeGroupByRegex("net\\.runelite.*")
+		}
+	}
+	mavenCentral()
 }
 
 def runeLiteVersion = 'latest.release'
 def pluginMainClass = 'com.collectionlogmaster.CollectionLogMasterPluginTest'
 
 dependencies {
-    compileOnly group: 'net.runelite', name:'client', version: runeLiteVersion
+	compileOnly group: 'net.runelite', name:'client', version: runeLiteVersion
 
 	compileOnly 'org.projectlombok:lombok:1.18.30'
 	annotationProcessor 'org.projectlombok:lombok:1.18.30'
@@ -35,47 +35,47 @@ dependencies {
 }
 
 spotless {
-    ratchetFrom 'origin/main'
+	ratchetFrom 'origin/main'
 
-    format 'misc', {
-        target '*.gradle', '.gitattributes', '.gitignore'
-        trimTrailingWhitespace()
-        leadingSpacesToTabs(4)
-        endWithNewline()
-    }
+	format 'misc', {
+		target '*.gradle', '.gitattributes', '.gitignore'
+		trimTrailingWhitespace()
+		leadingSpacesToTabs(4)
+		endWithNewline()
+	}
 
-    java {
-        toggleOffOn()
-        importOrder()
-        removeUnusedImports()
-        cleanthat()
-        leadingSpacesToTabs(4)
-        custom '@Annotation diff line', { it.replaceAll("(\n(\t+)@[A-Z][A-Za-z]+) ", "\$1\n\$2") }
-    }
+	java {
+		toggleOffOn()
+		importOrder()
+		removeUnusedImports()
+		cleanthat()
+		leadingSpacesToTabs(4)
+		custom '@Annotation diff line', { it.replaceAll("(\n(\t+)@[A-Z][A-Za-z]+) ", "\$1\n\$2") }
+	}
 
-    flexmark {
-        target '**/*.md'
-        flexmark()
-    }
+	flexmark {
+		target '**/*.md'
+		flexmark()
+	}
 
-    json {
-        target 'src/**/*.json'
-        targetExclude 'src/main/resources/**/task-list.json'
-        gson()
-    }
+	json {
+		target 'src/**/*.json'
+		targetExclude 'src/main/resources/**/task-list.json'
+		gson()
+	}
 }
 
 processResources {
-    filesMatching ('**/version') {
-        filter {
-            it.replace('%PLUGIN_VERSION%', version)
-        }
-    }
+	filesMatching ('**/version') {
+		filter {
+			it.replace('%PLUGIN_VERSION%', version)
+		}
+	}
 }
 
 tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8'
-    options.release.set(11)
+	options.encoding = 'UTF-8'
+	options.release.set(11)
 }
 
 tasks.register('run', JavaExec) {
@@ -87,27 +87,27 @@ tasks.register('run', JavaExec) {
 }
 
 tasks.register('shadowJar', Jar) {
-    dependsOn configurations.testRuntimeClasspath
-    manifest {
-        attributes('Main-Class': pluginMainClass, 'Multi-Release': true)
-    }
+	dependsOn configurations.testRuntimeClasspath
+	manifest {
+		attributes('Main-Class': pluginMainClass, 'Multi-Release': true)
+	}
 
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-    from sourceSets.main.output
-    from sourceSets.test.output
-    from {
-        configurations.testRuntimeClasspath.collect { file ->
-            file.isDirectory() ? file : zipTree(file)
-        }
-    }
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+	from sourceSets.main.output
+	from sourceSets.test.output
+	from {
+		configurations.testRuntimeClasspath.collect { file ->
+			file.isDirectory() ? file : zipTree(file)
+		}
+	}
 
-    exclude 'META-INF/INDEX.LIST'
-    exclude 'META-INF/*.SF'
-    exclude 'META-INF/*.DSA'
-    exclude 'META-INF/*.RSA'
-    exclude '**/module-info.class'
+	exclude 'META-INF/INDEX.LIST'
+	exclude 'META-INF/*.SF'
+	exclude 'META-INF/*.DSA'
+	exclude 'META-INF/*.RSA'
+	exclude '**/module-info.class'
 
-    group = BasePlugin.BUILD_GROUP
-    archiveClassifier.set('shadow')
-    archiveFileName.set("${rootProject.name}-${project.version}-all.jar")
+	group = BasePlugin.BUILD_GROUP
+	archiveClassifier.set('shadow')
+	archiveFileName.set("${rootProject.name}-${project.version}-all.jar")
 }

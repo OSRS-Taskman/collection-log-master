@@ -5,8 +5,8 @@ import lombok.Data;
 
 @Data
 public class CommandResponse {
-    private CommandTask task;
-    private String tier;
-    @SerializedName("progressPercentage")
-    private int progressPercentage;
+	private CommandTask task;
+	private String tier;
+	@SerializedName("progressPercentage")
+	private int progressPercentage;
 }

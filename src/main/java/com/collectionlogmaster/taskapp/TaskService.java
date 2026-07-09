@@ -1,15 +1,12 @@
 package com.collectionlogmaster.taskapp;
 
 import static com.collectionlogmaster.CollectionLogMasterConfig.CONFIG_GROUP;
-import static com.collectionlogmaster.util.GsonOverride.GSON;
 
 import com.collectionlogmaster.CollectionLogMasterConfig;
 import com.collectionlogmaster.domain.Tag;
 import com.collectionlogmaster.domain.Task;
 import com.collectionlogmaster.domain.TaskTier;
-import com.collectionlogmaster.taskapp.response.SyncResponse;
 import com.collectionlogmaster.util.EventBusSubscriber;
-import com.google.gson.JsonObject;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -21,7 +18,6 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
-import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.ConfigChanged;
 

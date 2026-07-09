@@ -7,9 +7,9 @@ import lombok.RequiredArgsConstructor;
 @Data
 @RequiredArgsConstructor
 public class CommandRequest {
-    @SerializedName("taskId")
-    private final String taskId;
-    private final String tier;
-    @SerializedName("progressPercentage")
-    private final int progressPercentage;
+	@SerializedName("taskId")
+	private final String taskId;
+	private final String tier;
+	@SerializedName("progressPercentage")
+	private final int progressPercentage;
 }

@@ -1,6 +1,5 @@
 package com.collectionlogmaster.command;
 
-import static com.collectionlogmaster.util.GsonOverride.GSON;
 
 import com.collectionlogmaster.CollectionLogMasterConfig;
 import com.collectionlogmaster.domain.Task;

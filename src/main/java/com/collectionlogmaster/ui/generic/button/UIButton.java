@@ -3,7 +3,6 @@ package com.collectionlogmaster.ui.generic.button;
 import com.collectionlogmaster.CollectionLogMasterPlugin;
 import com.collectionlogmaster.ui.TooltipOverlay;
 import com.collectionlogmaster.ui.generic.UIComponent;
-import java.awt.Color;
 import javax.inject.Inject;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,7 +11,6 @@ import net.runelite.api.ScriptEvent;
 import net.runelite.api.widgets.JavaScriptCallback;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetType;
-import net.runelite.client.util.ColorUtil;
 
 @Accessors(chain = true)
 public abstract class UIButton<This extends UIButton<This>> extends UIComponent<This> {

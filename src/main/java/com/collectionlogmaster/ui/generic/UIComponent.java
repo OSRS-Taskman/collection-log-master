@@ -4,8 +4,6 @@ import java.awt.Rectangle;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.widgets.Widget;
-import net.runelite.api.widgets.WidgetPositionMode;
-import net.runelite.api.widgets.WidgetSizeMode;
 import net.runelite.api.widgets.WidgetType;
 
 /**

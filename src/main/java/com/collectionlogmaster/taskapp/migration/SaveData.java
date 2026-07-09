@@ -11,19 +11,19 @@ import lombok.ToString;
 @ToString
 public class SaveData {
 	@Setter
-    private Integer version = 3;
+	private Integer version = 3;
 
-    @Setter
-    @SerializedName("activeTaskId")
-    private String activeTaskId = null;
+	@Setter
+	@SerializedName("activeTaskId")
+	private String activeTaskId = null;
 
-    @Setter
-    @SerializedName("migratedTaskId")
-    private String migratedTaskId = null;
+	@Setter
+	@SerializedName("migratedTaskId")
+	private String migratedTaskId = null;
 
-    @Setter
-    private boolean migrated = false;
+	@Setter
+	private boolean migrated = false;
 
-    @SerializedName("completedTasks")
-    private final Set<String> completedTasks = new HashSet<>();
+	@SerializedName("completedTasks")
+	private final Set<String> completedTasks = new HashSet<>();
 }

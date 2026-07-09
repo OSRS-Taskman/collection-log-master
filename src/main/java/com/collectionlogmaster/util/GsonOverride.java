@@ -1,8 +1,5 @@
 package com.collectionlogmaster.util;
 
-import com.google.gson.FieldNamingPolicy;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.collectionlogmaster.domain.Tag;
 import com.collectionlogmaster.domain.adapters.EnumAdapter;
 import com.collectionlogmaster.domain.adapters.VerificationAdapter;
@@ -10,28 +7,30 @@ import com.collectionlogmaster.domain.verification.Verification;
 import com.collectionlogmaster.domain.verification.VerificationMethod;
 import com.collectionlogmaster.domain.verification.diary.DiaryDifficulty;
 import com.collectionlogmaster.domain.verification.diary.DiaryRegion;
+import com.google.gson.FieldNamingPolicy;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import javax.inject.Inject;
 import net.runelite.api.Skill;
 
-import javax.inject.Inject;
-
 public class GsonOverride {
-    /**
-     * Custom Gson instance capable of parsing additional types.
-     */
-    public static Gson GSON;
+	/**
+	 * Custom Gson instance capable of parsing additional types.
+	 */
+	public static Gson GSON;
 
-    @Inject
-    public GsonOverride(Gson originalGson) {
-        GsonBuilder gsonBuilder = originalGson.newBuilder()
-                .enableComplexMapKeySerialization()
-                .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-                .registerTypeAdapter(Verification.class, new VerificationAdapter())
-                .registerTypeAdapter(VerificationMethod.class, new EnumAdapter<>(VerificationMethod.class))
-                .registerTypeAdapter(DiaryRegion.class, new EnumAdapter<>(DiaryRegion.class))
-                .registerTypeAdapter(DiaryDifficulty.class, new EnumAdapter<>(DiaryDifficulty.class))
-                .registerTypeAdapter(Skill.class, new EnumAdapter<>(Skill.class))
-                .registerTypeAdapter(Tag.class, new EnumAdapter<>(Tag.class));
+	@Inject
+	public GsonOverride(Gson originalGson) {
+		GsonBuilder gsonBuilder = originalGson.newBuilder()
+				.enableComplexMapKeySerialization()
+				.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+				.registerTypeAdapter(Verification.class, new VerificationAdapter())
+				.registerTypeAdapter(VerificationMethod.class, new EnumAdapter<>(VerificationMethod.class))
+				.registerTypeAdapter(DiaryRegion.class, new EnumAdapter<>(DiaryRegion.class))
+				.registerTypeAdapter(DiaryDifficulty.class, new EnumAdapter<>(DiaryDifficulty.class))
+				.registerTypeAdapter(Skill.class, new EnumAdapter<>(Skill.class))
+				.registerTypeAdapter(Tag.class, new EnumAdapter<>(Tag.class));
 
-        GSON = gsonBuilder.create();
-    }
+		GSON = gsonBuilder.create();
+	}
 }

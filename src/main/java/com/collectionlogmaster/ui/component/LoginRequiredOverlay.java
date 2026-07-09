@@ -1,19 +1,15 @@
 package com.collectionlogmaster.ui.component;
 
 import com.collectionlogmaster.CollectionLogMasterPlugin;
-import com.collectionlogmaster.taskapp.TaskService;
 import com.collectionlogmaster.ui.generic.UIComponent;
 import com.collectionlogmaster.ui.generic.UIUtil;
-import com.collectionlogmaster.ui.generic.button.UIButton.State;
 import com.collectionlogmaster.ui.generic.button.UITextButton;
-import javax.inject.Inject;
 import net.runelite.api.FontID;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetPositionMode;
 import net.runelite.api.widgets.WidgetSizeMode;
 import net.runelite.api.widgets.WidgetTextAlignment;
 import net.runelite.api.widgets.WidgetType;
-import net.runelite.client.callback.ClientThread;
 
 public class LoginRequiredOverlay extends UIComponent<LoginRequiredOverlay> {
 	public static final int BASE_GAP = 16;

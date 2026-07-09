@@ -16,7 +16,7 @@ import net.runelite.client.config.ConfigManager;
 @Slf4j
 @Singleton
 public class MigrationHelper {
-    private static final String SAVE_DATA_KEY = "save-data";
+	private static final String SAVE_DATA_KEY = "save-data";
 
 	@Inject
 	private ConfigManager configManager;
@@ -74,7 +74,7 @@ public class MigrationHelper {
 		saveData.setMigrated(true);
 
 		String json = GSON.toJson(saveData);
-        configManager.setRSProfileConfiguration(CONFIG_GROUP, SAVE_DATA_KEY, json);
+		configManager.setRSProfileConfiguration(CONFIG_GROUP, SAVE_DATA_KEY, json);
 	}
 
 	private boolean isSameActiveTask() {
