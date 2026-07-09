@@ -26,9 +26,7 @@ import net.runelite.client.externalplugins.PluginHubManifest.DisplayData;
 public class PluginUpdateNotifier extends EventBusSubscriber {
 	private static final String[] UPDATE_MESSAGES = {
 			"<colHIGHLIGHT>Collection Log Master updated to v" + getPluginVersion(),
-			"<colHIGHLIGHT>- Basic TaskApp integration; please create an account to keep using the plugin.",
-			"<colHIGHLIGHT>- Sync button will now light up when your collection log is not synced to your tasks.",
-			"<colHIGHLIGHT>- 2.0.1: fixed an issue when cancelling active task migration",
+			"<colHIGHLIGHT>- Fixed an issue where old active LMS/master tier tasks would cause the plugin to break",
 	};
 
 	@Inject
