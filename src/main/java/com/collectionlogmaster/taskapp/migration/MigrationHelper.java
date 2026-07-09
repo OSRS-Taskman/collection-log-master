@@ -32,13 +32,12 @@ public class MigrationHelper {
 
 	public boolean canMigrate() {
 		SaveData saveData = getOldSaveData();
-		String oldActiveTaskId = saveData.getActiveTaskId();
-		boolean isSameActiveTask = isIsSameActiveTask(oldActiveTaskId);
+		Task oldActiveTask = getOldActiveTask();
 
 		return !saveData.isMigrated()
-			&& !isSameActiveTask
-			&& oldActiveTaskId != null
-			&& !taskService.isComplete(oldActiveTaskId)
+			&& oldActiveTask != null
+			&& !isSameActiveTask()
+			&& !taskService.isComplete(oldActiveTask.getId())
 			&& !taskAppStateStorage.get().hasMigrated();
 	}
 
@@ -70,22 +69,20 @@ public class MigrationHelper {
 	}
 
 	public void markAsMigrated() {
-		markAsMigrated(true);
-	}
-
-	public void markAsMigrated(boolean migrated) {
 		SaveData saveData = getOldSaveData();
 
-		saveData.setMigrated(migrated);
+		saveData.setMigrated(true);
 
 		String json = GSON.toJson(saveData);
         configManager.setRSProfileConfiguration(CONFIG_GROUP, SAVE_DATA_KEY, json);
 	}
 
-	private boolean isIsSameActiveTask(String oldActiveTaskId) {
+	private boolean isSameActiveTask() {
 		Task newActiveTask = taskService.getActiveTask();
+		Task oldActiveTask = getOldActiveTask();
 
 		return newActiveTask != null
-			&& newActiveTask.getId().equals(oldActiveTaskId);
+			&& oldActiveTask != null
+			&& newActiveTask.getId().equals(oldActiveTask.getId());
 	}
 }
