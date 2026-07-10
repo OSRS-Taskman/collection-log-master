@@ -23,10 +23,7 @@ import net.runelite.client.externalplugins.PluginHubManifest.DisplayData;
 @Slf4j
 @Singleton
 public class PluginUpdateNotifier extends EventBusSubscriber {
-	private static final String[] UPDATE_MESSAGES = {
-			"<colHIGHLIGHT>Collection Log Master updated to v" + getPluginVersion(),
-			"<colHIGHLIGHT>- Fixed an issue where old active LMS/master tier tasks would cause the plugin to break",
-	};
+	private static final String[] UPDATE_MESSAGES = null;
 
 	@Inject
 	ConfigManager configManager;
