@@ -17,15 +17,13 @@ import net.runelite.client.chat.ChatMessageManager;
 import net.runelite.client.chat.QueuedMessage;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
+import net.runelite.client.externalplugins.ExternalPluginManager;
+import net.runelite.client.externalplugins.PluginHubManifest.DisplayData;
 
 @Slf4j
 @Singleton
 public class PluginUpdateNotifier extends EventBusSubscriber {
-	private static final String[] UPDATE_MESSAGES = {
-			"<colHIGHLIGHT>Collection Log Master updated to v" + getPluginVersion(),
-			"<colHIGHLIGHT>- Fixed issue with disabling LMS tasks while a LMS task is active",
-			"<colHIGHLIGHT>- Fixed issue overlay not being shown under some circumstances",
-	};
+	private static final String[] UPDATE_MESSAGES = null;
 
 	@Inject
 	ConfigManager configManager;
@@ -34,6 +32,12 @@ public class PluginUpdateNotifier extends EventBusSubscriber {
 	ChatMessageManager chatMessageManager;
 
 	public static String getPluginVersion() {
+		DisplayData displayData = ExternalPluginManager.getDisplayData(CollectionLogMasterPlugin.class);
+		if (displayData != null) {
+			return displayData.getVersion();
+		}
+
+		// fallback to old ways when running locally
 		try (InputStream is = CollectionLogMasterPlugin.class.getResourceAsStream("version")) {
 			assert is != null;
 			return new String(is.readAllBytes(), StandardCharsets.UTF_8)

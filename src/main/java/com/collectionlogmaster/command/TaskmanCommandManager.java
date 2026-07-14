@@ -1,13 +1,12 @@
 package com.collectionlogmaster.command;
 
-import static com.collectionlogmaster.util.GsonOverride.GSON;
 
 import com.collectionlogmaster.CollectionLogMasterConfig;
 import com.collectionlogmaster.domain.Task;
 import com.collectionlogmaster.domain.TaskTier;
 import com.collectionlogmaster.domain.command.CommandRequest;
 import com.collectionlogmaster.domain.command.CommandResponse;
-import com.collectionlogmaster.task.TaskService;
+import com.collectionlogmaster.taskapp.TaskService;
 import com.collectionlogmaster.util.EventBusSubscriber;
 import com.collectionlogmaster.util.HttpClient;
 import com.collectionlogmaster.util.SimpleDebouncer;
@@ -112,7 +111,7 @@ public class TaskmanCommandManager extends EventBusSubscriber {
 		}
 
 		HttpUrl url = baseApiUrl.newBuilder().addPathSegment(senderName).build();
-		httpClient.getHttpRequestAsync(url.toString(), CommandResponse.class)
+		httpClient.get(url, CommandResponse.class)
 				.thenAccept(res ->
 						clientThread.invokeLater(() -> replaceChatMessage(chatMessage, res))
 				);
@@ -145,7 +144,8 @@ public class TaskmanCommandManager extends EventBusSubscriber {
 		float currentProgress = taskService.getProgress().get(currentTier) * 100;
 
 		CommandRequest data = new CommandRequest(taskId, taskService.getCurrentTier().displayName, (int) currentProgress);
-		httpClient.putHttpRequestAsync(url.toString(), GSON.toJson(data), null);
+
+		httpClient.put(url, data, null);
 	}
 
 	private void replaceChatMessage(ChatMessage chatMessage, CommandResponse res) {

@@ -1,12 +1,15 @@
 package com.collectionlogmaster.domain.command;
 
+import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 @Data
 @RequiredArgsConstructor
 public class CommandRequest {
-    private final String taskId;
-    private final String tier;
-    private final int progressPercentage;
+	@SerializedName("taskId")
+	private final String taskId;
+	private final String tier;
+	@SerializedName("progressPercentage")
+	private final int progressPercentage;
 }

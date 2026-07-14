@@ -1,6 +1,9 @@
 package com.collectionlogmaster.ui.generic.button;
 
+import com.collectionlogmaster.CollectionLogMasterPlugin;
+import com.collectionlogmaster.ui.TooltipOverlay;
 import com.collectionlogmaster.ui.generic.UIComponent;
+import javax.inject.Inject;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -17,6 +20,9 @@ public abstract class UIButton<This extends UIButton<This>> extends UIComponent<
 		DISABLED;
 	}
 
+	@Inject
+	protected TooltipOverlay tooltipOverlay;
+
 	@Getter
 	@Setter
 	private State state = State.DEFAULT;
@@ -24,12 +30,17 @@ public abstract class UIButton<This extends UIButton<This>> extends UIComponent<
 	@Getter
 	protected Runnable action = null;
 
+	@Getter
+	private String tooltip = null;
+
 	protected UIButton(Widget widget) {
 		super(widget, WidgetType.LAYER);
+		CollectionLogMasterPlugin.getStaticInjector().injectMembers(this);
 
 		widget.setOnOpListener((JavaScriptCallback) this::onActionSelected);
 		widget.setOnMouseOverListener((JavaScriptCallback) this::onMouseHover);
 		widget.setOnMouseLeaveListener((JavaScriptCallback) this::onMouseLeave);
+		widget.setOnMouseRepeatListener((JavaScriptCallback) this::onMouseHover);
 		widget.setHasListener(true);
 	}
 
@@ -48,12 +59,20 @@ public abstract class UIButton<This extends UIButton<This>> extends UIComponent<
 			setState(State.HOVER)
 				.revalidate();
 		}
+
+		if (tooltip != null) {
+			tooltipOverlay.setTooltip(tooltip);
+		}
 	}
 
 	protected void onMouseLeave(ScriptEvent e) {
 		if (state == State.HOVER) {
 			setState(State.DEFAULT)
 				.revalidate();
+		}
+
+		if (tooltip != null) {
+			tooltipOverlay.clearTooltip();
 		}
 	}
 
@@ -66,6 +85,11 @@ public abstract class UIButton<This extends UIButton<This>> extends UIComponent<
 		widget.setAction(0, label);
 		this.action = action;
 
+		return castThis();
+	}
+
+	public This setTooltip(String tooltip) {
+		this.tooltip = tooltip;
 		return castThis();
 	}
 

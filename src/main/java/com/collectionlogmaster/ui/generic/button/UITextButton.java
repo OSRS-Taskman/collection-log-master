@@ -5,7 +5,6 @@ import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetSizeMode;
 import net.runelite.api.widgets.WidgetTextAlignment;
 import net.runelite.api.widgets.WidgetType;
-import org.intellij.lang.annotations.MagicConstant;
 
 public class UITextButton extends UIMultiSpriteButton<UITextButton> {
 	public static UITextButton createInside(Widget window) {
@@ -36,7 +35,7 @@ public class UITextButton extends UIMultiSpriteButton<UITextButton> {
 				.revalidate();
 	}
 
-	public UITextButton setFont(@MagicConstant(valuesFromClass = FontID.class) int font) {
+	public UITextButton setFont(int font) {
 		content.setFontId(font);
 		return this;
 	}
