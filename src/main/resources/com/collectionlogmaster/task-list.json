@@ -2275,7 +2275,7 @@
 			"id": "59834ab0-010c-45d2-91d3-73dd45bb5963",
 			"name": "Get 1 unique from Giants' Foundry",
 			"shortName": "GF Unique",
-			"tip": "Requires the Giants' Foundry miniquest. You can buy warhammers and battleaxes in Mt Karuulm and Cam Torum for cheap sword materials.",
+			"tip": "Requires the Sleeping Giants quest. You can buy warhammers and battleaxes in Mt Karuulm and Cam Torum for cheap sword materials.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Giants'_Foundry",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Kovac's_grog_detail.png/320px-Kovac's_grog_detail.png",
 			"displayItemId": 27014,
@@ -2289,7 +2289,7 @@
 			"id": "c66b3654-6987-43c3-8b0b-de91e8819932",
 			"name": "Get 1 unique from Giants' Foundry",
 			"shortName": "GF Unique",
-			"tip": "Requires the Giants' Foundry miniquest. You can buy warhammers and battleaxes in Mt Karuulm and Cam Torum for cheap sword materials.",
+			"tip": "Requires the Sleeping Giants quest. You can buy warhammers and battleaxes in Mt Karuulm and Cam Torum for cheap sword materials.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Giants'_Foundry",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Kovac's_grog_detail.png/320px-Kovac's_grog_detail.png",
 			"displayItemId": 27014,
@@ -2303,7 +2303,7 @@
 			"id": "ea129e62-a3e5-4b86-96fd-b0c8dceb8856",
 			"name": "Get 1 unique from Giants' Foundry",
 			"shortName": "GF Unique",
-			"tip": "Requires the Giants' Foundry miniquest. You can buy warhammers and battleaxes in Mt Karuulm and Cam Torum for cheap sword materials.",
+			"tip": "Requires the Sleeping Giants quest. You can buy warhammers and battleaxes in Mt Karuulm and Cam Torum for cheap sword materials.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Giants'_Foundry",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Kovac's_grog_detail.png/320px-Kovac's_grog_detail.png",
 			"displayItemId": 27014,
@@ -2317,7 +2317,7 @@
 			"id": "de313a0b-4736-4e55-bf95-9d1f7329d533",
 			"name": "Get 1 unique from Giants' Foundry",
 			"shortName": "GF Unique",
-			"tip": "Requires the Giants' Foundry miniquest. You can buy warhammers and battleaxes in Mt Karuulm and Cam Torum for cheap sword materials.",
+			"tip": "Requires the Sleeping Giants quest. You can buy warhammers and battleaxes in Mt Karuulm and Cam Torum for cheap sword materials.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Giants'_Foundry",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Kovac's_grog_detail.png/320px-Kovac's_grog_detail.png",
 			"displayItemId": 27014,
@@ -5829,6 +5829,20 @@
 				"itemIds": [ 30066, 30068, 30070, 30085 ],
 				"count": 1
 			}
+		},
+		{
+			"id": "99fbd170-991a-48dc-858f-3c1bb7e63da0",
+			"name": "Get an Echo pearl",
+			"shortName": "Echo Pearl",
+			"tip": "Obtained as a drop from Orcas, which can be safespotted. Bounty Tasks increase the drop rate.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Echo_pearl",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Echo_pearl_detail.png/320px-Echo_pearl_detail.png",
+			"displayItemId": 31946,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31946 ],
+				"count": 1
+			}
 		}
 	],
 	"hard": [
@@ -8046,7 +8060,7 @@
 		{
 			"id": "9587a9a8-2820-4c8c-abe7-68e70ad98770",
 			"name": "Get the Elven signet",
-			"shortName": "Elven Signer",
+			"shortName": "Elven Signet",
 			"tip": "Can be received as a drop whilst catching Crystal implings.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Elven_signet",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Elven_signet_detail.png/320px-Elven_signet_detail.png",
@@ -9277,20 +9291,6 @@
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [ 31406 ],
-				"count": 1
-			}
-		},
-		{
-			"id": "99fbd170-991a-48dc-858f-3c1bb7e63da0",
-			"name": "Get an Echo pearl",
-			"shortName": "Echo Pearl",
-			"tip": "Obtained as a drop from Orcas, which can be safespotted. Bounty Tasks increase the drop rate.",
-			"wikiLink": "https://oldschool.runescape.wiki/w/Echo_pearl",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Echo_pearl_detail.png/320px-Echo_pearl_detail.png",
-			"displayItemId": 31946,
-			"verification": {
-				"method": "collection-log",
-				"itemIds": [ 31946 ],
 				"count": 1
 			}
 		},
