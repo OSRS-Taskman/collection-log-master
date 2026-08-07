@@ -5843,6 +5843,48 @@
 				"itemIds": [ 31946 ],
 				"count": 1
 			}
+		},
+		{
+			"id": "9f571171-f14b-40f3-a506-c4659b63037b",
+			"name": "Get the Jeweller's chisel",
+			"shortName": "JewellerChisel",
+			"tip": "Obtained from Sunstone Golem Crafting. The fastest way to obtain furs is catching spotted kebbits, but you may also hunt Wyrmscraig goats. A fur pouch is very helpful!",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Jeweller's_chisel",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Jeweller's_chisel_detail.png/320px-Jeweller's_chisel_detail.png",
+			"displayItemId": 34024,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 34024 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "bc8abc12-b5d7-4250-ad60-99f58993b724",
+			"name": "Get a Mad Angel unique",
+			"shortName": "Mad Angel",
+			"tip": "Obtained from the Mad Angel on Wyrmscraig. Necklaces of Passage offer a great teleport back to the boss, if you prefer shorter trips to conserve supplies.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Mad_Angel",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Hallowfell_detail.png/320px-Hallowfell_detail.png",
+			"displayItemId": 34027,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 34033, 34027 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "7ef1ab67-1be7-4d80-b779-024f47ed711c",
+			"name": "Get a Mad Angel unique",
+			"shortName": "Mad Angel",
+			"tip": "Obtained from the Mad Angel on Wyrmscraig. Necklaces of Passage offer a great teleport back to the boss, if you prefer shorter trips to conserve supplies.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Mad_Angel",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Hallowfell_detail.png/320px-Hallowfell_detail.png",
+			"displayItemId": 34027,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 34033, 34027 ],
+				"count": 2
+			}
 		}
 	],
 	"hard": [
