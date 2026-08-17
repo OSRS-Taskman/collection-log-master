@@ -31,7 +31,7 @@
 		{
 			"id": "b9fe2097-02ec-4885-8072-1a303c93e147",
 			"name": "Get 1 unique from Wintertodt",
-			"shortName": "WT Unique",
+			"shortName": "Wintertodt",
 			"tip": "Can be reached quickly with a Games necklace. The Phoenix and Dragon axe do not count for this task. Why Fletch?",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Wintertodt",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Pyromancer_hood_detail.png/320px-Pyromancer_hood_detail.png",
@@ -45,7 +45,7 @@
 		{
 			"id": "c09587c2-f732-42ff-8bb1-35f9d657e9c7",
 			"name": "Get 1 unique from Wintertodt",
-			"shortName": "WT Unique",
+			"shortName": "Wintertodt",
 			"tip": "Can be reached quickly with a Games necklace. The Phoenix and Dragon axe do not count for this task. Why Fletch?",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Wintertodt",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Pyromancer_hood_detail.png/320px-Pyromancer_hood_detail.png",
@@ -59,7 +59,7 @@
 		{
 			"id": "f1587710-61b2-4ecf-9fe5-ef63be0aed95",
 			"name": "Get 1 unique from Wintertodt",
-			"shortName": "WT Unique",
+			"shortName": "Wintertodt",
 			"tip": "Can be reached quickly with a Games necklace. The Phoenix and Dragon axe do not count for this task. Why Fletch?",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Wintertodt",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Pyromancer_hood_detail.png/320px-Pyromancer_hood_detail.png",
@@ -73,7 +73,7 @@
 		{
 			"id": "25bfc85a-0429-478a-b3af-498e35918a71",
 			"name": "Get 1 unique from Wintertodt",
-			"shortName": "WT Unique",
+			"shortName": "Wintertodt",
 			"tip": "Can be reached quickly with a Games necklace. The Phoenix and Dragon axe do not count for this task. Why Fletch?",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Wintertodt",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Pyromancer_hood_detail.png/320px-Pyromancer_hood_detail.png",
@@ -87,7 +87,7 @@
 		{
 			"id": "4943aa05-a4b2-48ca-876d-42dc98e063a7",
 			"name": "Get 1 unique from Wintertodt",
-			"shortName": "WT Unique",
+			"shortName": "Wintertodt",
 			"tip": "Can be reached quickly with a Games necklace. The Phoenix and Dragon axe do not count for this task. Why Fletch?",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Wintertodt",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Pyromancer_hood_detail.png/320px-Pyromancer_hood_detail.png",
@@ -709,7 +709,7 @@
 		{
 			"id": "100fc573-a473-4f8e-82d8-bda08f454a06",
 			"name": "Get a Void Knight seal",
-			"shortName": "VK Seal",
+			"shortName": "Void Seal",
 			"tip": "Purchased with Pest Control commendation points. I sure don't miss the novice boat...",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Pest_Control",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Void_seal_detail.png/320px-Void_seal_detail.png",
@@ -723,7 +723,7 @@
 		{
 			"id": "010d0bc4-d9e1-46da-a802-ed62efe66de7",
 			"name": "Get Void Knight gloves",
-			"shortName": "VK Gloves",
+			"shortName": "Void Gloves",
 			"tip": "Purchased with Pest Control commendation points. Requires 42 in all combat stats and 22 Prayer to purchase. Always attack the spinners!",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Pest_Control",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Void_knight_gloves_detail.png/320px-Void_knight_gloves_detail.png",
@@ -807,7 +807,7 @@
 		{
 			"id": "679c04c8-ff5b-4c47-a9dc-a4984d8366bb",
 			"name": "Get 1 unique from Shades of Mort'ton",
-			"shortName": "Shades Unique",
+			"shortName": "Shades",
 			"tip": "Set ghost remains ablaze on top of logs soaked in sacred oil. Somehow that makes shiny keys and gold. Who knows?",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Shades_of_Mort'ton_(minigame)",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Fine_cloth_detail.png/320px-Fine_cloth_detail.png",
@@ -824,7 +824,7 @@
 		{
 			"id": "9157d0d5-abca-4654-8646-38b293c22754",
 			"name": "Get 1 unique from Shades of Mort'ton",
-			"shortName": "Shades Unique",
+			"shortName": "Shades",
 			"tip": "Set ghost remains ablaze on top of logs soaked in sacred oil. Somehow that makes shiny keys and gold. Who knows?",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Shades_of_Mort'ton_(minigame)",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Fine_cloth_detail.png/320px-Fine_cloth_detail.png",
@@ -897,7 +897,7 @@
 		{
 			"id": "bd2c8923-be2b-4295-acd6-5f949dc3e27e",
 			"name": "Get the Gricoller's can",
-			"shortName": "Gricol. Can",
+			"shortName": "Gricollers Can",
 			"tip": "Can be purchased at the Tithe Farm minigame. You can boost using a garden pie to access it earlier, as well as for higher tier seeds.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Gricoller's_can",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Gricoller's_can_detail.png/320px-Gricoller's_can_detail.png",
@@ -981,7 +981,7 @@
 		{
 			"id": "db8b3842-abfa-4b64-bf59-c820a0dce83d",
 			"name": "Get the Pearl fishing rod",
-			"shortName": "Pearl Fish Rod",
+			"shortName": "Pearl Rod",
 			"tip": "Obtained from Aerial Fishing on Molch Island. Good luck with that RSI.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Aerial_fishing",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Pearl_fishing_rod_detail.png/320px-Pearl_fishing_rod_detail.png",
@@ -2110,7 +2110,7 @@
 		{
 			"id": "043ba4f2-591d-4828-8fb2-aa88260f5fcf",
 			"name": "Get 1 unique from Tempoross",
-			"shortName": "Tempo Unique",
+			"shortName": "Tempoross",
 			"tip": "Can be received directly from Tempoross' reward pool or by combining the Angler outfit pieces with 1,200 Spirit flakes, if you have one. The Dragon harpoon does not count.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Tempoross",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Tome_of_water_(empty)_detail.png/320px-Tome_of_water_(empty)_detail.png",
@@ -2126,7 +2126,7 @@
 		{
 			"id": "e77633b4-40f3-4dd6-9e6e-5554ecbec38c",
 			"name": "Get 1 unique from Tempoross",
-			"shortName": "Tempo Unique",
+			"shortName": "Tempoross",
 			"tip": "Can be received directly from Tempoross' reward pool or by combining the Angler outfit pieces with 1,200 Spirit flakes, if you have one. The Dragon harpoon does not count.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Tempoross",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Tome_of_water_(empty)_detail.png/320px-Tome_of_water_(empty)_detail.png",
@@ -2142,7 +2142,7 @@
 		{
 			"id": "c13a79ba-49f7-46ae-ab34-09b2dea01df1",
 			"name": "Get 1 unique from Tempoross",
-			"shortName": "Tempo Unique",
+			"shortName": "Tempoross",
 			"tip": "Can be received directly from Tempoross' reward pool or by combining the Angler outfit pieces with 1,200 Spirit flakes, if you have one. The Dragon harpoon does not count.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Tempoross",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Tome_of_water_(empty)_detail.png/320px-Tome_of_water_(empty)_detail.png",
@@ -2158,7 +2158,7 @@
 		{
 			"id": "0fe7ee39-2387-48e3-8316-1f3a73ba7d31",
 			"name": "Get 1 unique from Tempoross",
-			"shortName": "Tempo Unique",
+			"shortName": "Tempoross",
 			"tip": "Can be received directly from Tempoross' reward pool or by combining the Angler outfit pieces with 1,200 Spirit flakes, if you have one. The Dragon harpoon does not count.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Tempoross",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Tome_of_water_(empty)_detail.png/320px-Tome_of_water_(empty)_detail.png",
@@ -2206,7 +2206,7 @@
 		{
 			"id": "29f0793b-ab50-48f5-8e5f-c665b37f302b",
 			"name": "Get 1 unique from Guardians of the Rift",
-			"shortName": "GotR Unique",
+			"shortName": "GotR",
 			"tip": "Uniques can come from the Rewards Guardian or purchased in the shop with Abyssal pearls. Requires the Temple of the Eye quest.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Guardians_of_the_Rift",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Hat_of_the_eye_detail.png/320px-Hat_of_the_eye_detail.png",
@@ -2223,7 +2223,7 @@
 		{
 			"id": "eaa7fb4c-8647-4952-866f-0ff17175566f",
 			"name": "Get 1 unique from Guardians of the Rift",
-			"shortName": "GotR Unique",
+			"shortName": "GotR",
 			"tip": "Uniques can come from the Rewards Guardian or purchased in the shop with Abyssal pearls. Requires the Temple of the Eye quest.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Guardians_of_the_Rift",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Hat_of_the_eye_detail.png/320px-Hat_of_the_eye_detail.png",
@@ -2240,7 +2240,7 @@
 		{
 			"id": "5cf8c24d-4c39-4626-a529-8e92c0beaae1",
 			"name": "Get 1 unique from Guardians of the Rift",
-			"shortName": "GotR Unique",
+			"shortName": "GotR",
 			"tip": "Uniques can come from the Rewards Guardian or purchased in the shop with Abyssal pearls. Requires the Temple of the Eye quest.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Guardians_of_the_Rift",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Hat_of_the_eye_detail.png/320px-Hat_of_the_eye_detail.png",
@@ -2257,7 +2257,7 @@
 		{
 			"id": "c58b3f37-57d8-4230-917e-b1a6289a085f",
 			"name": "Get 1 unique from Guardians of the Rift",
-			"shortName": "GotR Unique",
+			"shortName": "GotR",
 			"tip": "Uniques can come from the Rewards Guardian or purchased in the shop with Abyssal pearls. Requires the Temple of the Eye quest.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Guardians_of_the_Rift",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Hat_of_the_eye_detail.png/320px-Hat_of_the_eye_detail.png",
@@ -2274,7 +2274,7 @@
 		{
 			"id": "59834ab0-010c-45d2-91d3-73dd45bb5963",
 			"name": "Get 1 unique from Giants' Foundry",
-			"shortName": "GF Unique",
+			"shortName": "Giants Foundry",
 			"tip": "Requires the Sleeping Giants quest. You can buy warhammers and battleaxes in Mt Karuulm and Cam Torum for cheap sword materials.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Giants'_Foundry",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Kovac's_grog_detail.png/320px-Kovac's_grog_detail.png",
@@ -2288,7 +2288,7 @@
 		{
 			"id": "c66b3654-6987-43c3-8b0b-de91e8819932",
 			"name": "Get 1 unique from Giants' Foundry",
-			"shortName": "GF Unique",
+			"shortName": "Giants Foundry",
 			"tip": "Requires the Sleeping Giants quest. You can buy warhammers and battleaxes in Mt Karuulm and Cam Torum for cheap sword materials.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Giants'_Foundry",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Kovac's_grog_detail.png/320px-Kovac's_grog_detail.png",
@@ -2302,7 +2302,7 @@
 		{
 			"id": "ea129e62-a3e5-4b86-96fd-b0c8dceb8856",
 			"name": "Get 1 unique from Giants' Foundry",
-			"shortName": "GF Unique",
+			"shortName": "Giants Foundry",
 			"tip": "Requires the Sleeping Giants quest. You can buy warhammers and battleaxes in Mt Karuulm and Cam Torum for cheap sword materials.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Giants'_Foundry",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Kovac's_grog_detail.png/320px-Kovac's_grog_detail.png",
@@ -2316,7 +2316,7 @@
 		{
 			"id": "de313a0b-4736-4e55-bf95-9d1f7329d533",
 			"name": "Get 1 unique from Giants' Foundry",
-			"shortName": "GF Unique",
+			"shortName": "Giants Foundry",
 			"tip": "Requires the Sleeping Giants quest. You can buy warhammers and battleaxes in Mt Karuulm and Cam Torum for cheap sword materials.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Giants'_Foundry",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Kovac's_grog_detail.png/320px-Kovac's_grog_detail.png",
@@ -2488,7 +2488,7 @@
 		{
 			"id": "583f9e90-f977-40f9-adba-111f8064f289",
 			"name": "Get 1 unique from Vale Totems",
-			"shortName": "VT Unique",
+			"shortName": "Vale Totems",
 			"tip": "Obtained by rummaging offerings or, if you're unlucky, buying from Ranulph with research points. You may chop logs for this task.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Vale_Totems",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Vale_offerings_detail.png/320px-Vale_offerings_detail.png",
@@ -2502,7 +2502,7 @@
 		{
 			"id": "50bf552f-5f5a-48b1-aeff-28a2e81d240c",
 			"name": "Get 1 unique from Vale Totems",
-			"shortName": "VT Unique",
+			"shortName": "Vale Totems",
 			"tip": "Obtained by rummaging offerings or, if you're unlucky, buying from Ranulph with research points. You may chop logs for this task.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Vale_Totems",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Vale_offerings_detail.png/320px-Vale_offerings_detail.png",
@@ -2698,7 +2698,7 @@
 		{
 			"id": "37a47530-6b37-4a59-b2b2-953987f96c1c",
 			"name": "Get 1 unique from Brutus",
-			"shortName": "Brutus Unique",
+			"shortName": "Brutus",
 			"tip": "Requires the Ides of Milk quest. Hope you like bull milk. Moooooooo.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Brutus",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Mooleta_detail.png/320px-Mooleta_detail.png",
@@ -2712,7 +2712,7 @@
 		{
 			"id": "68fd60c9-2903-48d1-abad-bc963e9a4081",
 			"name": "Get 1 unique from Brutus",
-			"shortName": "Brutus Unique",
+			"shortName": "Brutus",
 			"tip": "Requires the Ides of Milk quest. Hope you like bull milk. Moooooooo.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Brutus",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Mooleta_detail.png/320px-Mooleta_detail.png",
@@ -2726,7 +2726,7 @@
 		{
 			"id": "4e0db17e-f799-42cb-b7be-9b6870c99527",
 			"name": "Get 1 unique from Brutus",
-			"shortName": "Brutus Unique",
+			"shortName": "Brutus",
 			"tip": "Requires the Ides of Milk quest. Hope you like bull milk. Moooooooo.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Brutus",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Mooleta_detail.png/320px-Mooleta_detail.png",
@@ -2742,7 +2742,7 @@
 		{
 			"id": "d4f8608e-9aaf-4377-9423-5ce5b3d62c63",
 			"name": "Get 1 unique from Barrows",
-			"shortName": "Barrows Unique",
+			"shortName": "Barrows",
 			"tip": "Can be received as a reward from the Barrows Combat minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Barrows",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Guthan's_helm_detail.png/320px-Guthan's_helm_detail.png",
@@ -2759,7 +2759,7 @@
 		{
 			"id": "58d0b8bf-4612-4116-b8e1-105e40dbb320",
 			"name": "Get 1 unique from Barrows",
-			"shortName": "Barrows Unique",
+			"shortName": "Barrows",
 			"tip": "Can be received as a reward from the Barrows Combat minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Barrows",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Guthan's_helm_detail.png/320px-Guthan's_helm_detail.png",
@@ -2776,7 +2776,7 @@
 		{
 			"id": "9cf26cc0-b32e-4be8-a525-741b620f5c59",
 			"name": "Get 1 unique from Barrows",
-			"shortName": "Barrows Unique",
+			"shortName": "Barrows",
 			"tip": "Can be received as a reward from the Barrows Combat minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Barrows",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Guthan's_helm_detail.png/320px-Guthan's_helm_detail.png",
@@ -2793,7 +2793,7 @@
 		{
 			"id": "a874e0bb-e1a4-445e-a79a-ac936c9cf009",
 			"name": "Get 1 unique from Barrows",
-			"shortName": "Barrows Unique",
+			"shortName": "Barrows",
 			"tip": "Can be received as a reward from the Barrows Combat minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Barrows",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Guthan's_helm_detail.png/320px-Guthan's_helm_detail.png",
@@ -2810,7 +2810,7 @@
 		{
 			"id": "9e4697fd-95e5-4bf8-b774-178eab348baf",
 			"name": "Get 1 unique from Barrows",
-			"shortName": "Barrows Unique",
+			"shortName": "Barrows",
 			"tip": "Can be received as a reward from the Barrows Combat minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Barrows",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Guthan's_helm_detail.png/320px-Guthan's_helm_detail.png",
@@ -2911,7 +2911,7 @@
 		{
 			"id": "5b11a9ff-04a0-46cd-96a3-77ecf7385fc4",
 			"name": "Get 1 unique from Wintertodt",
-			"shortName": "WT Unique",
+			"shortName": "Wintertodt",
 			"tip": "Wintertodt uniques come from the Wintertodt Skilling boss. Dragon axe does not count this task. Dragon axe is a Dagannoth Kings task. Rip TaskOnly UIM",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Wintertodt",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Pyromancer_hood_detail.png/320px-Pyromancer_hood_detail.png",
@@ -2925,7 +2925,7 @@
 		{
 			"id": "d72f4139-8c21-4713-b5e8-93d77c7364f8",
 			"name": "Get 1 unique from Wintertodt",
-			"shortName": "WT Unique",
+			"shortName": "Wintertodt",
 			"tip": "Wintertodt uniques come from the Wintertodt Skilling boss. Dragon axe does not count this task. Dragon axe is a Dagannoth Kings task. Rip TaskOnly UIM",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Wintertodt",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Pyromancer_hood_detail.png/320px-Pyromancer_hood_detail.png",
@@ -2939,7 +2939,7 @@
 		{
 			"id": "adaf9f51-50cf-4417-9427-55d5509d4830",
 			"name": "Get 1 unique from Wintertodt",
-			"shortName": "WT Unique",
+			"shortName": "Wintertodt",
 			"tip": "Wintertodt uniques come from the Wintertodt Skilling boss. Dragon axe does not count this task. Dragon axe is a Dagannoth Kings task. Rip TaskOnly UIM",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Wintertodt",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Pyromancer_hood_detail.png/320px-Pyromancer_hood_detail.png",
@@ -2953,7 +2953,7 @@
 		{
 			"id": "5a3dbd57-feed-4eed-b4a3-2ca5ec384efd",
 			"name": "Get 1 unique from Zulrah",
-			"shortName": "Zulrah Unique",
+			"shortName": "Zulrah",
 			"tip": "Guaranteed drop from the Zulrah boss.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Zulrah",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Zulrah's_scales_detail.png/320px-Zulrah's_scales_detail.png",
@@ -2967,7 +2967,7 @@
 		{
 			"id": "0d253493-fe93-46c6-8129-fa59854d9f91",
 			"name": "Get 1 unique from Zulrah",
-			"shortName": "Zulrah Unique",
+			"shortName": "Zulrah",
 			"tip": "Can be received as a drop from Zulrah.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Zulrah",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Zulrah's_scales_detail.png/320px-Zulrah's_scales_detail.png",
@@ -3659,7 +3659,7 @@
 		{
 			"id": "57b39500-aff4-44d4-a572-836e1b4ddea3",
 			"name": "Get a Void Knight top",
-			"shortName": "VK Top",
+			"shortName": "Void Top",
 			"tip": "Can be purchased as a reward from the Pest Control Combat minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Pest_Control",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Void_knight_top_detail.png/320px-Void_knight_top_detail.png",
@@ -3673,7 +3673,7 @@
 		{
 			"id": "25542b19-5b78-4438-83bd-cf50958993a2",
 			"name": "Get a Void Knight robe",
-			"shortName": "VK Robe",
+			"shortName": "Void Robe",
 			"tip": "Can be purchased as a reward from the Pest Control Combat minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Pest_Control",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Void_knight_robe_detail.png/320px-Void_knight_robe_detail.png",
@@ -3687,7 +3687,7 @@
 		{
 			"id": "a76a5212-3243-4424-8ffc-f4614c732d30",
 			"name": "Get a Void Knight mace",
-			"shortName": "VK Mace",
+			"shortName": "Void Mace",
 			"tip": "Can be purchased as a reward from the Pest Control Combat minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Pest_Control",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Void_knight_mace_detail.png/320px-Void_knight_mace_detail.png",
@@ -3701,7 +3701,7 @@
 		{
 			"id": "496debc0-4205-4c99-b7f4-ea6afd190a4b",
 			"name": "Get 1 unique from Shades of Mort'ton",
-			"shortName": "Shades Unique",
+			"shortName": "Shades",
 			"tip": "Potential reward from the Shades of Morton minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Shades_of_Mort'ton_(minigame)",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Fine_cloth_detail.png/320px-Fine_cloth_detail.png",
@@ -3718,7 +3718,7 @@
 		{
 			"id": "c0eda747-e29d-4e8b-92d3-7e937222f192",
 			"name": "Get 1 unique from Shades of Mort'ton",
-			"shortName": "Shades Unique",
+			"shortName": "Shades",
 			"tip": "Potential reward from the Shades of Morton minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Shades_of_Mort'ton_(minigame)",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Fine_cloth_detail.png/320px-Fine_cloth_detail.png",
@@ -3735,7 +3735,7 @@
 		{
 			"id": "39706395-26d2-4918-99df-4cfbde3c6ebe",
 			"name": "Get 1 unique from Shades of Mort'ton",
-			"shortName": "Shades Unique",
+			"shortName": "Shades",
 			"tip": "Potential reward from the Shades of Morton minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Shades_of_Mort'ton_(minigame)",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Fine_cloth_detail.png/320px-Fine_cloth_detail.png",
@@ -4151,7 +4151,7 @@
 		{
 			"id": "7f7f804b-85e4-4da4-8da2-393861b7286b",
 			"name": "Get 1 unique from Gargoyles",
-			"shortName": "GargoyleUnique",
+			"shortName": "Garg Unique",
 			"tip": "Can be received as a drop from Gargoyles.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Gargoyle",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Granite_maul_detail.png/320px-Granite_maul_detail.png",
@@ -4165,7 +4165,7 @@
 		{
 			"id": "8d0830b2-ba6f-46c0-83b4-af767f1239fe",
 			"name": "Get 1 unique from Gargoyles",
-			"shortName": "GargoyleUnique",
+			"shortName": "Garg Unique",
 			"tip": "Can be received as a drop from Gargoyles.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Gargoyle",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Granite_maul_detail.png/320px-Granite_maul_detail.png",
@@ -4389,7 +4389,7 @@
 		{
 			"id": "3cbf6265-80fa-4246-ba54-2be267fbc171",
 			"name": "Get a Bracelet of ethereum or Rev cave teleport",
-			"shortName": "Rev Unique",
+			"shortName": "Revs Unique",
 			"tip": "Can be received as a drop from any Revenant.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Revenants",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Bracelet_of_ethereum_(uncharged)_detail.png/320px-Bracelet_of_ethereum_(uncharged)_detail.png",
@@ -4403,7 +4403,7 @@
 		{
 			"id": "c3f3d61b-31a5-4455-ae8e-f192c03d9c56",
 			"name": "Get a Bracelet of ethereum or Rev cave teleport",
-			"shortName": "Rev Unique",
+			"shortName": "Revs Unique",
 			"tip": "Can be received as a drop from any Revenant.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Revenants",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Bracelet_of_ethereum_(uncharged)_detail.png/320px-Bracelet_of_ethereum_(uncharged)_detail.png",
@@ -4599,7 +4599,7 @@
 		{
 			"id": "77c2f0db-7e25-4396-a0e0-19d3c49b2ea6",
 			"name": "Get 1 unique from Sarachnis",
-			"shortName": "Sarachnis Uni",
+			"shortName": "Sarachnis",
 			"tip": "Can be received as a drop from Sarachnis.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Sarachnis",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Giant_egg_sac(full)_detail.png/320px-Giant_egg_sac(full)_detail.png",
@@ -4613,7 +4613,7 @@
 		{
 			"id": "c4d502d5-4857-452c-9df3-803aa8bbe6f4",
 			"name": "Get 1 unique from Sarachnis",
-			"shortName": "Sarachnis Uni",
+			"shortName": "Sarachnis",
 			"tip": "Can be received as a drop from the Sarachnis boss.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Sarachnis",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Giant_egg_sac(full)_detail.png/320px-Giant_egg_sac(full)_detail.png",
@@ -4739,7 +4739,7 @@
 		{
 			"id": "c404956f-3a2e-4fb5-ae4e-ec98b5e3e43f",
 			"name": "Get 1 unique from Tempoross",
-			"shortName": "Tempo Unique",
+			"shortName": "Tempoross",
 			"tip": "Can be received as a reward from the Tempoross Skilling boss.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Tempoross",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Tome_of_water_(empty)_detail.png/320px-Tome_of_water_(empty)_detail.png",
@@ -4755,7 +4755,7 @@
 		{
 			"id": "f08638bc-473c-4a82-9a8d-f2b01d01ccff",
 			"name": "Get 1 unique from Tempoross",
-			"shortName": "Tempo Unique",
+			"shortName": "Tempoross",
 			"tip": "Can be received as a reward from the Tempoross Skilling boss.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Tempoross",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Tome_of_water_(empty)_detail.png/320px-Tome_of_water_(empty)_detail.png",
@@ -4771,7 +4771,7 @@
 		{
 			"id": "dbb78cbf-e377-4328-8a03-0eda7b054a54",
 			"name": "Get 1 unique from Tempoross",
-			"shortName": "Tempo Unique",
+			"shortName": "Tempoross",
 			"tip": "Can be received as a reward from the Tempoross Skilling boss.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Tempoross",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Tome_of_water_(empty)_detail.png/320px-Tome_of_water_(empty)_detail.png",
@@ -4801,7 +4801,7 @@
 		{
 			"id": "a0c90c46-d292-4be4-9bec-16a7cd7e5dea",
 			"name": "Get 1 unique from Tempoross",
-			"shortName": "Tempo Unique",
+			"shortName": "Tempoross",
 			"tip": "Can be received as a reward from the Tempoross Skilling boss.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Tempoross",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Tome_of_water_(empty)_detail.png/320px-Tome_of_water_(empty)_detail.png",
@@ -4817,7 +4817,7 @@
 		{
 			"id": "c91e541a-d8e8-4f1f-920b-56084c28ac12",
 			"name": "Get 1 unique from Tempoross",
-			"shortName": "Tempo Unique",
+			"shortName": "Tempoross",
 			"tip": "Can be received as a reward from the Tempoross Skilling boss.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Tempoross",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Tome_of_water_(empty)_detail.png/320px-Tome_of_water_(empty)_detail.png",
@@ -4833,7 +4833,7 @@
 		{
 			"id": "4f16ed93-aee4-49ab-a347-2e73a8f22975",
 			"name": "Get 1 unique from Guardians of the Rift",
-			"shortName": "GotR Unique",
+			"shortName": "GotR",
 			"tip": "Can be received as a reward from the Guardians of the Rift Skilling minigame. Runecrafting... it's actually kinda fun now.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Guardians_of_the_Rift",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Hat_of_the_eye_detail.png/320px-Hat_of_the_eye_detail.png",
@@ -4850,7 +4850,7 @@
 		{
 			"id": "0ae36fe6-5058-468a-8440-5badf514a3bf",
 			"name": "Get 1 unique from Guardians of the Rift",
-			"shortName": "GotR Unique",
+			"shortName": "GotR",
 			"tip": "Can be received as a reward from the Guardians of the Rift Skilling minigame. Runecrafting... it's actually kinda fun now.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Guardians_of_the_Rift",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Hat_of_the_eye_detail.png/320px-Hat_of_the_eye_detail.png",
@@ -4867,7 +4867,7 @@
 		{
 			"id": "b43e3c57-fc51-4995-a5ee-59abfb768b43",
 			"name": "Get 1 unique from Guardians of the Rift",
-			"shortName": "GotR Unique",
+			"shortName": "GotR",
 			"tip": "Can be received as a reward from the Guardians of the Rift Skilling minigame. Runecrafting... it's actually kinda fun now.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Guardians_of_the_Rift",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Hat_of_the_eye_detail.png/320px-Hat_of_the_eye_detail.png",
@@ -4884,7 +4884,7 @@
 		{
 			"id": "d709fae6-2888-4426-a295-d00b7c2a7fe4",
 			"name": "Get 1 unique from Guardians of the Rift",
-			"shortName": "GotR Unique",
+			"shortName": "GotR",
 			"tip": "Can be received as a reward from the Guardians of the Rift Skilling minigame. Runecrafting... it's actually kinda fun now.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Guardians_of_the_Rift",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Hat_of_the_eye_detail.png/320px-Hat_of_the_eye_detail.png",
@@ -4901,7 +4901,7 @@
 		{
 			"id": "7d11faf4-4163-4f25-ab6f-eca14bb763c8",
 			"name": "Get 1 unique from Giants' Foundry",
-			"shortName": "GF Unique",
+			"shortName": "Giants Foundry",
 			"tip": "Can be purchased as a reward from the Giants' Foundry Skilling minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Giants'_Foundry",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Smiths_tunic_detail.png/320px-Smiths_tunic_detail.png",
@@ -4915,7 +4915,7 @@
 		{
 			"id": "c08d106b-6d93-4e21-8a38-825a27a9d7cb",
 			"name": "Get 1 unique from Giants' Foundry",
-			"shortName": "GF Unique",
+			"shortName": "Giants Foundry",
 			"tip": "Can be purchased as a reward from the Giants' Foundry Skilling minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Giants'_Foundry",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Smiths_tunic_detail.png/320px-Smiths_tunic_detail.png",
@@ -4929,7 +4929,7 @@
 		{
 			"id": "42416ed7-f18e-40cc-a1de-bcc362fafb2c",
 			"name": "Get 1 unique from Giants' Foundry",
-			"shortName": "GF Unique",
+			"shortName": "Giants Foundry",
 			"tip": "Can be purchased as a reward from the Giants' Foundry Skilling minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Giants'_Foundry",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Smiths_tunic_detail.png/320px-Smiths_tunic_detail.png",
@@ -4943,7 +4943,7 @@
 		{
 			"id": "28f69759-1aac-4bdb-92c7-e8c9350d6fbf",
 			"name": "Get 1 unique from Giants' Foundry",
-			"shortName": "GF Unique",
+			"shortName": "Giants Foundry",
 			"tip": "Can be purchased as a reward from the Giants' Foundry Skilling minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Giants'_Foundry",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Smiths_tunic_detail.png/320px-Smiths_tunic_detail.png",
@@ -5067,7 +5067,7 @@
 		{
 			"id": "5b0cf9a0-61df-4169-a5af-317d6f689e49",
 			"name": "Get 1 unique from Moons of Peril",
-			"shortName": "Moons Unique",
+			"shortName": "Moons of Peril",
 			"tip": "Received as a drop from Moons of Peril bosses",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Moons_of_Peril",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dual_macuahuitl_detail.png/320px-Dual_macuahuitl_detail.png",
@@ -5084,7 +5084,7 @@
 		{
 			"id": "3e78d51a-37af-4532-97e2-40b070a4f6cc",
 			"name": "Get 1 unique from Moons of Peril",
-			"shortName": "Moons Unique",
+			"shortName": "Moons of Peril",
 			"tip": "Received as a drop from Moons of Peril bosses",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Moons_of_Peril",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dual_macuahuitl_detail.png/320px-Dual_macuahuitl_detail.png",
@@ -5101,7 +5101,7 @@
 		{
 			"id": "f3f5af44-2295-4085-b095-98da680a29e0",
 			"name": "Get 1 unique from Moons of Peril",
-			"shortName": "Moons Unique",
+			"shortName": "Moons of Peril",
 			"tip": "Received as a drop from Moons of Peril bosses",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Moons_of_Peril",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dual_macuahuitl_detail.png/320px-Dual_macuahuitl_detail.png",
@@ -5118,7 +5118,7 @@
 		{
 			"id": "2c4c6dfc-bbf9-4d72-9424-b248d9b7b4ce",
 			"name": "Get 1 unique from Moons of Peril",
-			"shortName": "Moons Unique",
+			"shortName": "Moons of Peril",
 			"tip": "Received as a drop from Moons of Peril bosses",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Moons_of_Peril",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dual_macuahuitl_detail.png/320px-Dual_macuahuitl_detail.png",
@@ -5135,7 +5135,7 @@
 		{
 			"id": "a1c9589f-b3fc-4d8a-bff1-e56fa3dd06a7",
 			"name": "Get 1 unique from Moons of Peril",
-			"shortName": "Moons Unique",
+			"shortName": "Moons of Peril",
 			"tip": "Received as a drop from Moons of Peril bosses",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Moons_of_Peril",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dual_macuahuitl_detail.png/320px-Dual_macuahuitl_detail.png",
@@ -5236,7 +5236,7 @@
 		{
 			"id": "a200ae0a-f32b-4228-a938-c7d447d6380d",
 			"name": "Get 1 unique from Amoxliatl",
-			"shortName": "Amox Unique",
+			"shortName": "Amoxliatl",
 			"tip": "Obtained when killing Amoxliatl. Taskers may also kill Frost naguas as they drop the same uniques excluding the pet",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Amoxliatl",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Glacial_temotli_detail.png/320px-Glacial_temotli_detail.png",
@@ -5250,7 +5250,7 @@
 		{
 			"id": "2bb7cf32-6577-487f-a4a7-5322fd534b09",
 			"name": "Get 1 unique from Amoxliatl",
-			"shortName": "Amox Unique",
+			"shortName": "Amoxliatl",
 			"tip": "Obtained when killing Amoxliatl. Taskers may also kill Frost naguas as they drop the same uniques excluding the pet",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Amoxliatl",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Glacial_temotli_detail.png/320px-Glacial_temotli_detail.png",
@@ -5264,7 +5264,7 @@
 		{
 			"id": "b9a0d5bb-2909-44c7-a53f-78da2e98061c",
 			"name": "Get 1 unique from Amoxliatl",
-			"shortName": "Amox Unique",
+			"shortName": "Amoxliatl",
 			"tip": "Obtained when killing Amoxliatl. Taskers may also kill Frost naguas as they drop the same uniques excluding the pet",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Amoxliatl",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Glacial_temotli_detail.png/320px-Glacial_temotli_detail.png",
@@ -5278,7 +5278,7 @@
 		{
 			"id": "2523e88d-901b-40a1-80bb-294d8ca9f519",
 			"name": "Get 1 unique from Royal Titans",
-			"shortName": "Titans Unique",
+			"shortName": "Royal Titans",
 			"tip": "Obtained by killing the Royal Titans boss. First kill you must choose Take Pages option as you can force this unique.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Royal_Titans",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twinflame_staff_detail.png/320px-Twinflame_staff_detail.png",
@@ -5292,7 +5292,7 @@
 		{
 			"id": "2a19d6d9-8f64-417f-969a-a441d3d6faa4",
 			"name": "Get 1 unique from Royal Titans",
-			"shortName": "Titans Unique",
+			"shortName": "Royal Titans",
 			"tip": "Obtained by killing the Royal Titans boss. First kill you must choose Take Pages option as you can force this unique.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Royal_Titans",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twinflame_staff_detail.png/320px-Twinflame_staff_detail.png",
@@ -5306,7 +5306,7 @@
 		{
 			"id": "eda5f8c7-3e6a-4ef8-8982-ab2ea8291574",
 			"name": "Get 1 unique from Royal Titans",
-			"shortName": "Titans Unique",
+			"shortName": "Royal Titans",
 			"tip": "Obtained by killing the Royal Titans boss. First kill you must choose Take Pages option as you can force this unique.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Royal_Titans",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twinflame_staff_detail.png/320px-Twinflame_staff_detail.png",
@@ -5320,7 +5320,7 @@
 		{
 			"id": "f4800d10-9e58-413e-b4fe-7291dc162d1a",
 			"name": "Get 1 unique from Royal Titans",
-			"shortName": "Titans Unique",
+			"shortName": "Royal Titans",
 			"tip": "Obtained by killing the Royal Titans boss. First kill you must choose Take Pages option as you can force this unique.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Royal_Titans",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twinflame_staff_detail.png/320px-Twinflame_staff_detail.png",
@@ -5379,7 +5379,7 @@
 		{
 			"id": "f3a0cc76-6f55-426e-8440-5a47e6920a84",
 			"name": "Get 1 unique from Vale Totems",
-			"shortName": "VT Unique",
+			"shortName": "Vale Totems",
 			"tip": "This fletching minigame takes place in Auburn Valley. You can chop your own logs.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Vale_Totems",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Vale_offerings_detail.png/320px-Vale_offerings_detail.png",
@@ -5393,7 +5393,7 @@
 		{
 			"id": "c47d1afa-63ba-4235-be79-425d345375b7",
 			"name": "Get 1 unique from Vale Totems",
-			"shortName": "VT Unique",
+			"shortName": "Vale Totems",
 			"tip": "This fletching minigame takes place in Auburn Valley. You can chop your own logs.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Vale_Totems",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Vale_offerings_detail.png/320px-Vale_offerings_detail.png",
@@ -5617,7 +5617,7 @@
 		{
 			"id": "a2292aef-4feb-4d86-a6d7-6f0b37173093",
 			"name": "Get a Dragon metal sheet",
-			"shortName": "Dragon M Sheet",
+			"shortName": "D Metal Sheet",
 			"tip": "Obtained as a drop from Orcas, which can be safespotted. Bounty Tasks increase the drop rate.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Dragon_metal_sheet",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dragon_metal_sheet_detail.png/320px-Dragon_metal_sheet_detail.png",
@@ -5631,7 +5631,7 @@
 		{
 			"id": "b53fc9b2-63bf-4a81-864e-ccb0b1c1ed2c",
 			"name": "Get a Dragon cannonball",
-			"shortName": "Dragon CBall",
+			"shortName": "D Cannonball",
 			"tip": "Obtained as a drop from Great White Sharks, which can be safespotted.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Dragon_cannonball",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dragon_cannonball_detail.png/320px-Dragon_cannonball_detail.png",
@@ -5819,7 +5819,7 @@
 		{
 			"id": "61a10400-1e3e-405e-9b12-1c8feb4981dc",
 			"name": "Get 1 unique from the Hueycoatl",
-			"shortName": "Huey Unique",
+			"shortName": "Hueycoatl",
 			"tip": "Obtained by killing The Hueycoatl",
 			"wikiLink": "https://oldschool.runescape.wiki/w/The_Hueycoatl",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dragon_hunter_wand_detail.png/320px-Dragon_hunter_wand_detail.png",
@@ -5891,7 +5891,7 @@
 		{
 			"id": "5624f45b-3a00-4d5d-ba78-ee46ec09b3d5",
 			"name": "Get 1 unique from Barrows",
-			"shortName": "Barrows Unique",
+			"shortName": "Barrows",
 			"tip": "Can be received as a reward from the Barrows Combat minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Barrows",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Guthan's_helm_detail.png/320px-Guthan's_helm_detail.png",
@@ -5908,7 +5908,7 @@
 		{
 			"id": "bfaeb6a4-e838-4978-b613-88047f74f9c9",
 			"name": "Get 1 unique from Barrows",
-			"shortName": "Barrows Unique",
+			"shortName": "Barrows",
 			"tip": "Can be received as a reward from the Barrows Combat minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Barrows",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Guthan's_helm_detail.png/320px-Guthan's_helm_detail.png",
@@ -5925,7 +5925,7 @@
 		{
 			"id": "244ca574-edcb-4980-ac43-8ed4f715102b",
 			"name": "Get 1 unique from Barrows",
-			"shortName": "Barrows Unique",
+			"shortName": "Barrows",
 			"tip": "Can be received as a reward from the Barrows Combat minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Barrows",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Guthan's_helm_detail.png/320px-Guthan's_helm_detail.png",
@@ -5942,7 +5942,7 @@
 		{
 			"id": "3da95363-2bc0-4884-9f71-defff2f645cc",
 			"name": "Get 1 unique from Barrows",
-			"shortName": "Barrows Unique",
+			"shortName": "Barrows",
 			"tip": "Can be received as a reward from the Barrows Combat minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Barrows",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Guthan's_helm_detail.png/320px-Guthan's_helm_detail.png",
@@ -5959,7 +5959,7 @@
 		{
 			"id": "9a791ecb-253a-4d09-95b6-f9e11d8c1e3f",
 			"name": "Get 1 unique from Barrows",
-			"shortName": "Barrows Unique",
+			"shortName": "Barrows",
 			"tip": "Can be received as a reward from the Barrows Combat minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Barrows",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Guthan's_helm_detail.png/320px-Guthan's_helm_detail.png",
@@ -5976,7 +5976,7 @@
 		{
 			"id": "b8f70e53-b0bb-41bd-9ce7-4355242f0234",
 			"name": "Get 1 unique from Barrows",
-			"shortName": "Barrows Unique",
+			"shortName": "Barrows",
 			"tip": "Can be received as a reward from the Barrows Combat minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Barrows",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Guthan's_helm_detail.png/320px-Guthan's_helm_detail.png",
@@ -5993,7 +5993,7 @@
 		{
 			"id": "fec60d07-a569-4ef9-b0a2-2abd023ef096",
 			"name": "Get 1 unique from Barrows",
-			"shortName": "Barrows Unique",
+			"shortName": "Barrows",
 			"tip": "Can be received as a reward from the Barrows Combat minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Barrows",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Guthan's_helm_detail.png/320px-Guthan's_helm_detail.png",
@@ -6010,7 +6010,7 @@
 		{
 			"id": "fdc2ab80-b1d7-40ad-9696-eab1dc191406",
 			"name": "Get 1 unique from Barrows",
-			"shortName": "Barrows Unique",
+			"shortName": "Barrows",
 			"tip": "Can be received as a reward from the Barrows Combat minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Barrows",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Guthan's_helm_detail.png/320px-Guthan's_helm_detail.png",
@@ -6027,7 +6027,7 @@
 		{
 			"id": "2ef8f0a3-c770-4de4-b3bf-3b0bd07e12a0",
 			"name": "Get 1 unique from Barrows",
-			"shortName": "Barrows Unique",
+			"shortName": "Barrows",
 			"tip": "Can be received as a reward from the Barrows Combat minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Barrows",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Guthan's_helm_detail.png/320px-Guthan's_helm_detail.png",
@@ -6044,7 +6044,7 @@
 		{
 			"id": "bd2f8f8f-057f-4bfc-b66e-4deda1466e42",
 			"name": "Get 1 unique from Barrows",
-			"shortName": "Barrows Unique",
+			"shortName": "Barrows",
 			"tip": "Can be received as a reward from the Barrows Combat minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Barrows",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Guthan's_helm_detail.png/320px-Guthan's_helm_detail.png",
@@ -6061,7 +6061,7 @@
 		{
 			"id": "bf30a4bb-6190-46e8-9be0-c889e20d34f1",
 			"name": "Get 1 unique from Barrows",
-			"shortName": "Barrows Unique",
+			"shortName": "Barrows",
 			"tip": "Can be received as a reward from the Barrows Combat minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Barrows",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Guthan's_helm_detail.png/320px-Guthan's_helm_detail.png",
@@ -6078,7 +6078,7 @@
 		{
 			"id": "d1980b18-ef71-4782-ab95-92c445670c84",
 			"name": "Get 1 unique from Barrows",
-			"shortName": "Barrows Unique",
+			"shortName": "Barrows",
 			"tip": "Can be received as a reward from the Barrows Combat minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Barrows",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Guthan's_helm_detail.png/320px-Guthan's_helm_detail.png",
@@ -6095,7 +6095,7 @@
 		{
 			"id": "6b1fd2ea-8732-43f2-9c26-a180f5516222",
 			"name": "Get 1 unique from Barrows",
-			"shortName": "Barrows Unique",
+			"shortName": "Barrows",
 			"tip": "Can be received as a reward from the Barrows Combat minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Barrows",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Guthan's_helm_detail.png/320px-Guthan's_helm_detail.png",
@@ -6112,7 +6112,7 @@
 		{
 			"id": "90dc0df5-2649-453d-904c-7531110e8aba",
 			"name": "Get 1 unique from Barrows",
-			"shortName": "Barrows Unique",
+			"shortName": "Barrows",
 			"tip": "Can be received as a reward from the Barrows Combat minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Barrows",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Guthan's_helm_detail.png/320px-Guthan's_helm_detail.png",
@@ -6129,7 +6129,7 @@
 		{
 			"id": "06c69323-0360-420b-8050-89b1143fa915",
 			"name": "Get 1 unique from Barrows",
-			"shortName": "Barrows Unique",
+			"shortName": "Barrows",
 			"tip": "Can be received as a reward from the Barrows Combat minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Barrows",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Guthan's_helm_detail.png/320px-Guthan's_helm_detail.png",
@@ -6287,7 +6287,7 @@
 		{
 			"id": "b197547f-3ed2-4d10-9fe3-1e15644e9cb9",
 			"name": "Get 1 unique from the Wildy bosses",
-			"shortName": "Wildy Boss Uni",
+			"shortName": "Wildy Bosses",
 			"tip": "Wildy boss uniques are: Dragon 2H, Dragon pickaxe, 3 voidwaker pieces, 3 rev weapon upgrades, 3 rings",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Wilderness#bosses",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Skull_of_vet'ion_detail.png/320px-Skull_of_vet'ion_detail.png",
@@ -6303,7 +6303,7 @@
 		{
 			"id": "23a23a85-0b75-47a9-bd50-b12dd114f84c",
 			"name": "Get 1 unique from the Wildy bosses",
-			"shortName": "Wildy Boss Uni",
+			"shortName": "Wildy Bosses",
 			"tip": "Wildy boss uniques are: Dragon 2H, Dragon pickaxe, 3 voidwaker pieces, 3 rev weapon upgrades, 3 rings",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Wilderness#bosses",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Skull_of_vet'ion_detail.png/320px-Skull_of_vet'ion_detail.png",
@@ -6319,7 +6319,7 @@
 		{
 			"id": "b5975e8e-e380-4883-bc87-8850459dd23c",
 			"name": "Get 1 unique from the Wildy bosses",
-			"shortName": "Wildy Boss Uni",
+			"shortName": "Wildy Bosses",
 			"tip": "Wildy boss uniques are: Dragon 2H, Dragon pickaxe, 3 voidwaker pieces, 3 rev weapon upgrades, 3 rings",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Wilderness#bosses",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Skull_of_vet'ion_detail.png/320px-Skull_of_vet'ion_detail.png",
@@ -6335,7 +6335,7 @@
 		{
 			"id": "a3f7bb7a-1cd4-48cf-81fd-d5fee249f150",
 			"name": "Get 1 unique from Cerberus",
-			"shortName": "Cerb Unique",
+			"shortName": "Cerberus",
 			"tip": "Received as a drop from the Cerberus boss.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Cerberus",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Eternal_crystal_detail.png/320px-Eternal_crystal_detail.png",
@@ -6349,7 +6349,7 @@
 		{
 			"id": "11f84361-ab8f-4f79-bc14-b2c815227a78",
 			"name": "Get 1 unique from Cerberus",
-			"shortName": "Cerb Unique",
+			"shortName": "Cerberus",
 			"tip": "Received as a drop from the Cerberus boss.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Cerberus",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Eternal_crystal_detail.png/320px-Eternal_crystal_detail.png",
@@ -6363,7 +6363,7 @@
 		{
 			"id": "45b8fa6a-1684-476a-9a43-83618547dc70",
 			"name": "Get 1 unique from Cerberus",
-			"shortName": "Cerb Unique",
+			"shortName": "Cerberus",
 			"tip": "Received as a drop from the Cerberus boss.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Cerberus",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Eternal_crystal_detail.png/320px-Eternal_crystal_detail.png",
@@ -6459,7 +6459,7 @@
 		{
 			"id": "00b9d780-5b80-472e-af5b-c4241233c5ca",
 			"name": "Get 1 unique drop from Dagannoth Kings",
-			"shortName": "DKs Unique",
+			"shortName": "DKs",
 			"tip": "Received as a drop from the Dagannoth Kings bosses.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Dagannoth_Kings",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dragon_axe_detail.png/320px-Dragon_axe_detail.png",
@@ -6473,7 +6473,7 @@
 		{
 			"id": "98abdbdd-fd19-4699-8e2f-baa5b9e3f2d3",
 			"name": "Get 1 unique drop from Dagannoth Kings",
-			"shortName": "DKs Unique",
+			"shortName": "DKs",
 			"tip": "Received as a drop from the Dagannoth Kings bosses.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Dagannoth_Kings",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dragon_axe_detail.png/320px-Dragon_axe_detail.png",
@@ -6487,7 +6487,7 @@
 		{
 			"id": "cc15f774-f36f-4e78-985c-10436437b017",
 			"name": "Get 1 unique drop from Dagannoth Kings",
-			"shortName": "DKs Unique",
+			"shortName": "DKs",
 			"tip": "Received as a drop from the Dagannoth Kings bosses.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Dagannoth_Kings",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dragon_axe_detail.png/320px-Dragon_axe_detail.png",
@@ -6501,7 +6501,7 @@
 		{
 			"id": "65fd7e4e-54ff-492b-b56b-9aec8a914e65",
 			"name": "Get 1 unique drop from Dagannoth Kings",
-			"shortName": "DKs Unique",
+			"shortName": "DKs",
 			"tip": "Received as a drop from the Dagannoth Kings bosses.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Dagannoth_Kings",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dragon_axe_detail.png/320px-Dragon_axe_detail.png",
@@ -6515,7 +6515,7 @@
 		{
 			"id": "3304fa6f-c3bf-47b9-b7b4-dfd4dfdf377d",
 			"name": "Get 1 unique drop from Dagannoth Kings",
-			"shortName": "DKs Unique",
+			"shortName": "DKs",
 			"tip": "Received as a drop from the Dagannoth Kings bosses.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Dagannoth_Kings",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dragon_axe_detail.png/320px-Dragon_axe_detail.png",
@@ -6529,7 +6529,7 @@
 		{
 			"id": "0c7f694f-f6de-4ab5-8e3a-965431b494b8",
 			"name": "Get 1 unique drop from Dagannoth Kings",
-			"shortName": "DKs Unique",
+			"shortName": "DKs",
 			"tip": "Received as a drop from the Dagannoth Kings bosses.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Dagannoth_Kings",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dragon_axe_detail.png/320px-Dragon_axe_detail.png",
@@ -6543,7 +6543,7 @@
 		{
 			"id": "1c5e50c1-d98d-4ced-ac77-b7458518aee0",
 			"name": "Get 1 unique drop from Dagannoth Kings",
-			"shortName": "DKs Unique",
+			"shortName": "DKs",
 			"tip": "Received as a drop from the Dagannoth Kings bosses.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Dagannoth_Kings",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dragon_axe_detail.png/320px-Dragon_axe_detail.png",
@@ -6557,7 +6557,7 @@
 		{
 			"id": "0bc26a55-e504-45d1-8742-06980cf2e726",
 			"name": "Get 1 unique drop from Grotesque Guardians",
-			"shortName": "GGs Unique",
+			"shortName": "Grot Guardians",
 			"tip": "Received as a drop from the Grotesque Guardians bosses.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Grotesque_Guardians",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Black_tourmaline_core_detail.png/320px-Black_tourmaline_core_detail.png",
@@ -6571,7 +6571,7 @@
 		{
 			"id": "ad960de3-1940-4fcb-9c10-a8402a6cdcc3",
 			"name": "Get 1 unique drop from Grotesque Guardians",
-			"shortName": "GGs Unique",
+			"shortName": "Grot Guardians",
 			"tip": "Received as a drop from the Grotesque Guardians bosses.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Grotesque_Guardians",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Black_tourmaline_core_detail.png/320px-Black_tourmaline_core_detail.png",
@@ -6585,7 +6585,7 @@
 		{
 			"id": "fa69ec9e-699b-44d3-879d-8f8968a94e76",
 			"name": "Get 1 unique drop from Grotesque Guardians",
-			"shortName": "GGs Unique",
+			"shortName": "Grot Guardians",
 			"tip": "Received as a drop from the Grotesque Guardians bosses.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Grotesque_Guardians",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Black_tourmaline_core_detail.png/320px-Black_tourmaline_core_detail.png",
@@ -6599,7 +6599,7 @@
 		{
 			"id": "d25e8e7b-0360-4cbd-acf2-d127b61e17a0",
 			"name": "Get 1 unique from the Kalphite Queen",
-			"shortName": "KQ Unique",
+			"shortName": "Kalphite Queen",
 			"tip": "Received as a drop from the Kalphite Queen boss. Dragon 2H sword does not count for the task, as it is apart of Wildy Unique Tasks.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Kalphite_Queen",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Kq_head_detail.png/320px-Kq_head_detail.png",
@@ -6613,7 +6613,7 @@
 		{
 			"id": "6566e528-1303-4d17-abe7-85b9fd7a2f5d",
 			"name": "Get 1 unique from the Kalphite Queen",
-			"shortName": "KQ Unique",
+			"shortName": "Kalphite Queen",
 			"tip": "Received as a drop from the Kalphite Queen boss. Dragon 2H sword does not count for the task, as it is apart of Wildy Unique Tasks.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Kalphite_Queen",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Kq_head_detail.png/320px-Kq_head_detail.png",
@@ -6641,7 +6641,7 @@
 		{
 			"id": "b4f536ec-6970-4ad2-ba81-2bf0f4b97412",
 			"name": "Get 1 unique drop from Kraken",
-			"shortName": "Kraken Unique",
+			"shortName": "Kraken",
 			"tip": "Received as a drop from the Kraken boss.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Kraken#Kraken",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Trident_of_the_seas_detail.png/320px-Trident_of_the_seas_detail.png",
@@ -6655,7 +6655,7 @@
 		{
 			"id": "7f910b6d-86e7-44b2-ab0f-c70230f47d8a",
 			"name": "Get 1 unique drop from Kraken",
-			"shortName": "Kraken Unique",
+			"shortName": "Kraken",
 			"tip": "Received as a drop from the Kraken boss.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Kraken#Kraken",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Trident_of_the_seas_detail.png/320px-Trident_of_the_seas_detail.png",
@@ -6711,7 +6711,7 @@
 		{
 			"id": "77dd54c7-25ef-4e05-9399-bde68791683d",
 			"name": "Get Vorkath's head",
-			"shortName": "Vorkath Head",
+			"shortName": "Vorkath's Head",
 			"tip": "Received as a drop from the Vorkath boss.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Vorkath",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Vorkath's_head_detail.png/320px-Vorkath's_head_detail.png",
@@ -6725,7 +6725,7 @@
 		{
 			"id": "20224317-3259-4f50-b378-47a74559b1b7",
 			"name": "Get 1 unique from Zulrah",
-			"shortName": "Zulrah Unique",
+			"shortName": "Zulrah",
 			"tip": "Received as a drop from the Zulrah boss.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Zulrah",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Tanzanite_fang_detail.png/320px-Tanzanite_fang_detail.png",
@@ -6739,7 +6739,7 @@
 		{
 			"id": "6ad9b2f0-60f2-49a2-89c0-7b35cde292ce",
 			"name": "Get 1 unique from Zulrah",
-			"shortName": "Zulrah Unique",
+			"shortName": "Zulrah",
 			"tip": "Received as a drop from the Zulrah boss.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Zulrah",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Tanzanite_fang_detail.png/320px-Tanzanite_fang_detail.png",
@@ -6753,7 +6753,7 @@
 		{
 			"id": "723a9814-5c4e-4225-a88c-543003bf581f",
 			"name": "Get 1 unique from Zulrah",
-			"shortName": "Zulrah Unique",
+			"shortName": "Zulrah",
 			"tip": "Received as a drop from the Zulrah boss.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Zulrah",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Tanzanite_fang_detail.png/320px-Tanzanite_fang_detail.png",
@@ -6767,7 +6767,7 @@
 		{
 			"id": "396c7960-b7fc-42ce-a014-8930b8ea10b2",
 			"name": "Get 1 unique from Zulrah",
-			"shortName": "Zulrah Unique",
+			"shortName": "Zulrah",
 			"tip": "Received as a drop from the Zulrah boss.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Zulrah",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Tanzanite_fang_detail.png/320px-Tanzanite_fang_detail.png",
@@ -7378,7 +7378,7 @@
 		{
 			"id": "bed895eb-6590-4f27-b31f-f0b263e91e02",
 			"name": "Get 2 White decorative pieces",
-			"shortName": "CW 2x White",
+			"shortName": "2x CW White",
 			"tip": "Can be purchased as a reward from the Castle Wars minigame. Playing on official worlds is recommended, as you get about the same amount of tickets in addition to other resources. Alternatively, you may play with an alt account (works in F2P) for complete AFK.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Castle_Wars",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Decorative_armour_(white_platebody)_detail.png/320px-Decorative_armour_(white_platebody)_detail.png",
@@ -7392,7 +7392,7 @@
 		{
 			"id": "414ab46c-4925-4c96-b400-36cac80d3f8c",
 			"name": "Get 2 White decorative pieces",
-			"shortName": "CW 2x White",
+			"shortName": "2x CW White",
 			"tip": "Can be purchased as a reward from the Castle Wars minigame. Playing on official worlds is recommended, as you get about the same amount of tickets in addition to other resources. Alternatively, you may play with an alt account (works in F2P) for complete AFK.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Castle_Wars",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Decorative_armour_(white_platebody)_detail.png/320px-Decorative_armour_(white_platebody)_detail.png",
@@ -7406,7 +7406,7 @@
 		{
 			"id": "171e6e8d-0c1c-4343-9abc-7b02f25e82d1",
 			"name": "Get 2 White decorative pieces",
-			"shortName": "CW 2x White",
+			"shortName": "2x CW White",
 			"tip": "Can be purchased as a reward from the Castle Wars minigame. Playing on official worlds is recommended, as you get about the same amount of tickets in addition to other resources. Alternatively, you may play with an alt account (works in F2P) for complete AFK.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Castle_Wars",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Decorative_armour_(white_platebody)_detail.png/320px-Decorative_armour_(white_platebody)_detail.png",
@@ -7420,7 +7420,7 @@
 		{
 			"id": "2fee935b-6a1e-4896-9e50-e7f49a8ea6c5",
 			"name": "Get 2 White decorative pieces",
-			"shortName": "CW 2x White",
+			"shortName": "2x CW White",
 			"tip": "Can be purchased as a reward from the Castle Wars minigame. Playing on official worlds is recommended, as you get about the same amount of tickets in addition to other resources. Alternatively, you may play with an alt account (works in F2P) for complete AFK.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Castle_Wars",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Decorative_armour_(white_platebody)_detail.png/320px-Decorative_armour_(white_platebody)_detail.png",
@@ -7766,7 +7766,7 @@
 		{
 			"id": "bd133c8e-00c1-4319-871c-45fa383a605b",
 			"name": "Get 1 unique from Thermonuclear smoke devil",
-			"shortName": "Thermy Unique",
+			"shortName": "Thermy",
 			"tip": "Can be received as a drop from the Thermonuclear Smoke Devil boss.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Thermonuclear_smoke_devil",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Occult_necklace_detail.png/320px-Occult_necklace_detail.png",
@@ -7780,7 +7780,7 @@
 		{
 			"id": "2b450aa9-57b9-4c91-ab53-5decd02214a9",
 			"name": "Get 1 unique Obsidian armour drop",
-			"shortName": "ObsidianArmour",
+			"shortName": "Obby Armour",
 			"tip": "Can be received as a drop from TzHaar Kets in the inner section of Mor Ul Rek. Burst/Barraging them is the best method for obtaining.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Obsidian_armour",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Obsidian_platebody_detail.png/320px-Obsidian_platebody_detail.png",
@@ -7794,7 +7794,7 @@
 		{
 			"id": "5142b0ae-92ef-41ab-90a9-c66016e992fe",
 			"name": "Get 1 unique Obsidian armour drop",
-			"shortName": "ObsidianArmour",
+			"shortName": "Obby Armour",
 			"tip": "Can be received as a drop from TzHaar Kets in the inner section of Mor Ul Rek. Burst/Barraging them is the best method for obtaining.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Obsidian_armour",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Obsidian_platebody_detail.png/320px-Obsidian_platebody_detail.png",
@@ -7808,7 +7808,7 @@
 		{
 			"id": "4eec2d1c-7b24-4c7b-86c6-d67c189b8128",
 			"name": "Get a Dragon warhammer",
-			"shortName": "Dragon WH",
+			"shortName": "D Warhammer",
 			"tip": "Can be received as a drop rarely, from Lizardmen Shaman.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Dragon_warhammer",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dragon_warhammer_detail.png/320px-Dragon_warhammer_detail.png",
@@ -8046,7 +8046,7 @@
 		{
 			"id": "e105c01f-2269-4dcc-8043-04b62a7f5d8e",
 			"name": "Get Bryophyta's essence",
-			"shortName": "Bryophyta Ess",
+			"shortName": "Bryo's Essence",
 			"tip": "Can be received as a drop from the Bryophyta boss.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Bryophyta's_essence",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Bryophyta's_essence_detail.png/320px-Bryophyta's_essence_detail.png",
@@ -8060,7 +8060,7 @@
 		{
 			"id": "590f82c0-944f-4b54-b119-3beb6d2da7c9",
 			"name": "Get 1 unique from Sarachnis",
-			"shortName": "Sarachnis Uni",
+			"shortName": "Sarachnis",
 			"tip": "Can be received as a drop from the Sarachnis boss. You can't make me go back to that hellish boss.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Sarachnis",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Giant_egg_sac(full)_detail.png/320px-Giant_egg_sac(full)_detail.png",
@@ -8074,10 +8074,10 @@
 		{
 			"id": "431fe883-14c3-4ac8-a8ce-c7db6b55b38c",
 			"name": "Get 1 unique from the Gauntlet",
-			"shortName": "GauntletUnique",
+			"shortName": "The Gauntlet",
 			"tip": "Can be received as a drop from the Gauntlet. Been there done that.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Gauntlet",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Blade_of_saeldor_(inactive)_detail.png/320px-Blade_of_saeldor_(inactive)_detail.png",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Blade_of_Saeldor_(inactive)_detail.png/320px-Blade_of_Saeldor_(inactive)_detail.png",
 			"displayItemId": 25862,
 			"verification": {
 				"method": "collection-log",
@@ -8088,10 +8088,10 @@
 		{
 			"id": "3824589f-203b-414e-88e9-ff62e0780189",
 			"name": "Get 1 unique from the Gauntlet",
-			"shortName": "GauntletUnique",
+			"shortName": "The Gauntlet",
 			"tip": "Can be received as a drop from the Gauntlet. Anyone want some armour seeds?.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Gauntlet",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Blade_of_saeldor_(inactive)_detail.png/320px-Blade_of_saeldor_(inactive)_detail.png",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Blade_of_Saeldor_(inactive)_detail.png/320px-Blade_of_Saeldor_(inactive)_detail.png",
 			"displayItemId": 25862,
 			"verification": {
 				"method": "collection-log",
@@ -8172,7 +8172,7 @@
 		{
 			"id": "5f44677a-8bcf-4e74-935f-731bdd4f5665",
 			"name": "Get 2 uniques from the Hallowed Sepulchre",
-			"shortName": "2x HS Unique",
+			"shortName": "Sepulchre",
 			"tip": "Can be received as a drop / purchased from the Hallowed Sepulchre.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Hallowed_Sepulchre",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Hallowed_mark_detail.png/320px-Hallowed_mark_detail.png",
@@ -8189,7 +8189,7 @@
 		{
 			"id": "f8e6c849-7599-48b4-809b-bb795632c74d",
 			"name": "Get 2 uniques from the Hallowed Sepulchre",
-			"shortName": "2x HS Unique",
+			"shortName": "Sepulchre",
 			"tip": "Can be received as a drop / purchased from the Hallowed Sepulchre.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Hallowed_Sepulchre",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Hallowed_mark_detail.png/320px-Hallowed_mark_detail.png",
@@ -8206,7 +8206,7 @@
 		{
 			"id": "5d8acede-1379-4bb6-a2af-da157c1bea37",
 			"name": "Get 2 uniques from the Hallowed Sepulchre",
-			"shortName": "2x HS Unique",
+			"shortName": "Sepulchre",
 			"tip": "Can be received as a drop / purchased from the Hallowed Sepulchre.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Hallowed_Sepulchre",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Hallowed_mark_detail.png/320px-Hallowed_mark_detail.png",
@@ -8223,7 +8223,7 @@
 		{
 			"id": "422732ad-4c87-4940-94b5-28086228b938",
 			"name": "Get 2 uniques from the Hallowed Sepulchre",
-			"shortName": "2x HS Unique",
+			"shortName": "Sepulchre",
 			"tip": "Can be received as a drop / purchased from the Hallowed Sepulchre.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Hallowed_Sepulchre",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Hallowed_mark_detail.png/320px-Hallowed_mark_detail.png",
@@ -8240,7 +8240,7 @@
 		{
 			"id": "1b7b8233-cc01-4fe3-9e2d-a723534caa03",
 			"name": "Get 2 uniques from the Hallowed Sepulchre",
-			"shortName": "2x HS Unique",
+			"shortName": "Sepulchre",
 			"tip": "Can be received as a drop / purchased from the Hallowed Sepulchre.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Hallowed_Sepulchre",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Hallowed_mark_detail.png/320px-Hallowed_mark_detail.png",
@@ -8257,7 +8257,7 @@
 		{
 			"id": "6504c280-922b-4015-a41e-87428acfd4d2",
 			"name": "Get 2 uniques from the Hallowed Sepulchre",
-			"shortName": "2x HS Unique",
+			"shortName": "Sepulchre",
 			"tip": "Can be received as a drop / purchased from the Hallowed Sepulchre.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Hallowed_Sepulchre",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Hallowed_mark_detail.png/320px-Hallowed_mark_detail.png",
@@ -8386,7 +8386,7 @@
 		{
 			"id": "415a866e-89db-4f17-95f4-7887c29c3ace",
 			"name": "Get 1 unique from Shades of Mort'ton",
-			"shortName": "Shades Unique",
+			"shortName": "Shades",
 			"tip": "Potential reward from the Shades of Morton minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Shades_of_Mort'ton_(minigame)",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Fine_cloth_detail.png/320px-Fine_cloth_detail.png",
@@ -8403,7 +8403,7 @@
 		{
 			"id": "adcae074-ffe8-4969-8604-829a59ca5795",
 			"name": "Get 1 unique from Shades of Mort'ton",
-			"shortName": "Shades Unique",
+			"shortName": "Shades",
 			"tip": "Potential reward from the Shades of Morton minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Shades_of_Mort'ton_(minigame)",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Fine_cloth_detail.png/320px-Fine_cloth_detail.png",
@@ -8420,7 +8420,7 @@
 		{
 			"id": "ce78ed96-2f89-4a2f-91ac-79bd5932fabd",
 			"name": "Get 1 unique from Shades of Mort'ton",
-			"shortName": "Shades Unique",
+			"shortName": "Shades",
 			"tip": "Potential reward from the Shades of Morton minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Shades_of_Mort'ton_(minigame)",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Fine_cloth_detail.png/320px-Fine_cloth_detail.png",
@@ -8437,7 +8437,7 @@
 		{
 			"id": "94312599-a8ca-4113-9cd0-665821fabed3",
 			"name": "Get 1 unique from Shades of Mort'ton",
-			"shortName": "Shades Unique",
+			"shortName": "Shades",
 			"tip": "Potential reward from the Shades of Morton minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Shades_of_Mort'ton_(minigame)",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Fine_cloth_detail.png/320px-Fine_cloth_detail.png",
@@ -8468,7 +8468,7 @@
 		{
 			"id": "3cf7a2dc-4f53-42e0-a838-c9a312ff60e6",
 			"name": "Get 1 unique from Tempoross",
-			"shortName": "Tempo Unique",
+			"shortName": "Tempoross",
 			"tip": "Can be received as a reward from the Tempoross Skilling boss.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Tempoross",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Tome_of_water_(empty)_detail.png/320px-Tome_of_water_(empty)_detail.png",
@@ -8526,7 +8526,7 @@
 		{
 			"id": "22cbded8-bdc1-4ec4-8f97-3e2b55ea2590",
 			"name": "Get 1 unique Nihil shard / Ceremonial robe piece",
-			"shortName": "Nihil/Cere",
+			"shortName": "Nihil/Cerem Pc",
 			"tip": "Can be received as a drop whilst killing Ancient Creatures in the God Wars Dungeon.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Ancient_Prison",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Ancient_ceremonial_top_detail.png/320px-Ancient_ceremonial_top_detail.png",
@@ -8540,7 +8540,7 @@
 		{
 			"id": "c940807b-aa81-4bfc-8cc1-b31df1588ec2",
 			"name": "Get 1 unique Nihil shard / Ceremonial robe piece",
-			"shortName": "Nihil/Cere",
+			"shortName": "Nihil/Cerem Pc",
 			"tip": "Can be received as a drop whilst killing Ancient Creatures in the God Wars Dungeon.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Ancient_Prison",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Ancient_ceremonial_top_detail.png/320px-Ancient_ceremonial_top_detail.png",
@@ -8554,7 +8554,7 @@
 		{
 			"id": "69370c5b-b5ac-4ceb-8b7c-3cdc8c8b24a8",
 			"name": "Get 1 unique Nihil shard / Ceremonial robe piece",
-			"shortName": "Nihil/Cere",
+			"shortName": "Nihil/Cerem Pc",
 			"tip": "Can be received as a drop whilst killing Ancient Creatures in the God Wars Dungeon.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Ancient_Prison",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Ancient_ceremonial_top_detail.png/320px-Ancient_ceremonial_top_detail.png",
@@ -8568,7 +8568,7 @@
 		{
 			"id": "b7274190-a159-4be0-b5bb-aa10d04de978",
 			"name": "Get 1 unique Nihil shard / Ceremonial robe piece",
-			"shortName": "Nihil/Cere",
+			"shortName": "Nihil/Cerem Pc",
 			"tip": "Can be received as a drop whilst killing Ancient Creatures in the God Wars Dungeon.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Ancient_Prison",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Ancient_ceremonial_top_detail.png/320px-Ancient_ceremonial_top_detail.png",
@@ -8582,7 +8582,7 @@
 		{
 			"id": "aebcf71c-c7a5-448f-be23-aae56a3514a6",
 			"name": "Get 1 unique Nihil shard / Ceremonial robe piece",
-			"shortName": "Nihil/Cere",
+			"shortName": "Nihil/Cerem Pc",
 			"tip": "Can be received as a drop whilst killing Ancient Creatures in the God Wars Dungeon.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Ancient_Prison",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Ancient_ceremonial_top_detail.png/320px-Ancient_ceremonial_top_detail.png",
@@ -8596,7 +8596,7 @@
 		{
 			"id": "0853df5c-a949-456b-ba27-585c83f4ff7b",
 			"name": "Get 1 unique Nihil shard / Ceremonial robe piece",
-			"shortName": "Nihil/Cere",
+			"shortName": "Nihil/Cerem Pc",
 			"tip": "Can be received as a drop whilst killing Ancient Creatures in the God Wars Dungeon.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Ancient_Prison",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Ancient_ceremonial_top_detail.png/320px-Ancient_ceremonial_top_detail.png",
@@ -8610,7 +8610,7 @@
 		{
 			"id": "d1ad46ae-91a6-4c1e-ab62-874c5c876a46",
 			"name": "Get 1 unique from Guardians of the Rift",
-			"shortName": "GotR Unique",
+			"shortName": "GotR",
 			"tip": "Can be received as a reward from the Guardians of the Rift Skilling minigame. Runecrafting... it's actually kinda fun now.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Guardians_of_the_Rift",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Hat_of_the_eye_detail.png/320px-Hat_of_the_eye_detail.png",
@@ -8627,7 +8627,7 @@
 		{
 			"id": "914fb7b1-0b9c-4e15-96ad-601b5fffa399",
 			"name": "Get 1 unique from Guardians of the Rift",
-			"shortName": "GotR Unique",
+			"shortName": "GotR",
 			"tip": "Can be received as a reward from the Guardians of the Rift Skilling minigame. Runecrafting... it's actually kinda fun now.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Guardians_of_the_Rift",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Hat_of_the_eye_detail.png/320px-Hat_of_the_eye_detail.png",
@@ -8644,7 +8644,7 @@
 		{
 			"id": "ce2dde4a-10f5-4e28-84ff-03674459fb62",
 			"name": "Get 1 unique from Guardians of the Rift",
-			"shortName": "GotR Unique",
+			"shortName": "GotR",
 			"tip": "Can be received as a reward from the Guardians of the Rift Skilling minigame. Runecrafting... it's actually kinda fun now.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Guardians_of_the_Rift",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Hat_of_the_eye_detail.png/320px-Hat_of_the_eye_detail.png",
@@ -8661,7 +8661,7 @@
 		{
 			"id": "f1dfd180-f10e-4c39-bbcf-4fd1a9147bf9",
 			"name": "Get 1 unique from Guardians of the Rift",
-			"shortName": "GotR Unique",
+			"shortName": "GotR",
 			"tip": "Can be received as a reward from the Guardians of the Rift Skilling minigame. Runecrafting... it's actually kinda fun now.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Guardians_of_the_Rift",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Hat_of_the_eye_detail.png/320px-Hat_of_the_eye_detail.png",
@@ -8692,7 +8692,7 @@
 		{
 			"id": "d5f35911-b2df-4508-99fa-9aebfecb7e6b",
 			"name": "Get 1 unique from Tombs of Amascut",
-			"shortName": "ToA Unique",
+			"shortName": "ToA",
 			"tip": "Can be received as a reward from the Tombs of Amascut raid",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Tombs_of_Amascut",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Thread_of_elidinis_detail.png/320px-Thread_of_elidinis_detail.png",
@@ -8709,7 +8709,7 @@
 		{
 			"id": "72da9fab-1793-46ae-99b2-6da8b08690db",
 			"name": "Get 1 unique from Tombs of Amascut",
-			"shortName": "ToA Unique",
+			"shortName": "ToA",
 			"tip": "Can be received as a reward from the Tombs of Amascut raid",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Tombs_of_Amascut",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Thread_of_elidinis_detail.png/320px-Thread_of_elidinis_detail.png",
@@ -8726,7 +8726,7 @@
 		{
 			"id": "64e35755-e178-494a-890d-a31e236bcbe2",
 			"name": "Get 1 unique from Tombs of Amascut",
-			"shortName": "ToA Unique",
+			"shortName": "ToA",
 			"tip": "Can be received as a reward from the Tombs of Amascut raid",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Tombs_of_Amascut",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Thread_of_elidinis_detail.png/320px-Thread_of_elidinis_detail.png",
@@ -8743,7 +8743,7 @@
 		{
 			"id": "e0ff91a7-4f46-4393-8597-fb9cecbe1753",
 			"name": "Get 1 unique from the Phantom Muspah",
-			"shortName": "Muspah Unique",
+			"shortName": "Phantom Muspah",
 			"tip": "Can be received a drop from Phantom Muspah boss",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Phantom_Muspah",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Ancient_essence_500_detail.png/320px-Ancient_essence_500_detail.png",
@@ -8757,7 +8757,7 @@
 		{
 			"id": "bad0e4d9-4a7f-4224-8a6c-001a7e357573",
 			"name": "Get 1 unique from the Phantom Muspah",
-			"shortName": "Muspah Unique",
+			"shortName": "Phantom Muspah",
 			"tip": "Can be received a drop from Phantom Muspah boss",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Phantom_Muspah",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Ancient_essence_500_detail.png/320px-Ancient_essence_500_detail.png",
@@ -8822,7 +8822,7 @@
 		{
 			"id": "79ca59fb-82dc-4fc2-b2ff-bd29554582c8",
 			"name": "Get 1 unique from Moons of Peril",
-			"shortName": "Moons Unique",
+			"shortName": "Moons of Peril",
 			"tip": "Received as a drop from Moons of Peril bosses",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Moons_of_Peril",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dual_macuahuitl_detail.png/320px-Dual_macuahuitl_detail.png",
@@ -8839,7 +8839,7 @@
 		{
 			"id": "5cac1341-3a12-4c0f-8f8c-7b5f8dd02578",
 			"name": "Get 1 unique from Moons of Peril",
-			"shortName": "Moons Unique",
+			"shortName": "Moons of Peril",
 			"tip": "Received as a drop from Moons of Peril bosses",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Moons_of_Peril",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dual_macuahuitl_detail.png/320px-Dual_macuahuitl_detail.png",
@@ -8856,7 +8856,7 @@
 		{
 			"id": "08d5bc91-8a6e-40a5-a8eb-e47719a5325e",
 			"name": "Get 1 unique from Moons of Peril",
-			"shortName": "Moons Unique",
+			"shortName": "Moons of Peril",
 			"tip": "Received as a drop from Moons of Peril bosses",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Moons_of_Peril",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dual_macuahuitl_detail.png/320px-Dual_macuahuitl_detail.png",
@@ -8873,7 +8873,7 @@
 		{
 			"id": "b6933cf1-e976-418d-b3b5-dafad4552ed5",
 			"name": "Get 1 unique from Moons of Peril",
-			"shortName": "Moons Unique",
+			"shortName": "Moons of Peril",
 			"tip": "Received as a drop from Moons of Peril bosses",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Moons_of_Peril",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dual_macuahuitl_detail.png/320px-Dual_macuahuitl_detail.png",
@@ -8890,7 +8890,7 @@
 		{
 			"id": "ed9a63d5-62a2-46df-a437-57c47661d1e4",
 			"name": "Get 1 unique from Moons of Peril",
-			"shortName": "Moons Unique",
+			"shortName": "Moons of Peril",
 			"tip": "Received as a drop from Moons of Peril bosses",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Moons_of_Peril",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dual_macuahuitl_detail.png/320px-Dual_macuahuitl_detail.png",
@@ -8907,7 +8907,7 @@
 		{
 			"id": "ee200487-9a4b-43be-9c73-ae785fca3007",
 			"name": "Get 1 unique from Moons of Peril",
-			"shortName": "Moons Unique",
+			"shortName": "Moons of Peril",
 			"tip": "Received as a drop from Moons of Peril bosses",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Moons_of_Peril",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dual_macuahuitl_detail.png/320px-Dual_macuahuitl_detail.png",
@@ -8924,7 +8924,7 @@
 		{
 			"id": "d3b42ad9-92c4-4483-8424-dc824bf0d84c",
 			"name": "Get 1 unique from Moons of Peril",
-			"shortName": "Moons Unique",
+			"shortName": "Moons of Peril",
 			"tip": "Received as a drop from Moons of Peril bosses",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Moons_of_Peril",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dual_macuahuitl_detail.png/320px-Dual_macuahuitl_detail.png",
@@ -8941,7 +8941,7 @@
 		{
 			"id": "a1bb1c3d-cf0b-4199-ae75-63dfbf6ece5f",
 			"name": "Get 1 unique from Moons of Peril",
-			"shortName": "Moons Unique",
+			"shortName": "Moons of Peril",
 			"tip": "Received as a drop from Moons of Peril bosses",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Moons_of_Peril",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dual_macuahuitl_detail.png/320px-Dual_macuahuitl_detail.png",
@@ -9000,7 +9000,7 @@
 		{
 			"id": "bd3ca60d-55ca-4155-9af7-ab86e6fc8887",
 			"name": "Get 1 unique from Tormented Demons",
-			"shortName": "TD Unique",
+			"shortName": "TDs Unique",
 			"tip": "Can be obtained when killing Tormented Demons",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Tormented_demon",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Tormented_synapse_detail.png/320px-Tormented_synapse_detail.png",
@@ -9014,7 +9014,7 @@
 		{
 			"id": "d1380a3b-5963-4ddf-94a0-b040b93c7765",
 			"name": "Get 1 unique from Tormented Demons",
-			"shortName": "TD Unique",
+			"shortName": "TDs Unique",
 			"tip": "Can be obtained when killing Tormented Demons",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Tormented_demon",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Tormented_synapse_detail.png/320px-Tormented_synapse_detail.png",
@@ -9028,7 +9028,7 @@
 		{
 			"id": "1b5ff8e4-3cef-4d3a-8476-2091a0aac5b6",
 			"name": "Get 1 unique from Tormented Demons",
-			"shortName": "TD Unique",
+			"shortName": "TDs Unique",
 			"tip": "Can be obtained when killing Tormented Demons",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Tormented_demon",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Tormented_synapse_detail.png/320px-Tormented_synapse_detail.png",
@@ -9056,28 +9056,28 @@
 		{
 			"id": "f18930cd-ae0d-4a50-8ed2-85eba8818d4c",
 			"name": "Get 1 unique from Araxytes/Araxxor",
-			"shortName": "Rax Unique",
+			"shortName": "Araxxor",
 			"tip": "Can be obtained when killing Araxytes/Araxxor",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Araxxor",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Araxyte_fang_detail.png/320px-Araxyte_fang_detail.png",
 			"displayItemId": 29799,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 29781, 29782, 29784, 29788, 29790, 29792, 29794, 29799 ],
+				"itemIds": [ 29782, 29784, 29788, 29790, 29792, 29794, 29799 ],
 				"count": 1
 			}
 		},
 		{
 			"id": "47401a36-f294-4a8a-8efe-29864a93c7f1",
 			"name": "Get 1 unique from Araxytes/Araxxor",
-			"shortName": "Rax Unique",
+			"shortName": "Araxxor",
 			"tip": "Can be obtained when killing Araxytes/Araxxor",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Araxxor",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Araxyte_fang_detail.png/320px-Araxyte_fang_detail.png",
 			"displayItemId": 29799,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 29781, 29782, 29784, 29788, 29790, 29792, 29794, 29799 ],
+				"itemIds": [ 29782, 29784, 29788, 29790, 29792, 29794, 29799 ],
 				"count": 2
 			}
 		},
@@ -9129,7 +9129,7 @@
 		{
 			"id": "a5c685b6-c385-4797-ae6f-fc11a7c2098a",
 			"name": "Get 1 unique from the Hueycoatl",
-			"shortName": "Huey Unique",
+			"shortName": "Hueycoatl",
 			"tip": "Obtained by killing The Hueycoatl",
 			"wikiLink": "https://oldschool.runescape.wiki/w/The_Hueycoatl",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dragon_hunter_wand_detail.png/320px-Dragon_hunter_wand_detail.png",
@@ -9143,7 +9143,7 @@
 		{
 			"id": "dc3ed87a-1cc1-4c22-9b97-10bb2155c346",
 			"name": "Get 1 unique from Royal Titans",
-			"shortName": "Titans Unique",
+			"shortName": "Royal Titans",
 			"tip": "Obtained by killing the Royal Titans boss. First kill you must choose Take Pages option as you can force this unique.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Royal_Titans",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twinflame_staff_detail.png/320px-Twinflame_staff_detail.png",
@@ -9157,7 +9157,7 @@
 		{
 			"id": "82a8379b-8a72-4206-8465-ee67d64c640c",
 			"name": "Get 1 unique from Royal Titans",
-			"shortName": "Titans Unique",
+			"shortName": "Royal Titans",
 			"tip": "Obtained by killing the Royal Titans boss. First kill you must choose Take Pages option as you can force this unique.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Royal_Titans",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twinflame_staff_detail.png/320px-Twinflame_staff_detail.png",
@@ -9171,7 +9171,7 @@
 		{
 			"id": "62c25092-cdd4-421e-a528-d97e46712ad3",
 			"name": "Get 1 unique from Doom of Mokhaiotl",
-			"shortName": "Doom Unique",
+			"shortName": "Doom",
 			"tip": "Giant, insect-like, demonic boss found in the Tonali Cavern after completion of The Final Dawn quest.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Doom_of_Mokhaiotl",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Eye_of_ayak_detail.png/320px-Eye_of_ayak_detail.png",
@@ -9185,7 +9185,7 @@
 		{
 			"id": "22762b53-7e09-4f0a-b20d-3fdb6fe8cc02",
 			"name": "Get 1 unique from Doom of Mokhaiotl",
-			"shortName": "Doom Unique",
+			"shortName": "Doom",
 			"tip": "Giant, insect-like, demonic boss found in the Tonali Cavern after completion of The Final Dawn quest.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Doom_of_Mokhaiotl",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Eye_of_ayak_detail.png/320px-Eye_of_ayak_detail.png",
@@ -9297,7 +9297,7 @@
 		{
 			"id": "5180ff8f-97d8-4447-8ad9-a4c2984f5c5a",
 			"name": "Get the Dragon salvaging hook schematic",
-			"shortName": "DSHook Schem",
+			"shortName": "D Salv Hook",
 			"tip": "Obtained from the locked lockbox on Lledrith Island. The key is buried on Ynysdail.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Dragon_salvaging_hook_schematic",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dragon_salvaging_hook_schematic_detail.png/320px-Dragon_salvaging_hook_schematic_detail.png",
@@ -9311,7 +9311,7 @@
 		{
 			"id": "82a78d08-7dfe-4b99-882f-cf86ea336d4f",
 			"name": "Get the Dragon cannon schematic",
-			"shortName": "DCannon Schem",
+			"shortName": "Dragon Cannon",
 			"tip": "Obtained from the locked lockbox on Deepfin Point. The key is buried on Buccaneers' Haven.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Dragon_cannon_schematic",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dragon_cannon_schematic_detail.png/320px-Dragon_cannon_schematic_detail.png",
@@ -9453,7 +9453,7 @@
 		{
 			"id": "d6e8750c-2f7d-4f37-8f92-2074caa777f7",
 			"name": "Get 1 unique from Barrows",
-			"shortName": "Barrows Unique",
+			"shortName": "Barrows",
 			"tip": "Can be received as a reward from the Barrows Combat minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Barrows",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Guthan's_helm_detail.png/320px-Guthan's_helm_detail.png",
@@ -9470,7 +9470,7 @@
 		{
 			"id": "9ea4f86d-9d21-4f81-9bf9-550c391eb11d",
 			"name": "Get 1 unique from Barrows",
-			"shortName": "Barrows Unique",
+			"shortName": "Barrows",
 			"tip": "Can be received as a reward from the Barrows Combat minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Barrows",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Guthan's_helm_detail.png/320px-Guthan's_helm_detail.png",
@@ -9487,7 +9487,7 @@
 		{
 			"id": "a7e6f9ca-cf1f-4473-8ca7-0a5596354f98",
 			"name": "Get 1 unique from Barrows",
-			"shortName": "Barrows Unique",
+			"shortName": "Barrows",
 			"tip": "Can be received as a reward from the Barrows Combat minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Barrows",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Guthan's_helm_detail.png/320px-Guthan's_helm_detail.png",
@@ -9504,7 +9504,7 @@
 		{
 			"id": "10f3e3c9-bb43-4e7c-99ba-9d934864ab6c",
 			"name": "Get 1 unique from Barrows",
-			"shortName": "Barrows Unique",
+			"shortName": "Barrows",
 			"tip": "Can be received as a reward from the Barrows Combat minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Barrows",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Guthan's_helm_detail.png/320px-Guthan's_helm_detail.png",
@@ -9685,7 +9685,7 @@
 		{
 			"id": "06d7bf93-bfb0-48f5-9596-11e284627e14",
 			"name": "Get 1 unique from Cerberus",
-			"shortName": "Cerb Unique",
+			"shortName": "Cerberus",
 			"tip": "Received as a drop from the Cerberus boss.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Cerberus",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Eternal_crystal_detail.png/320px-Eternal_crystal_detail.png",
@@ -9699,7 +9699,7 @@
 		{
 			"id": "73c45c46-9af7-4980-92a1-1d94732d6f59",
 			"name": "Get 1 unique from Cerberus",
-			"shortName": "Cerb Unique",
+			"shortName": "Cerberus",
 			"tip": "Received as a drop from the Cerberus boss.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Cerberus",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Eternal_crystal_detail.png/320px-Eternal_crystal_detail.png",
@@ -9985,7 +9985,7 @@
 		{
 			"id": "b626a508-95ef-407e-ab7f-e4884d14cbf4",
 			"name": "Get a Spirit shield or Holy elixir",
-			"shortName": "Corp Unique",
+			"shortName": "Corp",
 			"tip": "Can be received as a drop from the Corporeal Beast boss.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Corporeal_Beast",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Blessed_spirit_shield_detail.png/320px-Blessed_spirit_shield_detail.png",
@@ -9999,7 +9999,7 @@
 		{
 			"id": "9c3ea304-99f5-42e2-b5f1-7154e9600d1b",
 			"name": "Get a Spirit shield or Holy elixir",
-			"shortName": "Corp Unique",
+			"shortName": "Corp",
 			"tip": "Can be received as a drop from the Corporeal Beast boss.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Corporeal_Beast",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Blessed_spirit_shield_detail.png/320px-Blessed_spirit_shield_detail.png",
@@ -10073,7 +10073,7 @@
 		{
 			"id": "98e83f40-6718-406c-86b2-c7bffc5a4958",
 			"name": "Get 1 unique from Thermonuclear smoke devil",
-			"shortName": "Thermy Unique",
+			"shortName": "Thermy",
 			"tip": "Can be received as a drop from the Thermonuclear Smoke Devil boss.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Thermonuclear_smoke_devil",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Occult_necklace_detail.png/320px-Occult_necklace_detail.png",
@@ -10087,7 +10087,7 @@
 		{
 			"id": "ee23229f-5e4c-43ce-9880-1bd04a20a261",
 			"name": "Get 1 unique from the Wildy bosses",
-			"shortName": "Wildy Boss Uni",
+			"shortName": "Wildy Bosses",
 			"tip": "Wildy boss uniques are: Dragon 2H, Dragon pickaxe, 3 voidwaker pieces, 3 rev weapon upgrades, 3 rings",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Wilderness#bosses",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Skull_of_vet'ion_detail.png/320px-Skull_of_vet'ion_detail.png",
@@ -10103,7 +10103,7 @@
 		{
 			"id": "bb33bb71-618a-4372-a02c-70a7a31bc953",
 			"name": "Get 1 unique from the Wildy bosses",
-			"shortName": "Wildy Boss Uni",
+			"shortName": "Wildy Bosses",
 			"tip": "Wildy boss uniques are: Dragon 2H, Dragon pickaxe, 3 voidwaker pieces, 3 rev weapon upgrades, 3 rings",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Wilderness#bosses",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Skull_of_vet'ion_detail.png/320px-Skull_of_vet'ion_detail.png",
@@ -10119,7 +10119,7 @@
 		{
 			"id": "6de68d8e-d7b8-4ab3-a2f2-513c5479adc1",
 			"name": "Get 1 unique from the Wildy bosses",
-			"shortName": "Wildy Boss Uni",
+			"shortName": "Wildy Bosses",
 			"tip": "Wildy boss uniques are: Dragon 2H, Dragon pickaxe, 3 voidwaker pieces, 3 rev weapon upgrades, 3 rings",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Wilderness#bosses",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Skull_of_vet'ion_detail.png/320px-Skull_of_vet'ion_detail.png",
@@ -10135,7 +10135,7 @@
 		{
 			"id": "1f5d3112-dfcb-437f-b83d-dba37d3727fa",
 			"name": "Get 1 unique from the Wildy bosses",
-			"shortName": "Wildy Boss Uni",
+			"shortName": "Wildy Bosses",
 			"tip": "Wildy boss uniques are: Dragon 2H, Dragon pickaxe, 3 voidwaker pieces, 3 rev weapon upgrades, 3 rings",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Wilderness#bosses",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Skull_of_vet'ion_detail.png/320px-Skull_of_vet'ion_detail.png",
@@ -10151,7 +10151,7 @@
 		{
 			"id": "05e816a3-215d-4b4c-b002-e09d82d88b34",
 			"name": "Get 1 unique from the Wildy bosses",
-			"shortName": "Wildy Boss Uni",
+			"shortName": "Wildy Bosses",
 			"tip": "Wildy boss uniques are: Dragon 2H, Dragon pickaxe, 3 voidwaker pieces, 3 rev weapon upgrades, 3 rings",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Wilderness#bosses",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Skull_of_vet'ion_detail.png/320px-Skull_of_vet'ion_detail.png",
@@ -10167,7 +10167,7 @@
 		{
 			"id": "517cf752-d0c3-4c21-b5b6-b96531dd5f7b",
 			"name": "Get 1 unique from the Wildy bosses",
-			"shortName": "Wildy Boss Uni",
+			"shortName": "Wildy Bosses",
 			"tip": "Wildy boss uniques are: Dragon 2H, Dragon pickaxe, 3 voidwaker pieces, 3 rev weapon upgrades, 3 rings",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Wilderness#bosses",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Skull_of_vet'ion_detail.png/320px-Skull_of_vet'ion_detail.png",
@@ -10183,7 +10183,7 @@
 		{
 			"id": "1e2cdcc8-3e81-4948-82fb-444415be5ee9",
 			"name": "Get 1 unique drop from Grotesque Guardians",
-			"shortName": "GGs Unique",
+			"shortName": "Grot Guardians",
 			"tip": "Received as a drop from the Grotesque Guardians bosses.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Grotesque_Guardians",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Black_tourmaline_core_detail.png/320px-Black_tourmaline_core_detail.png",
@@ -10197,7 +10197,7 @@
 		{
 			"id": "cfe62202-fcff-4c48-a7ce-759ab7abf4fc",
 			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"shortName": "Raid Unique",
+			"shortName": "Raids",
 			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
@@ -10215,7 +10215,7 @@
 		{
 			"id": "23d240d5-ff59-4dfc-a36c-2c04aaea5f98",
 			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"shortName": "Raid Unique",
+			"shortName": "Raids",
 			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
@@ -10233,7 +10233,7 @@
 		{
 			"id": "81bfa29c-7aa1-4c83-9b66-886b8cc7efb0",
 			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"shortName": "Raid Unique",
+			"shortName": "Raids",
 			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
@@ -10251,7 +10251,7 @@
 		{
 			"id": "e242e0f3-f427-4a81-b2b4-35b129d3d77c",
 			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"shortName": "Raid Unique",
+			"shortName": "Raids",
 			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
@@ -10269,7 +10269,7 @@
 		{
 			"id": "00c55616-541b-495f-bb70-8d47b4006f81",
 			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"shortName": "Raid Unique",
+			"shortName": "Raids",
 			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
@@ -10287,7 +10287,7 @@
 		{
 			"id": "3f100c5c-fca5-498f-8100-f244e7e93cf0",
 			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"shortName": "Raid Unique",
+			"shortName": "Raids",
 			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
@@ -10305,7 +10305,7 @@
 		{
 			"id": "b95f9d6f-e329-45e2-a27d-df3e72b499e4",
 			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"shortName": "Raid Unique",
+			"shortName": "Raids",
 			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
@@ -10323,7 +10323,7 @@
 		{
 			"id": "412a88cc-0176-4dd7-beef-f415f336fdf5",
 			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"shortName": "Raid Unique",
+			"shortName": "Raids",
 			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
@@ -10341,7 +10341,7 @@
 		{
 			"id": "899c8e83-2a94-46dc-9d0e-4264ade1fe6b",
 			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"shortName": "Raid Unique",
+			"shortName": "Raids",
 			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
@@ -10359,7 +10359,7 @@
 		{
 			"id": "5089451e-af11-4e7a-939b-69e7264f6567",
 			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"shortName": "Raid Unique",
+			"shortName": "Raids",
 			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
@@ -10377,7 +10377,7 @@
 		{
 			"id": "80d36a85-f35e-4357-b753-3af16d2712db",
 			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"shortName": "Raid Unique",
+			"shortName": "Raids",
 			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
@@ -10395,7 +10395,7 @@
 		{
 			"id": "16c3398a-195b-49ad-b3e0-36e1c2998c02",
 			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"shortName": "Raid Unique",
+			"shortName": "Raids",
 			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
@@ -10413,7 +10413,7 @@
 		{
 			"id": "2d2f9afe-cda9-40aa-b3f0-ee4223e3cc00",
 			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"shortName": "Raid Unique",
+			"shortName": "Raids",
 			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
@@ -10431,7 +10431,7 @@
 		{
 			"id": "b7602f4e-a3bb-4885-ba21-d424501783a6",
 			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"shortName": "Raid Unique",
+			"shortName": "Raids",
 			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
@@ -11688,7 +11688,7 @@
 		{
 			"id": "314673cb-958c-4efd-8c46-8d1be04ca16a",
 			"name": "Get a Dust battlestaff",
-			"shortName": "Dust BStaff",
+			"shortName": "Dust Bstaff",
 			"tip": "Received as a drop from Superior Slayer Creatures.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Dust_battlestaff",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dust_battlestaff_detail.png/320px-Dust_battlestaff_detail.png",
@@ -11702,7 +11702,7 @@
 		{
 			"id": "4d7fc258-383c-4ce3-9148-0904913f4499",
 			"name": "Get a Mist battlestaff",
-			"shortName": "Mist BStaff",
+			"shortName": "Mist Bstaff",
 			"tip": "Received as a drop from Superior Slayer Creatures.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Mist_battlestaff",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Mist_battlestaff_detail.png/320px-Mist_battlestaff_detail.png",
@@ -11716,7 +11716,7 @@
 		{
 			"id": "759566cc-6c18-4618-8cf7-a8560a0f095c",
 			"name": "Get 1 unique Obsidian armour drop",
-			"shortName": "ObsidianArmour",
+			"shortName": "Obby Armour",
 			"tip": "Can be received as a drop from TzHaar Kets in the inner section of Mor Ul Rek.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Obsidian_armour",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Obsidian_platebody_detail.png/320px-Obsidian_platebody_detail.png",
@@ -11954,7 +11954,7 @@
 		{
 			"id": "d94b002c-302b-4839-b3ec-6425bbd7b9f7",
 			"name": "Get 1 unique piece of the Dagon'hai robes",
-			"shortName": "Dagonhai Piece",
+			"shortName": "Dagon'hai Robe",
 			"tip": "Can be received as a drop from the Larren's chest.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Dagon'hai_robes",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dagon'hai_robe_top_detail.png/320px-Dagon'hai_robe_top_detail.png",
@@ -11968,7 +11968,7 @@
 		{
 			"id": "b6f95d86-6570-4044-8d35-6db7ff236f92",
 			"name": "Get 1 unique piece of the Dagon'hai robes",
-			"shortName": "Dagonhai Piece",
+			"shortName": "Dagon'hai Robe",
 			"tip": "Can be received as a drop from the Larren's chest.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Dagon'hai_robes",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dagon'hai_robe_top_detail.png/320px-Dagon'hai_robe_top_detail.png",
@@ -11982,7 +11982,7 @@
 		{
 			"id": "6e15e8ab-b01a-41c4-9ee6-4d54318a6b5a",
 			"name": "Get 1 unique from the Hallowed Sepulchre",
-			"shortName": "HS Unique",
+			"shortName": "Sepulchre",
 			"tip": "Can be received as a drop / purchased from the Hallowed Sepulchre.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Hallowed_Sepulchre",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Hallowed_mark_detail.png/320px-Hallowed_mark_detail.png",
@@ -11999,7 +11999,7 @@
 		{
 			"id": "b437ed18-8908-46ed-b7e8-afc2e53c5fce",
 			"name": "Get 1 unique from the Hallowed Sepulchre",
-			"shortName": "HS Unique",
+			"shortName": "Sepulchre",
 			"tip": "Can be received as a drop / purchased from the Hallowed Sepulchre.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Hallowed_Sepulchre",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Hallowed_mark_detail.png/320px-Hallowed_mark_detail.png",
@@ -12016,7 +12016,7 @@
 		{
 			"id": "70d95a64-3df4-4c35-aa3c-2c4e20040b1e",
 			"name": "Get 1 unique from the Hallowed Sepulchre",
-			"shortName": "HS Unique",
+			"shortName": "Sepulchre",
 			"tip": "Can be received as a drop / purchased from the Hallowed Sepulchre.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Hallowed_Sepulchre",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Hallowed_mark_detail.png/320px-Hallowed_mark_detail.png",
@@ -12061,7 +12061,7 @@
 		{
 			"id": "a09d514c-e7e3-43ce-bfe2-c7c9b5f4ee67",
 			"name": "Get 1 unique from Shades of Mort'ton",
-			"shortName": "Shades Unique",
+			"shortName": "Shades",
 			"tip": "Potential reward from the Shades of Morton minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Shades_of_Mort'ton_(minigame)",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Fine_cloth_detail.png/320px-Fine_cloth_detail.png",
@@ -12078,7 +12078,7 @@
 		{
 			"id": "8679f5a7-2c16-4cbf-82c2-57b3984640c1",
 			"name": "Get 1 unique from Shades of Mort'ton",
-			"shortName": "Shades Unique",
+			"shortName": "Shades",
 			"tip": "Potential reward from the Shades of Morton minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Shades_of_Mort'ton_(minigame)",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Fine_cloth_detail.png/320px-Fine_cloth_detail.png",
@@ -12095,7 +12095,7 @@
 		{
 			"id": "acde9e58-2d10-481c-9a54-377d0bec7493",
 			"name": "Get 1 unique from Shades of Mort'ton",
-			"shortName": "Shades Unique",
+			"shortName": "Shades",
 			"tip": "Potential reward from the Shades of Morton minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Shades_of_Mort'ton_(minigame)",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Fine_cloth_detail.png/320px-Fine_cloth_detail.png",
@@ -12112,7 +12112,7 @@
 		{
 			"id": "22048748-c405-4935-b389-553704e7c35b",
 			"name": "Get 1 unique from Shades of Mort'ton",
-			"shortName": "Shades Unique",
+			"shortName": "Shades",
 			"tip": "Potential reward from the Shades of Morton minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Shades_of_Mort'ton_(minigame)",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Fine_cloth_detail.png/320px-Fine_cloth_detail.png",
@@ -12129,7 +12129,7 @@
 		{
 			"id": "9fe5cbb4-fc71-49b4-aac1-123075c3dd10",
 			"name": "Get 1 unique from Shades of Mort'ton",
-			"shortName": "Shades Unique",
+			"shortName": "Shades",
 			"tip": "Potential reward from the Shades of Morton minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Shades_of_Mort'ton_(minigame)",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Fine_cloth_detail.png/320px-Fine_cloth_detail.png",
@@ -12146,7 +12146,7 @@
 		{
 			"id": "33507618-03ae-4ab5-9cdd-195153d55f22",
 			"name": "Get a Broken dragon pickaxe",
-			"shortName": "Broken DPick",
+			"shortName": "Broken D Pick",
 			"tip": "Can be purchased as a reward from the Volcanic Mine minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Volcanic_Mine",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dragon_pickaxe_(broken)_detail.png/320px-Dragon_pickaxe_(broken)_detail.png",
@@ -12160,7 +12160,7 @@
 		{
 			"id": "0274364e-fed1-471b-8b43-aa92b86bb4a5",
 			"name": "Get 1 unique from Revenants",
-			"shortName": "Rev Unique",
+			"shortName": "Revs Unique",
 			"tip": "Can be received as a drop from any Revenant.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Revenants",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Ancient_relic_detail.png/320px-Ancient_relic_detail.png",
@@ -12176,7 +12176,7 @@
 		{
 			"id": "1aa884c8-0dad-41d6-b50b-e9f8d6be03a2",
 			"name": "Get 1 unique from Revenants",
-			"shortName": "Rev Unique",
+			"shortName": "Revs Unique",
 			"tip": "Can be received as a drop from any Revenant.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Revenants",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Ancient_relic_detail.png/320px-Ancient_relic_detail.png",
@@ -12192,7 +12192,7 @@
 		{
 			"id": "1bd7c8fb-d514-4e21-9cb4-206e0059890d",
 			"name": "Get 1 unique from Revenants",
-			"shortName": "Rev Unique",
+			"shortName": "Revs Unique",
 			"tip": "Can be received as a drop from any Revenant.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Revenants",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Ancient_relic_detail.png/320px-Ancient_relic_detail.png",
@@ -12208,7 +12208,7 @@
 		{
 			"id": "61f979a2-c77c-4396-9942-ac2eca4032bc",
 			"name": "Get 1 unique from Revenants",
-			"shortName": "Rev Unique",
+			"shortName": "Revs Unique",
 			"tip": "Can be received as a drop from any Revenant.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Revenants",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Ancient_relic_detail.png/320px-Ancient_relic_detail.png",
@@ -12224,7 +12224,7 @@
 		{
 			"id": "a22875b6-c3b2-4787-948b-1110b772f57b",
 			"name": "Get 1 unique from Revenants",
-			"shortName": "Rev Unique",
+			"shortName": "Revs Unique",
 			"tip": "Can be received as a drop from any Revenant.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Revenants",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Ancient_relic_detail.png/320px-Ancient_relic_detail.png",
@@ -12240,7 +12240,7 @@
 		{
 			"id": "01f11d65-8e3d-4a26-a2fe-641d7035d9b3",
 			"name": "Get 1 unique from Revenants",
-			"shortName": "Rev Unique",
+			"shortName": "Revs Unique",
 			"tip": "Can be received as a drop from any Revenant.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Revenants",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Ancient_relic_detail.png/320px-Ancient_relic_detail.png",
@@ -12256,7 +12256,7 @@
 		{
 			"id": "0c58c533-55b2-4200-91c4-90eda90a47d7",
 			"name": "Get 1 unique from Revenants",
-			"shortName": "Rev Unique",
+			"shortName": "Revs Unique",
 			"tip": "Can be received as a drop from any Revenant.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Revenants",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Ancient_relic_detail.png/320px-Ancient_relic_detail.png",
@@ -12272,7 +12272,7 @@
 		{
 			"id": "8800fd67-ad98-4bf6-a21b-44d929f294d8",
 			"name": "Get 1 unique from Guardians of the Rift",
-			"shortName": "GotR Unique",
+			"shortName": "GotR",
 			"tip": "Can be received as a reward from the Guardians of the Rift Skilling minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Guardians_of_the_Rift",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Hat_of_the_eye_detail.png/320px-Hat_of_the_eye_detail.png",
@@ -12289,7 +12289,7 @@
 		{
 			"id": "aaaf99d6-412e-4485-a72c-9f4a8e6d0929",
 			"name": "Get 1 unique from Guardians of the Rift",
-			"shortName": "GotR Unique",
+			"shortName": "GotR",
 			"tip": "Can be received as a reward from the Guardians of the Rift Skilling minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Guardians_of_the_Rift",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Hat_of_the_eye_detail.png/320px-Hat_of_the_eye_detail.png",
@@ -12306,7 +12306,7 @@
 		{
 			"id": "ab6d40b8-e5dd-4087-8c3a-da3360da58a0",
 			"name": "Get 1 unique from Guardians of the Rift",
-			"shortName": "GotR Unique",
+			"shortName": "GotR",
 			"tip": "Can be received as a reward from the Guardians of the Rift Skilling minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Guardians_of_the_Rift",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Hat_of_the_eye_detail.png/320px-Hat_of_the_eye_detail.png",
@@ -12323,7 +12323,7 @@
 		{
 			"id": "f98ccb23-a60c-48c0-a1fa-c20073066a18",
 			"name": "Get 1 unique from the Phantom Muspah",
-			"shortName": "Muspah Unique",
+			"shortName": "Phantom Muspah",
 			"tip": "Can be received a drop from Phantom Muspah boss",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Phantom_Muspah",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Ancient_essence_500_detail.png/320px-Ancient_essence_500_detail.png",
@@ -12337,7 +12337,7 @@
 		{
 			"id": "f169e2e7-5331-44b1-831c-d1f280960064",
 			"name": "Get 1 unique from the Phantom Muspah",
-			"shortName": "Muspah Unique",
+			"shortName": "Phantom Muspah",
 			"tip": "Can be received a drop from Phantom Muspah boss",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Phantom_Muspah",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Ancient_essence_500_detail.png/320px-Ancient_essence_500_detail.png",
@@ -12654,7 +12654,7 @@
 		{
 			"id": "f7ff7296-140a-41fd-bb32-25784143bacc",
 			"name": "Get 1 unique from Fortis Colosseum",
-			"shortName": "Colo Unique",
+			"shortName": "Colosseum",
 			"tip": "Reward from Fortis Colosseum",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Fortis_Colosseum",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dizana's_quiver_detail.png/320px-Dizana's_quiver_detail.png",
@@ -12668,7 +12668,7 @@
 		{
 			"id": "897c72c4-3180-483c-965b-4f0b8831656a",
 			"name": "Get 1 unique from Fortis Colosseum",
-			"shortName": "Colo Unique",
+			"shortName": "Colosseum",
 			"tip": "Reward from Fortis Colosseum",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Fortis_Colosseum",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dizana's_quiver_detail.png/320px-Dizana's_quiver_detail.png",
@@ -12682,7 +12682,7 @@
 		{
 			"id": "8fab9de0-fa25-4fab-8f58-18c136c83a44",
 			"name": "Get 1 unique from Fortis Colosseum",
-			"shortName": "Colo Unique",
+			"shortName": "Colosseum",
 			"tip": "Reward from Fortis Colosseum",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Fortis_Colosseum",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dizana's_quiver_detail.png/320px-Dizana's_quiver_detail.png",
@@ -12696,70 +12696,70 @@
 		{
 			"id": "a353e0e9-2610-4b12-8408-2268bc0feaa2",
 			"name": "Get 1 unique from Araxytes/Araxxor",
-			"shortName": "Rax Unique",
+			"shortName": "Araxxor",
 			"tip": "Can be obtained when killing Araxytes/Araxxor",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Araxxor",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Araxyte_fang_detail.png/320px-Araxyte_fang_detail.png",
 			"displayItemId": 29799,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 29781, 29782, 29784, 29788, 29790, 29792, 29794, 29799 ],
+				"itemIds": [ 29782, 29784, 29788, 29790, 29792, 29794, 29799 ],
 				"count": 3
 			}
 		},
 		{
 			"id": "5fbf995b-7004-422f-ba56-92c7adac208a",
 			"name": "Get 1 unique from Araxytes/Araxxor",
-			"shortName": "Rax Unique",
+			"shortName": "Araxxor",
 			"tip": "Can be obtained when killing Araxytes/Araxxor",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Araxxor",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Araxyte_fang_detail.png/320px-Araxyte_fang_detail.png",
 			"displayItemId": 29799,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 29781, 29782, 29784, 29788, 29790, 29792, 29794, 29799 ],
+				"itemIds": [ 29782, 29784, 29788, 29790, 29792, 29794, 29799 ],
 				"count": 4
 			}
 		},
 		{
 			"id": "74b6c5d4-9c45-4a94-a48c-2c78953b4327",
 			"name": "Get 1 unique from Araxytes/Araxxor",
-			"shortName": "Rax Unique",
+			"shortName": "Araxxor",
 			"tip": "Can be obtained when killing Araxytes/Araxxor",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Araxxor",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Araxyte_fang_detail.png/320px-Araxyte_fang_detail.png",
 			"displayItemId": 29799,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 29781, 29782, 29784, 29788, 29790, 29792, 29794, 29799 ],
+				"itemIds": [ 29782, 29784, 29788, 29790, 29792, 29794, 29799 ],
 				"count": 5
 			}
 		},
 		{
 			"id": "0e463efe-0e30-4442-99e1-a9f19d82f3ce",
 			"name": "Get 1 unique from Araxytes/Araxxor",
-			"shortName": "Rax Unique",
+			"shortName": "Araxxor",
 			"tip": "Can be obtained when killing Araxytes/Araxxor",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Araxxor",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Araxyte_fang_detail.png/320px-Araxyte_fang_detail.png",
 			"displayItemId": 29799,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 29781, 29782, 29784, 29788, 29790, 29792, 29794, 29799 ],
+				"itemIds": [ 29782, 29784, 29788, 29790, 29792, 29794, 29799 ],
 				"count": 6
 			}
 		},
 		{
 			"id": "bd438ab5-1378-4ff1-ba37-e05d312d817a",
 			"name": "Get 1 unique from Araxytes/Araxxor",
-			"shortName": "Rax Unique",
+			"shortName": "Araxxor",
 			"tip": "Can be obtained when killing Araxytes/Araxxor",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Araxxor",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Araxyte_fang_detail.png/320px-Araxyte_fang_detail.png",
 			"displayItemId": 29799,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 29781, 29782, 29784, 29788, 29790, 29792, 29794, 29799 ],
+				"itemIds": [ 29782, 29784, 29788, 29790, 29792, 29794, 29799 ],
 				"count": 7
 			}
 		},
@@ -12794,7 +12794,7 @@
 		{
 			"id": "a86e6140-2f24-4388-ac5c-f1ddc959d9cf",
 			"name": "Get 1 unique from the Hueycoatl",
-			"shortName": "Huey Unique",
+			"shortName": "Hueycoatl",
 			"tip": "Obtained by killing The Hueycoatl",
 			"wikiLink": "https://oldschool.runescape.wiki/w/The_Hueycoatl",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dragon_hunter_wand_detail.png/320px-Dragon_hunter_wand_detail.png",
@@ -12808,7 +12808,7 @@
 		{
 			"id": "73b5e8f6-f2f2-4342-bead-f0e29a250ed3",
 			"name": "Get 1 unique from the Hueycoatl",
-			"shortName": "Huey Unique",
+			"shortName": "Hueycoatl",
 			"tip": "Obtained by killing The Hueycoatl",
 			"wikiLink": "https://oldschool.runescape.wiki/w/The_Hueycoatl",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dragon_hunter_wand_detail.png/320px-Dragon_hunter_wand_detail.png",
@@ -12822,7 +12822,7 @@
 		{
 			"id": "c1bdd336-81e0-451f-be11-54c5e34af795",
 			"name": "Get 1 unique from Yama",
-			"shortName": "Yama Unique",
+			"shortName": "Yama",
 			"tip": "Obtained by killing the solo/duo boss Yama",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Yama",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Oathplate_chest_detail.png/320px-Oathplate_chest_detail.png",
@@ -12838,7 +12838,7 @@
 		{
 			"id": "aa9616a4-3567-4819-ad25-f4482f9cf0ea",
 			"name": "Get 1 unique from Yama",
-			"shortName": "Yama Unique",
+			"shortName": "Yama",
 			"tip": "Obtained by killing the solo/duo boss Yama",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Yama",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Oathplate_chest_detail.png/320px-Oathplate_chest_detail.png",
@@ -12854,7 +12854,7 @@
 		{
 			"id": "3d7f58e0-a863-4f83-9e55-a8c8963a9d66",
 			"name": "Get 1 unique from Yama",
-			"shortName": "Yama Unique",
+			"shortName": "Yama",
 			"tip": "Obtained by killing the solo/duo boss Yama",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Yama",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Oathplate_chest_detail.png/320px-Oathplate_chest_detail.png",
@@ -12870,7 +12870,7 @@
 		{
 			"id": "3f766b62-bbbd-4939-9e44-60ef9ba96ca0",
 			"name": "Get 1 unique from Yama",
-			"shortName": "Yama Unique",
+			"shortName": "Yama",
 			"tip": "Obtained by killing the solo/duo boss Yama",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Yama",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Oathplate_chest_detail.png/320px-Oathplate_chest_detail.png",
@@ -12886,7 +12886,7 @@
 		{
 			"id": "0bc4e18f-0129-4597-850a-181e269109e9",
 			"name": "Get 1 unique from Yama",
-			"shortName": "Yama Unique",
+			"shortName": "Yama",
 			"tip": "Obtained by killing the solo/duo boss Yama",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Yama",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Oathplate_chest_detail.png/320px-Oathplate_chest_detail.png",
@@ -12902,7 +12902,7 @@
 		{
 			"id": "bcac6d6d-7138-47d0-bb89-11f490449094",
 			"name": "Get 1 unique from Yama",
-			"shortName": "Yama Unique",
+			"shortName": "Yama",
 			"tip": "Obtained by killing the solo/duo boss Yama",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Yama",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Oathplate_chest_detail.png/320px-Oathplate_chest_detail.png",
@@ -12918,7 +12918,7 @@
 		{
 			"id": "128f0fce-ebc2-4e3e-9644-3cb3dccd49c1",
 			"name": "Get 1 unique from Yama",
-			"shortName": "Yama Unique",
+			"shortName": "Yama",
 			"tip": "Obtained by killing the solo/duo boss Yama",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Yama",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Oathplate_chest_detail.png/320px-Oathplate_chest_detail.png",
@@ -12934,7 +12934,7 @@
 		{
 			"id": "03bcbb0b-fcc3-4a7a-9afe-8906d9da8cfe",
 			"name": "Get 1 unique from Doom of Mokhaiotl",
-			"shortName": "Doom Unique",
+			"shortName": "Doom",
 			"tip": "Giant, insect-like, demonic boss found in the Tonali Cavern after completion of The Final Dawn quest.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Doom_of_Mokhaiotl",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Eye_of_ayak_detail.png/320px-Eye_of_ayak_detail.png",
@@ -12948,7 +12948,7 @@
 		{
 			"id": "c847f79a-3473-48a4-915d-b2874c4f4544",
 			"name": "Get 1 unique from Doom of Mokhaiotl",
-			"shortName": "Doom Unique",
+			"shortName": "Doom",
 			"tip": "Giant, insect-like, demonic boss found in the Tonali Cavern after completion of The Final Dawn quest.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Doom_of_Mokhaiotl",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Eye_of_ayak_detail.png/320px-Eye_of_ayak_detail.png",
@@ -12990,7 +12990,7 @@
 		{
 			"id": "e85538a2-4c04-4736-b4f0-c6cc96506d33",
 			"name": "Get the Rosewood & cotton sails schematic",
-			"shortName": "Rose&Cot Sails",
+			"shortName": "Rosewood Sails",
 			"tip": "Obtained from the locked lockbox on Brittle Isle. The key is buried on Charred Island.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Rosewood_&_cotton_sails_schematic",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Rosewood_&_cotton_sails_schematic_detail.png/320px-Rosewood_&_cotton_sails_schematic_detail.png",
