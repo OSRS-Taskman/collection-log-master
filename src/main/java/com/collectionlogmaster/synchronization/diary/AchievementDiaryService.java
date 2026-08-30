@@ -7,7 +7,6 @@ import javax.inject.Singleton;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
-import org.jetbrains.annotations.NotNull;
 
 @Slf4j
 @Singleton
@@ -39,7 +38,7 @@ public class AchievementDiaryService {
 		return stack[difficulty.getStackOffset() + COMPLETE_TASK_COUNT_OFFSET];
 	}
 
-	private int[] runScript(@NotNull DiaryRegion diary) {
+	private int[] runScript(@NonNull DiaryRegion diary) {
 		// https://github.com/RuneStar/cs2-scripts/blob/master/scripts/%5Bproc%2Cdiary_completion_info%5D.cs2
 		client.runScript(DIARY_COMPLETION_INFO_SCRIPT_ID, diary.getId());
 		return client.getIntStack();

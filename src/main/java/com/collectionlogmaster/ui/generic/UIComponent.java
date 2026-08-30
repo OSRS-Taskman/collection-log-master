@@ -4,10 +4,7 @@ import java.awt.Rectangle;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.widgets.Widget;
-import net.runelite.api.widgets.WidgetPositionMode;
-import net.runelite.api.widgets.WidgetSizeMode;
 import net.runelite.api.widgets.WidgetType;
-import org.intellij.lang.annotations.MagicConstant;
 
 /**
  * Wraps a given Widget into a class we can control and extend from, exposing most common Widget
@@ -26,7 +23,7 @@ public abstract class UIComponent<This extends UIComponent<This>> {
 		this(widget, WidgetType.LAYER);
 	}
 
-	protected UIComponent(Widget widget, @MagicConstant(valuesFromClass = WidgetType.class) int allowedType) {
+	protected UIComponent(Widget widget, int allowedType) {
 		if (allowedType != widget.getType()) {
 			String msg = String.format("Incompatible widget; %d given, %d expected", allowedType, widget.getType());
 			throw new RuntimeException(msg);
@@ -97,22 +94,22 @@ public abstract class UIComponent<This extends UIComponent<This>> {
 		return castThis();
 	}
 
-	public This setXPositionMode(@MagicConstant(valuesFromClass = WidgetPositionMode.class) int xpm) {
+	public This setXPositionMode(int xpm) {
 		widget.setXPositionMode(xpm);
 		return castThis();
 	}
 
-	public This setYPositionMode(@MagicConstant(valuesFromClass = WidgetPositionMode.class) int ypm) {
+	public This setYPositionMode(int ypm) {
 		widget.setYPositionMode(ypm);
 		return castThis();
 	}
 
-	public This setWidthMode(@MagicConstant(valuesFromClass = WidgetSizeMode.class) int widthMode) {
+	public This setWidthMode(int widthMode) {
 		widget.setWidthMode(widthMode);
 		return castThis();
 	}
 
-	public This setHeightMode(@MagicConstant(valuesFromClass = WidgetSizeMode.class) int heightMode) {
+	public This setHeightMode(int heightMode) {
 		widget.setHeightMode(heightMode);
 		return castThis();
 	}

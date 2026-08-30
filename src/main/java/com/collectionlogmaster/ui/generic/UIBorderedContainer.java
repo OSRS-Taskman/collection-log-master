@@ -5,7 +5,6 @@ import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetPositionMode;
 import net.runelite.api.widgets.WidgetSizeMode;
 import net.runelite.api.widgets.WidgetType;
-import org.intellij.lang.annotations.MagicConstant;
 
 // TODO: implement UIMultiSpriteButton using UIBorderContainer + UIButton
 public class UIBorderedContainer extends UIComponent<UIBorderedContainer> {
@@ -28,14 +27,11 @@ public class UIBorderedContainer extends UIComponent<UIBorderedContainer> {
 		return new UIBorderedContainer(window.createChild(WidgetType.LAYER), WidgetType.LAYER);
 	}
 
-	public static UIBorderedContainer createInside(
-		Widget window,
-		@MagicConstant(valuesFromClass = WidgetType.class) int contentType
-	) {
+	public static UIBorderedContainer createInside(Widget window, int contentType) {
 		return new UIBorderedContainer(window.createChild(WidgetType.LAYER), contentType);
 	}
 
-	public UIBorderedContainer(Widget widget, @MagicConstant(valuesFromClass = WidgetType.class) int contentType) {
+	public UIBorderedContainer(Widget widget, int contentType) {
 		super(widget, WidgetType.LAYER);
 
 		background = widget.createChild(WidgetType.GRAPHIC);

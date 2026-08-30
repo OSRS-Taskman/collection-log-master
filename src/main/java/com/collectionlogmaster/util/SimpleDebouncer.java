@@ -1,29 +1,28 @@
 package com.collectionlogmaster.util;
 
 import com.google.inject.Inject;
-
 import java.util.concurrent.Future;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import lombok.Setter;
+import lombok.experimental.Accessors;
 
 public class SimpleDebouncer {
-    public interface Callback {
-        void call();
-    }
+	private Future<?> future;
 
-    Future<?> future;
+	@Inject
+	private ScheduledExecutorService executorService;
 
-    @Inject
-    private ScheduledExecutorService executorService;
+	@Setter
+	@Accessors(chain = true)
+	private int delay = 500;
 
-    private final static int MS_DELAY = 500;
+	public synchronized void debounce(Runnable cb) {
+		if (future != null) {
+			future.cancel(false);
+			future = null;
+		}
 
-    public synchronized void debounce(Callback cb) {
-        if (future != null) {
-            future.cancel(false);
-            future = null;
-        }
-
-        future = executorService.schedule(cb::call, MS_DELAY, TimeUnit.MILLISECONDS);
-    }
+		future = executorService.schedule(cb, delay, TimeUnit.MILLISECONDS);
+	}
 }

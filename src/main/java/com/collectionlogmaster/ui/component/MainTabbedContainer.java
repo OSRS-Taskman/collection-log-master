@@ -2,7 +2,7 @@ package com.collectionlogmaster.ui.component;
 
 import com.collectionlogmaster.CollectionLogMasterPlugin;
 import com.collectionlogmaster.domain.TaskTier;
-import com.collectionlogmaster.task.TaskService;
+import com.collectionlogmaster.taskapp.TaskService;
 import com.collectionlogmaster.ui.generic.ScrollAxis;
 import com.collectionlogmaster.ui.generic.UIComponent;
 import com.collectionlogmaster.ui.generic.UIScrollableContainer;
