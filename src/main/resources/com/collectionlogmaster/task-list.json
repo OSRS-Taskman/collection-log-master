@@ -1473,7 +1473,7 @@
 			"displayItemId": 11902,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 4113, 11902 ],
+				"itemIds": [ 4113, 11902, 34401 ],
 				"count": 1
 			}
 		},
@@ -1487,8 +1487,22 @@
 			"displayItemId": 11902,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 4113, 11902 ],
+				"itemIds": [ 4113, 11902, 34401 ],
 				"count": 2
+			}
+		},
+		{
+			"id": "6e72c2ae-05e8-49ed-ab52-7e87aac7f95b",
+			"name": "Get 1 unique from Turoths",
+			"shortName": "Turoth Unique",
+			"tip": "Requires special weaponry to kill: a leaf-bladed spear, broad arrows or the slayer dart spell.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Turoth",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Leaf-bladed_sword_detail.png/320px-Leaf-bladed_sword_detail.png",
+			"displayItemId": 11902,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 4113, 11902, 34401 ],
+				"count": 3
 			}
 		},
 		{
@@ -1627,7 +1641,7 @@
 			"displayItemId": 4099,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 4099, 4107 ],
+				"itemIds": [ 4099, 4107, 34422 ],
 				"count": 1
 			}
 		},
@@ -1641,8 +1655,22 @@
 			"displayItemId": 4099,
 			"verification": {
 				"method": "collection-log",
-				"itemIds": [ 4099, 4107 ],
+				"itemIds": [ 4099, 4107, 34422 ],
 				"count": 2
+			}
+		},
+		{
+			"id": "3e874d9f-e460-4411-b749-2e12b0b7a98f",
+			"name": "Get 1 unique from Infernal Mages",
+			"shortName": "Infernal Mages",
+			"tip": "One of the mages (ID 444) can be safespotted using long range with your bow. The Lava battlestaff does not count as it is not in theeee Collection Log.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Infernal_Mage",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Mystic_hat_(dark)_detail.png/320px-Mystic_hat_(dark)_detail.png",
+			"displayItemId": 4099,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 4099, 4107, 34422 ],
+				"count": 3
 			}
 		},
 		{
@@ -2735,6 +2763,48 @@
 				"method": "collection-log",
 				"itemIds": [ 33101, 33091, 33093 ],
 				"count": 3
+			}
+		},
+		{
+			"id": "63c2d667-2125-46c4-879f-6a670f1120cb",
+			"name": "Get an Air diamond",
+			"shortName": "Air Diamond",
+			"tip": "Obtained as a drop from Killerwatts. You may safespot them by repeatedly entering and exiting the portal to reset aggro.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Air_diamond",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Air_diamond_detail.png/320px-Air_diamond_detail.png",
+			"displayItemId": 34404,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 34404 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "7a29c1df-536f-4960-8c64-7344c8d54b6f",
+			"name": "Get an Earth emerald",
+			"shortName": "Earth Emerald",
+			"tip": "Obtained as a drop from Molanisks. Remember your light source and your slayer bell.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Earth_emerald",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Earth_emerald_detail.png/320px-Earth_emerald_detail.pngg",
+			"displayItemId": 34416,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 34416 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "4c3cb4bf-d3ff-4b42-aab3-3e88bbf9b45c",
+			"name": "Get a Water sapphire",
+			"shortName": "Water Sapphire",
+			"tip": "Obtained as a drop from Sea snake hatchlings. Bring an antipoison!",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Water_sapphire",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Water_sapphire_detail.png/320px-Water_sapphire_detail.png",
+			"displayItemId": 34410,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 34410 ],
+				"count": 1
 			}
 		}
 	],
@@ -5755,7 +5825,7 @@
 					12653, 12655, 12816, 12921, 13177, 13178, 13179, 13181, 13225, 13247, 13262,
 					20851, 21273, 21291, 21748, 21992, 22473, 22746, 23495, 23757, 24491, 26348,
 					27352, 27590, 28246, 28248, 28250, 28252, 28801, 28960, 29836, 30152, 30154,
-					30622, 30888, 31130, 31285, 33124
+					30622, 30888, 31130, 31285, 33124, 34042, 33642
 				],
 				"count": 1
 			}
@@ -6431,7 +6501,7 @@
 					12653, 12655, 12816, 12921, 13177, 13178, 13179, 13181, 13225, 13247, 13262,
 					20851, 21273, 21291, 21748, 21992, 22473, 22746, 23495, 23757, 24491, 26348,
 					27352, 27590, 28246, 28248, 28250, 28252, 28801, 28960, 29836, 30152, 30154,
-					30622, 30888, 31130, 31285, 33124
+					30622, 30888, 31130, 31285, 33124, 34042, 33642
 				],
 				"count": 2
 			}
@@ -9552,6 +9622,20 @@
 				"itemIds": [ 33661, 33663 ],
 				"count": 2
 			}
+		},
+		{
+			"id": "4d4ea1e8-2128-45b6-aefc-2bdbffaa6a42",
+			"name": "Get the Fish sack",
+			"shortName": "Fish Sack",
+			"tip": "Can be purchased as a reward from Aerial Fishing hunter method. Giga RSI.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Fish_sack",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Fish_sack_detail.png/320px-Fish_sack_detail.png",
+			"displayItemId": 22838,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 22838 ],
+				"count": 1
+			}
 		}
 	],
 	"elite": [
@@ -10130,7 +10214,7 @@
 					12653, 12655, 12816, 12921, 13177, 13178, 13179, 13181, 13225, 13247, 13262,
 					20851, 21273, 21291, 21748, 21992, 22473, 22746, 23495, 23757, 24491, 26348,
 					27352, 27590, 28246, 28248, 28250, 28252, 28801, 28960, 29836, 30152, 30154,
-					30622, 30888, 31130, 31285, 33124
+					30622, 30888, 31130, 31285, 33124, 34042, 33642
 				],
 				"count": 3
 			}
@@ -10150,7 +10234,7 @@
 					12653, 12655, 12816, 12921, 13177, 13178, 13179, 13181, 13225, 13247, 13262,
 					20851, 21273, 21291, 21748, 21992, 22473, 22746, 23495, 23757, 24491, 26348,
 					27352, 27590, 28246, 28248, 28250, 28252, 28801, 28960, 29836, 30152, 30154,
-					30622, 30888, 31130, 31285, 33124
+					30622, 30888, 31130, 31285, 33124, 34042, 33642
 				],
 				"count": 4
 			}
@@ -10170,7 +10254,7 @@
 					12653, 12655, 12816, 12921, 13177, 13178, 13179, 13181, 13225, 13247, 13262,
 					20851, 21273, 21291, 21748, 21992, 22473, 22746, 23495, 23757, 24491, 26348,
 					27352, 27590, 28246, 28248, 28250, 28252, 28801, 28960, 29836, 30152, 30154,
-					30622, 30888, 31130, 31285, 33124
+					30622, 30888, 31130, 31285, 33124, 34042, 33642
 				],
 				"count": 5
 			}
@@ -12043,20 +12127,6 @@
 			}
 		},
 		{
-			"id": "4d4ea1e8-2128-45b6-aefc-2bdbffaa6a42",
-			"name": "Get the Fish sack",
-			"shortName": "Fish Sack",
-			"tip": "Can be purchased as a reward from Aerial Fishing hunter method. Giga RSI.",
-			"wikiLink": "https://oldschool.runescape.wiki/w/Fish_sack",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Fish_sack_detail.png/320px-Fish_sack_detail.png",
-			"displayItemId": 22838,
-			"verification": {
-				"method": "collection-log",
-				"itemIds": [ 22838 ],
-				"count": 1
-			}
-		},
-		{
 			"id": "d94b002c-302b-4839-b3ec-6425bbd7b9f7",
 			"name": "Get 1 unique piece of the Dagon'hai robes",
 			"shortName": "Dagon'hai Robe",
@@ -13256,6 +13326,22 @@
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [ 23953, 23908 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "bf82951d-afc5-4066-9012-dc1b5df4e12d",
+			"name": "Get a new boss jar",
+			"tip": "If doing this task actively, you must go first for Jar of Light from Mad Angel.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Boss_lair_display#List_of_displays",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Jar_of_Venom_detail.png/320px-Jar_of_Venom_detail.png",
+			"displayItemId": 29786,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [
+					23064, 13245, 12885, 22106, 12936, 23525, 21745, 19701, 24495, 12007, 13277,
+					25521, 25524, 29786, 32921, 34030
+				],
 				"count": 1
 			}
 		}
