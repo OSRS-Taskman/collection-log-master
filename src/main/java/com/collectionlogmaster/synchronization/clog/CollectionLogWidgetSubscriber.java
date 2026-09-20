@@ -22,6 +22,9 @@ import javax.inject.Singleton;
 // Repository: https://github.com/ReinhardtR/runeprofile-plugin
 // License: BSD 2-Clause License
 public class CollectionLogWidgetSubscriber extends EventBusSubscriber {
+    private static final int COLLECTION_LOG_SETUP_SCRIPT_ID = 7797;
+    private static final int COLLECTION_LOG_SEARCH_SCRIPT_ID = 4100;
+
     @Inject
     private Client client;
 
@@ -54,8 +57,8 @@ public class CollectionLogWidgetSubscriber extends EventBusSubscriber {
         boolean hasClogScriptFired = tickCollectionLogScriptFired != -1;
         boolean hasBufferPassed = tickCollectionLogScriptFired + 2 < tick;
         if (hasClogScriptFired && hasBufferPassed) {
+            log.info("Collection log search script has finalized; {} items in storage", collectionLogService.getObtainedItems().size());
             tickCollectionLogScriptFired = -1;
-            log.debug("Clog items script has fired");
             isAutoClogRetrieval = false;
         }
     }
@@ -65,7 +68,8 @@ public class CollectionLogWidgetSubscriber extends EventBusSubscriber {
     // License: BSD 2-Clause License
     @Subscribe
     public void onScriptPreFired(ScriptPreFired preFired) {
-        if (preFired.getScriptId() == 4100) {
+        if (preFired.getScriptId() == COLLECTION_LOG_SEARCH_SCRIPT_ID) {
+            log.debug("Collection log search script pre fired");
             tickCollectionLogScriptFired = client.getTickCount();
 
             Object[] args = preFired.getScriptEvent().getArguments();
@@ -80,8 +84,8 @@ public class CollectionLogWidgetSubscriber extends EventBusSubscriber {
 
     @Subscribe
     public void onScriptPostFired(ScriptPostFired scriptPostFired) {
-        final int COLLECTION_LOG_SETUP = 7797;
-        if (scriptPostFired.getScriptId() == COLLECTION_LOG_SETUP) {
+        if (scriptPostFired.getScriptId() == COLLECTION_LOG_SETUP_SCRIPT_ID) {
+            log.info("Collection log setup script post fired; isAutoClogRetrieval: {}", isAutoClogRetrieval);
             if (isAutoClogRetrieval) {
                 return;
             }

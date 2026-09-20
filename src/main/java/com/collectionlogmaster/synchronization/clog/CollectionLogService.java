@@ -34,6 +34,10 @@ public class CollectionLogService extends EventBusSubscriber {
 	public void onGameStateChanged(GameStateChanged gameStateChanged) {
 		GameState gameState = gameStateChanged.getGameState();
 		if (gameState != GameState.LOGGED_IN) {
+			if (!obtainedItems.isEmpty()) {
+				log.info("Game state changed to {}; clearing collection log storage", gameState);
+			}
+
 			reset();
 		}
 	}
@@ -47,10 +51,12 @@ public class CollectionLogService extends EventBusSubscriber {
 	}
 
 	public void storeItem(int itemId) {
+		log.debug("Storing item {} into collection log", itemId);
 		obtainedItems.add(itemId);
 	}
 
 	public void reset() {
+		log.debug("Clearing collection log storage");
 		obtainedItems.clear();
 	}
 }
