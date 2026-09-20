@@ -4,6 +4,7 @@ import com.collectionlogmaster.command.TaskmanCommandManager;
 import com.collectionlogmaster.input.MouseManager;
 import com.collectionlogmaster.synchronization.clog.CollectionLogService;
 import com.collectionlogmaster.taskapp.TaskService;
+import com.collectionlogmaster.tracking.PlayTimeTracker;
 import com.collectionlogmaster.ui.InterfaceManager;
 import com.collectionlogmaster.ui.TaskOverlay;
 import com.collectionlogmaster.ui.TooltipOverlay;
@@ -57,6 +58,9 @@ public class CollectionLogMasterPlugin extends Plugin {
 	@Inject
 	public TaskmanCommandManager taskmanCommand;
 
+	@Inject
+	public PlayTimeTracker playTimeTracker;
+
 	@Override
 	protected void startUp() {
 		CollectionLogMasterPlugin.staticInjector = getInjector();
@@ -67,6 +71,7 @@ public class CollectionLogMasterPlugin extends Plugin {
 		pluginUpdateNotifier.startUp();
 		interfaceManager.startUp();
 		taskmanCommand.startUp();
+		playTimeTracker.startUp();
 		this.taskOverlay.setResizable(true);
 		this.overlayManager.add(this.taskOverlay);
 		this.overlayManager.add(this.tooltipOverlay);
@@ -80,6 +85,7 @@ public class CollectionLogMasterPlugin extends Plugin {
 		pluginUpdateNotifier.shutDown();
 		interfaceManager.shutDown();
 		taskmanCommand.shutDown();
+		playTimeTracker.shutDown();
 		this.overlayManager.remove(this.taskOverlay);
 	}
 
