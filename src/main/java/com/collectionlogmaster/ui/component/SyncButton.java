@@ -3,6 +3,7 @@ package com.collectionlogmaster.ui.component;
 import com.collectionlogmaster.CollectionLogMasterPlugin;
 import com.collectionlogmaster.domain.Task;
 import com.collectionlogmaster.synchronization.SyncService;
+import com.collectionlogmaster.synchronization.clog.CollectionLogService;
 import com.collectionlogmaster.taskapp.migration.MigrationHelper;
 import com.collectionlogmaster.ui.generic.button.UITextButton;
 import java.awt.Color;
@@ -36,6 +37,9 @@ public class SyncButton extends UITextButton {
 
 	@Setter
 	private TaskDashboard taskDashboard;
+
+	@Inject
+	private CollectionLogService collectionLogService;
 
 	public static SyncButton createInside(Widget window) {
 		return new SyncButton(window.createChild(WidgetType.LAYER));
@@ -139,7 +143,13 @@ public class SyncButton extends UITextButton {
 	public void revalidate() {
 		List<Task> desyncedTasks = syncService.check(true);
 
-		if (desyncedTasks.isEmpty() && !migrationHelper.canMigrate()) {
+		// temporary (surely, right?) workaround until we figure out why this is occasionally failing
+		if (collectionLogService.getObtainedItems().isEmpty()) {
+			log.warn("Collection log failed to update!");
+			this.setText("Sync " + ColorUtil.wrapWithColorTag("(?)", HIGHLIGHT_COLOR))
+				.setState(State.DISABLED)
+				.setTooltip("Collection Log failed to update! Please reopen the window to check tasks for syncing.");
+		} else if (desyncedTasks.isEmpty() && !migrationHelper.canMigrate()) {
 			this.setText("Sync")
 				.setState(State.DISABLED)
 				.setTooltip("You're all synced up, nothing to do there!");
