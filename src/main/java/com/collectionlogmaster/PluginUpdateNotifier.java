@@ -23,7 +23,11 @@ import net.runelite.client.externalplugins.PluginHubManifest.DisplayData;
 @Slf4j
 @Singleton
 public class PluginUpdateNotifier extends EventBusSubscriber {
-	private static final String[] UPDATE_MESSAGES = null;
+	private static final String[] UPDATE_MESSAGES = {
+		"<colHIGHLIGHT>Collection Log Master updated to v" + getPluginVersion(),
+		"<colHIGHLIGHT>- Added play time tracking on task completion",
+		"<colHIGHLIGHT>- Fixed issue causing sync to clear all your tasks",
+	};
 
 	@Inject
 	ConfigManager configManager;
