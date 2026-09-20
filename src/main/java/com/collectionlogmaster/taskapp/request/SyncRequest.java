@@ -12,4 +12,5 @@ public class SyncRequest {
 	private final Set<Integer> collectionLog;
 	private final Map<DiaryRegion, Map<DiaryDifficulty, Boolean>> diaries;
 	private final Map<Skill, Integer> skills;
+	private final int playTime;
 }

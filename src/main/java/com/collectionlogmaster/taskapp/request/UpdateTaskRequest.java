@@ -5,4 +5,5 @@ import lombok.Data;
 @Data
 public class UpdateTaskRequest {
 	private final boolean completed;
+	private final int playTime;
 }

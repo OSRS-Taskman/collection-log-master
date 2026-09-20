@@ -12,6 +12,7 @@ import com.collectionlogmaster.taskapp.response.LoginResponse;
 import com.collectionlogmaster.taskapp.response.SyncResponse;
 import com.collectionlogmaster.taskapp.response.TaskListResponse;
 import com.collectionlogmaster.taskapp.response.UserProfileResponse;
+import com.collectionlogmaster.tracking.PlayTimeTracker;
 import com.collectionlogmaster.util.HttpClient;
 import java.util.Map;
 import java.util.Set;
@@ -44,6 +45,9 @@ public class TaskAppClient extends HttpClient {
 	@Inject
 	@Named("developerMode")
 	private boolean isDeveloperMode;
+
+	@Inject
+	private PlayTimeTracker playTimeTracker;
 
 	private final TaskAppAuthInterceptor taskAppAuthInterceptor;
 
@@ -93,7 +97,7 @@ public class TaskAppClient extends HttpClient {
 
 	public CompletableFuture<Void> updateTask(String taskId, boolean completed) {
 		HttpUrl url = buildApiUrl("user/tasks", taskId);
-		UpdateTaskRequest data = new UpdateTaskRequest(completed);
+		UpdateTaskRequest data = new UpdateTaskRequest(completed, playTimeTracker.getPlayTimeTicks());
 
 		return patch(url, data, null);
 	}
@@ -110,7 +114,7 @@ public class TaskAppClient extends HttpClient {
 		Map<Skill, Integer> skills
 	) {
 		HttpUrl url = buildApiUrl("user/sync");
-		SyncRequest data = new SyncRequest(collectionLog, diaries, skills);
+		SyncRequest data = new SyncRequest(collectionLog, diaries, skills, playTimeTracker.getPlayTimeTicks());
 
 		return post(url, data, SyncResponse.class);
 	}
