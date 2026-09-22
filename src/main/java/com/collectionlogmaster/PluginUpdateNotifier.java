@@ -25,8 +25,9 @@ import net.runelite.client.externalplugins.PluginHubManifest.DisplayData;
 public class PluginUpdateNotifier extends EventBusSubscriber {
 	private static final String[] UPDATE_MESSAGES = {
 		"<colHIGHLIGHT>Collection Log Master updated to v" + getPluginVersion(),
-		"<colHIGHLIGHT>- Added play time tracking on task completion",
-		"<colHIGHLIGHT>- Fixed issue causing sync to clear all your tasks",
+		"<colHIGHLIGHT>- Actually fixed issue causing sync to clear all your tasks",
+		"<colHIGHLIGHT>- Fixed continuous performance degradation when opening tier task lists",
+		"<colHIGHLIGHT>- Fixed some sprites not being loaded correctly",
 	};
 
 	@Inject
@@ -73,7 +74,7 @@ public class PluginUpdateNotifier extends EventBusSubscriber {
 
 	private void notifyUpdate() {
 		//noinspection ConstantConditions
-		if (UPDATE_MESSAGES == null) return;
+		if (UPDATE_MESSAGES == null || UPDATE_MESSAGES.length == 0) return;
 
 		String replacedMessage = String.join("<br>", UPDATE_MESSAGES);
 		chatMessageManager.queue(
