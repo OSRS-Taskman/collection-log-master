@@ -87,6 +87,7 @@ public class CollectionLogMasterPlugin extends Plugin {
 		taskmanCommand.shutDown();
 		playTimeTracker.shutDown();
 		this.overlayManager.remove(this.taskOverlay);
+		this.overlayManager.remove(this.tooltipOverlay);
 	}
 
 	@Provides
