@@ -5,10 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
 import net.runelite.api.GameState;
 import net.runelite.api.MenuAction;
-import net.runelite.api.events.GameStateChanged;
-import net.runelite.api.events.GameTick;
-import net.runelite.api.events.ScriptPostFired;
-import net.runelite.api.events.ScriptPreFired;
+import net.runelite.api.events.*;
+import net.runelite.api.gameval.InterfaceID;
 import net.runelite.api.gameval.VarbitID;
 import net.runelite.client.eventbus.Subscribe;
 
@@ -40,11 +38,18 @@ public class CollectionLogWidgetSubscriber extends EventBusSubscriber {
         tickCollectionLogScriptFired = -1;
     }
 
+    // Code from: WikiSync
+    // Repository: https://github.com/weirdgloop/WikiSync
+    // License: BSD 2-Clause License
     @Subscribe
-    public void onGameStateChanged(GameStateChanged gameStateChanged) {
-        GameState gameState = gameStateChanged.getGameState();
-        if (gameState != GameState.HOPPING && gameState != GameState.LOGGED_IN) {
-            reset();
+    public void onGameStateChanged(GameStateChanged e) {
+        switch (e.getGameState()) {
+            case HOPPING:
+			case LOGGING_IN:
+			case CONNECTION_LOST:
+                collectionLogService.reset();
+                reset();
+                break;
         }
     }
 
