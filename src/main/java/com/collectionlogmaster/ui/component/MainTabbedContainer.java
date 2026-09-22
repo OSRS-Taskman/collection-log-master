@@ -10,9 +10,10 @@ import com.collectionlogmaster.ui.generic.UITab;
 import com.collectionlogmaster.ui.generic.UIUtil;
 import com.collectionlogmaster.ui.generic.button.UIButton;
 import com.google.inject.Inject;
-import java.util.ArrayList;
-import java.util.List;
+
+import java.util.*;
 import java.util.function.Function;
+
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetPositionMode;
 import net.runelite.api.widgets.WidgetSizeMode;
@@ -70,10 +71,7 @@ public class MainTabbedContainer extends UIComponent<MainTabbedContainer> {
 				.revalidate();
 		}
 
-		for (Widget tabContent : contentContainer.getDynamicChildren()) {
-			// ideally we should delete those widgets, but I couldn't figure out how
-			tabContent.setHidden(true);
-		}
+		removeAllDynamicChildren(contentContainer);
 
 		clientThread.invoke(() -> {
 			if (contentComponent != null) {
@@ -82,6 +80,24 @@ public class MainTabbedContainer extends UIComponent<MainTabbedContainer> {
 
 			contentComponent = renderer.apply(contentContainer);
 		});
+	}
+
+	private void removeAllDynamicChildren(Widget container) {
+		var parentChildren = container.getParent().getChildren();
+		if (parentChildren == null) {
+			return;
+		}
+
+		// this is O(n²), but using a Set was slower
+		for (Widget child : container.getDynamicChildren()) {
+			removeAllDynamicChildren(child);
+
+			for (int i = 0; i < parentChildren.length; i++) {
+				if (parentChildren[i] == child) {
+					parentChildren[i] = null;
+				}
+			}
+		}
 	}
 
 	private void initializeWidgets() {
