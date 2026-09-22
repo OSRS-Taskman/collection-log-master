@@ -7,7 +7,10 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
+import net.runelite.api.GameState;
+import net.runelite.api.NodeCache;
 import net.runelite.api.SpritePixels;
+import net.runelite.api.events.GameStateChanged;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.ConfigChanged;
@@ -24,20 +27,52 @@ public class SpriteManager extends EventBusSubscriber {
 	@Inject
 	private net.runelite.client.game.SpriteManager spriteManager;
 
+	private boolean isLoggedOut = false;
+
 	public void startUp() {
+		super.startUp();
 		this.spriteManager.addSpriteOverrides(SpriteOverride.values());
-		clientThread.invokeAtTickEnd(this::overrideTransformedSprites);
+		clientThread.invokeLater(this::overrideTransformedSprites);
 	}
 
-	@Subscribe
+	@Subscribe(priority = Float.MIN_VALUE)
 	public void onConfigChanged(ConfigChanged e) {
 		String configGroup = e.getGroup();
 		if (configGroup.equals("resourcepacks")) {
-			clientThread.invokeAtTickEnd(this::overrideTransformedSprites);
+			clientThread.invokeLater(this::overrideTransformedSprites);
 		}
 	}
 
-	private void overrideTransformedSprites() {
+	@Subscribe(priority = Float.MIN_VALUE)
+	public void onGameStateChanged(GameStateChanged e) {
+		switch (e.getGameState()) {
+			case LOGIN_SCREEN:
+				isLoggedOut = true;
+				break;
+
+			case LOGGED_IN:
+				if (isLoggedOut) {
+					overrideTransformedSprites();
+				}
+
+				isLoggedOut = false;
+				break;
+		}
+	}
+
+	private boolean overrideTransformedSprites() {
+		NodeCache spriteCache = client.getWidgetSpriteCache();
+
+		// wait until cache is initialized
+		if (spriteCache == null) {
+			log.info("Skipping transformed sprite overrides until sprite cache is initialized");
+			return false;
+		}
+
+		log.info("Applying transformed sprite overrides");
+
+		spriteCache.reset();
+
 		for (SpriteOverride spriteOverride : SpriteOverride.values()) {
 			if (spriteOverride.getOriginalSpriteId() == null) {
 				continue;
@@ -59,10 +94,13 @@ public class SpriteManager extends EventBusSubscriber {
 				);
 			}
 		}
+
+		return true;
 	}
 
 	private void addSpriteOverride(int spriteId, SpritePixels spritePixels) {
 		// we can't use SpriteManager because it only accepts resource paths as input
+		client.getSpriteOverrides().remove(spriteId);
 		client.getSpriteOverrides().put(spriteId, spritePixels);
 	}
 
