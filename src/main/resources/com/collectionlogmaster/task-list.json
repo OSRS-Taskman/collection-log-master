@@ -3700,8 +3700,8 @@
 		},
 		{
 			"id": "aa212946-0b6a-41e0-8948-5402d8350cdc",
-			"name": "Get a Void magic helm",
-			"shortName": "VK Magic Helm",
+			"name": "Get a Void mage helm",
+			"shortName": "VK Mage Helm",
 			"tip": "Can be purchased as a reward from the Pest Control Combat minigame.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Pest_Control",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Void_mage_helm_detail.png/320px-Void_mage_helm_detail.png",
@@ -5681,6 +5681,20 @@
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [ 32407 ],
+				"count": 1
+			}
+		},
+		{
+			"id": "3ad2a052-e9e7-495a-9d47-02e30194d8de",
+			"name": "Get some Dragon nails",
+			"shortName": "Dragon Nails",
+			"tip": "Obtained as a drop from Narwhals.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Dragon_nails",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dragon_nails_detail.png/320px-Dragon_nails_detail.png",
+			"displayItemId": 31406,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31406 ],
 				"count": 1
 			}
 		},
@@ -9542,20 +9556,6 @@
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [ 32406 ],
-				"count": 1
-			}
-		},
-		{
-			"id": "3ad2a052-e9e7-495a-9d47-02e30194d8de",
-			"name": "Get some Dragon nails",
-			"shortName": "Dragon Nails",
-			"tip": "Obtained as a drop from Narwhals.",
-			"wikiLink": "https://oldschool.runescape.wiki/w/Dragon_nails",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Dragon_nails_detail.png/320px-Dragon_nails_detail.png",
-			"displayItemId": 31406,
-			"verification": {
-				"method": "collection-log",
-				"itemIds": [ 31406 ],
 				"count": 1
 			}
 		},
