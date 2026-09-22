@@ -21,8 +21,8 @@ import net.runelite.client.ui.overlay.OverlayManager;
 
 @Slf4j
 @PluginDescriptor(
-		name = "Collection Log Master",
-		conflicts = {"[DEPRECATED] Collection Log Master"})
+	name = "Collection Log Master"
+)
 public class CollectionLogMasterPlugin extends Plugin {
 	@Inject
 	@SuppressWarnings("unused")
