@@ -55,8 +55,7 @@ public class TaskmanCommandManager extends EventBusSubscriber {
 
 	private final HttpUrl baseApiUrl = new HttpUrl.Builder()
 			.scheme("https")
-			.host("taskman.up.railway.app")
-			.addPathSegment("task")
+			.host("www.osrstaskapp.com")
 			.addPathSegment("command")
 			.build();
 
@@ -159,7 +158,7 @@ public class TaskmanCommandManager extends EventBusSubscriber {
 				.append(ChatColorType.NORMAL)
 				.append(" Current task: ")
 				.append(ChatColorType.HIGHLIGHT)
-				.append(res.getTask().getName())
+				.append(res.getTask().get(0))
 				.build();
 
 		final MessageNode messageNode = chatMessage.getMessageNode();
