@@ -43,11 +43,9 @@ public class TaskService extends EventBusSubscriber {
 
 	@Inject
 	private Client client;
+
 	@Inject
-
 	private ClientThread clientThread;
-
-	private boolean rsnSet;
 
 	@Override
 	public void startUp() {
@@ -86,6 +84,7 @@ public class TaskService extends EventBusSubscriber {
 		if (localPlayer == null) {
 			return;
 		}
+
 		clientThread.invokeAtTickEnd(() -> taskAppClient.setRsn(localPlayer.getName()));
 	}
 
