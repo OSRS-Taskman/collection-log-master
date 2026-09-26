@@ -1,6 +1,5 @@
 package com.collectionlogmaster.taskapp;
 
-import com.collectionlogmaster.command.TaskmanCommandManager;
 import com.collectionlogmaster.taskapp.domain.CompletedTask;
 import com.collectionlogmaster.taskapp.response.UserProfileResponse;
 import com.collectionlogmaster.util.EventBusSubscriber;
@@ -16,9 +15,6 @@ import lombok.extern.slf4j.Slf4j;
 public class TaskAppStateStorage extends EventBusSubscriber {
 	@Inject
 	private TaskAppClient taskAppClient;
-
-	@Inject
-	private TaskmanCommandManager taskmanCommandManager;
 
 	private volatile TaskAppState state = new TaskAppState();
 
@@ -60,6 +56,5 @@ public class TaskAppStateStorage extends EventBusSubscriber {
 		}
 
 		state = newState;
-		taskmanCommandManager.updateServer();
 	}
 }
