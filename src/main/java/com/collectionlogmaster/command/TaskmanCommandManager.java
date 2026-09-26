@@ -56,7 +56,7 @@ public class TaskmanCommandManager extends EventBusSubscriber {
 	private final HttpUrl baseApiUrl = new HttpUrl.Builder()
 			.scheme("https")
 			.host("www.osrstaskapp.com")
-			.addPathSegment("command")
+			.addPathSegments("api/v2/command")
 			.build();
 
 	private final String COLLECTION_LOG_COMMAND = "!taskman";
@@ -84,17 +84,9 @@ public class TaskmanCommandManager extends EventBusSubscriber {
 
 		if (config.isCommandEnabled()) {
 			chatCommandManager.registerCommand(COLLECTION_LOG_COMMAND, this::executeCommand);
-			updateServerImmediately();
 		} else {
 			chatCommandManager.unregisterCommand(COLLECTION_LOG_COMMAND);
 		}
-	}
-
-	@Subscribe
-	public void onGameStateChanged(GameStateChanged e) {
-		if (e.getGameState() != GameState.LOGGED_IN) return;
-
-		clientThread.invokeAtTickEnd(this::updateServer);
 	}
 
 	private void executeCommand(ChatMessage chatMessage, String message) {
@@ -114,37 +106,6 @@ public class TaskmanCommandManager extends EventBusSubscriber {
 				.thenAccept(res ->
 						clientThread.invokeLater(() -> replaceChatMessage(chatMessage, res))
 				);
-	}
-
-	public void updateServer() {
-		log.debug("Scheduling command update; {}", Instant.now());
-		updateDebouncer.debounce(this::updateServerImmediately);
-	}
-
-	public void updateServerImmediately() {
-		if (!config.isCommandEnabled()) {
-			return;
-		}
-
-		log.debug("Executing command update; {}", Instant.now());
-
-		String rsn = client.getLocalPlayer().getName();
-		if (rsn == null) return;
-
-		HttpUrl url = baseApiUrl.newBuilder().addPathSegment(rsn).build();
-
-		String taskId = "complete";
-		Task currentTask = taskService.getActiveTask();
-		if (currentTask != null) {
-			taskId = currentTask.getId();
-		}
-
-		TaskTier currentTier = taskService.getCurrentTier();
-		float currentProgress = taskService.getProgress().get(currentTier) * 100;
-
-		CommandRequest data = new CommandRequest(taskId, taskService.getCurrentTier().displayName, (int) currentProgress);
-
-		httpClient.put(url, data, null);
 	}
 
 	private void replaceChatMessage(ChatMessage chatMessage, CommandResponse res) {

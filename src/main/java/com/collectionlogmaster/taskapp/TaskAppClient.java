@@ -3,10 +3,7 @@ package com.collectionlogmaster.taskapp;
 import com.collectionlogmaster.CollectionLogMasterConfig;
 import com.collectionlogmaster.domain.verification.diary.DiaryDifficulty;
 import com.collectionlogmaster.domain.verification.diary.DiaryRegion;
-import com.collectionlogmaster.taskapp.request.LoginRequest;
-import com.collectionlogmaster.taskapp.request.MigrateRequest;
-import com.collectionlogmaster.taskapp.request.SyncRequest;
-import com.collectionlogmaster.taskapp.request.UpdateTaskRequest;
+import com.collectionlogmaster.taskapp.request.*;
 import com.collectionlogmaster.taskapp.response.GenerateTaskResponse;
 import com.collectionlogmaster.taskapp.response.LoginResponse;
 import com.collectionlogmaster.taskapp.response.SyncResponse;
@@ -62,7 +59,7 @@ public class TaskAppClient extends HttpClient {
 	}
 
 	private @NonNull HttpUrl buildApiUrl(String... segments) {
-		HttpUrl baseApiUrl = isDeveloperMode ? DEVELOPMENT_BASE_API_URL : PRODUCTION_BASE_API_URL;
+		HttpUrl baseApiUrl = DEVELOPMENT_BASE_API_URL;
 		HttpUrl.Builder builder = baseApiUrl.newBuilder();
 
 		for (String segment : segments) {
@@ -122,6 +119,13 @@ public class TaskAppClient extends HttpClient {
 	public CompletableFuture<Void> migrate(String taskId) {
 		HttpUrl url = buildApiUrl("user/migrate");
 		MigrateRequest data = new MigrateRequest(taskId);
+
+		return post(url, data, null);
+	}
+
+	public CompletableFuture<Void> setRsn(String rsn) {
+		HttpUrl url = buildApiUrl("command/rsn");
+		RsnRequest data = new RsnRequest(rsn);
 
 		return post(url, data, null);
 	}

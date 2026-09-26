@@ -18,6 +18,11 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
+import net.runelite.api.Client;
+import net.runelite.api.GameState;
+import net.runelite.api.Player;
+import net.runelite.api.events.GameStateChanged;
+import net.runelite.client.callback.ClientThread;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.ConfigChanged;
 
@@ -35,6 +40,14 @@ public class TaskService extends EventBusSubscriber {
 
 	@Inject
 	private TaskAppClient taskAppClient;
+
+	@Inject
+	private Client client;
+	@Inject
+
+	private ClientThread clientThread;
+
+	private boolean rsnSet;
 
 	@Override
 	public void startUp() {
@@ -63,6 +76,17 @@ public class TaskService extends EventBusSubscriber {
 			taskAppStateStorage.fetch();
 			taskListStorage.fetch();
 		}
+	}
+
+	@Subscribe
+	public void onGameStateChanged(GameStateChanged e) {
+		if (e.getGameState() != GameState.LOGGED_IN) return;
+
+		Player localPlayer = client.getLocalPlayer();
+		if (localPlayer == null) {
+			return;
+		}
+		clientThread.invokeAtTickEnd(() -> taskAppClient.setRsn(localPlayer.getName()));
 	}
 
 	public Task getActiveTask() {
