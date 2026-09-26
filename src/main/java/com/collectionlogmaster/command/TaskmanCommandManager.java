@@ -56,7 +56,7 @@ public class TaskmanCommandManager extends EventBusSubscriber {
 	private final HttpUrl baseApiUrl = new HttpUrl.Builder()
 			.scheme("https")
 			.host("www.osrstaskapp.com")
-			.addPathSegments("api/v2/command")
+			.addPathSegments("/command")
 			.build();
 
 	private final String COLLECTION_LOG_COMMAND = "!taskman";
