@@ -122,6 +122,10 @@ public class TaskService extends EventBusSubscriber {
 	}
 
 	public List<Task> getIncompleteTierTasks(TaskTier tier) {
+		if (tier.ordinal() < config.hideBelow().ordinal()) {
+			return List.of();
+		}
+
 		List<Task> tierTasks = getTierTasks(tier);
 
 		return tierTasks.stream()
