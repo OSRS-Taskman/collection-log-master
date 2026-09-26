@@ -1,6 +1,7 @@
 package com.collectionlogmaster.taskapp;
 
 import com.collectionlogmaster.CollectionLogMasterConfig;
+import com.collectionlogmaster.domain.command.CommandResponse;
 import com.collectionlogmaster.domain.verification.diary.DiaryDifficulty;
 import com.collectionlogmaster.domain.verification.diary.DiaryRegion;
 import com.collectionlogmaster.taskapp.request.*;
@@ -59,7 +60,7 @@ public class TaskAppClient extends HttpClient {
 	}
 
 	private @NonNull HttpUrl buildApiUrl(String... segments) {
-		HttpUrl baseApiUrl = DEVELOPMENT_BASE_API_URL;
+		HttpUrl baseApiUrl = isDeveloperMode ? DEVELOPMENT_BASE_API_URL : PRODUCTION_BASE_API_URL;
 		HttpUrl.Builder builder = baseApiUrl.newBuilder();
 
 		for (String segment : segments) {
@@ -128,5 +129,11 @@ public class TaskAppClient extends HttpClient {
 		RsnRequest data = new RsnRequest(rsn);
 
 		return post(url, data, null);
+	}
+
+	public CompletableFuture<CommandResponse> fetchCommandData(String rsn) {
+		HttpUrl url = buildApiUrl("command", rsn);
+
+		return get(url, CommandResponse.class);
 	}
 }

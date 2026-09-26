@@ -6,6 +6,7 @@ import com.collectionlogmaster.domain.Task;
 import com.collectionlogmaster.domain.TaskTier;
 import com.collectionlogmaster.domain.command.CommandRequest;
 import com.collectionlogmaster.domain.command.CommandResponse;
+import com.collectionlogmaster.taskapp.TaskAppClient;
 import com.collectionlogmaster.taskapp.TaskService;
 import com.collectionlogmaster.util.EventBusSubscriber;
 import com.collectionlogmaster.util.HttpClient;
@@ -45,19 +46,7 @@ public class TaskmanCommandManager extends EventBusSubscriber {
 	private CollectionLogMasterConfig config;
 
 	@Inject
-	private HttpClient httpClient;
-
-	@Inject
-	private TaskService taskService;
-
-	@Inject
-	private SimpleDebouncer updateDebouncer;
-
-	private final HttpUrl baseApiUrl = new HttpUrl.Builder()
-			.scheme("https")
-			.host("www.osrstaskapp.com")
-			.addPathSegments("/command")
-			.build();
+	private TaskAppClient taskAppClient;
 
 	private final String COLLECTION_LOG_COMMAND = "!taskman";
 
@@ -101,11 +90,10 @@ public class TaskmanCommandManager extends EventBusSubscriber {
 			return;
 		}
 
-		HttpUrl url = baseApiUrl.newBuilder().addPathSegment(senderName).build();
-		httpClient.get(url, CommandResponse.class)
-				.thenAccept(res ->
-						clientThread.invokeLater(() -> replaceChatMessage(chatMessage, res))
-				);
+		taskAppClient.fetchCommandData(senderName)
+			.thenAccept(res ->
+				clientThread.invokeLater(() -> replaceChatMessage(chatMessage, res))
+			);
 	}
 
 	private void replaceChatMessage(ChatMessage chatMessage, CommandResponse res) {
