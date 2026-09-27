@@ -80,12 +80,15 @@ public class TaskService extends EventBusSubscriber {
 	public void onGameStateChanged(GameStateChanged e) {
 		if (e.getGameState() != GameState.LOGGED_IN) return;
 
-		Player localPlayer = client.getLocalPlayer();
-		if (localPlayer == null) {
-			return;
-		}
+		clientThread.invokeLater(() -> {
+			Player localPlayer = client.getLocalPlayer();
+			if (localPlayer == null) {
+				return false;
+			}
 
-		clientThread.invokeAtTickEnd(() -> taskAppClient.setRsn(localPlayer.getName()));
+			taskAppClient.setRsn(localPlayer.getName());
+			return true;
+		});
 	}
 
 	public Task getActiveTask() {
