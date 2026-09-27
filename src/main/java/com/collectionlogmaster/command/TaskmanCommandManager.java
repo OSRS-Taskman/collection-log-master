@@ -3,24 +3,18 @@ package com.collectionlogmaster.command;
 
 import com.collectionlogmaster.CollectionLogMasterConfig;
 import com.collectionlogmaster.domain.Task;
-import com.collectionlogmaster.domain.TaskTier;
-import com.collectionlogmaster.domain.command.CommandRequest;
 import com.collectionlogmaster.domain.command.CommandResponse;
 import com.collectionlogmaster.taskapp.TaskAppClient;
 import com.collectionlogmaster.taskapp.TaskService;
 import com.collectionlogmaster.util.EventBusSubscriber;
-import com.collectionlogmaster.util.HttpClient;
-import com.collectionlogmaster.util.SimpleDebouncer;
-import java.time.Instant;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
-import net.runelite.api.GameState;
 import net.runelite.api.MessageNode;
 import net.runelite.api.events.ChatMessage;
-import net.runelite.api.events.GameStateChanged;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.chat.ChatColorType;
 import net.runelite.client.chat.ChatCommandManager;
@@ -28,7 +22,6 @@ import net.runelite.client.chat.ChatMessageBuilder;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.ConfigChanged;
 import net.runelite.client.util.Text;
-import okhttp3.HttpUrl;
 
 @Slf4j
 @Singleton
@@ -44,6 +37,9 @@ public class TaskmanCommandManager extends EventBusSubscriber {
 
 	@Inject
 	private CollectionLogMasterConfig config;
+
+	@Inject
+	private TaskService taskService;
 
 	@Inject
 	private TaskAppClient taskAppClient;
@@ -97,17 +93,27 @@ public class TaskmanCommandManager extends EventBusSubscriber {
 	}
 
 	private void replaceChatMessage(ChatMessage chatMessage, CommandResponse res) {
+		// TODO: still replace message but with an error
 		if (res == null) return;
+
+		String taskId = res.getTaskId();
+		String taskName = "completed";
+		if (taskId != null) {
+			Task task = taskService.getTaskById(taskId);
+			if (task != null) {
+				taskName = task.getName();
+			}
+		}
 
 		final String msg = new ChatMessageBuilder()
 				.append(ChatColorType.NORMAL)
 				.append("Progress: ")
 				.append(ChatColorType.HIGHLIGHT)
-				.append(res.getProgressPercentage() + "% " + res.getTier())
+				.append(res.getProgress() + "% " + res.getTier())
 				.append(ChatColorType.NORMAL)
 				.append(" Current task: ")
 				.append(ChatColorType.HIGHLIGHT)
-				.append(res.getTask().get(0))
+				.append(taskName)
 				.build();
 
 		final MessageNode messageNode = chatMessage.getMessageNode();
