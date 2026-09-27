@@ -9,7 +9,6 @@ import net.runelite.api.widgets.WidgetPositionMode;
 import net.runelite.api.widgets.WidgetSizeMode;
 import net.runelite.api.widgets.WidgetTextAlignment;
 import net.runelite.api.widgets.WidgetType;
-import org.intellij.lang.annotations.MagicConstant;
 
 public class UISimpleButton extends UIButton<UISimpleButton> {
 	private static final int BASE_GAP = 4;
@@ -50,7 +49,7 @@ public class UISimpleButton extends UIButton<UISimpleButton> {
 		return iconSpriteTheme.getOrDefault(getState(), -1);
 	}
 
-	public UISimpleButton setFontId(@MagicConstant(valuesFromClass = FontID.class) int font) {
+	public UISimpleButton setFontId(int font) {
 		text.setFontId(font);
 		return this;
 	}

@@ -1,26 +1,20 @@
 package com.collectionlogmaster.command;
 
-import static com.collectionlogmaster.util.GsonOverride.GSON;
 
 import com.collectionlogmaster.CollectionLogMasterConfig;
 import com.collectionlogmaster.domain.Task;
-import com.collectionlogmaster.domain.TaskTier;
-import com.collectionlogmaster.domain.command.CommandRequest;
 import com.collectionlogmaster.domain.command.CommandResponse;
-import com.collectionlogmaster.task.TaskService;
+import com.collectionlogmaster.taskapp.TaskAppClient;
+import com.collectionlogmaster.taskapp.TaskService;
 import com.collectionlogmaster.util.EventBusSubscriber;
-import com.collectionlogmaster.util.HttpClient;
-import com.collectionlogmaster.util.SimpleDebouncer;
-import java.time.Instant;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
-import net.runelite.api.GameState;
 import net.runelite.api.MessageNode;
 import net.runelite.api.events.ChatMessage;
-import net.runelite.api.events.GameStateChanged;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.chat.ChatColorType;
 import net.runelite.client.chat.ChatCommandManager;
@@ -28,7 +22,6 @@ import net.runelite.client.chat.ChatMessageBuilder;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.ConfigChanged;
 import net.runelite.client.util.Text;
-import okhttp3.HttpUrl;
 
 @Slf4j
 @Singleton
@@ -46,20 +39,10 @@ public class TaskmanCommandManager extends EventBusSubscriber {
 	private CollectionLogMasterConfig config;
 
 	@Inject
-	private HttpClient httpClient;
-
-	@Inject
 	private TaskService taskService;
 
 	@Inject
-	private SimpleDebouncer updateDebouncer;
-
-	private final HttpUrl baseApiUrl = new HttpUrl.Builder()
-			.scheme("https")
-			.host("taskman.up.railway.app")
-			.addPathSegment("task")
-			.addPathSegment("command")
-			.build();
+	private TaskAppClient taskAppClient;
 
 	private final String COLLECTION_LOG_COMMAND = "!taskman";
 
@@ -86,17 +69,9 @@ public class TaskmanCommandManager extends EventBusSubscriber {
 
 		if (config.isCommandEnabled()) {
 			chatCommandManager.registerCommand(COLLECTION_LOG_COMMAND, this::executeCommand);
-			updateServerImmediately();
 		} else {
 			chatCommandManager.unregisterCommand(COLLECTION_LOG_COMMAND);
 		}
-	}
-
-	@Subscribe
-	public void onGameStateChanged(GameStateChanged e) {
-		if (e.getGameState() != GameState.LOGGED_IN) return;
-
-		clientThread.invokeAtTickEnd(this::updateServer);
 	}
 
 	private void executeCommand(ChatMessage chatMessage, String message) {
@@ -111,55 +86,34 @@ public class TaskmanCommandManager extends EventBusSubscriber {
 			return;
 		}
 
-		HttpUrl url = baseApiUrl.newBuilder().addPathSegment(senderName).build();
-		httpClient.getHttpRequestAsync(url.toString(), CommandResponse.class)
-				.thenAccept(res ->
-						clientThread.invokeLater(() -> replaceChatMessage(chatMessage, res))
-				);
-	}
-
-	public void updateServer() {
-		log.debug("Scheduling command update; {}", Instant.now());
-		updateDebouncer.debounce(this::updateServerImmediately);
-	}
-
-	public void updateServerImmediately() {
-		if (!config.isCommandEnabled()) {
-			return;
-		}
-
-		log.debug("Executing command update; {}", Instant.now());
-
-		String rsn = client.getLocalPlayer().getName();
-		if (rsn == null) return;
-
-		HttpUrl url = baseApiUrl.newBuilder().addPathSegment(rsn).build();
-
-		String taskId = "complete";
-		Task currentTask = taskService.getActiveTask();
-		if (currentTask != null) {
-			taskId = currentTask.getId();
-		}
-
-		TaskTier currentTier = taskService.getCurrentTier();
-		float currentProgress = taskService.getProgress().get(currentTier) * 100;
-
-		CommandRequest data = new CommandRequest(taskId, taskService.getCurrentTier().displayName, (int) currentProgress);
-		httpClient.putHttpRequestAsync(url.toString(), GSON.toJson(data), null);
+		taskAppClient.fetchCommandData(senderName)
+			.thenAccept(res ->
+				clientThread.invokeLater(() -> replaceChatMessage(chatMessage, res))
+			);
 	}
 
 	private void replaceChatMessage(ChatMessage chatMessage, CommandResponse res) {
+		// TODO: still replace message but with an error
 		if (res == null) return;
+
+		String taskId = res.getTaskId();
+		String taskName = "completed";
+		if (taskId != null) {
+			Task task = taskService.getTaskById(taskId);
+			if (task != null) {
+				taskName = task.getName();
+			}
+		}
 
 		final String msg = new ChatMessageBuilder()
 				.append(ChatColorType.NORMAL)
 				.append("Progress: ")
 				.append(ChatColorType.HIGHLIGHT)
-				.append(res.getProgressPercentage() + "% " + res.getTier())
+				.append(res.getProgress() + "% " + res.getTier())
 				.append(ChatColorType.NORMAL)
 				.append(" Current task: ")
 				.append(ChatColorType.HIGHLIGHT)
-				.append(res.getTask().getName())
+				.append(taskName)
 				.build();
 
 		final MessageNode messageNode = chatMessage.getMessageNode();

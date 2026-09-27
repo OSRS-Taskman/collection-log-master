@@ -6,7 +6,6 @@ import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetSizeMode;
 import net.runelite.api.widgets.WidgetTextAlignment;
 import net.runelite.api.widgets.WidgetType;
-import org.jetbrains.annotations.Range;
 
 public class UIProgressBar extends UIComponent<UIProgressBar> {
 	private final Widget border;
@@ -29,7 +28,7 @@ public class UIProgressBar extends UIComponent<UIProgressBar> {
 		initializeWidgets();
 	}
 
-	public UIProgressBar setPercent(@Range(from = 0, to = 1) float percent) {
+	public UIProgressBar setPercent(float percent) {
 		// we can easily set the width to the given percent by using WidgetSizeMode.ABSOLUTE_16384THS
 		barFill.setOriginalWidth(Math.round((1 << 14) * percent))
 				.revalidate();

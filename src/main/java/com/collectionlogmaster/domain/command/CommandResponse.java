@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class CommandResponse {
-    private CommandTask task;
-    private String tier;
-    private int progressPercentage;
+	private String taskId;
+	private String tier;
+	private int progress;
 }

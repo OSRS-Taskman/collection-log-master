@@ -77,9 +77,9 @@ some of them:
 > If you would like to see your series here, please reach out or open a PR!
 
 [faq]: https://docs.google.com/document/d/e/2PACX-1vTHfXHzMQFbt_iYAP-O88uRhhz3wigh1KMiiuomU7ftli-rL_c3bRqfGYmUliE1EHcIr3LfMx2UTf2U/pub
-[discord]: [https://discord.com/invite/bJRDGTSsYh
-[plugin-rank]: https://img.shields.io/endpoint?url=https://api.runelite.net/pluginhub/shields/rank/plugin/log-master
-[plugin-installs]: https://img.shields.io/endpoint?url=https://api.runelite.net/pluginhub/shields/installs/plugin/log-master
+[discord]: https://discord.com/invite/bJRDGTSsYh
+[plugin-rank]: https://img.shields.io/endpoint?url=https://api.runelite.net/pluginhub/shields/rank/plugin/collection-log-master
+[plugin-installs]: https://img.shields.io/endpoint?url=https://api.runelite.net/pluginhub/shields/installs/plugin/collection-log-master
 [gt-playlist]: https://www.youtube.com/playlist?list=PLfaYojI_alovHQi7Z_LsThv-MRG_VH10q
 [nooblet-playlist]: https://www.youtube.com/playlist?list=PL1AI_3vHNMyTa-7Fptsa0Jhhr7f1epgJY
 [chase-playlist]: https://www.youtube.com/playlist?list=PL4j5n1lQjz0kYP2f7XD5CyNBbXgCMykL0

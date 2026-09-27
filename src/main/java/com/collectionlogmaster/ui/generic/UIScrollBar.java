@@ -16,7 +16,6 @@ import net.runelite.api.widgets.WidgetPositionMode;
 import net.runelite.api.widgets.WidgetSizeMode;
 import net.runelite.api.widgets.WidgetType;
 import net.runelite.client.callback.ClientThread;
-import org.jetbrains.annotations.Range;
 
 @Accessors(chain = true)
 public class UIScrollBar extends UIComponent<UIScrollBar> implements MouseListener {
@@ -168,7 +167,7 @@ public class UIScrollBar extends UIComponent<UIScrollBar> implements MouseListen
 		return this;
 	}
 
-	public UIScrollBar scrollTo(@Range(from = 0, to = Integer.MAX_VALUE) int scrollOffset) {
+	public UIScrollBar scrollTo(int scrollOffset) {
 		if (scrollAxis == ScrollAxis.VERTICAL) {
 			int maxScroll = content.getOriginalHeight() - container.getHeight() + scrollBuffer;
 			int scrollY = Math.max(0, Math.min(maxScroll, scrollOffset));
@@ -182,7 +181,7 @@ public class UIScrollBar extends UIComponent<UIScrollBar> implements MouseListen
 		return this;
 	}
 
-	public UIScrollBar scrollToPercent(@Range(from = 0, to = 1) float scrollPercent) {
+	public UIScrollBar scrollToPercent(float scrollPercent) {
 		if (scrollAxis == ScrollAxis.VERTICAL) {
 			int maxScroll = content.getOriginalHeight() - container.getHeight() + scrollBuffer;
 			scrollTo((int) (maxScroll * scrollPercent));

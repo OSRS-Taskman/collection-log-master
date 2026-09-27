@@ -21,7 +21,6 @@ import net.runelite.api.widgets.JavaScriptCallback;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetType;
 import net.runelite.client.eventbus.Subscribe;
-import org.intellij.lang.annotations.MagicConstant;
 
 /**
  * Responsible for handling the interaction with the hamburger menu in the top-left corner of the
@@ -230,7 +229,7 @@ public class MenuManager extends EventBusSubscriber {
 
 	private static Widget getFirstWidgetOfType(
 		List<Widget> menuChildren,
-		@MagicConstant(valuesFromClass = WidgetType.class) int widgetType
+		int widgetType
 	) {
 		return menuChildren.stream()
 			.filter(w -> w.getType() == widgetType)

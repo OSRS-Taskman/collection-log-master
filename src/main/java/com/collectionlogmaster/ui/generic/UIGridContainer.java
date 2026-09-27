@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.List;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetType;
-import org.intellij.lang.annotations.MagicConstant;
 
 public class UIGridContainer extends UIComponent<UIGridContainer> {
 	/**
@@ -28,7 +27,7 @@ public class UIGridContainer extends UIComponent<UIGridContainer> {
 		return Collections.unmodifiableList(items);
 	}
 
-	public Widget createItem(@MagicConstant(valuesFromClass = WidgetType.class) int widgetType) {
+	public Widget createItem(int widgetType) {
 		Widget newItem = widget.createChild(widgetType);
 		items.add(newItem);
 		return newItem;

@@ -2,7 +2,7 @@ package com.collectionlogmaster.ui;
 
 import com.collectionlogmaster.CollectionLogMasterConfig;
 import com.collectionlogmaster.domain.Task;
-import com.collectionlogmaster.task.TaskService;
+import com.collectionlogmaster.taskapp.TaskService;
 import com.collectionlogmaster.ui.state.StateStore;
 import java.awt.Color;
 import java.awt.Dimension;

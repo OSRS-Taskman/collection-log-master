@@ -1,12 +1,13 @@
 package com.collectionlogmaster;
 
-import com.collectionlogmaster.command.DevCommandsManager;
 import com.collectionlogmaster.command.TaskmanCommandManager;
 import com.collectionlogmaster.input.MouseManager;
 import com.collectionlogmaster.synchronization.clog.CollectionLogService;
-import com.collectionlogmaster.task.TaskService;
+import com.collectionlogmaster.taskapp.TaskService;
+import com.collectionlogmaster.tracking.PlayTimeTracker;
 import com.collectionlogmaster.ui.InterfaceManager;
 import com.collectionlogmaster.ui.TaskOverlay;
+import com.collectionlogmaster.ui.TooltipOverlay;
 import com.collectionlogmaster.util.GsonOverride;
 import com.google.inject.Injector;
 import com.google.inject.Provides;
@@ -20,8 +21,8 @@ import net.runelite.client.ui.overlay.OverlayManager;
 
 @Slf4j
 @PluginDescriptor(
-		name = "Collection Log Master",
-		conflicts = {"[DEPRECATED] Collection Log Master"})
+	name = "Collection Log Master"
+)
 public class CollectionLogMasterPlugin extends Plugin {
 	@Inject
 	@SuppressWarnings("unused")
@@ -32,6 +33,9 @@ public class CollectionLogMasterPlugin extends Plugin {
 
 	@Inject
 	protected TaskOverlay taskOverlay;
+
+	@Inject
+	protected TooltipOverlay tooltipOverlay;
 
 	@Inject
 	private OverlayManager overlayManager;
@@ -55,7 +59,7 @@ public class CollectionLogMasterPlugin extends Plugin {
 	public TaskmanCommandManager taskmanCommand;
 
 	@Inject
-	public DevCommandsManager devCommands;
+	public PlayTimeTracker playTimeTracker;
 
 	@Override
 	protected void startUp() {
@@ -67,9 +71,10 @@ public class CollectionLogMasterPlugin extends Plugin {
 		pluginUpdateNotifier.startUp();
 		interfaceManager.startUp();
 		taskmanCommand.startUp();
-		devCommands.startUp();
+		playTimeTracker.startUp();
 		this.taskOverlay.setResizable(true);
 		this.overlayManager.add(this.taskOverlay);
+		this.overlayManager.add(this.tooltipOverlay);
 	}
 
 	@Override
@@ -80,8 +85,9 @@ public class CollectionLogMasterPlugin extends Plugin {
 		pluginUpdateNotifier.shutDown();
 		interfaceManager.shutDown();
 		taskmanCommand.shutDown();
-		devCommands.shutDown();
+		playTimeTracker.shutDown();
 		this.overlayManager.remove(this.taskOverlay);
+		this.overlayManager.remove(this.tooltipOverlay);
 	}
 
 	@Provides
