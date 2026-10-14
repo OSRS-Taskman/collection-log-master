@@ -1,6 +1,7 @@
 package com.collectionlogmaster.util;
 
 import com.collectionlogmaster.domain.Tag;
+import com.collectionlogmaster.domain.TaskTier;
 import com.collectionlogmaster.domain.adapters.EnumAdapter;
 import com.collectionlogmaster.domain.adapters.VerificationAdapter;
 import com.collectionlogmaster.domain.verification.Verification;
@@ -28,6 +29,7 @@ public class GsonOverride {
 				.registerTypeAdapter(VerificationMethod.class, new EnumAdapter<>(VerificationMethod.class))
 				.registerTypeAdapter(DiaryRegion.class, new EnumAdapter<>(DiaryRegion.class))
 				.registerTypeAdapter(DiaryDifficulty.class, new EnumAdapter<>(DiaryDifficulty.class))
+				.registerTypeAdapter(TaskTier.class, new EnumAdapter<>(TaskTier.class))
 				.registerTypeAdapter(Skill.class, new EnumAdapter<>(Skill.class))
 				.registerTypeAdapter(Tag.class, new EnumAdapter<>(Tag.class));
 

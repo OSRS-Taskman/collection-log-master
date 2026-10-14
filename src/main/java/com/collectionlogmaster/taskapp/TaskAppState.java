@@ -1,5 +1,6 @@
 package com.collectionlogmaster.taskapp;
 
+import com.collectionlogmaster.domain.TaskTier;
 import java.util.Set;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -15,8 +16,9 @@ public class TaskAppState {
 	@Accessors(fluent = true)
 	private final boolean hasMigrated;
 	private final Set<String> completedTasks;
+	private final TaskTier hideBelow;
 
 	public TaskAppState() {
-		this(false, null, true, true, true, Set.of());
+		this(false, null, true, true, true, Set.of(), TaskTier.EASY);
 	}
 }

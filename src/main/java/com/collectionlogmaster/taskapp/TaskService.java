@@ -151,7 +151,7 @@ public class TaskService extends EventBusSubscriber {
 	}
 
 	public List<TaskTier> getVisibleTiers() {
-		TaskTier hideBelow = config.hideBelow();
+		TaskTier hideBelow = taskAppStateStorage.get().getHideBelow();
 
 		return Arrays.stream(TaskTier.values())
 				.filter(t -> t.ordinal() >= hideBelow.ordinal())

@@ -48,7 +48,8 @@ public class TaskAppStateStorage extends EventBusSubscriber {
 			res.isOfficial(),
 			res.isLmsEnabled(),
 			res.hasMigrated(),
-			completedTasks
+			completedTasks,
+			res.getHideBelow()
 		);
 
 		if (state.equals(newState)) {

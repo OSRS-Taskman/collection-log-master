@@ -3,7 +3,6 @@ package com.collectionlogmaster;
 import static com.collectionlogmaster.CollectionLogMasterConfig.CONFIG_GROUP;
 
 import com.collectionlogmaster.domain.DynamicTaskImages;
-import com.collectionlogmaster.domain.TaskTier;
 import net.runelite.client.config.*;
 
 @ConfigGroup(CONFIG_GROUP)
@@ -90,23 +89,11 @@ public interface CollectionLogMasterConfig extends Config
 	}
 
 	@ConfigItem(
-			keyName = "hideBelow",
-			name = "Hide Tasks Below",
-			description = "Disabled the showing up/assigning of tasks at or below the specified tier",
-			section = generalSection,
-			position = 23
-	)
-	default TaskTier hideBelow()
-	{
-		return TaskTier.EASY;
-	}
-
-	@ConfigItem(
 			keyName = "displayCurrentTaskOverlay",
 			name = "Display current task overlay",
 			description = "Enable an overlay showing the currently assigned task (when one exists)",
 			section = generalSection,
-			position = 24
+			position = 23
 	)
 	default boolean displayCurrentTaskOverlay()
 	{
@@ -118,7 +105,7 @@ public interface CollectionLogMasterConfig extends Config
 			name = "Dynamic task images",
 			description = "Display dynamic task images based on required/acquired items",
 			section = generalSection,
-			position = 25
+			position = 24
 	)
 	default DynamicTaskImages dynamicTaskImages()
 	{
