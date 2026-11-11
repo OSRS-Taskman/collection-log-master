@@ -1007,13 +1007,47 @@
 			}
 		},
 		{
-			"id": "1d7c9237-a900-44f7-92e0-9013fb45dda8",
-			"name": "Get the Marksman headpiece",
+			"id": "ecf1d31c-086c-4a29-9875-1f3cacabd11b",
+			"name": "Get the next 2 tiers of Chompy bird hat",
 			"shortName": "Chompy Hat",
 			"tip": "Get the stabbie chucker from Rantz, make some stabbers, stick lotsa chompies.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Chompy_bird_hunting",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Chompy_bird_hat_(marksman)_detail.png/320px-Chompy_bird_hat_(marksman)_detail.png",
-			"displayItemId": 2983,
+			"displayItemId": 2995,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [
+					2978, 2979, 2980, 2981, 2982, 2983, 2984, 2985, 2986, 2987, 2988, 2989, 2990,
+					2991, 2992, 2993, 2994, 2995
+				],
+				"count": 2
+			}
+		},
+		{
+			"id": "d17da318-9759-4256-9399-6afbbf629391",
+			"name": "Get the next 2 tiers of Chompy bird hat",
+			"shortName": "Chompy Hat",
+			"tip": "Get the stabbie chucker from Rantz, make some stabbers, stick lotsa chompies.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Chompy_bird_hunting",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Chompy_bird_hat_(marksman)_detail.png/320px-Chompy_bird_hat_(marksman)_detail.png",
+			"displayItemId": 2995,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [
+					2978, 2979, 2980, 2981, 2982, 2983, 2984, 2985, 2986, 2987, 2988, 2989, 2990,
+					2991, 2992, 2993, 2994, 2995
+				],
+				"count": 4
+			}
+		},
+		{
+			"id": "1d7c9237-a900-44f7-92e0-9013fb45dda8",
+			"name": "Get the next 2 tiers of Chompy bird hat",
+			"shortName": "Chompy Hat",
+			"tip": "Get the stabbie chucker from Rantz, make some stabbers, stick lotsa chompies.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Chompy_bird_hunting",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Chompy_bird_hat_(marksman)_detail.png/320px-Chompy_bird_hat_(marksman)_detail.png",
+			"displayItemId": 2995,
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [
@@ -2542,6 +2576,20 @@
 			}
 		},
 		{
+			"id": "b8d6aac5-2580-4ca1-8129-a1f71d4c4ebf",
+			"name": "Get 1 unique from Custodian stalkers",
+			"shortName": "Custodian Uni",
+			"tip": "Three different variants can be found inside the Stalker Den in Varlamore, after completion of the Shadows of Custodia quest.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Custodian_stalker",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Broken_antler_detail.png/320px-Broken_antler_detail.png",
+			"displayItemId": 31086,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 31086, 31081, 31084 ],
+				"count": 1
+			}
+		},
+		{
 			"id": "b9298587-5e62-4a65-af06-ef7032cca3f1",
 			"name": "Get a Gryphon feather",
 			"shortName": "GryphonFeather",
@@ -4009,19 +4057,36 @@
 		},
 		{
 			"id": "a2c03154-445f-41d2-8cfc-db106262a64e",
-			"name": "Get the Ogre forester headpiece",
+			"name": "Get the next 2 tiers of Chompy bird hat",
 			"shortName": "Chompy Hat",
-			"tip": "Guaranteed from Chompy bird hunting.",
+			"tip": "Get the stabbie chucker from Rantz, make some stabbers, stick lotsa chompies.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Chompy_bird_hunting",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Chompy_bird_hat_(ogre_forester)_detail.png/320px-Chompy_bird_hat_(ogre_forester)_detail.png",
-			"displayItemId": 2986,
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Chompy_bird_hat_(marksman)_detail.png/320px-Chompy_bird_hat_(marksman)_detail.png",
+			"displayItemId": 2995,
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [
 					2978, 2979, 2980, 2981, 2982, 2983, 2984, 2985, 2986, 2987, 2988, 2989, 2990,
 					2991, 2992, 2993, 2994, 2995
 				],
-				"count": 9
+				"count": 8
+			}
+		},
+		{
+			"id": "a3a9aa52-9f4f-4b53-9144-1d157c06160e",
+			"name": "Get the next 2 tiers of Chompy bird hat",
+			"shortName": "Chompy Hat",
+			"tip": "Get the stabbie chucker from Rantz, make some stabbers, stick lotsa chompies.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Chompy_bird_hunting",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Chompy_bird_hat_(marksman)_detail.png/320px-Chompy_bird_hat_(marksman)_detail.png",
+			"displayItemId": 2995,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [
+					2978, 2979, 2980, 2981, 2982, 2983, 2984, 2985, 2986, 2987, 2988, 2989, 2990,
+					2991, 2992, 2993, 2994, 2995
+				],
+				"count": 10
 			}
 		},
 		{
@@ -5475,20 +5540,6 @@
 			}
 		},
 		{
-			"id": "b8d6aac5-2580-4ca1-8129-a1f71d4c4ebf",
-			"name": "Get 1 unique from Custodian stalkers",
-			"shortName": "Custodian Uni",
-			"tip": "Three different variants can be found inside the Stalker Den in Varlamore, after completion of the Shadows of Custodia quest.",
-			"wikiLink": "https://oldschool.runescape.wiki/w/Custodian_stalker",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Antler_guard_detail.png/320px-Antler_guard_detail.png",
-			"displayItemId": 31081,
-			"verification": {
-				"method": "collection-log",
-				"itemIds": [ 31086, 31081, 31084 ],
-				"count": 1
-			}
-		},
-		{
 			"id": "9ebbb378-a2c2-438e-9481-784d7ed7a8cf",
 			"name": "Get 1 unique from Custodian stalkers",
 			"shortName": "Custodian Uni",
@@ -5839,7 +5890,7 @@
 					12653, 12655, 12816, 12921, 13177, 13178, 13179, 13181, 13225, 13247, 13262,
 					20851, 21273, 21291, 21748, 21992, 22473, 22746, 23495, 23757, 24491, 26348,
 					27352, 27590, 28246, 28248, 28250, 28252, 28801, 28960, 29836, 30152, 30154,
-					30622, 30888, 31130, 31285, 33124, 34042, 33642
+					30622, 30888, 31130, 31285, 33124, 34042, 33642, 34646
 				],
 				"count": 1
 			}
@@ -6515,7 +6566,7 @@
 					12653, 12655, 12816, 12921, 13177, 13178, 13179, 13181, 13225, 13247, 13262,
 					20851, 21273, 21291, 21748, 21992, 22473, 22746, 23495, 23757, 24491, 26348,
 					27352, 27590, 28246, 28248, 28250, 28252, 28801, 28960, 29836, 30152, 30154,
-					30622, 30888, 31130, 31285, 33124, 34042, 33642
+					30622, 30888, 31130, 31285, 33124, 34042, 33642, 34646
 				],
 				"count": 2
 			}
@@ -7799,19 +7850,36 @@
 		},
 		{
 			"id": "4a9df3ae-7a23-4c65-a5c1-bb65d0c7d2a8",
-			"name": "Get the Ogre expert headpiece",
-			"shortName": "Champy Hat",
-			"tip": "Guaranteed from Chompy bird hunting.",
+			"name": "Get the next 2 tiers of Chompy bird hat",
+			"shortName": "Chompy Hat",
+			"tip": "Get the stabbie chucker from Rantz, make some stabbers, stick lotsa chompies.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Chompy_bird_hunting",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Chompy_bird_hat_(ogre_expert)_detail.png/320px-Chompy_bird_hat_(ogre_expert)_detail.png",
-			"displayItemId": 2990,
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Chompy_bird_hat_(marksman)_detail.png/320px-Chompy_bird_hat_(marksman)_detail.png",
+			"displayItemId": 2995,
 			"verification": {
 				"method": "collection-log",
 				"itemIds": [
 					2978, 2979, 2980, 2981, 2982, 2983, 2984, 2985, 2986, 2987, 2988, 2989, 2990,
 					2991, 2992, 2993, 2994, 2995
 				],
-				"count": 13
+				"count": 12
+			}
+		},
+		{
+			"id": "5f530d7b-d915-4890-9434-818b745e2e44",
+			"name": "Get the next 2 tiers of Chompy bird hat",
+			"shortName": "Chompy Hat",
+			"tip": "Get the stabbie chucker from Rantz, make some stabbers, stick lotsa chompies.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Chompy_bird_hunting",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Chompy_bird_hat_(marksman)_detail.png/320px-Chompy_bird_hat_(marksman)_detail.png",
+			"displayItemId": 2995,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [
+					2978, 2979, 2980, 2981, 2982, 2983, 2984, 2985, 2986, 2987, 2988, 2989, 2990,
+					2991, 2992, 2993, 2994, 2995
+				],
+				"count": 14
 			}
 		},
 		{
@@ -9670,6 +9738,20 @@
 				"itemIds": [ 22838 ],
 				"count": 1
 			}
+		},
+		{
+			"id": "cb71d808-1e59-4921-960f-d56e42720ab5",
+			"name": "Get Ascension shards",
+			"shortName": "Asc. Shards",
+			"tip": "Can be mined from Ascension rocks near The Fractured Archive's entrance.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Ascension_shards",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Ascension_shards_detail.png/320px-Ascension_shards_detail.png",
+			"displayItemId": 34669,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [ 34669 ],
+				"count": 1
+			}
 		}
 	],
 	"elite": [
@@ -10248,7 +10330,7 @@
 					12653, 12655, 12816, 12921, 13177, 13178, 13179, 13181, 13225, 13247, 13262,
 					20851, 21273, 21291, 21748, 21992, 22473, 22746, 23495, 23757, 24491, 26348,
 					27352, 27590, 28246, 28248, 28250, 28252, 28801, 28960, 29836, 30152, 30154,
-					30622, 30888, 31130, 31285, 33124, 34042, 33642
+					30622, 30888, 31130, 31285, 33124, 34042, 33642, 34646
 				],
 				"count": 3
 			}
@@ -10268,7 +10350,7 @@
 					12653, 12655, 12816, 12921, 13177, 13178, 13179, 13181, 13225, 13247, 13262,
 					20851, 21273, 21291, 21748, 21992, 22473, 22746, 23495, 23757, 24491, 26348,
 					27352, 27590, 28246, 28248, 28250, 28252, 28801, 28960, 29836, 30152, 30154,
-					30622, 30888, 31130, 31285, 33124, 34042, 33642
+					30622, 30888, 31130, 31285, 33124, 34042, 33642, 34646
 				],
 				"count": 4
 			}
@@ -10288,7 +10370,7 @@
 					12653, 12655, 12816, 12921, 13177, 13178, 13179, 13181, 13225, 13247, 13262,
 					20851, 21273, 21291, 21748, 21992, 22473, 22746, 23495, 23757, 24491, 26348,
 					27352, 27590, 28246, 28248, 28250, 28252, 28801, 28960, 29836, 30152, 30154,
-					30622, 30888, 31130, 31285, 33124, 34042, 33642
+					30622, 30888, 31130, 31285, 33124, 34042, 33642, 34646
 				],
 				"count": 5
 			}
@@ -10419,9 +10501,9 @@
 		},
 		{
 			"id": "81bfa29c-7aa1-4c83-9b66-886b8cc7efb0",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
+			"name": "Get 1 unique from Raids",
 			"shortName": "Raids",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
 			"displayItemId": 20997,
@@ -10430,16 +10512,17 @@
 				"itemIds": [
 					13652, 20997, 21000, 21003, 21012, 21015, 21018, 21021, 21024, 21034, 21043,
 					21079, 22324, 22326, 22327, 22328, 22477, 22481, 22486, 25975, 25985, 26219,
-					27226, 27229, 27232, 27277, 27279, 27283, 27285, 27289, 27293, 30893
+					27226, 27229, 27232, 27277, 27279, 27283, 27285, 27289, 27293, 30893, 34679,
+					34681, 34717, 34719, 34727
 				],
 				"count": 6
 			}
 		},
 		{
 			"id": "e242e0f3-f427-4a81-b2b4-35b129d3d77c",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
+			"name": "Get 1 unique from Raids",
 			"shortName": "Raids",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
 			"displayItemId": 20997,
@@ -10448,16 +10531,17 @@
 				"itemIds": [
 					13652, 20997, 21000, 21003, 21012, 21015, 21018, 21021, 21024, 21034, 21043,
 					21079, 22324, 22326, 22327, 22328, 22477, 22481, 22486, 25975, 25985, 26219,
-					27226, 27229, 27232, 27277, 27279, 27283, 27285, 27289, 27293, 30893
+					27226, 27229, 27232, 27277, 27279, 27283, 27285, 27289, 27293, 30893, 34679,
+					34681, 34717, 34719, 34727
 				],
 				"count": 7
 			}
 		},
 		{
 			"id": "00c55616-541b-495f-bb70-8d47b4006f81",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
+			"name": "Get 1 unique from Raids",
 			"shortName": "Raids",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
 			"displayItemId": 20997,
@@ -10466,16 +10550,17 @@
 				"itemIds": [
 					13652, 20997, 21000, 21003, 21012, 21015, 21018, 21021, 21024, 21034, 21043,
 					21079, 22324, 22326, 22327, 22328, 22477, 22481, 22486, 25975, 25985, 26219,
-					27226, 27229, 27232, 27277, 27279, 27283, 27285, 27289, 27293, 30893
+					27226, 27229, 27232, 27277, 27279, 27283, 27285, 27289, 27293, 30893, 34679,
+					34681, 34717, 34719, 34727
 				],
 				"count": 8
 			}
 		},
 		{
 			"id": "3f100c5c-fca5-498f-8100-f244e7e93cf0",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
+			"name": "Get 1 unique from Raids",
 			"shortName": "Raids",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
 			"displayItemId": 20997,
@@ -10484,16 +10569,17 @@
 				"itemIds": [
 					13652, 20997, 21000, 21003, 21012, 21015, 21018, 21021, 21024, 21034, 21043,
 					21079, 22324, 22326, 22327, 22328, 22477, 22481, 22486, 25975, 25985, 26219,
-					27226, 27229, 27232, 27277, 27279, 27283, 27285, 27289, 27293, 30893
+					27226, 27229, 27232, 27277, 27279, 27283, 27285, 27289, 27293, 30893, 34679,
+					34681, 34717, 34719, 34727
 				],
 				"count": 9
 			}
 		},
 		{
 			"id": "b95f9d6f-e329-45e2-a27d-df3e72b499e4",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
+			"name": "Get 1 unique from Raids",
 			"shortName": "Raids",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
 			"displayItemId": 20997,
@@ -10502,16 +10588,17 @@
 				"itemIds": [
 					13652, 20997, 21000, 21003, 21012, 21015, 21018, 21021, 21024, 21034, 21043,
 					21079, 22324, 22326, 22327, 22328, 22477, 22481, 22486, 25975, 25985, 26219,
-					27226, 27229, 27232, 27277, 27279, 27283, 27285, 27289, 27293, 30893
+					27226, 27229, 27232, 27277, 27279, 27283, 27285, 27289, 27293, 30893, 34679,
+					34681, 34717, 34719, 34727
 				],
 				"count": 10
 			}
 		},
 		{
 			"id": "412a88cc-0176-4dd7-beef-f415f336fdf5",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
+			"name": "Get 1 unique from Raids",
 			"shortName": "Raids",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
 			"displayItemId": 20997,
@@ -10520,16 +10607,17 @@
 				"itemIds": [
 					13652, 20997, 21000, 21003, 21012, 21015, 21018, 21021, 21024, 21034, 21043,
 					21079, 22324, 22326, 22327, 22328, 22477, 22481, 22486, 25975, 25985, 26219,
-					27226, 27229, 27232, 27277, 27279, 27283, 27285, 27289, 27293, 30893
+					27226, 27229, 27232, 27277, 27279, 27283, 27285, 27289, 27293, 30893, 34679,
+					34681, 34717, 34719, 34727
 				],
 				"count": 11
 			}
 		},
 		{
 			"id": "899c8e83-2a94-46dc-9d0e-4264ade1fe6b",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
+			"name": "Get 1 unique from Raids",
 			"shortName": "Raids",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
 			"displayItemId": 20997,
@@ -10538,16 +10626,17 @@
 				"itemIds": [
 					13652, 20997, 21000, 21003, 21012, 21015, 21018, 21021, 21024, 21034, 21043,
 					21079, 22324, 22326, 22327, 22328, 22477, 22481, 22486, 25975, 25985, 26219,
-					27226, 27229, 27232, 27277, 27279, 27283, 27285, 27289, 27293, 30893
+					27226, 27229, 27232, 27277, 27279, 27283, 27285, 27289, 27293, 30893, 34679,
+					34681, 34717, 34719, 34727
 				],
 				"count": 12
 			}
 		},
 		{
 			"id": "5089451e-af11-4e7a-939b-69e7264f6567",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
+			"name": "Get 1 unique from Raids",
 			"shortName": "Raids",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
 			"displayItemId": 20997,
@@ -10556,16 +10645,17 @@
 				"itemIds": [
 					13652, 20997, 21000, 21003, 21012, 21015, 21018, 21021, 21024, 21034, 21043,
 					21079, 22324, 22326, 22327, 22328, 22477, 22481, 22486, 25975, 25985, 26219,
-					27226, 27229, 27232, 27277, 27279, 27283, 27285, 27289, 27293, 30893
+					27226, 27229, 27232, 27277, 27279, 27283, 27285, 27289, 27293, 30893, 34679,
+					34681, 34717, 34719, 34727
 				],
 				"count": 13
 			}
 		},
 		{
 			"id": "80d36a85-f35e-4357-b753-3af16d2712db",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
+			"name": "Get 1 unique from Raids",
 			"shortName": "Raids",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
 			"displayItemId": 20997,
@@ -10574,16 +10664,17 @@
 				"itemIds": [
 					13652, 20997, 21000, 21003, 21012, 21015, 21018, 21021, 21024, 21034, 21043,
 					21079, 22324, 22326, 22327, 22328, 22477, 22481, 22486, 25975, 25985, 26219,
-					27226, 27229, 27232, 27277, 27279, 27283, 27285, 27289, 27293, 30893
+					27226, 27229, 27232, 27277, 27279, 27283, 27285, 27289, 27293, 30893, 34679,
+					34681, 34717, 34719, 34727
 				],
 				"count": 14
 			}
 		},
 		{
 			"id": "16c3398a-195b-49ad-b3e0-36e1c2998c02",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
+			"name": "Get 1 unique from Raids",
 			"shortName": "Raids",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
 			"displayItemId": 20997,
@@ -10592,16 +10683,17 @@
 				"itemIds": [
 					13652, 20997, 21000, 21003, 21012, 21015, 21018, 21021, 21024, 21034, 21043,
 					21079, 22324, 22326, 22327, 22328, 22477, 22481, 22486, 25975, 25985, 26219,
-					27226, 27229, 27232, 27277, 27279, 27283, 27285, 27289, 27293, 30893
+					27226, 27229, 27232, 27277, 27279, 27283, 27285, 27289, 27293, 30893, 34679,
+					34681, 34717, 34719, 34727
 				],
 				"count": 15
 			}
 		},
 		{
 			"id": "2d2f9afe-cda9-40aa-b3f0-ee4223e3cc00",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
+			"name": "Get 1 unique from Raids",
 			"shortName": "Raids",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
 			"displayItemId": 20997,
@@ -10610,16 +10702,17 @@
 				"itemIds": [
 					13652, 20997, 21000, 21003, 21012, 21015, 21018, 21021, 21024, 21034, 21043,
 					21079, 22324, 22326, 22327, 22328, 22477, 22481, 22486, 25975, 25985, 26219,
-					27226, 27229, 27232, 27277, 27279, 27283, 27285, 27289, 27293, 30893
+					27226, 27229, 27232, 27277, 27279, 27283, 27285, 27289, 27293, 30893, 34679,
+					34681, 34717, 34719, 34727
 				],
 				"count": 16
 			}
 		},
 		{
 			"id": "b7602f4e-a3bb-4885-ba21-d424501783a6",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
+			"name": "Get 1 unique from Raids",
 			"shortName": "Raids",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
 			"displayItemId": 20997,
@@ -10628,9 +10721,48 @@
 				"itemIds": [
 					13652, 20997, 21000, 21003, 21012, 21015, 21018, 21021, 21024, 21034, 21043,
 					21079, 22324, 22326, 22327, 22328, 22477, 22481, 22486, 25975, 25985, 26219,
-					27226, 27229, 27232, 27277, 27279, 27283, 27285, 27289, 27293, 30893
+					27226, 27229, 27232, 27277, 27279, 27283, 27285, 27289, 27293, 30893, 34679,
+					34681, 34717, 34719, 34727
 				],
 				"count": 17
+			}
+		},
+		{
+			"id": "57672680-b11b-44a8-80f6-cb93510612f6",
+			"name": "Get 1 unique from Raids",
+			"shortName": "Raids",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
+			"displayItemId": 20997,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [
+					13652, 20997, 21000, 21003, 21012, 21015, 21018, 21021, 21024, 21034, 21043,
+					21079, 22324, 22326, 22327, 22328, 22477, 22481, 22486, 25975, 25985, 26219,
+					27226, 27229, 27232, 27277, 27279, 27283, 27285, 27289, 27293, 30893, 34679,
+					34681, 34717, 34719, 34727
+				],
+				"count": 18
+			}
+		},
+		{
+			"id": "4f784efb-9602-42a3-9e39-8e38902c56a8",
+			"name": "Get 1 unique from Raids",
+			"shortName": "Raids",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
+			"displayItemId": 20997,
+			"verification": {
+				"method": "collection-log",
+				"itemIds": [
+					13652, 20997, 21000, 21003, 21012, 21015, 21018, 21021, 21024, 21034, 21043,
+					21079, 22324, 22326, 22327, 22328, 22477, 22481, 22486, 25975, 25985, 26219,
+					27226, 27229, 27232, 27277, 27279, 27283, 27285, 27289, 27293, 30893, 34679,
+					34681, 34717, 34719, 34727
+				],
+				"count": 19
 			}
 		},
 		{
@@ -11860,11 +11992,11 @@
 		},
 		{
 			"id": "3e7a6706-dff2-452a-8e06-1170d8a13673",
-			"name": "Upgrade to the dragon archer headpiece",
+			"name": "Get the next 2 tiers of Chompy bird hat",
 			"shortName": "Chompy Hat",
-			"tip": "Guaranteed reward from Chompy bird hunting. The first time you receive this task, you must get the Dragon Archer Hat. Second time get the Expert Dragon Archer Hat.",
+			"tip": "Get the stabbie chucker from Rantz, make some stabbers, stick lotsa chompies.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Chompy_bird_hunting",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Chompy_bird_hat_(expert_dragon_archer)_detail.png/320px-Chompy_bird_hat_(expert_dragon_archer)_detail.png",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Chompy_bird_hat_(marksman)_detail.png/320px-Chompy_bird_hat_(marksman)_detail.png",
 			"displayItemId": 2995,
 			"verification": {
 				"method": "collection-log",
@@ -11877,11 +12009,11 @@
 		},
 		{
 			"id": "031c79be-210b-4f64-9775-3fefd33561b9",
-			"name": "Upgrade to the expert dragon archer headpiece",
+			"name": "Get the next 2 tiers of Chompy bird hat",
 			"shortName": "Chompy Hat",
-			"tip": "Guaranteed reward from Chompy bird hunting. The first time you receive this task, you must get the Dragon Archer Hat. Second time get the Expert Dragon Archer Hat.",
+			"tip": "Get the stabbie chucker from Rantz, make some stabbers, stick lotsa chompies.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Chompy_bird_hunting",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Chompy_bird_hat_(expert_dragon_archer)_detail.png/320px-Chompy_bird_hat_(expert_dragon_archer)_detail.png",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Chompy_bird_hat_(marksman)_detail.png/320px-Chompy_bird_hat_(marksman)_detail.png",
 			"displayItemId": 2995,
 			"verification": {
 				"method": "collection-log",
@@ -14069,193 +14201,209 @@
 			}
 		},
 		{
-			"id": "57672680-b11b-44a8-80f6-cb93510612f6",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
-			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
-			"displayItemId": 20997
-		},
-		{
-			"id": "4f784efb-9602-42a3-9e39-8e38902c56a8",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
-			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
-			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
-			"displayItemId": 20997
-		},
-		{
 			"id": "a06109c2-b146-4d9e-957a-445b30380f25",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
+			"name": "Get 1 unique from Raids",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
 			"displayItemId": 20997
 		},
 		{
 			"id": "c79d7736-b65e-46d6-a4f4-c003e68a54c3",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
+			"name": "Get 1 unique from Raids",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
 			"displayItemId": 20997
 		},
 		{
 			"id": "3e69c1e2-e004-451e-bd0a-3bf7b9a15ea1",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
+			"name": "Get 1 unique from Raids",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
 			"displayItemId": 20997
 		},
 		{
 			"id": "bb7abf29-aa33-43db-823d-ba6db8643535",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
+			"name": "Get 1 unique from Raids",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
 			"displayItemId": 20997
 		},
 		{
 			"id": "b9763997-7f6a-4cbe-969d-20c13eefa372",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
+			"name": "Get 1 unique from Raids",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
 			"displayItemId": 20997
 		},
 		{
 			"id": "b9c2fde0-ba98-40a3-bb7f-16feaaa2f3dc",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
+			"name": "Get 1 unique from Raids",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
 			"displayItemId": 20997
 		},
 		{
 			"id": "888e95b6-c2fa-4ec4-852e-49a9de064b6b",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
+			"name": "Get 1 unique from Raids",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
 			"displayItemId": 20997
 		},
 		{
 			"id": "ceba2322-95a3-4dab-90aa-2f0693353801",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
+			"name": "Get 1 unique from Raids",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
 			"displayItemId": 20997
 		},
 		{
 			"id": "d427ee69-20da-4194-818c-8ac37ecde539",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
+			"name": "Get 1 unique from Raids",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
 			"displayItemId": 20997
 		},
 		{
 			"id": "8e741bc0-3de0-43a2-901a-365e1ace0cd8",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
+			"name": "Get 1 unique from Raids",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
 			"displayItemId": 20997
 		},
 		{
 			"id": "cf1dd5b0-a09b-45ff-a680-bd97487b0689",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
+			"name": "Get 1 unique from Raids",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
 			"displayItemId": 20997
 		},
 		{
 			"id": "0989d23c-c009-4c7f-a6d1-c2bc75bf4ddb",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
+			"name": "Get 1 unique from Raids",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
 			"displayItemId": 20997
 		},
 		{
 			"id": "6ffe16e8-432e-4959-86eb-7ad7499e7079",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
+			"name": "Get 1 unique from Raids",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
 			"displayItemId": 20997
 		},
 		{
 			"id": "80b26e47-d70f-455c-af7a-09b64641aa48",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
+			"name": "Get 1 unique from Raids",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
 			"displayItemId": 20997
 		},
 		{
 			"id": "eda36f5c-97d7-4ec3-9ea5-426a9d9d23c0",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
+			"name": "Get 1 unique from Raids",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
 			"displayItemId": 20997
 		},
 		{
 			"id": "29b65a69-472d-4359-84a0-a7124b7abaad",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
+			"name": "Get 1 unique from Raids",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
 			"displayItemId": 20997
 		},
 		{
 			"id": "cefbf638-6984-43e4-8699-935ef4cc8d4f",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
+			"name": "Get 1 unique from Raids",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
 			"displayItemId": 20997
 		},
 		{
 			"id": "644ef42e-6fec-4162-b82b-58a74bdeae90",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
+			"name": "Get 1 unique from Raids",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
 			"displayItemId": 20997
 		},
 		{
 			"id": "5b949f7a-7cb7-4eb9-9305-73c508d0c034",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
+			"name": "Get 1 unique from Raids",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
 			"displayItemId": 20997
 		},
 		{
 			"id": "61b1a647-2558-4c52-9c9f-05dc621bfc72",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
+			"name": "Get 1 unique from Raids",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
 			"displayItemId": 20997
 		},
 		{
 			"id": "fbae29fc-6344-40ff-a69d-3a97e4f3dd1d",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
+			"name": "Get 1 unique from Raids",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
 			"displayItemId": 20997
 		},
 		{
 			"id": "5ad6902c-51b7-46fb-8198-d2946370782c",
-			"name": "Get 1 unique from Raids (CoX or ToB or ToA)",
-			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood or Tombs of Amascut.",
+			"name": "Get 1 unique from Raids",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
+			"displayItemId": 20997
+		},
+		{
+			"id": "7987304b-2966-49e6-9a80-bd8d3d396c57",
+			"name": "Get 1 unique from Raids",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
+			"displayItemId": 20997
+		},
+		{
+			"id": "858b573f-dc0b-455c-bb71-8a3d56f6c523",
+			"name": "Get 1 unique from Raids",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
+			"displayItemId": 20997
+		},
+		{
+			"id": "a0793792-aa3b-49bd-89ec-785194665b46",
+			"name": "Get 1 unique from Raids",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
+			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
+			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
+			"displayItemId": 20997
+		},
+		{
+			"id": "26cd542d-8977-4fd8-ba15-ae95f860d892",
+			"name": "Get 1 unique from Raids",
+			"tip": "Can be received as a drop from any raid: Chambers of Xeric, Theatre of Blood, Tombs of Amascut or The Fractured Archive.",
 			"wikiLink": "https://oldschool.runescape.wiki/w/Raids",
 			"imageLink": "https://oldschool.runescape.wiki/images/thumb/Twisted_bow_detail.png/320px-Twisted_bow_detail.png",
 			"displayItemId": 20997
